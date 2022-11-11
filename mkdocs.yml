@@ -1,0 +1,31 @@
+site_name: OpenL Tablets
+site_url: https://openl.readthedocs.io/en/latest/
+nav:
+  - LATEST USER GUIDES: 
+    - Installation/demo guides: 
+      - Installation Guide: documentation/guides/installation_guide.md
+      - Demo Package Guide: documentation/guides/demo_package_guide.md
+    - For Business Users: 
+      - Reference Guide: documentation/guides/reference_guide.md
+      - WebStudio User Guide: documentation/guides/webstudio_user_guide.md
+    - For Developers:
+      - Rule Services Usage and Customization Guide: documentation/guides/rule_services_usage_and_customization_guide.md
+      - Developer Guide: documentation/guides/developer_guide.md
+      - Activiti Integration Guide: documentation/guides/activiti_integration_guide.md
+      - Maven Plugin Guide: documentation/guides/maven_plugin_guide.md
+  - PREVIOUS USER GUIDES: 
+    - 5.25: documentation/previousversions/5.25/_guides.md
+    - 5.24: documentation/previousversions/5.24/_guides.md
+    - 5.23: documentation/previousversions/5.23/_guides.md
+   
+theme: readthedocs
+
+repo_url: https://github.com/EISTW/OpenL/
+
+markdown_extensions:
+  - markdown.extensions.admonition
+  - toc:
+      permalink: True
+  
+extra_css:
+    - css/extra.css
