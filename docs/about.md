@@ -4,6 +4,6 @@ OpenL Tablets is an open source business rules engine (BRE, BRMS) and decision m
 
 For more information and to access the software, see [https://openl-tablets.org/](https://openl-tablets.org/).
 
-<!-- DEV 01 -->
+<!-- XXX DEV 01 XXX -->
 
-<!-- DEV 02 -->
+<!-- XXX DEV 02 XXXV -->
