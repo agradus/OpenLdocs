@@ -97,7 +97,7 @@ Several examples and tutorials are already in the **No Changes** status, therefo
 
 #### Repository Editor
 
-Users can work with projects loaded in Repository in the Demo package and create their own new projects. For more information on how to manage projects in Repository, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *Using Repository Editor*.
+Users can work with projects loaded in Repository in the Demo package and create their own new projects. For more information on how to manage projects in Repository, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Using Repository Editor*.
 
 The “Example 3 – Auto Policy Calculation” project is already deployed using the deploy configuration “Example 3 – Auto Policy Calculation” and can be used via OpenL Tablets Rule Services as described in [OpenL Tablets Rule Services in a Demo Project](#openl-tablets-rule-services-in-a-demo-project) in OpenL Tablets Web Services Demo Client as described in [OpenL Tablets Rule Services Demo Client in a Demo Package](#openl-tablets-rule-services-demo-client-in-a-demo-package).
 
@@ -109,7 +109,7 @@ As OpenL Tablets WebStudio is preconfigured in a single user mode, and all proje
 
 #### Administration
 
-By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\apache-tomcat-8.5.23\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *Managing System Settings*.
+By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\apache-tomcat-8.5.23\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Managing System Settings*.
 
 ![](demo_guide_images/d4e08c04cc55071f60b74c3508b1e274.png)
 
@@ -135,7 +135,7 @@ To use this project as an example of project deployments as described in [OpenL 
 
 The demo does not restrict any deployments of other projects nor has any other limitations so the users can deploy their own projects in Demo setup. If a user deploys anything else, a full list of deployed projects appears on this page including user’s projects.
 
-**Swagger** is a third party tool used for testing services. For more information on Swagger and its usage in OpenL, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**, Appendix D: OpenAPI Support.
+**Swagger** is a third party tool used for testing services. For more information on Swagger and its usage in OpenL, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#rule-services-usage-and-customization-guide), *Appendix D: OpenAPI Support*.
 
 ### OpenL Tablets Rule Services Demo Client in a Demo Package
 
