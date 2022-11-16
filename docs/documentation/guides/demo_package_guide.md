@@ -53,7 +53,7 @@ For Windows, to start OpenL Tablets Demo package, locate the `<unzipped Demo pac
 
 However, there are some specifics of launching OpenL Tablets Demo package under Linux and Mac OS. A working directory for OpenL Tablets Demo package is located at `<unzipped Demo package folder>\apache-tomcat-8.5.23\openl-demo\`.` `After unzipping the `OpenL Tablets Demo Package` file, a user must change access rights to the `sudo chmod 775 -R /<unzipped Demo package folder>` folder.
 
-For more information on deployment, see <[Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio)>.
+For more information on deployment, see [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio).
 
 After starting Demo, OpenL Tablets WebStudio installation wizard does not appear. OpenL Tablets WebStudio is preconfigured in a single user mode. A user sees the OpenL Tablets Demo welcome page at startup.
 
@@ -89,7 +89,7 @@ The following topics are included:
 
 #### Rules Editor
 
-Several examples and tutorials are already in the **No Changes** status, therefore available in **Rules Editor** by default. For more information on how to manage rules in Rules Editor, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *Using Rules Editor.*
+Several examples and tutorials are already in the **No Changes** status, therefore available in **Rules Editor** by default. For more information on how to manage rules in Rules Editor, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Using Rules Editor.*
 
 ![](demo_guide_images/3d9e3c989ff6649c2a9c99be85d8452b.png)
 
