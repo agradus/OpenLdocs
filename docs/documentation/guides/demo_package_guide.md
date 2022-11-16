@@ -57,7 +57,7 @@ For more information on deployment, see `[`**OpenL Tablets Installation Guide]**
 
 After starting Demo, OpenL Tablets WebStudio installation wizard does not appear. OpenL Tablets WebStudio is preconfigured in a single user mode. A user sees the OpenL Tablets Demo welcome page at startup.
 
-![](media/5b123378c2224806ca5621e6d6cc9e63.jpeg)
+![](demo_guide_images/5b123378c2224806ca5621e6d6cc9e63.jpeg)
 
 `	`*OpenL Tablets Demo welcome page*
 
@@ -91,7 +91,7 @@ The following topics are included:
 
 Several examples and tutorials are already in the **No Changes** status, therefore available in **Rules Editor** by default. For more information on how to manage rules in Rules Editor, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *Using Rules Editor.*
 
-![](media/3d9e3c989ff6649c2a9c99be85d8452b.png)
+![](demo_guide_images/3d9e3c989ff6649c2a9c99be85d8452b.png)
 
 *Projects in Rules Editor available for editing*
 
@@ -103,7 +103,7 @@ The “Example 3 – Auto Policy Calculation” project is already deployed usin
 
 As OpenL Tablets WebStudio is preconfigured in a single user mode, and all projects in Repository are created and modified by the “DEFAULT” user.
 
-![](media/de34b4ee4b573302af007b841d1eb191.png)
+![](demo_guide_images/de34b4ee4b573302af007b841d1eb191.png)
 
 *The whole list of rules projects in Repository of the Demo package*
 
@@ -111,13 +111,13 @@ As OpenL Tablets WebStudio is preconfigured in a single user mode, and all proje
 
 By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\apache-tomcat-8.5.23\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *Managing System Settings*.
 
-![](media/d4e08c04cc55071f60b74c3508b1e274.png)
+![](demo_guide_images/d4e08c04cc55071f60b74c3508b1e274.png)
 
 *Common system settings in Administration*
 
 Deployment Repository is set to use the remote – RMI connection. An appropriate URL `//localhost:1099/deployment-repository` is configured by default and defined in the OpenL Tablets WebStudio `rules-production.properties `file in the` <unzipped Demo package folder>\apache-tomcat-8.5.23\webapps\webstudio\WEB-INF\conf\ `folder.
 
-![](media/e431646eb5b545f6625b9f828f1c2dcb.png)
+![](demo_guide_images/e431646eb5b545f6625b9f828f1c2dcb.png)
 
 *Settings of Design and Deployment repositories in Administration*
 
@@ -129,7 +129,7 @@ By default, a project from the “Example 3 – Auto Policy Calculation” templ
 
 To use this project as an example of project deployments as described in [OpenL Tablets Rule Services Demo Client in a Demo Package](#openl-tablets-rule-services-demo-client-in-a-demo-package), several settings are defined in Rules Configuration of the project. It is set up that only \*DriverRisk\*, \*DriverAgeType\*, \*AccidentPremium\* are wildcards, and rules are included and can be used from the OpenL Tablets Rule Services Demo Client application.
 
-![](media/5f418d078e1bfd1052ae98c493d89d68.png)
+![](demo_guide_images/5f418d078e1bfd1052ae98c493d89d68.png)
 
 *OpenL Tablets Rule Services main page and the project deployed on it*
 
@@ -145,7 +145,7 @@ OpenL Tablets Rule Services Demo Client application is an application specially 
 
 OpenL Tablets Rule Services Demo Client application allows to define a driver type by age and gender, get premium per accident, or determine how risky a driver is according to business rules specified in the “Example 3 – Auto Policy Calculation” project.
 
-![](media/21a9535e63bf7b98584101d6090341fa.png)
+![](demo_guide_images/21a9535e63bf7b98584101d6090341fa.png)
 
 *Executing DriverAgeType rule and getting results via OpenL Tablets Rule Services Demo Client*
 
