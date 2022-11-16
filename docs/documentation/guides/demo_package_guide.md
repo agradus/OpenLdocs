@@ -53,7 +53,7 @@ For Windows, to start OpenL Tablets Demo package, locate the `<unzipped Demo pac
 
 However, there are some specifics of launching OpenL Tablets Demo package under Linux and Mac OS. A working directory for OpenL Tablets Demo package is located at `<unzipped Demo package folder>\apache-tomcat-8.5.23\openl-demo\`.` `After unzipping the `OpenL Tablets Demo Package` file, a user must change access rights to the `sudo chmod 775 -R /<unzipped Demo package folder>` folder.
 
-For more information on deployment, see <https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio>.
+For more information on deployment, see <[InstallGuide](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio)>.
 
 After starting Demo, OpenL Tablets WebStudio installation wizard does not appear. OpenL Tablets WebStudio is preconfigured in a single user mode. A user sees the OpenL Tablets Demo welcome page at startup.
 
