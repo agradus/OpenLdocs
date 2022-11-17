@@ -2,9 +2,6 @@
 
 ```
 Release 5.27
-```
-
-```
 OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
 ```
 
