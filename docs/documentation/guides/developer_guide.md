@@ -84,7 +84,7 @@ This section describes the basic concepts of OpenL Tablets and includes the foll
 -   [Tables](#tables)
 -   [Projects](#projects)
 -   [Wrapper](#wrapper)
--   [Execution Mode for OpenL Project](#_Execution_Mode_for)
+-   [Execution Mode for OpenL Project](#execution-mode-for)
 
 #### Rules
 
