@@ -51,10 +51,10 @@ This chapter introduces OpenL Tablets and describes its main concepts.
 
 The following topics are included in this chapter:
 
--   [What Is OpenL Tablets?](#what-is-openL-tablets)
--   [Basic Concepts](#_basic-concepts)
+-   [What Is OpenL Tablets?](#what-is-openl-tablets)
+-   [Basic Concepts](#basic-concepts)
 -   [System Overview](#system-overview)
--   [Quick Start with OpenL Tablets](#_quick_start_with)
+-   [Quick Start with OpenL Tablets](#quick-start-with-openl-tablets)
 
 ### What Is OpenL Tablets?
 
