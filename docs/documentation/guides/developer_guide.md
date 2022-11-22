@@ -1,1534 +1,1319 @@
-# Developer Guide
+# OpenL Tablets BRMS Developers Guide
 
 ```
-Release 5.27
+Release 5.26
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
 ```
 
-```
-OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
-```
+## Preface
 
-## Developer Test
+This preface is an introduction to the *OpenL Tablets Developer's Guide*.
 
-**OpenL Tablets** is a Business Rules Management System (BRMS) based on tables presented in the Microsoft Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as an executable source code.
+The following topics are included in this preface:
 
-OpenL Tablets provides a set of tools addressing the BRMS related capabilities including *OpenL Tablets WebStudio* that can be used for creating, testing, and managing business rules and business rule projects, and *OpenL Tablets Rule Services* designed for integration of business rules into customer applications.
-
-The OpenL Tablets Installation Guide provides instructions for installing and customizing OpenL Tablets software. The document describes how to install OpenL Tablets under Apache Tomcat, deploy, and set up OpenL Tablets Rule Services.
-
-All installation and configuration can be done in the `application.properties` file. For an example of this file with all properties described, see <http://localhost:8080/webstudio/web/config/application.properties> or access it at the index page of the installed OpenL Tablets WebStudio.
-
-![](installation_guide_images/1ff42f8d9b8012a5f4307404f564d115.png)
-
-*Figure: Accessing the application.properties file example*
-
-This section includes the following topics:
-
--   [How This Guide Is Organized](#how-this-guide-is-organized)
 -   [Audience](#audience)
 -   [Related Information](#related-information)
 -   [Typographic Conventions](#typographic-conventions)
 
-### How This Guide Is Organized
-
-| Section                                                                                                                                                                                     | Description                                                                                                  |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| [Before You Begin](#_Before_You_Begin)                                                                                                                                                      | Lists system requirements for installing and using OpenL Tablets software.                                   |
-| [Install OpenL Tablets WebStudio<br/> under Apache Tomcat](#_Install_OpenL_Tablets)                                                                                                              | Explains how to install OpenL Tablets WebStudio under Apache Tomcat.                                         |
-| [Deploy OpenL Tablets Rule Services<br/> under Apache Tomcat](#deploy-openl-tablets-rule-services-under-apache-tomcat)                                                                           | Designed for rule developers who need to use business rules as separate web services.                        |
-| [Install OpenL Tablets WebStudio and<br/>OpenL Tablets Rule Services on JBoss Application Server](#install-openl-tablets-webstudio-and-openl-tablets-rule-services-on-jboss-application-server) | Explains how to install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server. |
-| [OpenL Tablets WebStudio and OpenL Tablets Rule<br/> Services Integration](#openl-tablets-webstudio-and-rule-services-integration)                                                               | Explains how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services as an integrated environment. |
-| [Troubleshooting Notes](#_Troubleshooting_Notes) <br/>[Frequently Asked Questions](#frequently-asked-questions)                                                                                  | Provides useful information related to OpenL Tablets installation.                                           |
-
 ### Audience
 
-This guide is mainly targeted at business users and rule experts who define, view, and manage their business rules and rule projects via OpenL Tablets WebStudio. Developers can also use this document to learn how to install and set up OpenL Tablets Rule Services.
+This guide is mainly intended for developers who create applications employing the table based decision making mechanisms offered by the OpenL Tablets technology. However, business analysts and other users can also benefit from this guide by learning the basic OpenL Tablets concepts described herein.
 
-Basic knowledge of Java and Apache Tomcat is required to use this guide effectively.
+Basic knowledge of Java, Ant, and Microsoft Excel is required to use this guide effectively.
 
 ### Related Information
 
-The following table lists the sources of information related to contents of this guide:
+The following table lists sources of information related to contents of this guide:
 
-| Title                                                                                                                                                       | Description                                                                                                   |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]** | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
-| **[OpenL Tablets Reference Guide]**                                                                                                                         | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
-| <https://openl-tablets.org/>                                                                                                                                | OpenL Tablets open source project website.                                                                    |
+| Title                                                                                                                                                       | Description                                                                                                               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]** | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
+| [*https://openl-tablets.org/*](https://openl-tablets.org/)                                                                                                  | OpenL Tablets open source project website.                                                                                |
 
 ### Typographic Conventions
 
 The following styles and conventions are used in this guide:
 
-| Convention                 | Description                                                                                                                                                                                                                                                                                                                 |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, <br/>dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, <br/>tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as F9 or CTRL+A. <br/>Represents a term the first time it is defined. |
-| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                      |
-| `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                         |
-| **Select File \> Save As** | Represents a command to perform, such as opening the File menu and selecting Save As.                                                                                                                                                                                                                                       |
-| *Italic*                   | Represents any information to be entered in a field.  Represents documentation titles.                                                                                                                                                                                                                                      |
-| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                  |
-| Hyperlink                  | Represents a hyperlink. <br/>Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                             |
-| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                      |
+| Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
+| `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
+| Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
+| *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
+| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
+| Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
+| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                              |
 
-## Before You Begin
+## Introducing OpenL Tablets
 
-This section lists system requirements for OpenL Tablets software and introduces OpenL Tablets WebStudio instance properties. The following topics are included:
+This chapter introduces OpenL Tablets and describes its main concepts.
 
--   [System Requirements for OpenL Tablets Software](#system-requirements-for-openl-tablets-software)
--   [Common Information about OpenL Tablets WebStudio Instances](#common-information-about-openl-tablets-webstudio-instances)
+The following topics are included in this chapter:
 
-### System Requirements for OpenL Tablets Software
+-   [What Is OpenL Tablets?](#_What_Is_OpenL_)
+-   [Basic Concepts](#_Basic_Concepts)
+-   [System Overview](#system-overview)
+-   [Quick Start with OpenL Tablets](#_Quick_Start_with)
 
-The following table covers system requirements for installing and running OpenL Tablets software:
+### What Is OpenL Tablets?
 
-| Software          | Requirements description                                                                                                                                                                                                                                                                                      |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Operating systems | One of the following: <br/>• Microsoft Windows 7+ x86/64 <br/>• Ubuntu 12.x <br/>• Linux 3.x <br/>Note: OpenL Tablets software can potentially run on any operating system that supports Java Virtual Machine, for example, Mac OS. <br/>This table lists operating systems on which the OpenL Tablets software is tested and supported. |
-| Browsers          | One of the following: <br/>• Microsoft Internet Explorer 11.x <br/>• Firefox 60 ESR or later <br/>• Chrome 73+                                                                                                                                                                                                                     |
-| Data Bases        | One of the following: <br/>• MySQL 5.5+ <br/>• MariaDB 10.2+ <br/>• MS SQL Server 2008+ <br/>• Oracle 11g + <br/>• PostgreSQL 9.5+                                                                                                                                                                                                               |
-| Other software    | <br/>Java v8/11/12 x86/64  <br/>Apache Tomcat 7, 8.5, 9 <br/>WebSphere Application Server 8.5 <br/>JBoss EAP 7.1                                                                                                                                                                                                                  |
+**OpenL Tablets** is a business rules management system and business rules engine based on tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code. Since the format of tables used by OpenL Tablets is familiar to business users, OpenL Tablets bridges a gap between business users and developers, thus reducing costly enterprise software development errors and dramatically shortening the software development cycle.
 
-**Hardware requirements:** RAM 4 GB minimum. 6 GB is recommended. 1 GHz or faster 32-bit (x86) or 64-bit (x64) processor.
+In a very simplified overview, OpenL Tablets can be considered as a table processor that extracts tables from Excel documents and makes them accessible from the application.
 
-**User rights requirements:** Administrative permissions are required to install the software under Microsoft Windows or UNIX system.
+The major advantages of using OpenL Tablets are as follows:
 
-!!! note
-	It is highly recommended to avoid using spaces and special characters in paths.
+-   OpenL Tablets removes the gap between software implementation and business documents, rules, and policies.
+-   Business rules become transparent to developers.
 
-### Common Information about OpenL Tablets WebStudio Instances
+For example, decision tables are transformed into Java methods or directly into web service methods. The transformation is performed automatically.
 
-This section provides general information about OpenL Tablets WebStudio home directory structure and resources shared among multiple OpenL Tablets WebStudio instances. The following topics are included:
+-   OpenL Tablets verifies syntax and type errors in all project document data, providing convenient and detailed error reporting. OpenL Tablets can directly point to a problem in an Excel document.
+-   OpenL Tablets provides calculation explanation capabilities, enabling expansion of any calculation result by pointing to source arguments in the original documents.
+-   OpenL Tablets enables users to create and maintain tests to insure reliable work of all rules.
+-   OpenL Tablets provides cross-indexing and search capabilities within all project documents.
+-   OpenL Tablets provides full rules lifecycle support through its business rules management applications.
+-   OpenL Tablets supports the `.xls` and `.xlsx` file formats.
 
--   [OpenL Tablets WebStudio Home Directory Configuration](#openl-tablets-webstudio-home-directory-configuration)
--   [Starting OpenL Tablets WebStudio in the Cluster Mode](#starting-openl-tablets-webstudio-in-the-cluster-mode)
--   [Sharing webstudio.properties](#sharing-webstudioproperties)
--   [Sharing Project History](#sharing-project-history)
--   [Sharing Project Index](#sharing-project-index)
+### Basic Concepts
 
-#### OpenL Tablets WebStudio Home Directory Configuration
+This section describes the basic concepts of OpenL Tablets and includes the following topics:
 
-When OpenL Tablets WebStudio is run for the first time, by default `${user.home}/.openl `is used as the `openl.home` or `OPENL_HOME` directory where the application is deployed.
+-   [Rules](#rules)
+-   [Tables](#tables)
+-   [Projects](#projects)
+-   [Wrapper](#wrapper)
+-   [Execution Mode for OpenL Project](#_Execution_Mode_for)
 
-This folder contents depends on configuration. Example of its contents is as follows:
+#### Rules
 
-`locks`
+In OpenL Tablets, a **rule** is a logical statement consisting of conditions and actions. If a rule is called and all its conditions are true, then the corresponding actions are executed. Basically, a rule is an IF-THEN statement. The following is an example of a rule expressed in human language:
 
-`repositories` which is a settings folder
+*If a service request costs less than 1,000 dollars and takes less than 8 hours to execute, then the service request must be approved automatically*.
 
-`user-workspace` that contains `.locks` folder and folders by users with `.history` folders
+Instead of executing actions, rules can also return data values to the calling program.
 
-`webstudio.properties` file
+#### Tables
 
-`cache`
+Basic information OpenL Tablets deals with, such as rules and data, is presented in **tables**. Different types of tables serve different purposes. For more information on table types, see **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**],** the *Table Types* section.
 
-`repositories` that includes `deploy-config` and `design` folders
+#### Projects
 
-In case of multiple OpenL Tablets WebStudio instances, a shared file storage can be defined. The `openl.home.shared` folder must be defined in the `application.properties` file before launching OpenL Tablets WebStudio for the first time.
+An OpenL Tablets **project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files and Java code. For more information on projects, see **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**],** chapter *Working with Projects*.
 
-An example of the `openl.home.shared` folder contents is as follows:
+There can be situations where OpenL Tablets projects are used in the development environment but not in production, depending on the technical aspects of a solution.
 
-`locks`
+#### Wrapper
 
-`repositories` which is a settings folder
+A **wrapper** is a Java object that exposes rule tables via Java methods and data tables as Java objects and allows developers to access table information from code. Wrappers are essential for solutions where compiled OpenL Tablets project code is embedded in solution applications. If tables are accessed through web services, client applications are not aware of wrappers but they are still used on the server.
 
-`user-workspace` that contains the `.locks` folder and folders by users with `.history` folders
+For more information on wrappers, see [Using OpenL Tablets Rules from Java Code](#_Using_OpenL_Tablets).
 
-`webstudio.properties` file
+#### Execution Mode for OpenL Project
 
-An example of the `openl.home` folder contents is as follows:
+Execution mode for OpenL project is a light weight compilation mode that enables only evaluating of rules; but editing, tracing and search are not available. Since the Engine will not load test tables and keep debug information in memory in this mode, memory consumption is up to 5 times less than for debug mode.
 
-`cache`
+By default, the execution mode (`exectionMode=true`) is used in OpenL Tablets Rule Services.
 
-`repositories` that includes `deploy-config` and `design` folders and by default can be set to one folder
+The debug mode (`exectionMode=false`) is used by default in OpenL Tablets WebStudio.
 
-`users-db,` only for a local h2 database
+Flag indicating required mode is introduced in runtime API and in wrappers.
 
-This option is not available if OpenL Tablets WebStudio is installed using the installation wizard. In this case, `openl.home.shared` is set equal to `openl.home` and it cannot be modified in the installation wizard.
+To compile an OpenL Tablets project in execution mode, proceed as follows:
 
-#### Starting OpenL Tablets WebStudio in the Cluster Mode
+-   If the OpenL Tablets high level API (instantiation strategies) is used, define an execution mode in a constructor of the particular instantiation strategy.
+-   If the low level API (Engine factories) is used, set an execution mode flag using the `setExecutionMode(boolean)` method.
 
-To start OpenL Tablets WebStudio in the cluster mode, the `openl.home.shared` or `OPENL_HOME_SHARED` property must be defined properly. In the cluster mode, the same file storage can be used for multiple OpenL Tablets WebStudio instances.
+### System Overview
 
-<img src="../installation_guide_images/a9b21678a299178dbf55c69e15dc64db.jpeg" width="500">
+The following diagram displays how OpenL Tablets is used by different types of users:
 
-*Figure: Multiple OpenL Tablets WebStudio instances sharing the same drive*
+*Figure: OpenL Tablets overview*
 
-#### Sharing webstudio.properties
+A typical lifecycle of an OpenL Tablets project is as follows:
 
-`webstudio.properties` can be shared among multiple instances of OpenL Tablets WebStudio. If the `openl.home.shared` path is added to `application.properties` before starting OpenL Tablets WebStudio, and it differs from the `openl.home` path, a separate folder is created for storing `webstudio.properties` file and administrative settings can be shared among several instances of OpenL Tablets WebStudio that have one `openl.home.shared` path.
+1.  A business analyst creates a new OpenL Tablets project in OpenL Tablets WebStudio.
 
-`webstudio.properties` contents can be modified by OpenL Tablets WebStudio when saving settings.
+Optionally, development team may provide the analyst with a project in case of complex configuration.
 
-#### Sharing Project History
+The business analyst also creates correctly structured tables in Excel files based on requirements and includes them in the project. Typically, this task is performed through Excel or OpenL Tablets WebStudio in a web browser.
 
-Project history can be shared among multiple instances of OpenL Tablets WebStudio.
+1.  The business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
 
-It is stored in user workspace, in the `openl.home.shared` folder if set up so before launching OpenL Tablets WebStudio. Thus, users can view project history from different OpenL Tablets WebStudio instances.
+As a result, fully working rules are created and ready to be used.
 
-#### Sharing Project Index
+1.  A developer adds configuration to the project according to application needs.
 
-Project index can be shared among multiple instances of OpenL Tablets WebStudio to support work with the Git non-flat structure repository from different OpenL Tablets WebStudio instances. The `openl-projects.yaml` file that contains a list of projects and their paths is now stored in `repositories\settings\design` of the `openl.home.shared` folder, or `openl.home` if the shared folder is not configured.
+Alternatively, they can create a new OpenL Tablets project in their IDE via OpenL Maven Archetype and adjust it to use business user input.
 
-## Install OpenL Tablets WebStudio under Apache Tomcat
+1.  A developer employs business rules directly through the OpenL Tablets engine or remotely through web services.
+2.  Whenever required, the business user updates or adds new rules to project tables.
 
-This section describes how to set up the environment for working with OpenL Tablets software and deploy OpenL Tablets WebStudio under Apache Tomcat and provides information about settings required for proper functioning of the application.
+OpenL Tablets business rules management applications, such as OpenL Tablets WebStudio, Rules Repository, and Rule Services Core, can be set up to provide self-service environment for business user changes.
 
-Perform the following steps:
+### Quick Start with OpenL Tablets
 
--   [Installing JDK](#installing-jdk)
--   [Installing Apache Tomcat](#installing-apache-tomcat)
--   [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio)
--   [Configuring External User Database](#configuring-external-user-database)
--   [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard)
--   [Integration with External Identify Providers](#integrationwithexternalidentityproviders)
--   [OpenL Tablets WebStudio Customization](#_OpenL_Tablets_WebStudio_1)
+OpenL Tablets provide a few ways to create a project. We recommend using Simple Project Maven Archetype approach for creating a project for the first time or create it via OpenL Tablets WebStudio. For more information on approaches for creating a project with detailed descriptions, see [How to Start with OpenL Rules Project](#_How_to_start).
 
-### Installing JDK
+After a project is created, a zip or Excel file for importing the project to OpenL Tablets WebStudio can be used. For more information on importing an existing project into OpenL Tablets WebStudio, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**
 
-To install JDK, perform the following steps:
+OpenL Tablets WebStudio provides convenient UI to work with rules. However, its usage can be avoided by working with rules from IDE only using the OpenL Tablets Maven plugin. The plugin provides compilation and testing of rules and wrapper generation support.
 
-1. Download JDK.
+Also, OpenL Tablets has OpenL Tablet Demo Package available at <https://openl-tablets.org/>. A demo is a zip file that contains a Tomcat with configured OpenL Tablets WebStudio and OpenL Tablets Rule Services projects. It can be used to effectively start using OpenL Tablets products.
 
-	Options are as follows:
+## OpenL Tablets Rules Projects
+
+This chapter describes how to create and use OpenL Tablets Rules projects.
+
+The following topics are included in this chapter:
+
+-   [OpenL Rules Project](#openl-rules-project)
+-   [Rules Project Descriptor](#rules-project-descriptor)
+-   [Project Resolving](#project-resolving)
+-   [How to Start with OpenL Rules Project](#_How_to_start_with_OpenL_Rules_Proje)
+-   [Customizing Table Properties](#customizing-table-properties)
+-   [Tables Validation](#tables-validation)
+-   [Module Dependencies: Classloaders](#module-dependencies-classloaders)
+-   [Peculiarities of OpenL Tablets Implementation](#peculiarities-of-openl-tablets-implementation)
+
+### OpenL Rules Project
+
+**OpenL Rules project** is a project that contains Excel files with OpenL Tablets rules and may contain a rules project descriptor. The rules project descriptor is an XML file that defines project configuration and allows setting project dependencies.
+
+OpenL Rules project can easily use rules from other projects via dependency functionality.
+
+### Rules Project Descriptor
+
+A rules project descriptor is an XML file that contains information about the project and configuration details used by OpenL to load and compile the rules project. The predefined name that is used for a rules project descriptor is *rules.xml.*
+
+This section includes the following topics:
+
+-   [Quick Overview](#quick-overview)
+-   [Descriptor Elements](#descriptor-elements)
+
+#### Quick Overview
+
+The following code fragment is an example of the rules project descriptor:
+
+```
+<project>
+	<!-- Project name. -->
+	<name>Project name</name>
+	<!-- Optional. Comment string to project. -->
+	<comment>comment</comment>
+
+	<!-- OpenL project includes one or more rules modules.  -->
+	<modules>
+
+		<module>
+			<name>MyModule1</name>
+						
+<!-- 
+				Rules document which is usually an excel file in the project. 
+			-->
+			<rules-root path="MyModule1.xls"/>
+
+		</module>	
+		
+		<module>
+			<name>MyModule2</name>
+			
+<!-- 
+				Rules document which is usually an excel file in the project. 
+			-->
+			<rules-root path="MyModule2.xls"/>
+			<method-filter>
+				<includes>
+					<value> * </value>
+				</includes>
+			</method-filter>
+		</module>	
+	</modules>
+
+<dependencies>
+		<dependency>
+			<name>projectName</name>
+			<autoIncluded>false</autoIncluded>
+		</dependency>
+	</dependencies>
+	<properties-file-name-pattern>{lob}</properties-file-name-pattern>
+	<properties-file-name-processor>default.DefaultPropertiesFileNameProcessor</properties-file-name-processor>
+	<!-- Project's classpath (list of all source dependencies). -->
+	<classpath>
+		<entry path="path1"/>
+		<entry path="path2"/>
+	</classpath>
 	
-	-   Download OpenJDK 11 available at <https://openjdk.java.net/projects/jdk/11/>.
-	-   Download jdk-8u231 or later from <http://www.oracle.com/technetwork/java/javase/downloads/index.html> to the target directory.
-	
-    Further in the document, this catalog is referred to as `<JAVA_HOME>`.
+</project>
+```
 
-    !!! note
-    	It is highly recommended to avoid installing Java in the default Program Files directory because it can cause problems due to space characters in the path to the folder.
+#### Descriptor Elements
 
-    For more information on the installation, see <http://www.oracle.com/technetwork/java/javase/index-137561.html>.
+The descriptor file contains several sections that describe project configuration:
 
-1. Install JDK according to the instructions.  
-	Now the environment variable `JAVA_HOME` must be set to the pathname of the directory where JDK is installed. 
-	1. For MS Windows, set the environment variable `JAVA_HOME` as follows:
-	2. To open the **System Properties** window, press **\<Windows\> + \<Pause\>** or right click the **My Computer** icon and in the pop-up menu, select **Properties**.
-	3. In the **Advanced** tab, click **Environment Variables**.
-	4. In the **System variables** area, click **New**.
-	5. In the **Variable** name field, enter *JAVA_HOME.*
-	6. In the **Variable** value field, enter the path to the directory where JDK is installed, for example, `C:\Java\jdk1.8.0_231`.
-	7.  Click **OK** to complete.
+-   [Project Configurations](#project-configurations)
+-   [Module Configurations](#module-configurations)
+-   [Dependency Configurations](#dependency-configurations)
+-   [Classpath Configurations](#classpath-configurations)
 
-8. For Unix/Linux environments, assuming the target directory is `/usr/lib/jvm/jdk1.8.0_231`, to set up the environment variable `JAVA_HOME` for a single user, proceed as follows:
-	9.  Log in to the account and open `.bash_profile:nano ~/.bash_profile`.
-	10. Add the following line
+##### Project Configurations
+
+The project configurations are as follows:
+
+| Tag                            | Required | Description                                                                                                                                |
+|--------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| name                           | yes      | Project name. It is a string value which defines a user-friendly project name.                                                             |
+| comment                        | no       | Comment for project.                                                                                                                       |
+| dependency                     | no       | Dependencies to projects.                                                                                                                  |
+| modules                        | yes      | Project modules. A project can have one or several modules.                                                                                |
+| classpath                      | no       | Project relative classpath.                                                                                                                |
+| properties-file-name-pattern   | no       | File name pattern to be used by the file name processor. The file name processor adds extracted module properties from a module file name. |
+| properties-file-name-processor | no       | Custom implementation of `org.openl.rules.project.PropertiesFileNameProcessor` used instead of default implementation.                     |
+
+##### Module Configurations
+
+The module configurations are as follows:
+
+| Tag          | Required | Description                                                                                                                                                                                                                                         |
+|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name         | yes/no   | Module name. It is a string value which defines a user-friendly module name.  **Note:** It is used by OpenL Tablets WebStudio application as a module display name. It is not required for modules defined via wildcard.                            |
+| type         | yes      | Module instantiation type. Possible values are case-insensitive and can be **dynamic**, **api**, or **static** (deprecated). It defines the way of OpenL project instantiation.                                                                     |
+| classname    | yes/no   | Name of rules interface. It is used together with *type*. It is not required for the **api** type.                                                                                                                                                  |
+| method-filer | no       | Filter that defines tables to be used for interface generation. Java regular expression can be used to define a filter for multiple methods.                                                                                                        |
+| rules-root   | yes/no   | Path to the main file of a rules module. It is used together with **type**. Ant pattern can be used to define multiple modules via wildcard. For more information on Ant patterns, see [Ant patterns](https://ant.apache.org/manual/dirtasks.html). |
+
+##### Dependency Configurations
+
+The dependency configurations are as follows:
+
+| Tag          | Required | Description                                                                                                                                                                                                                                                                                               |
+|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name         | yes      | Dependency project name.                                                                                                                                                                                                                                                                                  |
+| autoIncluded | yes      | Identifier, which, if set to **true**, that all modules from the dependency project will be used in this project module. If it is set to **false**, modules from the dependency project can be used in this project as dependencies, and each module will define its own list of used dependency modules. |
+
+##### Classpath Configurations
+
+The classpath configurations are as follows:
+
+| Tag   | Required | Description                                                 |
+|-------|----------|-------------------------------------------------------------|
+| entry | no       | Path for the classpath entry, that is, classes or jar file. |
+
+### Project Resolving
+
+The `org.openl.rules.project.resolving.ProjectResolver` resolves OpenL Tablets projects in folders sent to the method for scanning and tries to detect OpenL Tablets projects by predefined strategies. To use ProjectResolver, call the `instance` static method that returns an instance of ProjectResolver.
+
+Resolving strategies are defined via `org.openl.rules.project.resolving.ResolvingStrategy` SPI.
+
+Resolving strategies used by default are as follows:
+
+| Number | Strategy                              | Description                                                                                                                                                              |
+|--------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.     | Project descriptor resolving strategy | The strictest resolving strategy. It is based on the descriptor file as described previously in this section.                                                            |
+| 2.     | Excel file resolving strategy         | A resolving strategy for the simplest OpenL project which contains only Excel files in root folder without wrappers and descriptor. Each Excel file represents a module. |
+
+### How to Start with OpenL Rules Project
+
+Firstly, an OpenL Tablets project must be created. It can be done in the following ways:
+
+-   using Maven archetype
+-   using OpenL Tablets WebStudio
+-   manually
+
+See the following sections for detailed information:
+
+-   [Creating a Project Using the Maven Archetype](#creating-a-project-using-the-maven-archetype)
+-   [Creating a Project in OpenL Tablets WebStudio](#creating-a-project-in-openl-tablets-webstudio)
+-   [Creating a Project Manually](#creating-a-project-manually)
+-   [Editing Rules](#editing-rules)
+-   [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code)
+-   [Handling Data and Data Types in OpenL Tablets](#_Data_and_Data)
+
+#### Creating a Project Using the Maven Archetype
+
+OpenL Tablets provides the Maven archetype which can be used to create a simple OpenL Rules project.
+
+To create a project using the Maven archetype, proceed as follows:
+
+1.  Execute the following command in command line:
+
+`mvn archetype:generate`
+
+Maven runs the archetype console wizard.
+
+1.  Select the **openl-simple-project-archetype** menu item.
+
+As an alternative way is using the following command:  
+`mvn archetype:generate 
+–DarchetypeGroupId=org.openl.rules 
+–DarchetypeArtifactId=openl-simple-project-archetype
+\-DarchetypeVersion=5.X.X`
+
+1.  Follow with the Maven creation wizard.
+
+After all steps are completed, a new Maven based project appears in the file system. It is an OpenL Rules project which has one module with simple rules in it.
+
+1.  Execute the following command in the command line from the root of the project folder to compile the project:
+
+```
+mvn install
+```
+
+After executing this command, the following files can be found in the target folder:
+
+1.  zip file with "-deployable" suffix for importing the project to OpenL Tablets WebStudio.
+
+For more information, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]**.
+
+1.  zip file (with "-runnable" suffix) that can be executed after extracting it.
+
+It demonstrates how OpenL Tablets rules can be invoked from Java code.
+
+1.  jar file that contains only compiled Java classes.
+
+This jar can be put in classpath of the project and used as a depended library.
+
+#### Creating a Project in OpenL Tablets WebStudio
+
+OpenL Tablets WebStudio allows users to create new rule projects in the Repository in one of the following ways:
+
+-   creating a rule project from template
+-   creating a rule project from Excel files
+-   creating a rule project from zip archive
+-   importing a rule project from workspace
+
+The following diagram explains how projects are stored in OpenL Tablets WebStudio and then deployed and used by OpenL Tablets Rule Services:
+
+![](developer_guide_images/cfe626306d566bf04e35710addf90c86.png)
+
+*Figure: OpenL Tablets WebStudio and OpenL Tablets Rule Services Integration*
+
+When a user starts editing a project, it is extracted from Design Repository and placed in the file system, in a user workspace. The project becomes locked in Design Repository for editing by other users. After editing is finished, the user saves the project. An updated version of the project is saved to Design Repository and becomes available for editing by other users.
+
+OpenL Tablets Rule Services use separate repository instance, Production Repository. OpenL Tablets WebStudio can be configured to deploy complete and tested rules projects to that repository.
+
+For more information, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**
+
+#### Creating a Project Manually
+
+OpenL does not oblige a user to use predefined ways of project creation and enables using the user’s own project structure. The [Project Resolving](#project-resolving) mechanism can be used as a base for the project structure definition. Depending on the resolving strategy, more or less files and folders are to be created, but several project elements definition is mandatory. For more information on manually creating a project, see [OpenL Rules Project](#openl-rules-project).
+
+#### Editing Rules
+
+When a project is created, business rules must be defined. It can be done using OpenL Tablets WebStudio or manually using MS Excel. If the simple rules project is used, there are several simple predefined rules that can be used as an example.
+
+#### Using OpenL Tablets Rules from Java Code
+
+For access to rules and data in Excel tables, OpenL Tablets API is used. OpenL Tablets provides a wrapper to facilitate easier usage.
+
+This section illustrates the creation of a wrapper for a **Simple** project in IDE. There is only one rule **hello1** in the **Simple** project by default.
+
+![](developer_guide_images/3fab56bb6cbb593717239fa20b830deb.png)
+
+*Figure: The hello1 rule table*
+
+Proceed as follows:
+
+1.  In the project `src` folder, create an interface as follows:
+
+```
+public interface Simple {
+		void hello1(int i);
+}
+```
+
+1.  Create a wrapper object as follows:
+
+```
+import static java.lang.System.out;
+import org.openl.rules.runtime.RulesEngineFactory;
+
+public class Example {
+
+		public static void main(String[] args) {
+			//define the interface
+			RulesEngineFactory<Simple > rulesFactory = 
+				new RulesEngineFactory<Simple>("TemplateRules.xls", 
+									Simple.class);
+
+			Simple rules = (Simple) rulesFactory.newInstance();
+			rules.hello1(12);
+		
+		}
+}
+```
+
+When the class is run, it executes and displays **Good Afternoon, World!**
+
+The interface can be generated by OpenL Tablets in runtime if the developer does not define it when initializing the rule engine factory. In this case, rules can be executed via reflection.
+
+The following example illustrates using a wrapper with a generated interface in runtime:
+
+```
+public static void callRulesWithGeneratedInterface(){
+	// Creates new instance of OpenL Rules Factory
+	RulesEngineFactory<?> rulesFactory = 
+new RulesEngineFactory<Object>("TemplateRules.xls");
+				//Creates new instance of dynamic Java Wrapper for our lesson
+Object rules = rulesFactory.newInstance();
         
-	    `export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_231`.
+       //Get current hour
+	Calendar = Calendar.getInstance();
+	int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-	11. Add or correct the system PATH as follows:
-	
-	    `export PATH=$PATH:$JAVA_HOME/bin`
-	
-	12. To save, press **CTRL+O** and then press **CTRL+X** to exit.
-	
-13. For Unix/Linux environments, assuming the target directory is `/usr/lib/jvm/jdk1.8.0_231`, to set up the environment variable `JAVA_HOME` for all users, proceed as follows:
-	14. Log in as root and open the `nano /etc/profile` profile.
-	15. Add the following line:
-	
-	    `export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_231`.
-	
-	16. Add or correct the system PATH as follows:
-	
-	    `export PATH=$PATH:$JAVA_HOME/bin`.
+	Class<?> clazz = rulesFactory.getInterfaceClass();
 
-### Installing Apache Tomcat
+try{
+Method method = clazz.getMethod("hello1”, int.class);
+out.println("* Executing OpenL rules...\n");
+method.invoke(rules, hour);
+}catch(NoSuchMethodException e){
+}catch (InvocationTargetException e) {
+}catch (IllegalAccessException e) {
+}
+}
+```
 
-Apache Tomcat can be installed from a ZIP file or using Windows Service Installer. The following topics are included in this section:
+`This section includes the following topics:`
 
--   [Installing Apache Tomcat on Windows](#installing-apache-tomcat-on-windows)
--   [Installing Apache Tomcat on UNIX / Linux Machine](#installing-apache-tomcat-on-unix--linux-machine)
+-   [Using OpenL Tablets Rules with the Runtime Context](#using-openl-tablets-rules-with-the-runtime-context)
+-   [Using OpenL Tablets Projects from Java Code](#using-openl-tablets-projects-from-java-code)
+-   [Accessing a Test Table from Java Code](#accessing-a-test-table-from-java-code)
+-   [Generating Java Classes from Datatype Tables](#generating-java-classes-from-datatype-tables)
 
-#### Installing Apache Tomcat on Windows
+##### Using OpenL Tablets Rules with the Runtime Context
 
-This section describes how to install Apache Tomcat on Windows and includes the following topics:
+This section describes using runtime context for dispatching versioned rules by dimension properties values.
 
--   [Installing Apache Tomcat from Zip File](#installing-apache-tomcat-from-zip-file)
--   [Installing Apache Tomcat Using Windows Service Installer](#_How_to_Installing)
+For example, two rules are overloaded by dimension properties. Both rules have the same name.
 
-##### Installing Apache Tomcat from Zip File
+The first rule, covering an Auto line of business, is as follows:
 
-To install Apache Tomcat 7.0.x or later, proceed as follows:
+![](developer_guide_images/7ad37feeb6cacd9a05e5dc9f7cb43732.png)
 
-1.  Open Apache Tomcat home page at <http://tomcat.apache.org/index.html>.
-2.  In the left-hand **Download** menu, click the latest available Tomcat version.
-3.  Locate the **Binary Distributions** area and in the **Core** list, click on the ZIP file corresponding to the required Windows version.
-4.  Save the ZIP file in a temporary directory.
-5.  Extract the downloaded ZIP file into the target folder on the computer.
+*Figure: The Auto rule*
 
-	This folder is referred to as `<TOMCAT_HOME> `further in this document.
+Pay attention to the rule line with the LOB property.
 
-1.  For Tomcat web server 7.0, to configure JVM options, open the `TOMCAT_HOME/conf/server.xml `file and add the `URIEncoding="UTF-8"` attribute for all `<Connector>` elements.
+The second rule, covering a Home line of business, is as follows:
 
-	For example:
+![](developer_guide_images/f2a7d57cae9c44752b3bd1660f473cc9.png)
 
-	```
-	<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/>
-	```
+*Figure: The Home rule*
 
-##### Installing Apache Tomcat Using Windows Service Installer
+A wrapper enables the user to define which of these rules must be executed:
 
-This section describes how to install Apache Tomcat using Windows Service Installer.
+```
+// Getting runtime environment which contains context
+IRuntimeEnv env = ((IEngineWrapper) rules).getRuntimeEnv();
 
-!!! note
-	It is not recommended to select this type of installation if planning to edit rule tables in Excel files from OpenL Tablets WebStudio as described in **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]**, the **Modifying Tables** section. This type of installation requires additional setup. To solve this issue, contact your OpenL Tablets administrator.
+// Creating context
+IRulesRuntimeContext context = new DefaultRulesRuntimeContext();
+env.setContext(context);
+// define context
+context.setLob("Home”);
+```
 
-!!! note
-	For OpenL Tablets administrator: to enable editing rule tables in Excel files from OpenL Tablets WebStudio, enable the **Allow** service to interact with desktop Tomcat service option using MMC or from the command line.
+As a result, the code of the wrapper with the run-time context resembles the following:
 
-Proceed as follows:
+```
+import static java.lang.System.out;
 
-1.  Navigate to the Apache Tomcat site at <http://tomcat.apache.org/index.html> and in the left-hand **Download** menu, click the latest available Tomcat version.
-2.  Locate the **Binary Distributions** area and in the **Core** list, click the [32-bit/64-bit Windows Service Installer](http://www.sai.msu.su/apache/tomcat/tomcat-7/v7.0.29/bin/apache-tomcat-7.0.29.exe) link.
+import org.openl.rules.context.DefaultRulesRuntimeContext;
+import org.openl.rules.context.IRulesRuntimeContext;
+import org.openl.rules.runtime.RulesEngineFactory;
+import org.openl.runtime.IEngineWrapper;
+import org.openl.vm.IRuntimeEnv;
+public class ExampleOfUsingRuntimeContext {
 
-	Save the apache-tomcat exe file in a temporary folder.
+		public static void main(String[] args) {
+			//define the interface
+			RulesEngineFactory<simple> rulesFactory = new RulesEngineFactory<Simple>("TemplateRules.xls", Simple.class);
+			Simple rules = (Simple) rulesFactory.newInstance();
+			// Getting runtime environment which contains context 
+	        	IRuntimeEnv env = ((IEngineWrapper) rules).getRuntimeEnv();
+	        	// Creating context (most probably in future, the code will be different)
+			IRulesRuntimeContext context = RulesRuntimeContextFactory. buildRulesRuntimeContext();			env.setContext(context);
+			context.setLob("Home");
+			rules.hello1(12);
+		
+	}
+}
+```
 
-1.  Run the exe file and follow the instructions of the installation wizard.
-2.  Click **Next**.
-3.  In the **License Agreement** window, click **I Agree**.
-4.  In the **Choose Components** dialog, leave the default **Normal** type of installation.
+Run this class. In the console, ensure that the rule with **lob = Home** was executed. With the input parameter **int = 12**, the **It is Afternoon, Guys** phrase is displayed.
 
-	Experienced Tomcat users can select another installation type in the drop-down list.
+##### Using OpenL Tablets Projects from Java Code
 
-1.  In the **Configuration** dialog, proceed with default values.
-2.  In the next window, review the folder where Tomcat will be installed, the **Destination Folder**.
+OpenL Tablets projects can be instantiated via SimpleProjectEngineFactory. This factory is designed to be created via SimpleProjectEngineFactoryBuilder. A builder has to be configured. The main builder method is setProject(String location). The project location folder has to be specified via this method.
 
-	This folder is referred to as `<TOMCAT_HOME> `further in this document.
+The following example instantiates the OpenL Tablets project:
 
-1.  Click **Install** to start the installation.
-2.  Click **Finish** to complete.
+```
+ProjectEngineFactory<Object> projectEngineFactory = new SimpleProjectEngineFactory.SimpleProjectEngineFactoryBuilder<Object>().setProject(<project location>) .build();
+Object instance = projectEngineFactory.newInstance();
+```
+
+The above example instantiates the OpenL Tablets project generated in runtime interface. A method from instantiated project can be invoked via reflection mechanism. `ProjectEngineFactory` returns generated interface via the getInterfaceClass() method.
+
+If a static interface must be used, the interface must be specified in SimpleProjectEngineFactoryBuilder. The following example illustrates how to instantiate a project with a static interface.
+
+```
+SimpleProjectEngineFactory<SayHello> simpleProjectEngineFactory = new SimpleProjectEngineFactoryBuilder<SayHello>().setProject<project location>)
+                .setInterfaceClass(SayHello.class)
+                .build();
+SayHello instance = simpleProjectEngineFactory.newInstance();
+```
+
+SimpleProjectEngineFactoryBuilder has additional methods to configure an engine factory. Examples are as follows:
+
+-   The setWorkspace()method defines a project workspace for dependent projects resolving.
+-   The execution mode can be changed via the setExecutionMode() method.
+
+By default, runtime execution mode is enabled.
+
+-   The `setProvideRuntimeContext(true) `method is used to provide runtime context for an instance class.
+-   The `setProvideVariations(true)` method is used to enable variation support for an instance class, which is disabled by default.
+-   The `setModule(String moduleName)` method is used to compile a single module from a project.
+-   The `setClassLoader(ClassLoader classLoader)` method is used to set up a custom class loader to be used as a primary one in the OpenL Tablets engine.
+
+##### Accessing a Test Table from Java Code
+
+Test results can be accessed through the test table API. For example, the following code fragment executes all test runs in a test table called **insuranceTest** and displays the number of failed test runs:
+
+```
+RulesEngineFactory<?> rulesFactory = new RulesEngineFactory<?>("Tutorial_1.xls");
+IOpenClass openClass = rulesFactory.getCompiledOpenClass();
+IRuntimeEnv env = SimpleVMFactory.buildSimpleVM().getRuntimeEnv();
+Object target = openClass.newInstance(env);
+IOpenMethod method = openClass.getMatchingMethod("testMethodName", testMethodParams);
+TestUnitsResults res = (TestUnitsResults) testMethod.invoke(engine, new Object[0], env);
+```
+
+##### Generating Java Classes from Datatype Tables
+
+Some rules require complex data models as input parameters. Developers have to generate classes for each datatype defined in an Excel file for using them in a static interface as method arguments. The static interface can be used in engine factory. For more information on how to create and use a wrapper, see [Using OpenL Tablets Rules from Java Code](#_Using_a_WrapperOpenL).
+
+**Note:** Datatype is an OpenL table of the Datatype type created by a business user. It defines a custom data type. Using these data types inside the OpenL Tablets rules is recommended as the best practice. For more information on datatypes, see **[OpenL Tablets Reference Guide]**, the **Datatype Table** section.
+
+To generate datatype classes, proceed as follows:
+
+1.  For Maven, configure the OpenL Maven plugin as described in [Configuring the OpenL Maven Plugin](#_Configuring_OpenL_maven) and run the Maven script.
+2.  For Ant, configure the Ant task file as described in [Configuring the Ant Task File](#configuring-the-ant-task-file) and execute the Ant task file.
+
+###### Configuring the OpenL Maven Plugin
+
+To generate an interface for rules and datatype classes defined in the MS Excel file, add the following Maven configuration to the `pom.xml` file:
+
+```
+<build>
+  [...]
+  <plugins>
+      [...]
+      <plugin>
+          <groupId>org.openl.rules</groupId>
+          <artifactId>openl-maven-plugin</artifactId>
+          <version>${openl.rules.version}</version>
+          <configuration>
+              <generateInterfaces>
+                  <generateInterface>
+                      <srcFile>src/main/openl/rules/TemplateRules.xls</srcFile>
+                      <targetClass>
+                        org.company.gen.TemplateRulesInterface
+                      </targetClass>
+                  </generateInterface>
+              </generateInterfaces>
+          </configuration>
+          <executions>
+              <execution>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
 
-	As a result, Apache Tomcat is installed and started on the user’s computer. In the **Notification Area** located next to the clock, the ![](installation_guide_images/3cb496a7a506c9a316dd860933a62610.png) icon appears. Tomcat is managed by using this icon or from the **Start** menu.
+  </plugins>
+  [...]
+</build>
+```
 
-1.  To configure JVM options for Tomcat, in the **Notification** area, right click the **Apache Tomcat** icon and select **Configure;** or click **Start \> All Programs \> Apache Tomcat 7.0 \> Configure Tomcat**.
+In this case, classes and rules project descriptor, `rules.xml`, is generated on each Maven run on generate-sources phase.
 
-	The Apache Tomcat Properties dialog appears.
+Each `<generateInterface>` section has a number of parameters described in the following table.
 
-1.  Click the **Java** tab and in the **Java Options** text box, add the following lines:
-	```
-	-Xms512m
-	-Xmx2000m
-	-XX: +UseConcMarkSweepGC
-	-XX:PermSize=128m
-	-XX:MaxPermSize=512m
-	```
+| Name                   | Type      | Required | Description                                                                                                                                                                                                                                                                                 |
+|------------------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `srcFile`              | `String`  | `true`   | `Reference to the Excel file for which an interface class must be generated.`                                                                                                                                                                                                               |
+| `targetClass`          | `String`  | `true`   | `Full name of the interface class to be generated. `OpenL Tablets WebStudio` recognizes modules in projects by interface classes and uses their names in UI. If there are multiple wrappers with identical names, only one of them is recognized as a module in `OpenL Tablets WebStudio`.` |
+| `displayName`          | `String`  | `false`  | `End user-oriented title of the file that appears in `OpenL Tablets WebStudio`. A default value is Excel file name without extension.`                                                                                                                                                      |
+| `targetSrcDir`         | `String`  | `false`  | `Folder where the generated interface class must be placed. An example is src/main/java. ` `The default value is ${project.build.sourceDirectory}.`                                                                                                                                         |
+| `openlName`            | `String`  | `false`  | `OpenL Tablets configuration to be used. For OpenL Tablets, the org.openl.xls value must always be used.` `The default value is org.openl.xls.`                                                                                                                                             |
+| `userHome`             | `String`  | `false`  | `Location of user-defined resources relative to the current OpenL Tablets project. The default value is ..`                                                                                                                                                                                 |
+| `userClassPath`        | `String`  | `false`  | `Reference to the folder with additional compiled classes that is imported by the module when the interface is generated. ` `The default value is null.`                                                                                                                                    |
+| `ignoreTestMethods`    | `boolean` | `false`  | `If true, test methods are not added to interface class. It is used only in JavaInterfaceAntTask. The default value is true.`                                                                                                                                                               |
+| `generateUnitTests`    | `boolean` | `false`  | `Parameter that overwrites the base generateUnitTests value.`                                                                                                                                                                                                                               |
+| `unitTestTemplatePath` | `String`  | `false`  | `Parameter that overwrites the base unitTestTemplatePath value.`                                                                                                                                                                                                                            |
+| `overwriteUnitTests`   | `boolean` | `false`  | `Parameter that overwrites the base overwriteUnitTests value.`                                                                                                                                                                                                                              |
 
-	!!! note
-	Every option must be manually entered in a separate row.
+For more configuration options, see **[**[**OpenL Tablets Maven Plugin Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Maven%20Plugin%20Guide/)**].**
 
-1.  Click **Apply** and then click **OK**.
-2.  To restart Tomcat, in **Notification Area**, right click the Tomcat icon and select **Stop service**.
+###### Configuring the Ant Task File
 
-	The Tomcat icon changes to ![](installation_guide_images/92d4ddf0cb30a775c8a9386e39167b21.png).
+An example of the build file is as follows:
 
-1.  Select **Start Service**.
+```
+<project name="GenJavaWrapper" default="generate" basedir="../">
+<taskdef name="openlgen" classname="org.openl.conf.ant.JavaWrapperAntTask"/>
 
-	Alternatively, Tomcat can be restarted from the **General** tab in the **Apache Tomcat Properties** window which appears after selecting **Start \> All Programs \> Apache Tomcat 7.0 \> Configure Tomcat**.
+<target name="generate">
+<echo message="Generating wrapper classes..."/>
 
-From this point, OpenL Tablets WebStudio can be run as described in [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio).
+<openlgen openlName="org.openl.xls" userHome="." 
+srcFile="rules/Rules.xls"
+targetClass="com.exigen.claims.RulesWrapper"
+displayName="Rule datatypes"
+targetSrcDir="gen"
+>
+</openlgen>
 
-#### Installing Apache Tomcat on UNIX / Linux Machine
+<openlgen openlName="org.openl.xls" userHome="." 
+srcFile="rules/Data.xls"
+targetClass=" com.exigen.claims.DataWrapper"
+displayName="Data datatypes"
+targetSrcDir="gen"
+>
+</openlgen>	
 
-This section describes how to install Apache Tomcat on the UNIX or Linux machine and includes the following topics:
+</target>
+</project>
+```
 
--   [Installing Apache Tomcat from Repository](#installing-apache-tomcat-from-repository)
--   [Installing Apache Tomcat from ZIP File](#installing-apache-tomcat-from-zip-file-1)
--   [Configuring JVM Options for Tomcat on UNIX / Linux Machine](#configuring-jvm-options-for-tomcat-on-unix--linux-machine)
+When the file is executed, it automatically creates Java classes for datatypes for specified Excel files. The Ant task file must be adjusted to match contents of the specific project.
 
-##### Installing Apache Tomcat from Repository
+For each Excel file, an individual `<openlgen>` section must be added between the `<target>` and `</target>` tags.
 
-This section describes how to install Apache Tomcat from repository as a service on Ubuntu 12.x.
+Each `<openlgen>` section has a number of parameters that must be adjusted as described in the following table:
 
-!!! note
-	All commands must be entered into a terminal window using an account with `sudo` privileges.
+| Parameter      | Description                                                                                               |
+|----------------|-----------------------------------------------------------------------------------------------------------|
+| `openlName`    | OpenL Tablets configuration to be used. For OpenL Tablets, the `org.openl.xls` value must always be used. |
+| `userHome`     | Location of user-defined resources relative to the current OpenL Tablets project.                         |
+| `srcFile`      | Reference to the Excel file for which a wrapper class must be generated.                                  |
+| `targetClass`  | Full name of the wrapper class to be generated.                                                           |
+| `displayName`  | End user-oriented title of the file that appears in OpenL Tablets WebStudio.                              |
+| `targetSrcDir` | Folder where the generated wrapper class must be placed.                                                  |
 
-Proceed as follows:
+#### Handling Data and Data Types in OpenL Tablets
 
-1.  Open a terminal window and enter the following:
+This section includes the following `topics` about data and data types handling in OpenL Tablets:
 
-	```
-	sudo apt-get install tomcat7
-	```
+-   [Datatype Lifecycle](#datatype-lifecycle)
+-   [Inheritance in Datatypes](#inheritance-in-datatypes)
+-   [Byte Code Generation at Runtime](#byte-code-generation-at-runtime)
+-   [Java Files Generation](#java-files-generation)
+-   [OpenL Internals: Accessing a Datatype at Runtime and After Building an OpenL Wrapper](#openl-internals-accessing-a-datatype-at-runtime-and-after-building-an-openl-wrapper)
+-   [Data Table](#data-table)
 
-1.  Start Tomcat with the next command:
+##### Datatype Lifecycle
 
-	```
-	sudo /etc/init.d/tomcat7 start
-	```
+Datatype lifecycle is as follows:
 
-	All necessary folders must be located in `/var/lib/tomcat7`.
+1.  A Datatype table is created in the rules file.
 
-1.  To ensure that Tomcat works properly, open the browser and enter *http://localhost:8080*.
+At runtime, Java class is generated for each datatype as described in [Byte Code Generation at Runtime](#byte-code-generation-at-runtime).
 
-	If all is correct, Apache Tomcat displays the welcome page with a message resembling the following:
+1.  If Java classes are generated from a Datatype table as described in [Generating Java Classes from Datatype Tables](#_Generating_Java_Classes), the appropriate generated Java classes must be included in classpath as described in [Java Files Generation](#java-files-generation).
 
-	**If you're seeing this, you've successfully installed Tomcat. Congratulations!**
+##### Inheritance in Datatypes
 
-	If the 404 error appears, try to restart Tomcat as follows:
+In OpenL Tablets, one datatype can be inherited from another one. The new data type inherited from another one has access to all fields defined in the parent data type. If a child datatype contains fields defined in the parent datatype, and the field is declared with different types in the child and the parent datatype, warnings or errors appear.
 
-	sudo /etc/init.d/tomcat7 restart
+The constructor with all fields of the child datatype contains all fields from the parent datatype, and the `toString`, `equals` and `hashCode` methods use all fields form the parent datatype.
 
-	Alternatively, stop Tomcat by entering the following command in command line and then start it as described previously:
+##### Byte Code Generation at Runtime
 
-	sudo /etc/init.d/tomcat7 stop
+At runtime, when OpenL Tablets engine instance is being built, for each datatype component, Java byte code is generated as described in [Java Files Generation](#java-files-generation) in case there are no previously generated Java files on classpath. It represents a simple Java bean for this datatype. This byte code is loaded to classloader so the object of type `Class<?>` can be accessed. When using this object through reflections, new instances are created and fields of datatypes are initialized. For more information, see the `DatatypeOpenClass` and `DatatypeOpenField` classes.
 
-##### Installing Apache Tomcat from ZIP File
+**Attention!** If Java class files for the datatypes on classpath are previously generated, they are used at runtime, regardless of changes made in Excel. To apply these changes, remove Java files and generate Java classes from the Datatype tables as described in [Generating Java Classes from Datatype Tables](#generating-java-classes-from-datatype-tables).
 
-This section describes how to install Apache Tomcat on Ubuntu 12.04 and Centos 6.3. The instructions are valid for other Linux distributions with small changes.
+##### Java Files Generation
 
-Proceed as follows:
+As generation of datatypes is performed at runtime and developers cannot access these classes in their code, the mechanism described at [Generating Java Classes from Datatype Tables](#_Generating_Java_Classes) is introduced. It allows generating Java files and putting them on the file system so users can use these data types in their code.
 
-1.  Download the appropriate Tomcat archive file, ZIP or `tar.gz` archive, from its official website <http://tomcat.apache.org/download-70.cgi> to the required user folder.
+##### OpenL Internals: Accessing a Datatype at Runtime and After Building an OpenL Wrapper
 
-	In this example, Tomcat 7.0.39 is downloaded to the `/home/myuser `folder.
+After parsing, each data type is put to compilation context and becomes accessible for rules during binding. All data types are placed to `IOpenClass` of the whole module and are accessible from `CompiledOpenClass#getTypes` when the OpenL Tablets wrapper is generated.
 
-1.  Open a terminal window and change directory to the folder containing the Tomcat archive.
-2.  Extract the archive by entering the following command in the terminal, modifying the Tomcat version as required:
+Each `TableSyntaxNode` of the `xls.datatype` type contains an object of data type as its member.
 
-	```
-	tar -zxvf apache-tomcat-7.0.39.tar.gz
-	```
+##### Data Table
 
-	The `apache-tomcat-7.0.39 `folder appears. For example:
+A **data table** contains relational data that can be referenced as follows:
 
-	```
-	/home/myuser/apache-tomcat-7.0.39
-	```
+-   from other tables within OpenL Tablets
+-   from Java code through wrappers as Java arrays
+-   through the OpenL Tablets runtime API as a field of the `Rules` class instance
 
-1.  Change directory to the `tomcat/bin`:
+![](developer_guide_images/a28fa77744743115850b191dd7f9ed75.png)
 
-	```
-	cd apache-tomcat-7.0.39/bin
-	```
+*Figure: Simple data table*
 
-1.  Make sure all `*.sh` files are executable, that is, they have `r` in all positions to the left of the file name, for example, `-rwxr-xr-x`.
+In this example, information in the data table can be accessed from the Java code as illustrated in the following code example:
 
-	For that, in terminal, enter the following:
+```
+int[] num = tableWrapper.getNumbers();
 
-	```
-	ls –la
-	```
+for (int i = 0; i < num.length; i++) {
+System.out.println(num[i]);
+}
+```
 
-	The following information is displayed:
+where `tableWrapper` is an instance of the wrapper class of the Excel file.
 
-	![](installation_guide_images/315b31b0d9c0137373b2d81b29551174.png)
+![](developer_guide_images/4c3548c5c7101bb2fc6a9b3d682e534b.png)
 
-	*Figure: OpenL Tablets package is added*
+*Figure: Datatype table and a corresponding data table*
 
-1.  If some `sh` files are not executable, enter the following command:
+In Java code, the data table `p1` can be accessed as follows:
 
-	```
-	chmod +x ./*.sh
-	```
+```
+Person[] persArr = tableWrapper.getP1();
 
-1.  Run the `sturtup.sh` file as follows:
+for (int i = 0; i < persArr.length; i++) {
+System.out.println(persArr[i].getName() + ' ' + persArr[i].getSsn());
+}
+```
 
-	```
-	sh ./startup.sh
-	```
+where `tableWrapper` is an instance of the Excel file wrapper.
 
-1.  In the browser, enter the following URL:
+### Customizing Table Properties
 
-	[*http://localhost:8080*](http://localhost:8080)
+This section describes how to customize table properties and introduces table priority rules. The following topics are included:
 
-	If the installation is completed successfully, the Apache Tomcat welcome screen appears. The next thing to be done is to configure JVM options for Tomcat.
+-   [Understanding Table Properties Customization](#understanding-table-properties-customization)
+-   [Tables Priority Rules](#tables-priority-rules)
 
-##### Configuring JVM Options for Tomcat on UNIX / Linux Machine
+#### Understanding Table Properties Customization
 
-To configure JVM options for Tomcat on a UNIX / Linux machine, proceed as follows:
+The OpenL Tablets design allows customizing available table properties. OpenL Tablets Engine employs itself to provide support of properties customization. The `TablePropertiesDefinitions.xlsx` file contains all declaration required to handle and process table properties.
 
-1.  For UNIX, create `TOMCAT_HOME/start.cmd `file and type the following:
+Updating table properties requires recompiling the OpenL Tablets product. The developer has to contact the OpenL Tablets provider to retrieve the table properties file. When the changes are made, the developer has to send the file back to the provider, and a new OpenL Tablets package is delivered to the developer.
 
-	`export JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx2000m -XX:+` `UseConcMarkSweepGC -XX:PermSize=128m -XX:MaxPermSize=512m"`
+Alternatively, the developer can recompile OpenL Tablets from sources of their own.
 
-1.  Locate the `TOMCAT_HOME/conf/server.xml `file and add the `URIEncoding="UTF-8"` attribute for all `<Connector>` elements.
+#### Tables Priority Rules
 
-	For example:
+To make tables dispatching more flexible, **tablesPriorityRules** DataTable in `TablePropertiesDefinitions.xlsx `is used. Each element of this table defines one rule of how to compare two tables using their properties to find more suitable table if several tables are matched by properties. Priority rules are used sequentially in comparison of two tables: if one priority rule gives result of the same priority of tables, the next priority rule is used.
 
-	`<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/>`
+Priority rules are used differently in the Dispatcher table approach and Java code dispatching but have the same sense: select suitable table if there are several tables matched by dimension Properties.
 
-1.  From this point, deploy OpenL Tablets WebStudio as described in [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio).
+In case of the Dispatching table, priority rules are used to sort methods of an overloaded group. Each row of the Dispatcher table represents a rule, so after sorting, high priority rules are at the top of decision tables, and if several rows of the decision table are fired, only the first one, of the highest priority, is executed.
 
-### Deploying OpenL Tablets WebStudio
+In case of Java code, dispatching priority rules is used after selecting tables that correspond to the current runtime context: all matched tables are sorted in order to select one with the highest priority. If it is impossible to find the priority with the highest rule when several tables have the same priority and are of a higher priority than all other tables, `AmbiguousMethodException` is thrown.
 
-This section describes how to deploy and run OpenL Tablets WebStudio under Tomcat.
+There are two predefined priority rules and possibility to implement Java class that compares two tables using their properties:
 
-The following topics are included:
+-   **min(\<property name\>)**
 
--   [Deploying OpenL Tablets WebStudio on a Windows Machine](#_Deploying_OpenL_Tablets)
--   [Deploying OpenL Tablets WebStudio on a Linux Machine and Mac](#deploying-openl-tablets-webstudio-on-a-linux-machine-and-mac)
+A table that has lower value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
 
-#### Deploying OpenL Tablets WebStudio on a Windows Machine
+-   **max(\<property name\>)**
 
-This section describes how to deploy and run OpenL Tablets WebStudio under Tomcat on a Windows machine.
+A table that has a higher value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
 
-Proceed as follows:
+To specify the Java comparator of tables, the `javaclass:<java class name>` expression must be used. Java class must implement `Comparator<ITableProperties>`.
 
-1.  Go to the <https://openl-tablets.org/downloads> page.
-2.  Click the appropriate OpenL Tablets WebStudio WAR link.
-3.  Save the file in a temporary folder and then copy the OpenL Tablets WebStudio WAR file.
+### Tables Validation
 
-	For example, `openl-tablets-webstudio-X.X.X.war` to the \<`TOMCAT_HOME>\webapps` folder.
+The validation phase follows the binding phase and allows checking all tables for errors and accumulating all errors.
 
-1.  Run Tomcat as follows:
-	-   If Tomcat is installed from the ZIP file, in `TOMCAT_HOME\bin,` click the `startup.bat` file`.`
-	-   If Tomcat is installed using Windows Service Installer, restart Tomcat as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer).
+All possible validators are stored in `ICompileContext` of the OpenL class. The default compile context is `org.openl.xls.RulesCompileContext` that is generated automatically.  
+Validators get the OpenL Tablets and array of `TableSyntaxNodes` that represent tables for check and must return `ValidationResult`. Validation results are as follows:
 
-	Tomcat unpacks the WAR file into the `<TOMCAT_HOME>\webapps\<war file name>` folder. For example, for 5.9.4 version the target folder can be `<TOMCAT_HOME>\webapps\openl-tablets-webstudio-5.9.4`. For convenience, the folder can be renamed as needed but remember that this name is used to launch OpenL Tablets WebStudio under Tomcat.
+-   status, which can be fail or success
+-   all error and warning messages that occurred
 
-	From this point on, run OpenL Tablets WebStudio with default settings or make additional customizations by changing the user mode and configuring an external user database as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**.
+This section includes the following topics:
 
-1.  To run OpenL Tablets WebStudio, in the browser, enter the following URL:
+-   [Table Properties Validators](#table-properties-validators)
+-   [Existing Validators](#existing-validators)
 
-	*http://localhost:8080/\<WAR file name\>*
+#### Table Properties Validators
 
-	That is, for this example, the URL is *http://localhost:8080/openl-tablets-webstudio-5.9.4*.
+The table properties that are described in `TablePropertyDefinition.xlsx` can have constraints. Some constraints have predefined validators associated with them.
 
-	OpenL Tablets WebStudio is opened in the browser on the **Welcome to Installation Wizard** page. The wizard will guide through the setup process as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard). When setup is complete, use OpenL Tablets WebStudio to create new projects or download existing ones.
+To add a property validator, proceed as follows:
 
-1.  After a new release of the OpenL Tablets WebStudio is installed, click **CTRL**+**F5** or clear cookies and cash manually to reload the page in the browser.
+1.  Add constraint as follows:
+2.  Define constraint in `TablePropertyDefinition.xlsx`, in the constraints field.
+3.  Create constraint class and add it to `ConstraintFactory`.
+4.  Create a validator as follows:
+5.  Create a class of the validator and define it in the method `org.openl.codegen.tools.type.TablePropertyValidatorsWrapper.init() `constraint associated with the validator.
+6.  If necessary, modify the velocity script `RulesCompileContext-validators.vm` in project `org.openl.rules.gen` that generates `org.openl.xls.RulesCompileContext`*.*
+7.  To generate new `org.openl.xls.RulesCompileContext` with the validator, run `org.openl.codegen.tools.GenRulesCode.main(String[])`.
+8.  Write unit tests.
 
-#### Deploying OpenL Tablets WebStudio on a Linux Machine and Mac
+#### Existing Validators
 
-To install OpenL Tablets WebStudio under Linux and Mac OS, perform the following steps:
+The existing validators are as follows:
 
-1.  Create the `<OPENL_HOME>` folder where the application will be deployed as follows:
+-   **Unique in module** **validator** verifies uniqueness in a module of a property.
+-   **Active table validator** verifies correctness of an "active" property.
 
-	```
-	sudo mkdir /<OPENL_HOME>
-	```
+There can be only one active table validator per active table.
 
-1.  Change access rights for this folder by entering the following command in the command line:
+-   **Regular expression validator** verifies string properties matching against the predefined regex pattern.
+-   **Gap/overlap validator** makes gap and overlap analysis for decision tables with the **validateDT** property set to **on**.
+-   **Dimension properties validator**.
 
-	```
-	sudo chmod 775 -R /<OPENL_HOME>
-	```
+### Module Dependencies: Classloaders
 
-1.  Change the owner for this folder:
+The dependency class resolution mechanism is implemented using specialized classloading.
 
-	```
-	sudo chown tomcat7:tomcat7 /<OPENL_HOME>
-	```
+Each dependency has its own Java classloader so all classes used in compiling a specified module, including generated datatype Java classes, are stored in the dependency classloader.
 
-1.  Download OpenL Tablets WebStudio WAR file from <https://github.com/openl-tablets/openl-tablets/releases/> to a temporary folder.
-2.  Copy the downloaded WAR file to the Tomcat `webapps` folder:
+*Figure: Dependency classloaders*
 
-	```
-	cp /home/myuser/Downloads/<openl-tablets-webstudio-xxxx.war>/home/myuser/<TOMCAT_HOME>/webapps/webstudio.war
-	```
+The root module contains references to all its dependencies classloaders. When loading any class, the following algorithm is executed:
 
-1.  To stop Tomcat, run the following command from `/home/myuser/<TOMCAT_HOME>/bin` :
+1.  Get all dependencies classloaders.
+2.  Search for the required class in each dependency classloader, one by one.
+3.  If a class is found, return it.
+4.  If a class does not exist, search for the class by its classloader.
 
-	```
-	sh shutdown.sh
-	```
+*Figure: Load class from root module*
 
-1.  Start Tomcat from the same folder as follows:
+For the dependency management feature, provide an appropriate `DependencyManager` object to the entry point for the OpenL Tablets compilation.
 
-	```
-	sh startup.sh
-	```
+**Note:** Using the same class in two classloaders can cause an error because the class will be loaded by two different classloaders.
 
-1.  In the browser, enter *http://localhost:8080/webstudio*.
+### Peculiarities of OpenL Tablets Implementation
 
-	If deployment is completed without errors, the OpenL Tablets WebStudio Installation Wizard described in the next step is opened in the browser.
+This section describes OpenL Tablets implementation specifics and includes the following topics:
 
-	If encountering any problems, for more information, see the following log files: `home/myuser/<TOMCAT_HOME>/logs/catalina.out `and `home/myuser//<TOMCAT_HOME>/logs/webstudio.log`
+-   [Lookup Tables Implementation Details](#lookup-tables-implementation-details)
+-   [Range Types Instantiation](#range-types-instantiation)
 
-### Configuring External User Database
+#### Lookup Tables Implementation Details
 
-This step is only required if a user is planning to work in multi-user application modes such as Multi-user, Active Directory, SSO: CAS, SSO: SAML, or SSO:OAuth2. For more information, see [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1) and use an external database such as MySQL for managing users in OpenL Tablets WebStudio.
+At first, a lookup table goes through parsing and validation. In parsing, all parts of the table, such as header, column headers, vertical conditions, horizontal conditions, return column, and their values are extracted. In validation, OpenL checks if the table structure is proper.
 
-By default, OpenL Tablets WebStudio can run using an internal user database based on the H2 database engine. It is a good idea to use the internal user database for demonstration purposes because it is provided by default and requires no additional setup. But in this case, all user management changes will be lost after server restart.
+To work with this kind of a table, the `TransformedGridTable` object is created with the constructor parameters it had in the original grid table of the lookup table, without a header, and `CoordinatesTransformer` that converts table coordinates to work with both vertical and horizontal conditions.
 
-In a production environment, it is strongly recommended to use an external database.
+As a result, a `GridTable` is received. It works as a decision table structure. All coordinate transformations with lookup structure go inside. The work with columns and rows is based on the physical, not logical, structure of the table.
 
-**Note:** For more information on supported platforms, see <https://openl-tablets.org/>.
+#### Range Types Instantiation
 
-The following topics are included:
+`IntRange` can be created in one of the following ways:
 
--   [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and)
--   [Configuring MySQL Database as External User Storage](#configuring-mysql-database-as-external-user-storage)
--   [Configuring MariaDB Database as External User Storage](#configuring-mariadb-database-as-external-user-storage)
--   [Configuring Oracle Database as External User Storage](#configuring-oracle-database-as-external-user-storage)
+| Format                                         | Description                                                                  |
+|------------------------------------------------|------------------------------------------------------------------------------|
+| `new IntRange(int min_number, int max_number)` | Covers all numbers between `min_number` and `max_number`, including borders. |
+| `new IntRange(Integer value)`                  | Covers only a given value as the beginning and the end of the range.         |
+| `new IntRange(String rangeExpression)`         | Borders are parsed by formats of `rangeExpression`.                          |
 
-#### Adding Drivers and Installing and Configuring the Database
+The same formats and restrictions are used in `DoubleRange`.
 
-Before configuration, perform the following steps:
+## OpenL Tablets Business Expression Language
 
-1.  Add the appropriate driver library for a database in OpenL Tablets WebStudio to `\WEB-INF\lib\`.
+The OpenL Tablets language framework has been designed from the ground up to allow flexible combination of grammar and semantics. OpenL Tablets Business Expression (BEX) language proves this statement on practice by extending existing OpenL Tablets Java grammar and semantics presented in `org.openl.j` configuration by new grammar and semantic concepts that allow users to write "natural language" expressions.
 
-	Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries.
+The following topics are included in this chapter:
 
-	| Database   | Driver                            |
-	|------------|-----------------------------------|
-	| MySQL      | `mysql-connector-java-5.1.31.jar` |
-	| MariaDB    | `mariadb-java-client-2.0.1.jar`   |
-	| Oracle     | `ojdbc6.jar`                      |
-	| MS SQL     | `mssql-jdbc-7.2.2.jre8.jar`       |
-	| PostgreSQL | `postgresql-9.3-1100.jdbc4.jar`   |
+-   [Java Business Object Model as a Basis for OpenL Tablets Business Vocabulary](#_Java_Business_Object)
+-   [New Keywords and Avoiding Possible Naming Conflicts](#new-keywords-and-avoiding-possible-naming-conflicts)
+-   [Simplifying Expressions with Explanatory Variables](#simplifying-expressions-with-explanatory-variables)
+-   [Simplifying Expressions by the Using Unique in Scope Concept](#simplifying-expressions-by-using-the-unique-in-scope-concept)
+-   [OpenL Tablets Programming Language Framework](#_OpenL_Programming_Language)
 
-	For more information on URL value according to the database type, see the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
+### Java Business Object Model as a Basis for OpenL Tablets Business Vocabulary
 
-1.  Install the database, defining login and password and creating a new schema or service.
+OpenL Tablets minimizes the effort required to build a business vocabulary. Using BEX does not require any special mapping, and the existing Java BOM automatically becomes the basis for OpenL Tablets business vocabulary (OBV). For example, the following expressions are equivalent:
 
-	Ensure all database settings are completed.
+```
+driver.age 
+```
 
-1.  Start OpenL Tablets WebStudio and in the third step, select a **Multi-user**, **Active Directory,** or **SSO** mode.
-2.  Define database URL, username, and password.
+and
 
-	![](installation_guide_images/6b1f61c6269e4c3be6d13a97f4228f2a.png)
+```
+Age of the Driver 
+```
 
-	*Figure: Creating a connection to the Oracle database in the installation wizard*
+Another example:
 
-1.  Click **Finish** to close the wizard when the installation is complete.
-2.  Log in with credentials of an administrative user defined in the third step of the installation wizard, in the **Configure initial users** section.
+```
+policy.effectiveDate 
+```
 
-	Note that even after configuring the database as user storage, a default user is available for login. The default user can manage user settings in OpenL Tablets WebStudio, for example, create a user or add privileges to a user. All user management activities can be performed via the OpenL Tablets WebStudio UI, in the **Admin** **\> User Management** section.
+and
 
-	![](installation_guide_images/74d10c2b2686c171b48f6656b88d1629.png)
+```
+Effective Date of the Policy 
+```
 
-	*Figure: Managing users in the User Management section of OpenL Tablets WebStudio*
+### New Keywords and Avoiding Possible Naming Conflicts
 
-	Right after applying changes in OpenL Tablets WebStudio, the updates are applied to the database. A user can log in and work under a newly created account in OpenL Tablets WebStudio.
+In the previous chapter, a new **of the** keyword was introduced. There are other, self-explanatory, keywords in BEX language:
 
-	!!! note
-		During installation, several tables are created in the database. If the same tables exist in the database from the previous usage, a conflict occurs. To avoid this situation, the following tables must be removed:
-		-   ACCESSCONTROLENTRY
-		-   GROUP2GROUP
-		-   OPENLUSER
-		-   schema_version
-		-   USER2GROUP
-		-   USERGROUP
-		-   HIBERNATE_SEQUENCE table that has `SEQUENCE_OWNER=OPENL`
-		-   OPENL_EXTERNAL_GROUPS
-		-   OPENL_TAG_TYPES
-		-   OPENL_TAGS
-		-   OPENL_PROJECTS
-		-   OPENL_PROJECT_TAGS
-		-   OPENL_TAG_TEMPLATES
+-   is less than
+-   is more than
+-   is less or equal
+-   is no more than
+-   is more or equal
+-   is no less than
 
-#### Configuring MySQL Database as External User Storage
+When adding new keywords to OpenL Tablets BEX language, there is a chance of a name clash with business vocabulary. The easiest way to avoid this clash is to use upper case notation when referring to the model attributes because BEX grammar is case sensitive, and all new keywords appear in the lower case. For example, there is an attribute called `isLessThanCoverageLimit.` When referring to it as `is less than coverage limit`, there is going to be a name clash with the keyword, but if `Is Less Than Coverage Limit` is written, no clash appears. Possible direction in extending keywords is to add numeric, measurement units, measure sensitive comparisons, such as `is longer than` or `is colder than,` or use any other similar approach.
 
-This section explains how to set up a MySQL database. Proceed as follows:
+### Simplifying Expressions with Explanatory Variables
 
-1.  Go to <http://dev.mysql.com/downloads/mysql/>.
-2.  Select the appropriate MSI Installer for system configuration and click **Download**.
+Consider a rather simple expression in Java:
 
-	For example, **Windows (x86, 32-bit)**, **MSI Installer** may be needed. It is recommended to use **ZIP Archive** version since it is intended for advanced users.
+```
+(vehicle.agreedValue - vehicle.marketValue) / vehicle.marketValue > limitDefinedByUser 
+```
 
-1.  In the next window, register or log in to the MySQL site.
+In BEX language, the same expression can be rewritten in a business-friendly way:
 
-	This step can be skipped, and users can proceed to **No thanks, just start my download!** link.
+```
+(Agreed Value of the vehicle - Market Value of the vehicle) / Market Value of the vehicle is more than Limit Defined By User
+```
 
-1.  In the next window, select **Save File** and save the `.msi` file in a target folder.
-2.  Navigate to the folder containing the `.msi `file and double click the file to start the installation process.
+Unfortunately, the more complex is the expression, the less comprehensible the "natural language" expression becomes. OpenL Tablets BEX offers an elegant solution for this problem:
 
-	The **MYSQL Server Setup Wizard Welcome** window appears.
+```
+(A - M) / M > X, where
+  A - Agreed Value of the vehicle,
+  M - Market Value of the vehicle,
+  X - Limit Defined By User
+```
 
-1.  Follow the wizard steps leaving the default values and clicking **Next** to proceed.
-2.  Click **Finish** to close the wizard when installation is complete.
+The syntax resembles the one used in scientific publications and is easy to understand for anybody. It is believed that the syntax provides the best mix of mathematical clarity and business readability.
 
-	    **Note:** It is recommended to configure the database server to use the UTF-8 character set.
+### Simplifying Expressions by Using the Unique in Scope Concept
 
-	When MySQL is successfully installed on the user’s computer, an empty database for OpenL Tablets WebStudio in MySQL must be created and permissions to modify this database granted to the user from which the OpenL Tablets WebStudio will work with this database.
+Humans differ from computers, in particular, by their ability to understand the scope of a language expression. For example, when discussing an insurance policy and the effective date is mentioned, there is no need to say the fully qualifying expression **the effective date of the policy** every time, because the context of the effective date is clearly understood. On the other hand, when discussing two policies, for example, the old and the new ones, one needs to say **the effective date of the new policy**, or **the effective date of the old policy**, to differentiate between two policies.
 
-1.  To open MySQL Command Line Client, select **Start \> All Programs \> MySQL \> MySQL Server 5.5 \> MySQL Command Line Client** and enter the following commands:
+Similarly, when humans write so-called business documents, that is, files that serve as a reference point to a rule developer, they also often use an implied context in mind. Therefore, in documentation, they often use business terms, such as **effective date**, **driver**, and **account**, with the implied scope in mind. Scope resolution is left to a so-called rules engineer, who has to do it by manually analyzing BOM and setting appropriate paths from root objects.
 
-	`CREATE USER openl_user IDENTIFIED BY 'openl_password';`
+OpenL Tablets BEX tries to close this semantic gap or at least make it a bit narrower by using attributes unique in scope. For example, if there is only one policy in the scope, user can write **effective date** instead of **effective date of the policy**. OpenL Tablets BEX automatically determines the uniqueness of the attribute and either produces a correct path, or emits an error message in case of an ambiguous statement. The level of the resolution can be modified programmatically and by default equals to **1**.
 
-	`CREATE DATABASE openl CHARACTER SET utf8;`
+### OpenL Tablets Programming Language Framework
 
-	`GRANT ALL PRIVILEGES ON openl.* TO openl_user;`
+Business rules consist of rules, where each rule has a condition and action. A condition is a Boolean expression, the one that returns `true` or `false`. An action can be any sequence, usually simple, of programming statements.
 
-#### Configuring MariaDB Database as External User Storage
+Consider an expression `driver.age < 25`.
 
-This section explains how to set up an MariaDB database. Proceed as follows:
+From semantic perspective, the expression defines the relationship between a value defined by the **driver.age** expression and literal **25**. This can be interpreted as **age of the driver is less than 25 years** or **select drivers who are younger than 25 years old**, or any other similar phrase.
 
-1.  Go to <https://downloads.mariadb.org>.
-2.  Select the appropriate version and click **Download**.
-3.  Select the appropriate MSI Installer for system configuration and click **Download**.
-4.  In the next window, select **Save File** and save the .msi file in a target folder.
-5.  Navigate to the folder containing the .msi file and double click the file to start the installation process.
+From the programming language perspective, the semantic part is irrelevant due to the following reasons:
 
-	The **MariaDB Setup Wizard Welcome** window appears.
-
-1.  Follow the wizard steps leaving the default values and clicking **Next** to proceed.
-2.  Define password for a **root** user.
-3.  Create a database.
-
-	![](installation_guide_images/374a4090e431b3fb9109f4cd4f92f3b2.png)
-
-	*Figure: Setting properties for the MariaDB database*
-
-1.  Click **Finish** to close the wizard when the installation is complete.
-2.  Start HeidiSQL application.
-3.  Click **New** to create a session.
-4.  Select the **Prompt for credentials** check box and define a database port.
-
-	    ![](installation_guide_images/d0b7936d6f8edbf001ae8fd8060ab59c.png)
-
-	*Figure: Creating a connection to the MariaDB database*
-
-1.  Click **Open** and save the changes.
-
-#### Configuring Oracle Database as External User Storage
-
-This section explains how to set up an Oracle database. Proceed as follows:
-
-1.  Go to <http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html>.
-2.  After registration, select the appropriate version and system configuration, and click **Download**.
-3.  Unzip 2 archives in one folder and click the `exe` file.
-4.  Configure the database and define a username and password.
-
-	These values will be used further for configuration.
-
-1.  To improve work with database, download Oracle SQL Developer at <http://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html>.
-
-	In this section, as an example, Oracle SQL Developer 3.2.2 is used.
-
-1.  Start Oracle Workbench and create a connection or select an existing database connection.
-
-	![](installation_guide_images/bcef7557ea9819f858e80d2338e3f516.png)
-
-	*Figure: Creating a connection to the Oracle database*
-
-1.  Enter username and password values defined when installing the database.
-
-### Setting Up OpenL Tablets WebStudio with Installation Wizard
-
-This topic describes the steps that must be taken after the first run of OpenL Tablets WebStudio under Tomcat. Accept the default options provided by the wizard by clicking **Next** to move to the next step or change the options as required and click **Next** to proceed.
-
-Proceed as follows:
-
-1.  In the **Welcome to OpenL Tablets WebStudio Installation Wizard** window, click **Start**.
-2.  In the next window, specify a **working directory** for OpenL Tablets.
-
-	By default, the following directory is displayed:
-
-	```
-	${user.home}/.openl
-	```
-
-	This folder is referred to as `<OPENL_HOME>` in the documentation. It is highly recommended not to use the system drive for that.
-
-1.  Click **Next** to proceed.
-2.  Specify **deployment** and design repositories:
-
-	| Type                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-	|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-	| **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
-	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system will retrieve it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
-	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**                                                                                |
-
-	If deploy configuration must be stored in a separate repository, not in Design repository, the **Use Design Repository** check box must be cleared and required parameter values must be provided.
-
-	The following table explains URL values according to the database type:
-
-	| Database       | URL value                                                                               |
-	|----------------|-----------------------------------------------------------------------------------------|
-	| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                   |
-	| Oracle         | `jdbc:oracle:thin:@//[ host][:port]/service`                                            |
-	| MS SQL         | `jdbc:sqlserver://[serverName[\instanceName][:port]][;property=value[;property=value]]` |
-	| PostgreSQL     | `jdbc:postgresql://[host][:port]/[schema]`                                              |
-
-	For more details about how to configure the repository of a specific type, please refer to the corresponding section below:
-
-	-   [Configuring OpenL Tablets WebStudio via JDBC Connection](#configuring-openl-tablets-webstudio-via-jdbc-connection)
-	-   [Configuring OpenL Tablets WebStudio via JNDI Connection](#configuring-openl-tablets-webstudio-via-jndi-connection)
-	-   [Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service](#configuring-openl-tablets-webstudio-via-amazon-simple-storage-service)
-	-   [Connecting to OpenL Tablets WebStudio via Proxy](#connecting-to-openl-tablets-webstudio-via-proxy)
-
-	For more information on repository security, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** the **Repository Settings** section.
-
-1.  Click **Next**.
-2.  Select a user mode as described in the following table:
-
-	| Mode                      | Description                                                                                                                                                                                                                                                                                                 |
-	|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Demo                      | This is a multi-user mode with the list of users predefined in the default database. <br/>The database does not require additional setup. <br/>All changes in the database will be lost after the application restart.                                                                                                |
-	| Single-user               | Only the user currently logged on to the computer can work with the OpenL Tablets WebStudio. <br/>For more information on the single user mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].** |
-	| Multi-user (recommended)  | Multiple users can run OpenL Tablets WebStudio with their unique names. <br/>WebStudio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
-	| Active Directory          | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>Active Directory will be used to authenticate and manage user credentials.                                                                                                                                                    |
-	| SSO: CAS                  | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials.                                                                                                                         |
-	| SSO: SAML                 | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials.                                                                                       |
-	| SSO:OAuth2                | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>User projects will be located in the './openl-demo/user-workspace/USERNAME' folder. <br/>OAuth2 supporting the identity provider server will be used to authenticate and manage user credentials.                                  |
-
-	For **Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2,** user modes proceed as described in [Integration with External Identity Providers](#_Integration_with_External).
-
-1.  If **Multi-user**, **Active Directory**, **SSO: CAS**, **SSO: SAML**, or **SSO:OAuth2** mode is selected, in the **Configure database** area that appears, modify the database parameters as follows:
-
-	| Parameter         | Description                                                                                                                               |
-	|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-	| Database URL      | Enter the URL for the selected database.                                                                                                  |
-	| Login / Password  | Username and password specified for the database <br/>as defined in [Configuring External User Database](#configuring-external-user-database). |
-
-1.  Click **Finish** to complete setup.
-
-    As a result, for the **Demo, Multi-user, Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2** modes, the login screen appears for entering user’s credentials to start working with OpenL Tablets WebStudio. If the **openl.home** registry variable is defined, upon OpenL Tablets WebStudio update, after replacing the war file, re-running installation wizard is not required as the fact of configuration is recorded in the system registry. However, if there are multiple instances of OpenL Tablets WebStudio installed on the same computer, OpenL Tablets WebStudio must be run via system properties.
-
-    For a list of users predefined in the **Demo** application mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *User Management \> Manage Users.*
-
-#### Configuring OpenL Tablets WebStudio via JDBC Connection
-
-Configure design and deployment repositories settings on the second step of OpenL Tablet WebStudio installation wizard as follows:
-
-1.  Select **JDBC** as the type of the connection database (JDBC).
-2.  Provide **URL** and authentication data.
-
-![](installation_guide_images/0c03bf32b2a043f41ab7ef85658f0c4a.png)
-
-*Figure: Setting up a JDBC connection using the installation wizard*
-
-#### Configuring OpenL Tablets WebStudio via JNDI Connection
-
-To configure the OpenL Tablets WebStudio via JNDI connection, perform the following steps:
-
--   [Configuring Resources for JNDI Context](#configuring-resources-for-jndi-context)
--   [Configuring Settings in OpenL Tablets WebStudio](#configuring-settings-in-openl-tablets-webstudio)
-
-##### Configuring Resources for JNDI Context
-
-Resource settings must be configured before deploying the application. Proceed as follows:
-
-1.  Open the `\conf\context.xml` file in Apache Tomcat and add the `Resource` tag as described in the following examples.
-
-	For the Oracle database, an example is as follows:
-
-	```
-	<Resource name=”jdbc/oracleJNDI” auth=”Container”
-		    type=”javax.sql.DataSource” username=”user” password=”password”
-		    driverClassName=”oracle.jdbc.OracleDriver” 
-		    url=”jdbc:oracle:thin:@localhost:1521:orcl”
-		    maxActive=”8”    
-		    /> 
-	```
-
-	`For the MySQL database, an example is as follows:`
-
-	```
-	<Resource name=”jdbc/mysqlJNDI” auth=”Container” type=”javax.sql.DataSource”
-		       maxActive=”100” maxIdle=”30” maxWait=”10000”
-		       username=”javauser” password=”javadude” driverClassName=”com.mysql.jdbc.Driver”
-		       url=”jdbc:mysql://localhost:3306/javatest”
-		       />
-	```
-
-	`For the MS SQL database, an example is as follows:`
-
-	```
-	<Resource name=”jdbc/mssqlJNDI” auth=”Container”
-		    type=”javax.sql.DataSource” username=”wally” password=”wally”
-		    driverClassName=”com.microsoft.sqlserver.jdbc.SQLServerDriver” 
-		    url=”jdbc:sqlserver://localhost;DatabaseName=mytest;SelectMethod=cursor;”
-		    maxActive=”8” 
-		    />
-	For the PostrgeSQL database, an example is as follows:
-	<Resource name=”jdbc/postgres” auth=”Container”
-		    type=”javax.sql.DataSource” username=”postgres” password=”Password1”
-		    driverClassName=”org.postgresql.Driver” 
-		    url=”jdbc:postgresql://localhost:5432/postgres”
-		    maxActive=”8” 
-		    />
-	```
-
-1.  Save the `context.xml` file.
-
-##### Configuring Settings in OpenL Tablets WebStudio
-
-Configure design and deployment repositories settings on the second step of OpenL Tablets WebStudio installation wizard as follows:
-
-1.  Select **JNDI** as the type of the connection database.
-2.  Enter a URL in the `java:comp/env/<resource name>` format.
-
-	Definition of the authentication data, that is, login and password, is not required in the installation wizard because this information is set in `context.xml` file already.
-
-	![](installation_guide_images/ca12844a99b8378804060adafd3e18c5.png)
-
-	*Figure: Setting up JNDI connection with installation wizard*
-
-#### Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service
-
-Configure design and deployment repositories settings on the second step of OpenL Tablets WebStudio installation wizard as follows:
-
-1.  Select **AWS S3** as the type of connection.
-2.  Specify the following information:
-
-	| Parameter             | Description                                                                                                                                                                                       |
-	|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Bucket name           | Enter the name of the bucket in which your data resides.                                                                                                                                          |
-	| Region name           | Select the name of the AWS region in which your bucket resides. <br/>For non-AWS S3 repositories, any value can be specified. <br/>This value cannot be omitted as it is required by the API specification. |
-	| Access key            | Enter your Amazon AWS access key.                                                                                                                                                                 |
-	| Secret key            | Enter your Amazon AWS secret access key.                                                                                                                                                          |
-	| Listener period (sec) | The time, in seconds, to wait for the Amazon server to respond.                                                                                                                                   |
-	| Endpoint              | Leave empty for a standard AWS S3 connection. <br/>To connect to the non-standard AWS S3 alternative repository, specify the endpoint.                                                                 |
-
-#### Connecting to OpenL Tablets WebStudio via Proxy
-
-The following diagram illustrates how to connect to OpenL Tablets WebStudio via proxy.
-
-![](installation_guide_images/3e3121758c148ab1c34f085210b39ee2.jpeg)
-
-*Figure: Connecting to OpenL Tablets WebStudio via proxy*
-
-### Integration with External Identity Providers
-
-To enhance sign in options for users, a third-party authentication can be established between organization authentication systems and OpenL Tablets WebStudio. After enabling third-party authentication, users can sign into OpenL Tablets using their organizational credentials.
+-   A statement must be valid in the language grammar.
+-   A statement must be correct from the type-checking point of view.
+-   If the language is compiled, the results of compiling, such as valid binary code, or bytecode, or code in another target language, can be considered as possible results of compiling and must be produced from the statement.
+-   A runtime system, interpreter, or virtual machine must be able to execute, or interpret, this statement's compiled code and produce a resulting object.
 
 The following topics are included in this section:
 
--   [User Management](#user-management)
--   [Configuring Authentication via Active Directory](#_Configuring_Authentication_via)
--   [Configuring Single Sign On via CAS](#configuring-single-sign-on-via-cas)
--   [Configuring Single Sign On via SAML Server](#configuring-single-sign-on-via-saml-server)
--   [Configuring Single Sign On via OAuth2](#configuring-single-sign-on-via-oauth2)
+-   [OpenL Tablets Grammars](#_OpenL_Grammars)
+-   [Context, Variables, and Types](#context-variables-and-types)
+-   [OpenL Tablets Type System](#_OpenL_Type_System)
+-   [OpenL Tablets as OpenL Tablets Type Extension](#openl-tablets-as-openl-tablets-type-extension)
+-   Operators
+-   [Binary Operators Semantic Map](#binary-operators-semantic-map)
+-   [Unary Operators](#unary-operators)
+-   [Cast Operators](#cast-operators)
+-   [Strict Equality and Relation Operators](#strict-equality-and-relation-operators)
+-   [List of org.openl.j Operators](#_The_lList_of)
+-   [List of opg.openl.j Operator Properties](#_The_list_of)
 
-#### User Management
+#### OpenL Tablets Grammars
 
-OpenL Tablets WebStudio allows selecting where user permissions are managed in the case of integration with external identity providers. First of all, administrative users must be defined in the **Configure initial users** section that appears in the third step of the installation wizard. Proceed as follows:
+When the OpenL Tablets parser parses an OpenL Tablets expression, it produces a syntax tree. Each tree node has a node type, a literal value, a reference to the source code for displaying errors and debugging, and also may contain child nodes. This resembles what other parsers do, with one notable exception – the OpenL Tablets Grammar is not hard-coded, it can be configured, and a different one can be used. For all practical purposes, as of today, only the following grammars implemented in OpenL Tablets are distributed:
 
-1.  Provide at least one user to be granted administration privileges in the **Administrators** field.
-2.  Select the **All authenticated users have View access** check box to grant viewer privileges by default.
+| Grammar           | Description                                                                               |
+|-------------------|-------------------------------------------------------------------------------------------|
+| **org.openl.j**   | Based on the classic Java 1.3 grammar. No templates and exception handling are supported. |
+| **org.openl.bex** | org.openl.j grammar with business natural language extensions.                            |
 
-    ![](installation_guide_images/d00e1e24ed69010d2edabcfa8b742a4b.png)
+By default, **org.openl.bex** is used in the OpenL Tablets business rules product.
 
-	*Figure: Configuring initial users*
+An experimental **org.openl.n3 grammar** is available, and **org.openl.sql** grammar is targeted to be added in the future.
 
-#### Configuring Authentication via Active Directory
+The syntax tree produced by the **org.openl.j** grammar for the expression mentioned previously in this chapter is as follows:
 
-This section explains how to set up authentication via Active Directory. Proceed as follows:
+`        <`
 
-1.  Specify Active Directory domain, URL, user filter, and group filter.
-2.  To verify connection to Active Directory, enter credentials of the existing Active Directory user and click **Check Connection**.
+`       / \`
 
-	*![](installation_guide_images/b0af66e4a4c7fd05a595fbaed7d3da7c.png)*
+`      .   25`
 
-	*Figure: Configuring authentication via Active Directory*
+`     / \`
 
-#### Configuring Single Sign On via CAS
+`driver  age`
 
-This section explains how to set up authentication via CAS.
+Types of nodes are as follows:
 
-Define the following parameters:
+-   **op.binary.lt** for '\<'
+-   **literal.integer** for '25'
+-   **chain** for '.'
+-   **identifier** for 'driver'
+-   **identifier** for 'age'
 
-| Parameter                      | Description                                                                                         |
-|--------------------------------|-----------------------------------------------------------------------------------------------------|
-| **WebStudio server URL**       | URL for OpenL Tablets WebStudio.                                                                    |
-| **CAS server URL**             | URL for the selected CAS server.                                                                    |
-| **Attribute for First Name**   | CAS attribute for the first name. <br/>Keep it blank if the CAS server does not return this attribute.   |
-| **Attribute for Second Name**  | CAS attribute for the second name. <br/>Keep it blank if the CAS server does not return this attribute.  |
-| **Attribute for Display Name** | CAS attribute for the display name. <br/>Keep it blank if the CAS server does not return this attribute. |
-| **Attribute for Email**        | CAS attribute for the email. <br/>Keep it blank if the CAS server does not return this attribute.        |
-| **Attribute for Groups**       | CAS attribute for groups. <br/>Keep it blank if the CAS server does not return this attribute.           |
+Node type names are significant. More information on the type names is available further in this chapter.
 
-!!! note
-	Contact CAS server administrator for attribute names information.
+The grammar used in `org.openl.j` is similar not only to Java but to any other language in the C/C++/Java/C\# family. This makes OpenL Tablets easily to learn and apply by the huge pool of available Java/Cxx programmers and adds to its strength. Proliferation of new languages like Ruby and Groovy, multiple proprietary languages used in different business rules engines, CEP engines and so on, introduce new semantics to the programming community and make usage of new technologies much harder.
 
-*![](installation_guide_images/7f89597173892c2fccf1676b7d6db8de.png)*
+OpenL Tablets team makes their best to stay as close to the Java syntax as possible to make sure that the "entities would not be multiplied beyond necessity".
 
-*Figure: Configuring CAS*
+#### Context, Variables, and Types
 
-#### Configuring Single Sign On via SAML Server
+After the syntax tree is created, syntax nodes must be bound to their semantic definitions. At this stage, OpenL Tablets uses specific binders for each node type. The modular structure of OpenL Tablets allows definition of custom binders for each node type. Once a syntax node is bound into the bound node, it is assigned a type, thus making the process type-safe.
 
-This section describes single sign on configuration via the SAML server and includes the following topics:
+Most of the time, the standard Java approach is used to assign type to the variable, so it must be defined in the context of the OpenL Tablets framework. Typical examples include the following components:
 
--   [Configuring SAML via the Installation Wizard](#configuring-saml-via-the-installation-wizard)
--   [Configuring SAML on Azure Kubernetes](#_Configuring_Microsoft_Excel)
+-   method parameter
+-   local variable
+-   member of surrounding class
 
-##### Configuring SAML via the Installation Wizard
+For OpenL Tablets, it is usually the implementation of IOpenClass called **module**.
 
-This section explains how to set up authentication via the SAML server using the installation wizard.
+-   external types accessed as static, which are mostly Java classes imported into OpenL Tablets
 
-Define the following parameters:
+Fields and methods used in binding context do not exist in Java; OpenL Tablets allows programmatically adding custom types, fields, and methods into binding context. For different examples of how it can be done, see the source code of the OpenLBuilder classes in different packages. For example, `org.openl.j` automatically imports all classes from the `java.util` in addition to the standard `java.lang` package. Since version 5.1.1, `java.math` is imported automatically.
 
-| Parameter                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Entity ID**                           | Entity identifier. Alternatively, its value can be set for the security.saml.entity-id property, in the webstudio.properties file.<br/>An administrator must add the same entity ID to the clients list on the server which serves as an identity provider instance before setting it up in OpenL Tablets WebStudio.<br/>Adding the Entity ID parameter allows using several OpenL Tablets WebStudio instances on the same server with one Keycloak server. |
-| **SAML server metadata URL**            | URL of the metadata XML file of the Identity Provider.                                                                                                                                                                                                                                                                                                                                                                                              |
-| **SAML remote server X509 certificate** | PEM Base-64 encoded string, which contains a public key for SAML IDP Server. <br/>The begin and end tags are not required.                                                                                                                                                                                                                                                                                                                               |
-| **Attribute for Username**              | SAML attribute for a username. <br/>Keep it blank if SAML server does not return this attribute, or if default algorithm for username retrieval must be used.                                                                                                                                                                                                                                                                                            |
-| **Attribute for First Name**            | SAML attribute for the first name. <br/>Keep it blank if SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                     |
-| **Attribute for Second Name**           | SAML attribute for second name. <br/>Keep it blank if SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                        |
-| **Attribute for Display Name**          | SAML attribute for the display name. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                               |
-| **Attribute for Email**                 | SAML attribute for the email. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                      |
-| **Attribute for Groups**                | SAML attribute for groups. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                         |
+#### OpenL Tablets Type System
 
-![](installation_guide_images/e1bc1d72cfd7f7e2cf44ad34b7279a77.png)
+Java is a type-safe language. However, its type-safety ends when Java has to deal with types that lie outside of the Java type system, such as database tables, http requests, or XML files.
 
-*Figure: Configuring SAML*
+There are two approaches to deal with those external types:
 
-##### Configuring SAML on Azure Kubernetes
+| Approach              | Specifics                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| using API             | API approach is inherently not type-safe, it treats attribute as literal strings; therefore, even spelling errors become visible only in runtime. Unless the standard API exists, user’s program becomes dependent on the particular API.                                                                                                                                                                                                                                 |
+| using code generation | Code generation requires an extra building step and is dependent on particular generator, especially the part where names and name spaces are converted into Java names and packages. Often, generators introduce dependencies with runtime libraries that affect portability of the code. Generators usually require full conversion from external data into Java objects that may incur an unnecessary performance penalty when only a few attributes must be accessed. |
 
-SAML configuration on Azure Kubernetes includes the following steps:
+The **OpenL Tablets open type** system provides a simple way of adding new types into the OpenL Tablets language. It only requires defining a class object that implements the OpenClass interface and adding it to the OpenL Tablets type system. Implementations can vary, but access to object attributes and methods has the same syntax and provides the same type-checking in all OpenL Tablets code throughout the user application.
 
--   If the OpenL Tablets WebStudio Docker image is deployed on Azure Kubernetes, set the parameters on the Azure Basic SAML configuration as follows:
+#### OpenL Tablets as OpenL Tablets Type Extension
 
-| Parameter              | Description                                                                                                                                                      |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Identifier (Entity ID) | Audience of the SAML response for IDP-initiated SSO. <br/>Example: https://example.com/ saml2/service-provider-metadata/webstudio                                     |
-| Reply URL              | Destination in the SAML response for IDP-initiated SSO. <br/>Example: [https://example.com/ login/saml2/sso/webstudio](https://example.com/openl/webstudio/saml/SSO)  |
-| Logout URL             | Called URL for the logout operation. <br/>Example: [https://example.com/ logout/saml2/slo](https://example.com/openl/webstudio/saml/SingleLogout)                     |
+OpenL Tablets is built on top of the OpenL Tablets type system, thus enabling natural integration into any Java or OpenL Tablets environment. Using the OpenL Tablets methodology, **decision tables** become **methods**, and **data tables** become **fields**. Similar conversion happens to all project artifacts. As a result, any project component can be easily modularly accessed through Java or OpenL Tablets code. An OpenL Tablets project itself becomes a **class** and easy Java access to it is provided through a generated JavaWrapper class.
 
-URLs must be accessible by Azure.
+#### Operators
 
--   To specify the Azure metadata URL in the OpenL Tablets WebStudio, search for **App Federation Metadata URL** in the Azure SAML Signing certificate.
+**Operators** are methods with priorities defined by grammar. OpenL Tablets has two major types of operators, unary and binary. In addition, there are operator types used in special cases. A complete list of OpenL Tablets operators used in **org.openl.j** grammar is available at [List of org.openl.j Operators](#_List_of_org.openl.j).
 
-Username, first name, last name, group, and other attributes can also be retrieved from App Federation Metadata XML.
+OpenL Tablets has a modular structure, so OpenL Tablets has configurable, high-level separate components like **parser** and **binder**, and each node type can have its own NodeBinder. At the same time, the single NodeBinder can be assigned to a group of operators, as in the case of the **op.binary** prefix.
 
--   Build the image with the required JDBC driver.
+**op.binary.or** **\|\|** and **op.binary.and** **&&** have separate NodeBinders to provide short-circuiting for boolean operands. For all other binary operators, OpenL Tablets uses a simple algorithm based on the operator's node type name. For example, if the node type is **op.binary.add**, the algorithm looks for the **add()** method named in the following order:
 
-OpenL Tablets WebStudio stores information about users and their groups in the database, so there must be a remote database server when OpenL Tablets WebStudio is used in Kubernetes.
+-   **Tx add(T1 p1, T2 p2)** in the **org.openl.operators** namespace in **BindingContext**
+-   **public Tx T1.add(T2 p2)** in **T1**
+-   **static public Tx T1.add(T1 p1, T2 p2)** in **T1**
+-   **static public Tx T2.add(T1 p1, T2 p2)** in **T2**
 
-In Kubernetes, application configuration is described in the configuration map and installer must not be used. For an example of the configuration, see [Appendix B: OpenL Tablets WebStudio Image Configuration for SAML Under Kubernetes](#appendix-b-openl-tablets-webstudio-image-configuration-for-saml-under-kubernetes).
+The found method is executed in runtime. So, to override binary operator **t1 OP t2**, where **t1**, **t2** are objects of classes **T1**, **T2**, perform the following steps:
 
-#### Configuring Single Sign On via OAuth2
+1.  Check operators and find the operator's type name.
 
-This section explains how to set up authentication via the OAuth2 server using the installation wizard. Define the following parameters:
+The last part of the type name is the name of the method to be implemented.
 
-| Parameter                       | Description                                                                                                                                                                                                                       |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Client ID**                   | Parameter required for an identity provider to identify OpenL Tablets WebStudio as a separate service provider.  <br/>For Keycloak, the value must exactly match the client ID. In Okta, it must match the service provider entity ID. |
-| **Issuer URI**                  | OAuth2 authorization server URL. <br/>It is used for binding with the server to get additional settings for autoconfiguration.                                                                                                         |
-| **Client Secret**               | Client secret. <br/>It is used by the OAuth client to authenticate to the authorization server.                                                                                                                                        |
-| **Scope**                       | Scope requested by the client during the authorization request flow, such as openid, email, or profile. https://oauth.net/2/scope/                                                                                                |
-| **Attribute for Username**      | OAuth2 attribute for a username. <br/>Keep it blank if OAuth2 server does not return this attribute, or if default algorithm for username retrieval must be used.                                                                      |
-| **Attribute for First Name**    | OAuth2 attribute for the first name. <br/>Keep it blank if OAuth2 server does not return this attribute.                                                                                                                               |
-| **Attribute for Second Name**   | OAuth2 attribute for second name. <br/>Keep it blank if OAuth2 server does not return this attribute.                                                                                                                                  |
-| **Attribute for Display Name**  | OAuth2 attribute for the display name. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                         |
-| **Attribute for Email**         | OAuth2 attribute for the email. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                                |
-| **Attribute for Groups**        | SA OAuth2 ML attribute for groups. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                             |
+1.  Use one of the following options available for implementing operators:
+-   Put it into the YourCustomOperators class as a static method and register the class as a library in the org.openl.operators namespace
 
-![](installation_guide_images/9cdb3316b12b230a6ad1f8cc0c38fc06.jpeg)
+    For more information on how to do that, see OpenLBuilder code.
 
-*Figure: Configuring single sign on via OAuth2*
+-   Implement **public Tx name(T2 p2)** as method in T1.
+-   Implement **Tx name(T1 p1,T2 p2) as** method in T1.
+-   Implement **static public Tx name(T1 p1,T2 p2)** as method in T2.
+1.  If **T1** and **T2** are different, define both **OP(T1, T2)** and **OP(T2, T1**), unless **autocast()** operator can be relied on or binary operators semantic **map. Autocast** can help skipping implementation when there is already an operator implemented for the autocasted type.
 
-An example of how to configure single sign on via OAuth2 using properties is as follows:
+For example, when having **OP(T1, double)**, there is no need to implement **OP(T1, int)** because **int** is autocasted to double. Some performance penalty can be incurred by doing this though. For more information on binary operators semantic map, see [Binary Operators Semantic Map](#binary-operators-semantic-map).
 
-```
-security.oauth2.client-id=a57bd7bd-2c22-4ef3-xxxx-xxxxxxxxxxx
-security.oauth2.issuer-uri=https://login.microsoftonline.com/bebd0062-openid-connect/v2.0
-security.oauth2.client-secret=xzB8Q~XxxXx-Secret-key-XxxXxxXxXxxx
-```
+#### Binary Operators Semantic Map
 
-### OpenL Tablets WebStudio Customization
+There is a convenient feature called *operator semantic map*. It makes implementing some of the operators easier by describing symmetrical and inverse properties for some operators as described in [List of opg.openl.j Operator Properties](#_List_of_opg.openl.j).
 
-This section describes additional configuration for OpenL Tablets WebStudio and includes the following topics:
+#### Unary Operators
 
--   [Updating User Database Configuration](#updating-user-database-configuration)
--   [Configuring User Mode](#configuring-user-mode)
--   [Configuring Google Analytics](#configuring-google-analytics)
--   [Configuring Private Key for Repository Security](#configuring-private-key-for-repository-security)
+For unary operators, the same method resolution algorithm is being applied, with difference that there is only one parameter to deal with.
 
-The changes described in this section can be made in the properties file as described in [OpenL Tablets WebStudio Home Directory Configuration](#openl-tablets-webstudio-home-directory-configuration).
+#### Cast Operators
 
-#### Updating User Database Configuration
+**Cast operators** in general correspond to Java guidelines and come in two types, **cast** and **autocast**. **T2 autocast (T1 from, T2 to)** methods are used to overload implicit cast operators, as from int to long, so that actually no cast operators are required in code, T2 cast(T1 from, T2 to) methods are used with explicit cast operators.
 
-An example of the configuration that can be used for the user database is as follows:
+**Note:** It is important to remember that while both **cast()** and **autocast()** methods require two parameters, only T1 from parameter is actually used. The second parameter is used to avoid ambiguity in Java method resolution.
+
+#### Strict Equality and Relation Operators
+
+**Strict operators** are the same as their original prototypes used for strict comparison of float point values. Float point numbers are used in JVM as value with an inaccuracy. The original relation and equality operators are used with inaccuracy of float point operations. An example is as follows:
 
 ```
-db.url = jdbc:oracle:thin:@localhost:1521:openltest
-db.user = loginname
-db.password = myPassword
+1.0 == 1.0000000000000002 – returns true value,
+1.0 ==== 1.0000000000000002 (1.0 + ulp(1.0)) – returns false value,
 ```
 
-#### Configuring User Mode
+where` `1.0000000000000002` = 1.0 + ulp(1.0).`
+
+#### List of org.openl.j Operators
+
+The `org.openl.j` operators in order of priority are as follows:
+
+| Operator                | org.openl.j operator     |
+|-------------------------|--------------------------|
+| Assignment              |                          |
+| =                       | op.assign                |
+| +=                      | op.assign.add            |
+| -=                      | op.assign.subtract       |
+| \*=                     | op.assign.multiply       |
+| /=                      | op.assign.divide         |
+| %=                      | op.assign.rem            |
+| &=                      | op.assign.bitand         |
+| \|=                     | op.assign.bitor          |
+| \^=                     | op.assign.bitxor         |
+| **Conditional Ternary** |                          |
+| ? :                     | op.ternary.qmark         |
+| **Implication**         |                          |
+| -\>                     | op.binary.impl (\*)      |
+| **Boolean OR**          |                          |
+| \|\| or "or"            | op.binary.or             |
+| **Boolean AND**         |                          |
+| && or "and"             | op.binary.and            |
+| **Bitwise OR**          |                          |
+| \|                      | op.binary.bitor          |
+| **Bitwise XOR**         |                          |
+| \^                      | op.binary.bitxor         |
+| **Bitwise AND**         |                          |
+| &                       | op.binary.bitand         |
+| **Equality**            |                          |
+| ==                      | op.binary.eq             |
+| !=                      | op.binary.ne             |
+| ====                    | op.binary.strict_eq (\*) |
+| !===                    | op.binary.strict_ne (\*) |
+| **Relational**          |                          |
+| \<                      | op.binary.lt             |
+| \>                      | op.binary.gt             |
+| \<=                     | op.binary.le             |
+| \>=                     | op.binary.ge             |
+| \<==                    | op.binary.strict_lt (\*) |
+| \>==                    | op.binary.strict_gt (\*) |
+| \<===                   | op.binary.strict_le (\*) |
+| \>===                   | op.binary.strict_ge (\*) |
+| **Bitwise Shift**       |                          |
+| \<\<                    | op.binary.lshift         |
+| \>\>                    | op.binary.rshift         |
+| \>\>\>                  | op.binary.rshiftu        |
+| **Additive**            |                          |
+| +                       | op.binary.add            |
+| -                       | op.binary.subtract       |
+| **Multiplicative**      |                          |
+| \*                      | op.binary.multiply       |
+| /                       | op.binary.divide         |
+| %                       | op.binary.rem            |
+| **Power**               |                          |
+| \*\*                    | op.binary.pow (\*)       |
+| **Unary**               |                          |
+| +                       | op.unary.positive        |
+| -                       | op.unary.negative        |
+| ++x                     | op.prefix.inc            |
+| --x                     | op.prefix.dec            |
+| x++                     | op.suffix.inc            |
+| x--                     | op.suffix.dec            |
+| !                       | op.unary.not             |
+| \~                      | op.unary.bitnot          |
+| (cast)                  | type.cast                |
+| \|x\|                   | op.unary.abs (\*)        |
+
+**Note:** (\*) Operators do not exist in Java standard and exist only in org.openl.j. They can be used and overloaded if necessary.
+
+#### List of opg.openl.j Operator Properties
+
+| Operator group  | Operators                                                                                                   |
+|-----------------|-------------------------------------------------------------------------------------------------------------|
+| **Symmetrical** | eq(T1,T2) <=> eq(T2, T1) add(T1,T2) <=> add(T2, T1)                                                         |
+| **Inverse**     | `le(T1,T2) <=> gt(T2, T1)` `lt(T1,T2) <=> ge(T2, T1)` `ge(T1,T2) <=> lt(T2, T1)` `gt(T1,T2) <=> le(T2, T1)` |
+
+## Externalized Configuration
+
+OpenL Tablets supports externalizing application configuration to work with the same application in different environments. For configuration externalization, properties files and command-line arguments are used.
+
+The following topics are included in this section:
+
+-   [Accessing Command Line Properties](#accessing-command-line-properties)
+-   [Using Property Files](#_Using_Application_Property)
+
+### Accessing Command Line Properties
+
+By default, OpenL Tablets converts any command line option arguments into a `property` which starts with `-D`, such as `-Druleservice.datasource.filesystem.supportDeployments=true,` and adds it to the OpenL Tablets environment.
+
+**Example**:
+
+`$: /startup.cmd -Druleservice.datasource.filesystem.supportDeployments=true`
+
+### Using Property Files
+
+This section describes how to externalize application configuration using application property files and profile-specific properties and includes the following topics:
+
+-   [Default Properties Files](#_Default_Properties_Files)
+-   [Application Property Files](#application-property-files)
+-   [Profile-Specific Properties](#profile-specific-properties)
 
-Normally, user mode in OpenL Tablets WebStudio is set to **multi-user** by using OpenL Tablets WebStudio Installation Wizard as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1).
+#### Default Properties Files
 
-User mode can also be changed as a JVM option for Tomcat. For that, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer), and in the **Java Options** text box, add the following line:
+OpenL Tablets scans `openl-default.properties` in all resources in the classpath and composes single default configuration. The order of scanning is undefined, so when equal properties are retrieved, the random value wins. To ensure a predictable result, follow these rules:
 
-```
--Duser.mode=multi
-```
+1.  Create the` openl-default.properties` file in the module where the property is used.
+2.  Ensure that property names are unique across all `openl-default.properties` files.
 
-**Note:** User mode set as a Java option takes precedence over the corresponding value specified in the OpenL Tablets WebStudio Installation Wizard. If both are defined, the Java option value is used.
+When OpenL WebStudio and OpenL Rule Services builds are created, the `application.properties` file is generated with all default settings.
 
-#### Configuring Google Analytics
+To override default values for your own build of OpenL WebStudio or OpenL Rule Services, add the `application-default.properties` file to the `WEB-INF/classes `folder of the .`war` application.
 
-Google Analytics is a service offered by [Google](https://en.wikipedia.org/wiki/Google) that generates detailed [statistics](https://en.wikipedia.org/wiki/Statistics) about [website](https://en.wikipedia.org/wiki/Website) traffic and traffic sources. To configure Google Analytics for OpenL, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer) and in the **Java Options** text box, add the following lines:
+It is possible to define several `application-{custom}-default.properties `files which will be loaded alphabetically with last-win strategy to override default properties.
 
-```
-webstudio.analytics=number 
-```
+#### Application Property Files
 
-`number` is a number provided by Google during registration.
+OpenL Tablets loads properties from the `application.property` files to the following locations and adds them to the OpenL Tables environment:
 
-#### Configuring Private Key for Repository Security
+-   `%USER_HOME%` directory
+-   `/config` subdirectory of the current directory
+-   `/conf` subdirectory of the current directory
+-   current directory
+-   `classpath:config/`
+-   `classpath:`
 
-OpenL Tablets WebStudio allows connecting to secured repositories. In this case, passwords are stored in OpenL Tablets WebStudio workspace. To improve passwords protection, a private key can be used.
+    **Note:** The list is ordered by precedence, that is, properties defined in locations higher in the list override those defined in lower locations.
 
-**Private key** is a special secure sentence for coding and encoding repository passwords. By default, the private key is empty. It can be set up as a JVM option for Tomcat by adding and specifying the value of the following parameter:
+OpenL Tablets supports the `{appName}.properties` alias of the `application.property` file, where `{appName}` is the application name of the running application context.
 
-```
-secret.key=mySecretPhrase
-```
+#### Profile-Specific Properties
 
-The private key must be specified without spaces.
+Profile-specific properties can be also defined by using the following naming convention:
 
-!!! note
-	The private key must be configured prior to creating any secured connections. Otherwise, all stored passwords become invalid.
+-   `application-{profile}.properties`
+-   `{appName}-{profile}.properties`
 
-## Deploy OpenL Tablets Rule Services under Apache Tomcat
+Profile-specific properties are loaded from the same locations as the standard `application.properties` file and always override default properties.
 
-This chapter is designed for rule developers who need to use business rules as separate web services.
+If several profiles are specified in the `spring.profile.active` property, the existing property file of the last profile overrides the previous ones. For example, the property `spring.profile.active` contains the `dev-openl,app01-openl` values, so the OpenL Tablets Engine will be looking for the next property files:
 
-For more information on how to configure OpenL Tablets Rule Services, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**].**
+-   `{appName}-app01-openl.properties`
+-   `{appName}-dev-openl.properties`
+-   `{appName}.properties`
+-   `application-app01-openl.properties`
+-   `application-dev-openl.properties`
+-   `application.properties`
 
-Before deploying OpenL Tablets Rule Services under Apache Tomcat, ensure the following tasks are performed:
+    **Note:** The list ordered is ordered by precedence, that is, properties defined in locations higher in the list override those defined in lower locations)
 
--   The `JAVA_HOME` environment variable is set to the pathname of the directory where JDK is installed.
--   JVM options are set up as described in [Installing Apache Tomcat](#installing-apache-tomcat).
+## Extending OpenL Tablets Functionality
 
-The folder where Tomcat is installed is referred to as `<TOMCAT_HOME>.`
+If the added classes have the `valueOf(String)` or `parse(CharSequence)` methods defined, method values can be declared in the cells directly, and no conversion is required. An example of an added class is as follows.
 
-`This section contains the following topics:`
+![](developer_guide_images/9c66f47e02712fb758867610ee92bbec.jpeg)
 
--   [Downloading Preconfigured OpenL Tablets Rule Services](#downloading-preconfigured-openl-tablets-rule-services)
--   [Configuring OpenL Tablets Rule Services for a Local Data Source](#configuring-openl-tablets-rule-services-for-a-local-data-source)
--   [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Attention!_For_proper)
--   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
--   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
+*Figure: Added class example*
 
-### Downloading Preconfigured OpenL Tablets Rule Services
-
-To download the preconfigured OpenL Tablets Rule Services application in a WAR file, proceed as follows:
-
-1.  Locate <https://openl-tablets.org/downloads>.
-2.  Click the appropriate OpenL Tablets Rule Services WAR link.
-3.  Save the WAR file to the `<TOMCAT_HOME>\webapps` directory.
-
-### Configuring OpenL Tablets Rule Services for a Local Data Source
-
-This section describes how to configure settings for a local storage with deployed projects there. The following topics are included:
-
--   [Configuring OpenL Tablets Rule Services via Local File System](#configuring-openl-tablets-rule-services-via-local-file-system)
--   [Configuring OpenL Tablets Rule Services via Local ZIP Archives](#configuring-openl-tablets-rule-services-via-local-zip-archives)
--   [Configuring OpenL Tablets Rule Services via Classpath JAR](#configuring-openl-tablets-rule-services-via-classpath-jar)
-
-#### Configuring OpenL Tablets Rule Services via Local File System
-
-Using a file system as a data source for user projects means that projects are stored in a local folder. This folder represents multi deployments containing one or multiple projects for each deployment. Each deployment must be represented as a separate folder and, at the same time, the project must also be represented as a separate folder inside the deployment folder.
-
-To deploy OpenL Tablets Rule Services, configure a local file system as a data source as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-file 
-	production-repository.uri = d:/datasource/
-	```
-
-	!!! note
-	For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
-
-1.  Save the rule project in the appropriate `datasource` folder.
-
-	Every rule project must be represented as a separate folder. As an example, use OpenL Tablets Tutorial available at <https://openl-tablets.org/documentation/tutorials>.
-
-1.  To run Tomcat, in `<TOMCAT_HOME>\bin,` click the `startup.bat` file.
-
-To ensure the deployment is successful, try loading the appropriate CXF page with web services.  
-An example is <http://localhost:8080/openl-tablets-ws-X.X.X>`.`
-
-Users can also pack their rule projects in a `jar` file and use this file as a data source as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**],** **JAR File Data Source** section.
-
-#### Configuring OpenL Tablets Rule Services via Local ZIP Archives
-
-Using a local zip archive as a data source for user projects means that zipped projects are stored in a local folder. This folder represents rule project or deployment as a separate zip archive:
-
--   Each dependent rule projects must be represented as a deployment zip archive and each project must be in a separate folder inside the deployment archive.
--   Each independent rule project must be represented as a separate zip archive.
-
-To set up local zip archives for deployment to OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-		production-repository.factory = repo-zip
-		production-repository.uri = d:/datasource
-	```
-
-1.  Save the zipped rule projects in the appropriate `datasource` folder.
-
-	Every rule project must be represented as a separate archive. As an example, use OpenL Tablets tutorial available at <https://openl-tablets.org/documentation/tutorials>.
-
-It is also possible to configure separate zip archives from different locations. For that, set up the `production-repository.archives` property and define the exact address to the zip archive. Use the comma “,” separator to configure multiple archives. An example is as follows:
-
-`production-repository.archives = d:/datasource/project1.zip, c:/folder/project2.zip`
-
-#### Configuring OpenL Tablets Rule Services via Classpath JAR
-
-If rule projects with the `rules.xml` project descriptor in the archive root or deployments with the `deployment.xml` or `deployment.yaml` deployment descriptor in the archive root are packed into a JAR file and placed in the `classpath`, these projects are deployed at the application launch. It is default configuration.
-
-To set up a classpath JAR for deploy to OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-		production-repository.factory = repo-jar
-	```
-
-1.  Put the JAR file with the project to `\<TOMCAT_HOME>\webapps\<rule services file name>\WEB-INF\lib`.
-
-Alternatively, zip archives with deployments or rule projects can be saved to `\<TOMCAT_HOME>\webapps\<rule services file name>\WEB-INF\classes\openl.`
-
-### Configuring OpenL Tablets Rule Services for a Database Data Source
-
-This section describes how to configure settings to connect to a database for storing deployed projects there. Such configuration requires that the appropriate database exists and is launched. The following topics are included:
-
--   [Configuring OpenL Tablets Rule Services via JDBC Connection](#configuring-openl-tablets-rule-services-via-jdbc-connection)
--   Configuring OpenL Tablets Rule Services via JNDI Connection
--   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
--   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
--   [Configuring OpenL Tablets Rule Services via Azure Blob Connection](#configuring-openl-tablets-rule-services-via-azure-blob-connection)
-
-Before configuration, add the appropriate driver library for a database in OpenL Tablets Rule Services to `\WEB-INF\lib\.`Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries. Install the database, defining a login and password and creating a new schema or service.
-
-For more information on drivers, see the **Driver name for appropriate databases** table in [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and).
-
-#### Configuring OpenL Tablets Rule Services via JDBC Connection
-
-To set up JDBC connection settings for OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-jdbc
-	production-repository.uri = jdbc:mysql://localhost/deployment-repository
-	```
-
-1.  Set the URL value for `production-repository.uri` according to the appropriate database as described in the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-2.  Set the login `production-repository.login `and password `production-repository.password `for connection to the database defined while installing the database.
-
-	The password must be encoded via the Base64 encoding schema when `secret.key` is also defined.
-
-#### Configuring OpenL Tablets Rule Services via JNDI Connection
-
-This section describes how to configure JNDI connection when OpenL Tablets Rule Services is started under Apache Tomcat. Before configuration, ensure that resources are set up in the `context.xml` file as described in [Configuring Resources for JNDI Context](#configuring-resources-for-jndi-context).
-
-To configure OpenL Tablets Rule Services via JNDI connection, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-jndi
-	production-repository.uri = java:comp/env/jdbc/deploymentDB
-	```
-
-1.  Change the URL value for `production-repository.uri` according to the appropriate database as described in the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-
-    !!! note
-	` `Login and password are not required for definition inside the `application.properties` file while configuring JNDI settings.
-
-### Configuring OpenL Tablets Rule Services via AWS S3 Connection
-
-This section describes how to configure an AWS S3 connection when OpenL Tablets Rule Services is started under Apache Tomcat.
-
-To configure OpenL Tablets Rule Services via an AWS S3 connection, add the following properties to the `application.properties` file:
-
-```
-production-repository.factory = repo-aws-s3
-production-repository.bucket-name = yourBucketName
-production-repository.region-name = yourS3Region
-production-repository.access-key = yourAccessKey
-production-repository.secret-key = yourSecretKey
-```
-
-### Configuring OpenL Tablets Rule Services via GIT Connection
-
-To configure OpenL Tablets Rule Services via a GIT connection, add the following properties to the application.properties file:
-
-```
-production-repository.factory = repo-git
-production-repository.uri = https://github.com/<your-name>/<your-repo>.git
-production-repository.login = your-login
-production-repository.password = your-password
-```
-
-### Configuring OpenL Tablets Rule Services via Azure Blob Connection
-
-To configure OpenL Tablets Rule Services via the Azure Blob connection using SAS, add the following properties to the application.properties file:
-
-```
-production-repository.factory=repo-azure-blob
-production-repository.uri=https://myStorage.blob.core.windows.net/container/?sv=2015-07-08
-```
-
-## Install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server
-
-This section explains how to install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server in a standalone mode.
-
-The following topics are included:
-
--   [Deploying OpenL Tablets WebStudio on JBoss Application Server](#deploying-openl-tablets-webstudio-on-jboss-application-server)
--   [Deploying OpenL Tablets Rule Services on JBoss Application Server](#deploying-openl-tablets-rule-services-on-jboss-application-server)
--   [Setting Up a JDBC Connection](#_Setting_Up_a)
--   [Setting Up a JNDI Connection](#setting-up-a-jndi-connection)
-
-### Deploying OpenL Tablets WebStudio on JBoss Application Server
-
-To deploy OpenL Tablets WebStudio on JBoss Application Server, proceed as follows:
-
-1.  Rename the OpenL Tablets WebStudio war file to `webstudio.war`.
-1.  Copy `webstudio.war` to the `<JBoss home directory>\standalone\deployments` directory.
-1.  If the `auto-deploy-zipped` attribute is set to `true` in the `standalone.xml` file, manually create an empty file `webstudio.war.dodeploy`.
-1.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-1.  Verify that the `webstudio.war.deployed` marker is generated.
-1.  To run OpenL Tablets WebStudio, in a browser, enter *http://localhost:8080/webstudio/*.
-1.  The **Welcome to OpenL Tablets WebStudio Installation Wizard** window.
-2.  Set up the application as required.
-
-### Deploying OpenL Tablets Rule Services on JBoss Application Server
-
-To deploy OpenL Tablets Rule Services on JBoss Application Server, proceed as follows:
-
-1.  Rename the OpenL Tablets Rule Services file to `webservice.war.`
-2.  Copy the `webservice.war` file to the `<JBoss home directory>\standalone\deployments` directory.
-3.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-4.  Verify that the `webservice.war.deployed` marker is generated.
-5.  To run OpenL Tablets Rule Services, in a browser, enter *http://localhost:8080/webservice/*.
-
-### Setting Up a JDBC Connection
-
-To set up a JDBC connection for OpenL Tablets WebStudio, proceed as follows:
-
-1.  Download a required JDBC driver.
-1.  Run `< JBoss home directory >\bin\standalone.bat.`
-1.  Run JBoss command line client `<JBoss home directory>\bin\jboss-cli.bat.`
-1.  In Jboss-cli:, connect to the server using the `connect` command.
-1.  In Jboss-cli:, add a module using the following command:
-
-	`module add --name=<module name> --resources=<path to the driver> --dependencies=javax.api,javax.transaction.api`
-
-	An example of the MySQL driver copied to the `<JBoss home directory>\bin` directory is as follows:
-
-	`module add --name=org.mysql --resources=mysql-connector-java-8.0.11.jar --dependencies=javax.api,javax.transaction.api`
-
-1.  To prepare `*.war` files for deployment, in the `META-INF\jboss-deployment-structure.xml` file, add the following structure:
-
-	`<dependencies>`
-
-	`		<module name="<module_name>" export="true" />`
-
-	`</dependencies>`
-
-1.  For `webservice.war`, in the `application.properties` file, specify a connection to the database as follows:
-
-	`production-repository.factory = repo-jdbc`
-
-	`production-repository.uri = jdbc:mysql://localhost/deployment-repository`
-
-1.  Ensure that the `application.properties` file is “visible” at the JBoss launch location.
-
-	For example, if the `application.properties` file is located in JBoss home directory, JBoss must be run from this directory via the `bin\standalone.bat` command.
-
-1.  Configure a JDBC connection for OpenL Tablets WebStudio as described in [Configuring OpenL Tablets WebStudio via JDBC Connection](#configuring-openl-tablets-webstudio-via-jdbc-connection).
-
-### Setting Up a JNDI Connection
-
-To set up a JNDI connection settings for OpenL Tablets WebStudio, proceed as follows:
-
-1.  Copy a database driver to the `<JBoss home directory>\ standalone\deployments\` directory.
-1.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-1.  In a browser, enter *http://localhost:8080/*.
-1.  Click **Administration console.**
-1.  Click the **Configuration** link.
-1.  Select **Subsystems \> Datasources \> Non-XA**.
-1.  Click **Add.**
-
-	![](installation_guide_images/b126142f46ae04166e7bb40b25a718a3.png)
-
-	*Figure: Configuring a JNDI connection*
-
-1.  In the **Create Datasource** window, select a data source and click **Next.**
-1.  Enter the data source name and JNDI name and click **Next.**
-1.  Switch to the **Detected Driver** tab.
-
-	![](installation_guide_images/8e8e680140b9e8160fba58d2222e2047.png)
-
-	*Figure: JDBC driver collection*
-
-1.  Select a JDBC driver and click **Next.**
-1.  Specify database connection settings and click **Next.**
-1.  To test the JDBC connection, click **Test Connection.**
-1.  Click **Next** and then click **Finish.**
-1.  For `webservice.war`, in the `application.properties` file, specify the connection to a database as follows:
-
-	`production-repository.factory = repo-jndi`
-
-	`production-repository.uri = <JNDI Name>`
-
-1.  Configure a JNDI connection for OpenL Tablets WebStudio as described in [Configuring Settings in OpenL Tablets WebStudio](#configuring-settings-in-openl-tablets-webstudio).
-
-## OpenL Tablets WebStudio and Rule Services Integration
-
-This section describes how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services integration and enable backward compatibility and includes the following topics:
-
--   [Deploying Rules to the Production Server](#_Deploying_Rules_to)
--   [Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository](#_Backward_Compatibility_of)
-
-### Deploying Rules to the Production Server
-
-After integration any changes can be made in user’s rule in OpenL Tablets WebStudio, and then the project must be saved and redeployed. These changes immediately affect the rule represented as web service. During development, rules are stored in the file system of the development server. When development is finished, rules can be deployed to the production server as follows:
-
-1.  OpenL Tablets WebStudio sends the rules project to the database repository, using the JDBC driver for connection, in case of integration via database repository.
-2.  The rules are saved on the production server.
-3.  OpenL Tablets Rule Services detects a new version of the deployed rules and starts using it.
-
-	The following diagram illustrates the OpenL Tablets WebStudio and OpenL Tablets Rule Services integration:
-
-	![](installation_guide_images/7d47ea73c919e3bfe300c8906cd7f750.png)
-
-	*Figure: OpenL Tablets WebStudio and OpenL Tablets Rule Services deployment*
-
-### Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository
-
-This section describes an alternative way of how to set up an integrated environment that enables work with business rules from OpenL Tablets WebStudio and launch these rules as OpenL Tablets Rule Services. To set up OpenL Tablets WebStudio and OpenL Tablets Rule Services integration using the database as storage for deployment repository, proceed as follows:
-
-1.  Install OpenL Tablets WebStudio and OpenL Tablets Rule Services on the same application server.
-2.  Connect OpenL Tablets WebStudio to the database to store deployed projects as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-3.  Configure OpenL Tablets Rule Services for a database data source as described in [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Configure_Web_Services_2).
-
-## Troubleshooting
-
-If OpenL Tablets WebStudio is deployed under Tomcat in the Unix/Linux environment, consider the following troubleshooting recommendations:
-
-1.  Before starting Tomcat under Linux, make sure that no Java processes are running:
-
-	`sudo ps -A | grep j`
-
-	If found, the process name and number are displayed.
-
-1.  If any Java process is running, stop it as follows:
-
-	`kill -9 <process number>`
-
-1.  Make sure that port 8080 is available as follows:
-
-	`sudo netstart –an | grep 8080`
-
-1.  Run Tomcat under Linux as follows:
-
-	`<TOMCAT_HOME>/bin/startup.sh`
-
-1.  If the **command not found** error appears, mark the `.sh` file as an executable script as follows:
-
-	`chmod +x startup.sh`
-
-2.  If the **Permission denied** or **The BASEDIR environment variable is not defined correctly** error is displayed, make all `.sh` files in the `bin` folder executable as follows:
-
-	`chmod 777 *.sh`
-
-1.  Verify that all `.sh` files in the `bin` folder are executable as follows:
-
-	`ls –la`
-
-1.  Run Tomcat as follows:
-
-	`<TOMCAT_HOME>/bin/startup.sh`
-
-## Frequently Asked Questions
-
-This section provides the most common questions and answers related to the OpenL Tablets installation procedure. For more information on working with Java, Tomcat, and other third party software, see the corresponding sites of the software manufacturers.
-
-| \#    | Question                                                                                                                         | Answer                                                                                                                                                                                                                                                                                                                                   |
-|-------|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1** | How can I check if Java is installed on my PC?                                                                                   | Proceed as follows: <br/>Open **Start \> Control Panel.** <br/>Perform either of the following: <br/>• For Windows XP, double click **Add or Remove Programs**. <br/>• For Windows 7/Vista, click **Programs \> Programs and Features**. <br/>Look through the list for **Java(TM)…** or **Java(TM) Update…** items. If any is present, Java is installed on your PC. |
-| **2** | During Java installation, the page for Java registration appears. <br/>Do I have to register Java?                                    | No, it is optional. You can close the registration page.                                                                                                                                                                                                                                                                                 |
-| 3     | How can I check which version of Java is installed on my PC?                                                                     | Open the [**Verify Java Version**](http://java.com/en/download/installed.jsp) page and click the **Verify Java Version** button.  <br/>In a few seconds a new page appears where you will find the message like the following one: **Your Java version: Version 6 Update 26**.                                                                |
-| 4     | How can I see the error message in the Tomcat <br/>console that appears when I start Tomcat? <br/>The error screen disappears too quickly. | Proceed as follows: <br/>Click **Start \> Run**. <br/>Locate the `<TOMCAT_HOME>\bin` folder. <br/>Select `catalina.bat` and enter *run* in the command line.                                                                                                                                                                                            |
-
-## Appendix A: Official Docker Images for OpenL Tablets
-
-OpenL Tablets supports Docker containers. The following table provides links to the Docker images for OpenL Tablets:
-
-| **OpenL Tablet resource**   | **Reference**                                      |
-|-----------------------------|----------------------------------------------------|
-| OpenL Tablets Rule Services | <https://hub.docker.com/r/openltablets/ws/>        |
-| OpenL Tablets WebStudio     | <https://hub.docker.com/r/openltablets/webstudio/> |
-| OpenL Tablets demo          | <https://hub.docker.com/r/openltablets/demo/>      |
-
-## Appendix B: OpenL Tablets WebStudio Image Configuration for SAML Under Kubernetes
-
-```
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: webstudio
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: webstudio
-  serviceName: webstudio
-  template:
-    metadata:
-      labels:
-        app: webstudio
-    spec:
-      containers:
-        - name: webstudio
-          image: openltablets/webstudio:latest
-          resources:
-            limits:
-              memory: "32768Mi"
-            requests:
-              memory: "1024Mi"
-          ports:
-            - containerPort: 8080
-          readinessProbe:
-            tcpSocket:
-              port: 8080
-            initialDelaySeconds: 30
-            periodSeconds: 60
-          livenessProbe:
-            tcpSocket:
-              port: 8080
-            initialDelaySeconds: 60
-            periodSeconds: 120
-          env:
-            - name: WEBSTUDIO_CONFIGURED
-              value: "true"
-            - name: DB_URL
-              value: "jdbc:postgresql://dbserver:5432/studio_db"
-            - name: DB_USER
-              value: "pgadmin@studio"
-            - name: DB_PASSWORD
-              value: "Pa$$w0rd"
-            - name: USER_MODE
-              value: "saml"
-            - name: SECURITY_SAML_ENTITY-ID
-              value: "webstudio"
-            - name: SECURITY_SAML_SAML-SERVER-METADATA-URL
-              value: "https://saml-idp-server/path/to/metadata"
-            - name: SECURITY_ADMINISTRATORS
-              value: "mylogin@example.com"
-            - name: SECURITY_SAML_SERVER-CERTIFICATE
-              value: "BASE64 encoded public key (optional)"
-            - name: SECURITY_SAML_ATTRIBUTE_FIRST-NAME
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
-            - name: SECURITY_SAML_ATTRIBUTE_LAST-NAME
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
-            - name: SECURITY_SAML_ATTRIBUTE_DISPLAY-NAME
-              value: "http://schemas.microsoft.com/identity/claims/displayname"
-            - name: SECURITY_SAML_ATTRIBUTE_EMAIL
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-            - name: SECURITY_SAML_ATTRIBUTE_GROUPS
-              value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-            - name: USER_MODE
-              value: "saml"
-      imagePullSecrets:
-        - name: regcreds
-```
-
-## Appendix C: CORS Filter Support Enablement in <br/>OpenL Tablets WebStudio
-
-**Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. For more information on how to enable CORS filter support in OpenL Tablets WebStudio, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**, the CORS Filter Support section.
+In this example, timestamp class object values in the Batch Date column are defined as a plain text, without conversion.
