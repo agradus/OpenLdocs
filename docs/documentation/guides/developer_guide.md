@@ -108,7 +108,7 @@ There can be situations where OpenL Tablets projects are used in the development
 
 A **wrapper** is a Java object that exposes rule tables via Java methods and data tables as Java objects and allows developers to access table information from code. Wrappers are essential for solutions where compiled OpenL Tablets project code is embedded in solution applications. If tables are accessed through web services, client applications are not aware of wrappers but they are still used on the server.
 
-For more information on wrappers, see [Using OpenL Tablets Rules from Java Code](#_Using_OpenL_Tablets).
+For more information on wrappers, see [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code).
 
 #### Execution Mode for OpenL Project
 
@@ -128,7 +128,7 @@ To compile an OpenL Tablets project in execution mode, proceed as follows:
 ### System Overview
 
 The following diagram displays how OpenL Tablets is used by different types of users:
-
+![](developer_guide_images/overview.png)
 *OpenL Tablets overview*
 
 A typical lifecycle of an OpenL Tablets project is as follows:
