@@ -84,7 +84,7 @@ This section describes the basic concepts of OpenL Tablets and includes the foll
 -   [Tables](#tables)
 -   [Projects](#projects)
 -   [Wrapper](#wrapper)
--   [Execution Mode for OpenL Project](#execution-mode-for)
+-   [Execution Mode for OpenL Project](#execution-mode-for-openl-project)
 
 #### Rules
 
@@ -129,6 +129,7 @@ To compile an OpenL Tablets project in execution mode, proceed as follows:
 
 The following diagram displays how OpenL Tablets is used by different types of users:
 ![](developer_guide_images/overview.png)
+
 *OpenL Tablets overview*
 
 A typical lifecycle of an OpenL Tablets project is as follows:
@@ -139,16 +140,16 @@ Optionally, development team may provide the analyst with a project in case of c
 
 The business analyst also creates correctly structured tables in Excel files based on requirements and includes them in the project. Typically, this task is performed through Excel or OpenL Tablets WebStudio in a web browser.
 
-1.  The business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
+2.  The business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
 
 As a result, fully working rules are created and ready to be used.
 
-1.  A developer adds configuration to the project according to application needs.
+3.  A developer adds configuration to the project according to application needs.
 
 Alternatively, they can create a new OpenL Tablets project in their IDE via OpenL Maven Archetype and adjust it to use business user input.
 
-1.  A developer employs business rules directly through the OpenL Tablets engine or remotely through web services.
-2.  Whenever required, the business user updates or adds new rules to project tables.
+4.  A developer employs business rules directly through the OpenL Tablets engine or remotely through web services.
+5.  Whenever required, the business user updates or adds new rules to project tables.
 
 OpenL Tablets business rules management applications, such as OpenL Tablets WebStudio, Rules Repository, and Rule Services Core, can be set up to provide self-service environment for business user changes.
 
@@ -156,7 +157,7 @@ OpenL Tablets business rules management applications, such as OpenL Tablets WebS
 
 OpenL Tablets provide a few ways to create a project. We recommend using Simple Project Maven Archetype approach for creating a project for the first time or create it via OpenL Tablets WebStudio. For more information on approaches for creating a project with detailed descriptions, see [How to Start with OpenL Rules Project](#_How_to_start).
 
-After a project is created, a zip or Excel file for importing the project to OpenL Tablets WebStudio can be used. For more information on importing an existing project into OpenL Tablets WebStudio, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**
+After a project is created, a zip or Excel file for importing the project to OpenL Tablets WebStudio can be used. For more information on importing an existing project into OpenL Tablets WebStudio, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 OpenL Tablets WebStudio provides convenient UI to work with rules. However, its usage can be avoided by working with rules from IDE only using the OpenL Tablets Maven plugin. The plugin provides compilation and testing of rules and wrapper generation support.
 
