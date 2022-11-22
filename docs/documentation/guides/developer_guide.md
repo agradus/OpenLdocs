@@ -27,7 +27,7 @@ The following table lists sources of information related to contents of this gui
 
 | Title                                                                                                                                                       | Description                                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]** | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
+| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide) | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
 | [*https://openl-tablets.org/*](https://openl-tablets.org/)                                                                                                  | OpenL Tablets open source project website.                                                                                |
 
 ### Typographic Conventions
@@ -36,7 +36,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
@@ -96,11 +96,11 @@ Instead of executing actions, rules can also return data values to the calling p
 
 #### Tables
 
-Basic information OpenL Tablets deals with, such as rules and data, is presented in **tables**. Different types of tables serve different purposes. For more information on table types, see **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**],** the *Table Types* section.
+Basic information OpenL Tablets deals with, such as rules and data, is presented in **tables**. Different types of tables serve different purposes. For more information on table types, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/), the *Table Types* section.
 
 #### Projects
 
-An OpenL Tablets **project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files and Java code. For more information on projects, see **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**],** chapter *Working with Projects*.
+An OpenL Tablets **project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files and Java code. For more information on projects, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/), chapter *Working with Projects*.
 
 There can be situations where OpenL Tablets projects are used in the development environment but not in production, depending on the technical aspects of a solution.
 
@@ -129,7 +129,7 @@ To compile an OpenL Tablets project in execution mode, proceed as follows:
 
 The following diagram displays how OpenL Tablets is used by different types of users:
 
-*Figure: OpenL Tablets overview*
+*OpenL Tablets overview*
 
 A typical lifecycle of an OpenL Tablets project is as follows:
 
