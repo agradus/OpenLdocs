@@ -27,8 +27,8 @@ The following table lists sources of information related to contents of this gui
 
 | Title                                                                                                                                                       | Description                                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide) | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
-| [*https://openl-tablets.org/*](https://openl-tablets.org/)                                                                                                  | OpenL Tablets open source project website.                                                                                |
+| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
+| [https://openl-tablets.org/](https://openl-tablets.org/)                                                                                                  | OpenL Tablets open source project website.                                                                                |
 
 ### Typographic Conventions
 
@@ -41,7 +41,7 @@ The following styles and conventions are used in this guide:
 | `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
 | *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
-| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
+| < >                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
 | Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
 | **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                              |
 
@@ -51,8 +51,8 @@ This chapter introduces OpenL Tablets and describes its main concepts.
 
 The following topics are included in this chapter:
 
--   [What Is OpenL Tablets?](#_What_Is_OpenL_)
--   [Basic Concepts](#_Basic_Concepts)
+-   [What Is OpenL Tablets?](#What-Is-OpenL-Tablets)
+-   [Basic Concepts](#_Basic-Concepts)
 -   [System Overview](#system-overview)
 -   [Quick Start with OpenL Tablets](#_Quick_Start_with)
 
