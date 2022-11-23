@@ -165,7 +165,7 @@ The following topics are included in this chapter:
 -   [OpenL Rules Project](#openl-rules-project)
 -   [Rules Project Descriptor](#rules-project-descriptor)
 -   [Project Resolving](#project-resolving)
--   [How to Start with OpenL Rules Project](#_How_to_start_with_OpenL_Rules_Proje)
+-   [How to Start with OpenL Rules Project](#how-to-start-with-openl-rules-project)
 -   [Customizing Table Properties](#customizing-table-properties)
 -   [Tables Validation](#tables-validation)
 -   [Module Dependencies: Classloaders](#module-dependencies-classloaders)
@@ -262,7 +262,7 @@ The project configurations are as follows:
 | dependency                     | no       | Dependencies to projects.                                                                                                                  |
 | modules                        | yes      | Project modules. A project can have one or several modules.                                                                                |
 | classpath                      | no       | Project relative classpath.                                                                                                                |
-| properties-file-name-pattern   | no       | File name pattern to be used by the file name processor. The file name processor adds extracted module properties from a module file name. |
+| properties-file-name-pattern   | no       | File name pattern to be used by the file name processor. <br/>The file name processor adds extracted module properties from a module file name. |
 | properties-file-name-processor | no       | Custom implementation of `org.openl.rules.project.PropertiesFileNameProcessor` used instead of default implementation.                     |
 
 ##### Module Configurations
@@ -271,11 +271,11 @@ The module configurations are as follows:
 
 | Tag          | Required | Description                                                                                                                                                                                                                                         |
 |--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name         | yes/no   | Module name. It is a string value which defines a user-friendly module name.  **Note:** It is used by OpenL Tablets WebStudio application as a module display name. It is not required for modules defined via wildcard.                            |
-| type         | yes      | Module instantiation type. Possible values are case-insensitive and can be **dynamic**, **api**, or **static** (deprecated). It defines the way of OpenL project instantiation.                                                                     |
+| name         | yes/no   | Module name. It is a string value which defines a user-friendly module name.  <br/>**Note:** It is used by OpenL Tablets WebStudio application as a module display name. It is not required for modules defined via wildcard.                            |
+| type         | yes      | Module instantiation type. Possible values are case-insensitive and can be **dynamic**, **api**, or **static** (deprecated). <br/>It defines the way of OpenL project instantiation.                                                                     |
 | classname    | yes/no   | Name of rules interface. It is used together with *type*. It is not required for the **api** type.                                                                                                                                                  |
 | method-filer | no       | Filter that defines tables to be used for interface generation. Java regular expression can be used to define a filter for multiple methods.                                                                                                        |
-| rules-root   | yes/no   | Path to the main file of a rules module. It is used together with **type**. Ant pattern can be used to define multiple modules via wildcard. For more information on Ant patterns, see [Ant patterns](https://ant.apache.org/manual/dirtasks.html). |
+| rules-root   | yes/no   | Path to the main file of a rules module. It is used together with **type**. Ant pattern can be used to define multiple modules via wildcard. <br/>For more information on Ant patterns, see [Ant patterns](https://ant.apache.org/manual/dirtasks.html). |
 
 ##### Dependency Configurations
 
@@ -284,7 +284,7 @@ The dependency configurations are as follows:
 | Tag          | Required | Description                                                                                                                                                                                                                                                                                               |
 |--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name         | yes      | Dependency project name.                                                                                                                                                                                                                                                                                  |
-| autoIncluded | yes      | Identifier, which, if set to **true**, that all modules from the dependency project will be used in this project module. If it is set to **false**, modules from the dependency project can be used in this project as dependencies, and each module will define its own list of used dependency modules. |
+| autoIncluded | yes      | Identifier, which, if set to **true**, that all modules from the dependency project will be used in this project module. <br/>If it is set to **false**, modules from the dependency project can be used in this project as dependencies, <br/>and each module will define its own list of used dependency modules. |
 
 ##### Classpath Configurations
 
@@ -305,7 +305,7 @@ Resolving strategies used by default are as follows:
 | Number | Strategy                              | Description                                                                                                                                                              |
 |--------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1.     | Project descriptor resolving strategy | The strictest resolving strategy. It is based on the descriptor file as described previously in this section.                                                            |
-| 2.     | Excel file resolving strategy         | A resolving strategy for the simplest OpenL project which contains only Excel files in root folder without wrappers and descriptor. Each Excel file represents a module. |
+| 2.     | Excel file resolving strategy         | A resolving strategy for the simplest OpenL project which contains only Excel files in root folder without wrappers and descriptor. <br/>Each Excel file represents a module. |
 
 ### How to Start with OpenL Rules Project
 
@@ -322,7 +322,7 @@ See the following sections for detailed information:
 -   [Creating a Project Manually](#creating-a-project-manually)
 -   [Editing Rules](#editing-rules)
 -   [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code)
--   [Handling Data and Data Types in OpenL Tablets](#_Data_and_Data)
+-   [Handling Data and Data Types in OpenL Tablets](#handling-data-and-data-types-in-openl-tablets)
 
 #### Creating a Project Using the Maven Archetype
 
@@ -331,47 +331,31 @@ OpenL Tablets provides the Maven archetype which can be used to create a simple 
 To create a project using the Maven archetype, proceed as follows:
 
 1.  Execute the following command in command line:
-
-`mvn archetype:generate`
-
-Maven runs the archetype console wizard.
-
+	`mvn archetype:generate`
+	Maven runs the archetype console wizard.
 1.  Select the **openl-simple-project-archetype** menu item.
-
-As an alternative way is using the following command:  
-`mvn archetype:generate 
-–DarchetypeGroupId=org.openl.rules 
-–DarchetypeArtifactId=openl-simple-project-archetype
-\-DarchetypeVersion=5.X.X`
-
+	As an alternative way is using the following command:  
+	`mvn archetype:generate 
+	–DarchetypeGroupId=org.openl.rules 
+	–DarchetypeArtifactId=openl-simple-project-archetype
+	\-DarchetypeVersion=5.X.X`
 1.  Follow with the Maven creation wizard.
-
-After all steps are completed, a new Maven based project appears in the file system. It is an OpenL Rules project which has one module with simple rules in it.
-
+	After all steps are completed, a new Maven based project appears in the file system. It is an OpenL Rules project which has one module with simple rules in it.
 1.  Execute the following command in the command line from the root of the project folder to compile the project:
-
-```
-mvn install
-```
-
-After executing this command, the following files can be found in the target folder:
-
+	```
+	mvn install
+	```
+	After executing this command, the following files can be found in the target folder:
 1.  zip file with "-deployable" suffix for importing the project to OpenL Tablets WebStudio.
-
-For more information, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]**.
-
+	For more information, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 1.  zip file (with "-runnable" suffix) that can be executed after extracting it.
-
-It demonstrates how OpenL Tablets rules can be invoked from Java code.
-
+	It demonstrates how OpenL Tablets rules can be invoked from Java code.
 1.  jar file that contains only compiled Java classes.
-
-This jar can be put in classpath of the project and used as a depended library.
+	This jar can be put in classpath of the project and used as a depended library.
 
 #### Creating a Project in OpenL Tablets WebStudio
 
 OpenL Tablets WebStudio allows users to create new rule projects in the Repository in one of the following ways:
-
 -   creating a rule project from template
 -   creating a rule project from Excel files
 -   creating a rule project from zip archive
@@ -381,13 +365,13 @@ The following diagram explains how projects are stored in OpenL Tablets WebStudi
 
 ![](developer_guide_images/cfe626306d566bf04e35710addf90c86.png)
 
-*Figure: OpenL Tablets WebStudio and OpenL Tablets Rule Services Integration*
+*OpenL Tablets WebStudio and OpenL Tablets Rule Services Integration*
 
 When a user starts editing a project, it is extracted from Design Repository and placed in the file system, in a user workspace. The project becomes locked in Design Repository for editing by other users. After editing is finished, the user saves the project. An updated version of the project is saved to Design Repository and becomes available for editing by other users.
 
 OpenL Tablets Rule Services use separate repository instance, Production Repository. OpenL Tablets WebStudio can be configured to deploy complete and tested rules projects to that repository.
 
-For more information, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**
+For more information, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 #### Creating a Project Manually
 
@@ -405,39 +389,35 @@ This section illustrates the creation of a wrapper for a **Simple** project in I
 
 ![](developer_guide_images/3fab56bb6cbb593717239fa20b830deb.png)
 
-*Figure: The hello1 rule table*
+*The hello1 rule table*
 
 Proceed as follows:
 
 1.  In the project `src` folder, create an interface as follows:
-
-```
-public interface Simple {
-		void hello1(int i);
-}
-```
-
+	```
+	public interface Simple {
+			void hello1(int i);
+	}
+	```
 1.  Create a wrapper object as follows:
-
-```
-import static java.lang.System.out;
-import org.openl.rules.runtime.RulesEngineFactory;
-
-public class Example {
-
-		public static void main(String[] args) {
-			//define the interface
-			RulesEngineFactory<Simple > rulesFactory = 
-				new RulesEngineFactory<Simple>("TemplateRules.xls", 
-									Simple.class);
-
-			Simple rules = (Simple) rulesFactory.newInstance();
-			rules.hello1(12);
-		
-		}
-}
-```
-
+	```
+	import static java.lang.System.out;
+	import org.openl.rules.runtime.RulesEngineFactory;
+	
+	public class Example {
+	
+			public static void main(String[] args) {
+				//define the interface
+				RulesEngineFactory<Simple > rulesFactory = 
+					new RulesEngineFactory<Simple>("TemplateRules.xls", 
+										Simple.class);
+	
+				Simple rules = (Simple) rulesFactory.newInstance();
+				rules.hello1(12);
+			
+			}
+	}
+	```
 When the class is run, it executes and displays **Good Afternoon, World!**
 
 The interface can be generated by OpenL Tablets in runtime if the developer does not define it when initializing the rule engine factory. In this case, rules can be executed via reflection.
@@ -469,8 +449,7 @@ method.invoke(rules, hour);
 }
 ```
 
-`This section includes the following topics:`
-
+This section includes the following topics:
 -   [Using OpenL Tablets Rules with the Runtime Context](#using-openl-tablets-rules-with-the-runtime-context)
 -   [Using OpenL Tablets Projects from Java Code](#using-openl-tablets-projects-from-java-code)
 -   [Accessing a Test Table from Java Code](#accessing-a-test-table-from-java-code)
@@ -479,15 +458,12 @@ method.invoke(rules, hour);
 ##### Using OpenL Tablets Rules with the Runtime Context
 
 This section describes using runtime context for dispatching versioned rules by dimension properties values.
-
 For example, two rules are overloaded by dimension properties. Both rules have the same name.
-
 The first rule, covering an Auto line of business, is as follows:
 
 ![](developer_guide_images/7ad37feeb6cacd9a05e5dc9f7cb43732.png)
 
-*Figure: The Auto rule*
-
+*The Auto rule*
 Pay attention to the rule line with the LOB property.
 
 The second rule, covering a Home line of business, is as follows:
@@ -495,7 +471,6 @@ The second rule, covering a Home line of business, is as follows:
 ![](developer_guide_images/f2a7d57cae9c44752b3bd1660f473cc9.png)
 
 *Figure: The Home rule*
-
 A wrapper enables the user to define which of these rules must be executed:
 
 ```
@@ -587,13 +562,13 @@ TestUnitsResults res = (TestUnitsResults) testMethod.invoke(engine, new Object[0
 
 ##### Generating Java Classes from Datatype Tables
 
-Some rules require complex data models as input parameters. Developers have to generate classes for each datatype defined in an Excel file for using them in a static interface as method arguments. The static interface can be used in engine factory. For more information on how to create and use a wrapper, see [Using OpenL Tablets Rules from Java Code](#_Using_a_WrapperOpenL).
+Some rules require complex data models as input parameters. Developers have to generate classes for each datatype defined in an Excel file for using them in a static interface as method arguments. The static interface can be used in engine factory. For more information on how to create and use a wrapper, see [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code).
 
-**Note:** Datatype is an OpenL table of the Datatype type created by a business user. It defines a custom data type. Using these data types inside the OpenL Tablets rules is recommended as the best practice. For more information on datatypes, see **[OpenL Tablets Reference Guide]**, the **Datatype Table** section.
+**Note:** Datatype is an OpenL table of the Datatype type created by a business user. It defines a custom data type. Using these data types inside the OpenL Tablets rules is recommended as the best practice. For more information on datatypes, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide), the **Datatype Table** section.
 
 To generate datatype classes, proceed as follows:
 
-1.  For Maven, configure the OpenL Maven plugin as described in [Configuring the OpenL Maven Plugin](#_Configuring_OpenL_maven) and run the Maven script.
+1.  For Maven, configure the OpenL Maven plugin as described in [Configuring the OpenL Maven Plugin](#configuring-the-openl-maven-plugin) and run the Maven script.
 2.  For Ant, configure the Ant task file as described in [Configuring the Ant Task File](#configuring-the-ant-task-file) and execute the Ant task file.
 
 ###### Configuring the OpenL Maven Plugin
@@ -639,19 +614,19 @@ Each `<generateInterface>` section has a number of parameters described in the f
 
 | Name                   | Type      | Required | Description                                                                                                                                                                                                                                                                                 |
 |------------------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `srcFile`              | `String`  | `true`   | `Reference to the Excel file for which an interface class must be generated.`                                                                                                                                                                                                               |
-| `targetClass`          | `String`  | `true`   | `Full name of the interface class to be generated. `OpenL Tablets WebStudio` recognizes modules in projects by interface classes and uses their names in UI. If there are multiple wrappers with identical names, only one of them is recognized as a module in `OpenL Tablets WebStudio`.` |
-| `displayName`          | `String`  | `false`  | `End user-oriented title of the file that appears in `OpenL Tablets WebStudio`. A default value is Excel file name without extension.`                                                                                                                                                      |
-| `targetSrcDir`         | `String`  | `false`  | `Folder where the generated interface class must be placed. An example is src/main/java. ` `The default value is ${project.build.sourceDirectory}.`                                                                                                                                         |
-| `openlName`            | `String`  | `false`  | `OpenL Tablets configuration to be used. For OpenL Tablets, the org.openl.xls value must always be used.` `The default value is org.openl.xls.`                                                                                                                                             |
-| `userHome`             | `String`  | `false`  | `Location of user-defined resources relative to the current OpenL Tablets project. The default value is ..`                                                                                                                                                                                 |
-| `userClassPath`        | `String`  | `false`  | `Reference to the folder with additional compiled classes that is imported by the module when the interface is generated. ` `The default value is null.`                                                                                                                                    |
-| `ignoreTestMethods`    | `boolean` | `false`  | `If true, test methods are not added to interface class. It is used only in JavaInterfaceAntTask. The default value is true.`                                                                                                                                                               |
-| `generateUnitTests`    | `boolean` | `false`  | `Parameter that overwrites the base generateUnitTests value.`                                                                                                                                                                                                                               |
-| `unitTestTemplatePath` | `String`  | `false`  | `Parameter that overwrites the base unitTestTemplatePath value.`                                                                                                                                                                                                                            |
-| `overwriteUnitTests`   | `boolean` | `false`  | `Parameter that overwrites the base overwriteUnitTests value.`                                                                                                                                                                                                                              |
+| `srcFile`              | `String`  | `true`   | Reference to the Excel file for which an interface class must be generated.                                                                                                                                                                                                              |
+| `targetClass`          | `String`  | `true`   | Full name of the interface class to be generated. <br/>OpenL Tablets WebStudio recognizes modules in projects by interface classes and uses their names in UI. <br/>If there are multiple wrappers with identical names, only one of them is recognized as a module in OpenL Tablets WebStudio. |
+| `displayName`          | `String`  | `false`  | End user-oriented title of the file that appears in OpenL Tablets WebStudio. <br/>A default value is Excel file name without extension.                                                                                                                                                      |
+| `targetSrcDir`         | `String`  | `false`  | Folder where the generated interface class must be placed. An example is src/main/java. <br/>The default value is ${project.build.sourceDirectory}.                                                                                                                                         |
+| `openlName`            | `String`  | `false`  | OpenL Tablets configuration to be used. For OpenL Tablets, the org.openl.xls value must always be used.<br/>The default value is org.openl.xls.                                                                                                                                             |
+| `userHome`             | `String`  | `false`  | Location of user-defined resources relative to the current OpenL Tablets project. The default value is ..                                                                                                                                                                                 |
+| `userClassPath`        | `String`  | `false`  | Reference to the folder with additional compiled classes that is imported by the module when the interface is generated. <br/>The default value is null.                                                                                                                                    |
+| `ignoreTestMethods`    | `boolean` | `false`  | If true, test methods are not added to interface class. It is used only in JavaInterfaceAntTask. <br/>The default value is true.                                                                                                                                                             |
+| `generateUnitTests`    | `boolean` | `false`  | Parameter that overwrites the base generateUnitTests value.                                                                                                                                                                                                                               |
+| `unitTestTemplatePath` | `String`  | `false`  | Parameter that overwrites the base unitTestTemplatePath value.                                                                                                                                                                                                                            |
+| `overwriteUnitTests`   | `boolean` | `false`  | Parameter that overwrites the base overwriteUnitTests value.                                                                                                                                                                                                                              |
 
-For more configuration options, see **[**[**OpenL Tablets Maven Plugin Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Maven%20Plugin%20Guide/)**].**
+For more configuration options, see [OpenL Tablets Maven Plugin Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/maven_plugin_guide/).
 
 ###### Configuring the Ant Task File
 
@@ -715,10 +690,8 @@ This section includes the following `topics` about data and data types handling 
 Datatype lifecycle is as follows:
 
 1.  A Datatype table is created in the rules file.
-
-At runtime, Java class is generated for each datatype as described in [Byte Code Generation at Runtime](#byte-code-generation-at-runtime).
-
-1.  If Java classes are generated from a Datatype table as described in [Generating Java Classes from Datatype Tables](#_Generating_Java_Classes), the appropriate generated Java classes must be included in classpath as described in [Java Files Generation](#java-files-generation).
+	At runtime, Java class is generated for each datatype as described in [Byte Code Generation at Runtime](#byte-code-generation-at-runtime).
+1.  If Java classes are generated from a Datatype table as described in [Generating Java Classes from Datatype Tables](#generating-java-classes-from-datatype-tables), the appropriate generated Java classes must be included in classpath as described in [Java Files Generation](#java-files-generation).
 
 ##### Inheritance in Datatypes
 
@@ -734,7 +707,7 @@ At runtime, when OpenL Tablets engine instance is being built, for each datatype
 
 ##### Java Files Generation
 
-As generation of datatypes is performed at runtime and developers cannot access these classes in their code, the mechanism described at [Generating Java Classes from Datatype Tables](#_Generating_Java_Classes) is introduced. It allows generating Java files and putting them on the file system so users can use these data types in their code.
+As generation of datatypes is performed at runtime and developers cannot access these classes in their code, the mechanism described at [Generating Java Classes from Datatype Tables](#generating-java-classes-from-datatype-tables) is introduced. It allows generating Java files and putting them on the file system so users can use these data types in their code.
 
 ##### OpenL Internals: Accessing a Datatype at Runtime and After Building an OpenL Wrapper
 
@@ -752,7 +725,7 @@ A **data table** contains relational data that can be referenced as follows:
 
 ![](developer_guide_images/a28fa77744743115850b191dd7f9ed75.png)
 
-*Figure: Simple data table*
+*Simple data table*
 
 In this example, information in the data table can be accessed from the Java code as illustrated in the following code example:
 
@@ -768,7 +741,7 @@ where `tableWrapper` is an instance of the wrapper class of the Excel file.
 
 ![](developer_guide_images/4c3548c5c7101bb2fc6a9b3d682e534b.png)
 
-*Figure: Datatype table and a corresponding data table*
+*Datatype table and a corresponding data table*
 
 In Java code, the data table `p1` can be accessed as follows:
 
@@ -867,6 +840,7 @@ There can be only one active table validator per active table.
 The dependency class resolution mechanism is implemented using specialized classloading.
 
 Each dependency has its own Java classloader so all classes used in compiling a specified module, including generated datatype Java classes, are stored in the dependency classloader.
+![](developer_guide_images/classloaders.png)
 
 *Figure: Dependency classloaders*
 
@@ -877,6 +851,7 @@ The root module contains references to all its dependencies classloaders. When l
 3.  If a class is found, return it.
 4.  If a class does not exist, search for the class by its classloader.
 
+![](developer_guide_images/classloaders2.png)
 *Figure: Load class from root module*
 
 For the dependency management feature, provide an appropriate `DependencyManager` object to the entry point for the OpenL Tablets compilation.
@@ -916,11 +891,11 @@ The OpenL Tablets language framework has been designed from the ground up to all
 
 The following topics are included in this chapter:
 
--   [Java Business Object Model as a Basis for OpenL Tablets Business Vocabulary](#_Java_Business_Object)
+-   [Java Business Object Model as a Basis for OpenL Tablets Business Vocabulary](#java-business-object-model-as-a-basis-for-openl-tablets-business-vocabulary)
 -   [New Keywords and Avoiding Possible Naming Conflicts](#new-keywords-and-avoiding-possible-naming-conflicts)
 -   [Simplifying Expressions with Explanatory Variables](#simplifying-expressions-with-explanatory-variables)
 -   [Simplifying Expressions by the Using Unique in Scope Concept](#simplifying-expressions-by-using-the-unique-in-scope-concept)
--   [OpenL Tablets Programming Language Framework](#_OpenL_Programming_Language)
+-   [OpenL Tablets Programming Language Framework](#openl-tablets-programming-language-framework)
 
 ### Java Business Object Model as a Basis for OpenL Tablets Business Vocabulary
 
@@ -929,21 +904,15 @@ OpenL Tablets minimizes the effort required to build a business vocabulary. Usin
 ```
 driver.age 
 ```
-
 and
-
 ```
 Age of the Driver 
 ```
-
 Another example:
-
 ```
 policy.effectiveDate 
 ```
-
 and
-
 ```
 Effective Date of the Policy 
 ```
@@ -1011,17 +980,17 @@ From the programming language perspective, the semantic part is irrelevant due t
 
 The following topics are included in this section:
 
--   [OpenL Tablets Grammars](#_OpenL_Grammars)
+-   [OpenL Tablets Grammars](#openl-tablets-grammars)
 -   [Context, Variables, and Types](#context-variables-and-types)
--   [OpenL Tablets Type System](#_OpenL_Type_System)
+-   [OpenL Tablets Type System](#openl-tablets-type-system)
 -   [OpenL Tablets as OpenL Tablets Type Extension](#openl-tablets-as-openl-tablets-type-extension)
--   Operators
+-   [Operators](#operators)
 -   [Binary Operators Semantic Map](#binary-operators-semantic-map)
 -   [Unary Operators](#unary-operators)
 -   [Cast Operators](#cast-operators)
 -   [Strict Equality and Relation Operators](#strict-equality-and-relation-operators)
--   [List of org.openl.j Operators](#_The_lList_of)
--   [List of opg.openl.j Operator Properties](#_The_list_of)
+-   [List of org.openl.j Operators](#list-of-org.openl.j-operators)
+-   [List of opg.openl.j Operator Properties](#list-of-opg.openl.j-operator-properties)
 
 #### OpenL Tablets Grammars
 
@@ -1097,7 +1066,7 @@ OpenL Tablets is built on top of the OpenL Tablets type system, thus enabling na
 
 #### Operators
 
-**Operators** are methods with priorities defined by grammar. OpenL Tablets has two major types of operators, unary and binary. In addition, there are operator types used in special cases. A complete list of OpenL Tablets operators used in **org.openl.j** grammar is available at [List of org.openl.j Operators](#_List_of_org.openl.j).
+**Operators** are methods with priorities defined by grammar. OpenL Tablets has two major types of operators, unary and binary. In addition, there are operator types used in special cases. A complete list of OpenL Tablets operators used in **org.openl.j** grammar is available at [List of org.openl.j Operators](#list-of-org.openl.j-operators).
 
 OpenL Tablets has a modular structure, so OpenL Tablets has configurable, high-level separate components like **parser** and **binder**, and each node type can have its own NodeBinder. At the same time, the single NodeBinder can be assigned to a group of operators, as in the case of the **op.binary** prefix.
 
@@ -1111,24 +1080,20 @@ OpenL Tablets has a modular structure, so OpenL Tablets has configurable, high-l
 The found method is executed in runtime. So, to override binary operator **t1 OP t2**, where **t1**, **t2** are objects of classes **T1**, **T2**, perform the following steps:
 
 1.  Check operators and find the operator's type name.
-
-The last part of the type name is the name of the method to be implemented.
-
+	The last part of the type name is the name of the method to be implemented.
 1.  Use one of the following options available for implementing operators:
--   Put it into the YourCustomOperators class as a static method and register the class as a library in the org.openl.operators namespace
-
-    For more information on how to do that, see OpenLBuilder code.
-
--   Implement **public Tx name(T2 p2)** as method in T1.
--   Implement **Tx name(T1 p1,T2 p2) as** method in T1.
--   Implement **static public Tx name(T1 p1,T2 p2)** as method in T2.
+	-   Put it into the YourCustomOperators class as a static method and register the class as a library in the org.openl.operators namespace
+	    For more information on how to do that, see OpenLBuilder code.
+	-   Implement **public Tx name(T2 p2)** as method in T1.
+	-   Implement **Tx name(T1 p1,T2 p2) as** method in T1.
+	-   Implement **static public Tx name(T1 p1,T2 p2)** as method in T2.
 1.  If **T1** and **T2** are different, define both **OP(T1, T2)** and **OP(T2, T1**), unless **autocast()** operator can be relied on or binary operators semantic **map. Autocast** can help skipping implementation when there is already an operator implemented for the autocasted type.
 
 For example, when having **OP(T1, double)**, there is no need to implement **OP(T1, int)** because **int** is autocasted to double. Some performance penalty can be incurred by doing this though. For more information on binary operators semantic map, see [Binary Operators Semantic Map](#binary-operators-semantic-map).
 
 #### Binary Operators Semantic Map
 
-There is a convenient feature called *operator semantic map*. It makes implementing some of the operators easier by describing symmetrical and inverse properties for some operators as described in [List of opg.openl.j Operator Properties](#_List_of_opg.openl.j).
+There is a convenient feature called *operator semantic map*. It makes implementing some of the operators easier by describing symmetrical and inverse properties for some operators as described in [List of opg.openl.j Operator Properties](#list-of-opg.openl.j-operator-properties).
 
 #### Unary Operators
 
@@ -1236,7 +1201,7 @@ OpenL Tablets supports externalizing application configuration to work with the 
 The following topics are included in this section:
 
 -   [Accessing Command Line Properties](#accessing-command-line-properties)
--   [Using Property Files](#_Using_Application_Property)
+-   [Using Property Files](#using-property-files)
 
 ### Accessing Command Line Properties
 
@@ -1250,7 +1215,7 @@ By default, OpenL Tablets converts any command line option arguments into a `pro
 
 This section describes how to externalize application configuration using application property files and profile-specific properties and includes the following topics:
 
--   [Default Properties Files](#_Default_Properties_Files)
+-   [Default Properties Files](#default-properties-files)
 -   [Application Property Files](#application-property-files)
 -   [Profile-Specific Properties](#profile-specific-properties)
 
