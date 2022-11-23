@@ -9,6 +9,7 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 This preface is an introduction to the *OpenL Tablets Developer's Guide*.
 
 The following topics are included in this preface:
+
 -   [Audience](#audience)
 -   [Related Information](#related-information)
 -   [Typographic Conventions](#typographic-conventions)
