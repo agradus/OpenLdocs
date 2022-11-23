@@ -733,9 +733,9 @@ In case of Java code, dispatching priority rules is used after selecting tables 
 There are two predefined priority rules and possibility to implement Java class that compares two tables using their properties:
 
 -   **min(\<property name\>)**
-	A table that has lower value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
+	<br/>A table that has lower value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
 -   **max(\<property name\>)**
-	A table that has a higher value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
+	<br/>A table that has a higher value of property specified will have a higher priority. The property specified by name must be `instanceof Comparable<class of property value>`.
 
 To specify the Java comparator of tables, the `javaclass:<java class name>` expression must be used. Java class must implement `Comparator<ITableProperties>`.
 
@@ -920,8 +920,8 @@ The following topics are included in this section:
 -   [Unary Operators](#unary-operators)
 -   [Cast Operators](#cast-operators)
 -   [Strict Equality and Relation Operators](#strict-equality-and-relation-operators)
--   [List of org.openl.j Operators](#list-of-org-openl-j-operators)
--   [List of opg.openl.j Operator Properties](#list-of-opg.openl.j-operator-properties)
+-   [List of org.openl.j Operators](#list-of-orgopenlj-operators)
+-   [List of opg.openl.j Operator Properties](#list-of-opgopenlj-operator-properties)
 
 #### OpenL Tablets Grammars
 When the OpenL Tablets parser parses an OpenL Tablets expression, it produces a syntax tree. Each tree node has a node type, a literal value, a reference to the source code for displaying errors and debugging, and also may contain child nodes. This resembles what other parsers do, with one notable exception – the OpenL Tablets Grammar is not hard-coded, it can be configured, and a different one can be used. For all practical purposes, as of today, only the following grammars implemented in OpenL Tablets are distributed:
@@ -979,7 +979,7 @@ There are two approaches to deal with those external types:
 | Approach              | Specifics                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | using API             | API approach is inherently not type-safe, it treats attribute as literal strings; therefore, even spelling errors become visible only in runtime. <br/>Unless the standard API exists, user’s program becomes dependent on the particular API.                                                                                                                                                                                                                                 |
-| using code generation | Code generation requires an extra building step and is dependent on particular generator, especially the part where names and name spaces are converted into Java names and packages. <br/>Often, generators introduce dependencies with runtime libraries that affect portability of the code. <br/>Generators usually require full conversion from external data into Java objects that may incur an unnecessary performance penalty when only a few attributes must be accessed. |
+| using code generation | Code generation requires an extra building step and is dependent on particular generator, especially the part where names and name spaces are converted <br/>into Java names and packages. Often, generators introduce dependencies with runtime libraries that affect portability of the code. <br/>Generators usually require full conversion from external data into Java objects that may incur an unnecessary performance penalty <br/>when only a few attributes must be accessed. |
 
 The **OpenL Tablets open type** system provides a simple way of adding new types into the OpenL Tablets language. It only requires defining a class object that implements the OpenClass interface and adding it to the OpenL Tablets type system. Implementations can vary, but access to object attributes and methods has the same syntax and provides the same type-checking in all OpenL Tablets code throughout the user application.
 
@@ -987,7 +987,7 @@ The **OpenL Tablets open type** system provides a simple way of adding new types
 OpenL Tablets is built on top of the OpenL Tablets type system, thus enabling natural integration into any Java or OpenL Tablets environment. Using the OpenL Tablets methodology, **decision tables** become **methods**, and **data tables** become **fields**. Similar conversion happens to all project artifacts. As a result, any project component can be easily modularly accessed through Java or OpenL Tablets code. An OpenL Tablets project itself becomes a **class** and easy Java access to it is provided through a generated JavaWrapper class.
 
 #### Operators
-**Operators** are methods with priorities defined by grammar. OpenL Tablets has two major types of operators, unary and binary. In addition, there are operator types used in special cases. A complete list of OpenL Tablets operators used in **org.openl.j** grammar is available at [List of org.openl.j Operators](#list-of-org.openl.j-operators).
+**Operators** are methods with priorities defined by grammar. OpenL Tablets has two major types of operators, unary and binary. In addition, there are operator types used in special cases. A complete list of OpenL Tablets operators used in **org.openl.j** grammar is available at [List of org.openl.j Operators](#list-of-orgopenlj-operators).
 
 OpenL Tablets has a modular structure, so OpenL Tablets has configurable, high-level separate components like **parser** and **binder**, and each node type can have its own NodeBinder. At the same time, the single NodeBinder can be assigned to a group of operators, as in the case of the **op.binary** prefix.
 
@@ -1013,7 +1013,7 @@ The found method is executed in runtime. So, to override binary operator **t1 OP
 For example, when having **OP(T1, double)**, there is no need to implement **OP(T1, int)** because **int** is autocasted to double. Some performance penalty can be incurred by doing this though. For more information on binary operators semantic map, see [Binary Operators Semantic Map](#binary-operators-semantic-map).
 
 #### Binary Operators Semantic Map
-There is a convenient feature called *operator semantic map*. It makes implementing some of the operators easier by describing symmetrical and inverse properties for some operators as described in [List of opg.openl.j Operator Properties](#list-of-opg.openl.j-operator-properties).
+There is a convenient feature called *operator semantic map*. It makes implementing some of the operators easier by describing symmetrical and inverse properties for some operators as described in [List of opg.openl.j Operator Properties](#list-of-opgopenlj-operator-properties).
 
 #### Unary Operators
 For unary operators, the same method resolution algorithm is being applied, with difference that there is only one parameter to deal with.
