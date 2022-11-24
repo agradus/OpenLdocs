@@ -49,9 +49,9 @@ The following table lists sources of information related to contents of this gui
 
 | Title                                                                                                                                                       | Description                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]** | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
-| **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**]**             | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
-| **[**[**OpenL Tablets Installation Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Installation%20Guide.pdf)**]**       | Describes how to install and set up OpenL Tablets software.                                                   |
+| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
+| [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide)             | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
+| [OpenL Tablets Installation Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide)       | Describes how to install and set up OpenL Tablets software.                                                   |
 | [*https://openl-tablets.org/*](http://openl-tablets.org/)                                                                                                   | OpenL Tablets open source project website.                                                                    |
 
 ### Typographic Conventions
@@ -60,7 +60,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
@@ -107,14 +107,10 @@ This section introduces Rule Services Core functionality and includes the follow
 
 To use the Rule Services Core within Maven, declare the module dependencies in the project object model (POM) as described in the following example:
 
-`<dependency>`
-
-`	<groupId>org.openl.rules</groupId>`
-
-`	<artifactId>org.openl.rules.ruleservice</artifactId>`
-
-`	<version>${openl.version}</version>`
-
+`<dependency>
+	<groupId>org.openl.rules</groupId>
+	<artifactId>org.openl.rules.ruleservice</artifactId>
+	<version>${openl.version}</version>
 `</dependency>`
 
 If Apache Maven is not used in the project, it is recommended to download all dependencies via Maven and add all downloaded dependencies into the existing project classpath.
@@ -142,7 +138,7 @@ Spring configuration defined in the `openl-ruleservice-beans.xml` file registers
 |-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `OpenLService findServiceByName(String serviceName)`                                                | Find registered OpenL Tablets service by name.                                                                                                    |
 | `Object execute(String serviceName, String ruleName, Class<?>[] inputParamsTypes, Object[] params)` | Invokes a rule with the defined parameter types and parameter values from the deployed OpenL Tablets service.                                     |
-| `Object execute(String serviceName, String ruleName, Object... params)`                             | Invokes a rule with the defined parameter values from the deployed OpenL service. Parameter types are automatically defined from sent parameters. |
+| `Object execute(String serviceName, String ruleName, Object... params)`                             | Invokes a rule with the defined parameter values from the deployed OpenL service. <br/>Parameter types are automatically defined from sent parameters. |
 | `Object getValue(String serviceName, String fieldName)`                                             | Returns field value from the defined OpenL Tablets service.                                                                                       |
 | `Collection<String> getServiceNames()`                                                              | Returns a list of registered OpenL Tablets services.                                                                                              |
 | `void registerService(OpenLService service)`                                                        | Registers the OpenL Tablets service.                                                                                                              |
@@ -178,10 +174,10 @@ OpenL Tablets Rule Services architecture allows extending mechanisms of services
 
 This section describes OpenL Tablets Rule Services configuration and includes the following topics:
 
--   [OpenL Tablets Rule Services Default Configuration](#_OpenL_Tablets_Web_2)
--   [OpenL Tablets Rule Services Default Configuration Files](#_OpenL_Tablets_Web_3)
--   [Service Manager](#_Service_Manager)
--   [Configuration Points](#_Configuration_Points)
+-   [OpenL Tablets Rule Services Default Configuration](#openl-tablets-rule-services-default-configuration)
+-   [OpenL Tablets Rule Services Default Configuration Files](#openl-tablets-rule-services-default-configuration-files)
+-   [Service Manager](#service-manager)
+-   [Configuration Points](#configuration-points)
 
 ### OpenL Tablets Rule Services Default Configuration
 
@@ -215,11 +211,11 @@ If necessary, modify the OpenL Tablets Rule Services configuration by overriding
 | `openl-ruleservice-store-log-data-beans.xml`  | Configuration for external request and response storages.                                                                                        |
 | `application.properties	`                      | Main configuration file containing properties for OpenL Tablets Rule Services configuration.                                                     |
 
-For more information on configuration files, see [Configuration Points](#_Configuration_Points).
+For more information on configuration files, see [Configuration Points](#configuration-points).
 
 ### Service Manager
 
-**Service Manager** is the main component of OpenL Tablets Rule Services frontend joining all major parts, such as a loader, rule service publishers, and Service Configurer. For more information on OpenL Tablets Rule Services frontend components, see **[**[**OpenL Tablets Developer Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Developer%20Guide.pdf)**]**.
+**Service Manager** is the main component of OpenL Tablets Rule Services frontend joining all major parts, such as a loader, rule service publishers, and Service Configurer. For more information on OpenL Tablets Rule Services frontend components, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
 
 Service Manager manages all currently running services and intelligently controls all operations for deploying, undeploying, and redeploying the services. These operations are only performed in the following cases:
 
@@ -230,7 +226,7 @@ Service Manager always acts as a data source listener as described in further se
 
 ### Configuration Points
 
-Any part of OpenL Tablets Rule Services frontend can be replaced by the user’s own implementation. For more information on the system architecture, see **[**[**OpenL Tablets Developer Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Developer%20Guide.pdf)**].**
+Any part of OpenL Tablets Rule Services frontend can be replaced by the user’s own implementation. For more information on the system architecture, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
 
 If the common approach is used, the following components must be configured:
 
@@ -244,9 +240,9 @@ The following sections describe how to configure these components:
 -   [Configuring a Data Source](#configuring-a-data-source)
 -   [Service Configurer](#service-configurer)
 -   [Service Exposing Methods](#service-exposing-methods)
--   [Configuring System Settings](#_Configuring_System_Settings)
+-   [Configuring System Settings](#configuring-system-settings)
 -   [CORS Filter Support](#cors-filter-support)
--   [Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#_Log_Requests_to)
+-   [Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#logging-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
 
     **Note:** There is a specific rule of parsing parameter names in methods. The algorithm checks the case of the second letter in a word and sets the first letter case the same as for the second letter. For example, parameters for `MyMethod (String fParam, String Sparam)` in REST requests are defined as `FParam` and `sparam`.
 
@@ -254,7 +250,7 @@ The following sections describe how to configure these components:
 
 The system supports the following data source implementations:
 
--   [File System](#_File_System)
+-   [File System](#file-system)
 -   [Relational Database](#relational-database)
 -   [Amazon AWS S3](#amazon-aws-s3)
 -   [GIT](#git)
@@ -267,9 +263,7 @@ Using a file system as a data source for projects means that projects are stored
 To configure a local file system as a data source, proceed as follows:
 
 1.  In `application.properties,` set `production-repository.factory = repo-file.`
-
-By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
-
+	By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
 1.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
 
     **Note:** For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
@@ -279,22 +273,20 @@ By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is use
 To use a relational database repository as a data source, proceed as follows:
 
 1.  Add the appropriate driver library for a database.
-
-For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
-
+	For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
 1.  In the `application.properties` file, set repository settings as follows:
 2.  Set `production-repository.factory = repo-jdbc.`
 3.  Set the value for `production-repository.uri` according to the database as follows:
-
-| Database       | URL value                                                                                     |
-|----------------|-----------------------------------------------------------------------------------------------|
-| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                         |
-| Oracle         | `jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE`                                                   |
-| `MS SQL`       | `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]` |
-| PostrgeSQL     | `jdbc:postrgesql://[host][:port]/[schema]`                                                    |
-
-`For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.`
-
+	
+	| Database       | URL value                                                                                     |
+	|----------------|-----------------------------------------------------------------------------------------------|
+	| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                         |
+	| Oracle         | `jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE`                                                   |
+	| `MS SQL`       | `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]` |
+	| PostrgeSQL     | `jdbc:postrgesql://[host][:port]/[schema]`                                                    |
+	
+	`For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.`
+	
 1.  `Set login and password for a connection to the database in production-repository.login and production-repository.password settings.`
 
     **Note:**`	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. `
@@ -318,139 +310,120 @@ secret.key=
 To use an AWS S3 repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example.openl</groupId>
-    <artifactId>webservice-aws</artifactId>
-    <packaging>war</packaging>
-    <version>1.0-beta</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.openl.version>#Define OpenL Tablets version here#</org.openl.version>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.openl.rules</groupId>
-            <artifactId>org.openl.rules.repository.aws</artifactId>
-            <version>${org.openl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openl.rules</groupId>
-            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
-            <type>war</type>
-            <version>${org.openl.version}</version>
-        </dependency>
-    </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>2.9.5</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>2.9.5</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>1.11</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-</project>
-```
-
+	
+	```
+	<?xml version="1.0" encoding="UTF-8"?>
+	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	    <modelVersion>4.0.0</modelVersion>
+	    <groupId>com.example.openl</groupId>
+	    <artifactId>webservice-aws</artifactId>
+	    <packaging>war</packaging>
+	    <version>1.0-beta</version>
+	
+	    <properties>
+	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	        <org.openl.version>#Define OpenL Tablets version here#</org.openl.version>
+	    </properties>
+	    <dependencies>
+	        <dependency>
+	            <groupId>org.openl.rules</groupId>
+ 	           <artifactId>org.openl.rules.repository.aws</artifactId>
+	            <version>${org.openl.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.openl.rules</groupId>
+	            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+ 	           <type>war</type>
+ 	           <version>${org.openl.version}</version>
+ 	       </dependency>
+	    </dependencies>
+	    <dependencyManagement>
+	        <dependencies>
+	            <dependency>
+	                <groupId>com.fasterxml.jackson.core</groupId>
+	                <artifactId>jackson-databind</artifactId>
+ 	               <version>2.9.5</version>
+	            </dependency>
+	            <dependency>
+	                <groupId>com.fasterxml.jackson.core</groupId>
+ 	               <artifactId>jackson-annotations</artifactId>
+	                <version>2.9.5</version>
+	            </dependency>
+	            <dependency>
+	                <groupId>commons-codec</groupId>
+	                <artifactId>commons-codec</artifactId>
+	                <version>1.11</version>
+	            </dependency>
+	        </dependencies>
+	    </dependencyManagement>
+	</project>
+	```
+	
 1.  Set the following properties in the `application.properties` file:
-
-    production-repository.factory = repo-aws-s3
-
-    production-repository.bucket-name = yourBucketName
-
-    production-repository.region-name = yourS3Region
-
-    production-repository.access-key = yourAccessKey
-
-    production-repository.secret-key = yourSecretKey
+    	production-repository.factory = repo-aws-s3
+    	production-repository.bucket-name = yourBucketName
+    	production-repository.region-name = yourS3Region
+    	production-repository.access-key = yourAccessKey
+    	production-repository.secret-key = yourSecretKey
 
 ##### GIT
 
 To use a Git repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.git`, create a `pom.xml` file with the following content:
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example.openl</groupId>
-    <artifactId>webservice-git</artifactId>
-    <packaging>war</packaging>
-    <version>1.0-beta</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.openl.version>>#Define OpenL Tablets version here#</org.openl.version>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.openl.rules</groupId>
-            <artifactId>org.openl.rules.repository.git</artifactId>
-            <version>${org.openl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openl.rules</groupId>
-            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
-            <type>war</type>
-            <version>${org.openl.version}</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
+	
+	```
+	<?xml version="1.0" encoding="UTF-8"?>
+	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	    <modelVersion>4.0.0</modelVersion>
+	    <groupId>com.example.openl</groupId>
+	    <artifactId>webservice-git</artifactId>
+	    <packaging>war</packaging>
+	    <version>1.0-beta</version>
+	
+	    <properties>
+	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	        <org.openl.version>>#Define OpenL Tablets version here#</org.openl.version>
+	    </properties>
+	    <dependencies>
+	        <dependency>
+	            <groupId>org.openl.rules</groupId>
+	            <artifactId>org.openl.rules.repository.git</artifactId>
+	            <version>${org.openl.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.openl.rules</groupId>
+	            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+	            <type>war</type>
+ 	           <version>${org.openl.version}</version>
+	        </dependency>
+	    </dependencies>
+	</project>
+	```
+	
 1.  Build it with Maven: `mvn clean package`.
 2.  Replace `webservice.war` with the war file you built.
 3.  Set the following properties to the `application.properties` file (change necessary fields):
 
-    production-repository.factory = repo-git
-
-    `production-repository.uri = https://github.com/<your-name>/your-repo.git`
-
-    `production-repository.login = your-login`
-
-    `production-repository.password = your-password`
+    	production-repository.factory = repo-git
+    	production-repository.uri = https://github.com/<your-name>/your-repo.git
+    	production-repository.login = your-login
+    	production-repository.password = your-password
 
 4.  Additionally, to override default values, add these optional properties:
 
-    `# Local path for Git repository.`
-
-    `production-repository.local-repository-path = ${ruleservice.openl.home}/git`
-
-    `# The branch where deployed projects can be found.`
-
-    `production-repository.branch = master`
-
-    `# Committer's display name. If null, username will be “OpenL_Deployer”.`
-
-    `production-repository.user-display-name =`
-
-    `# Committer's email. If null, email will be empty.`
-
-    `production-repository.user-email =`
-
-    `# Repository connection timeout in seconds. Must be greater than zero.`
-
-    `production-repository.connection-timeout = 60`
-
-    \# Repository changes check interval in seconds. Must be greater than 0.
-
-    production-repository.listener-timer-period = 10
+   	`# Local path for Git repository.`
+    	production-repository.local-repository-path = ${ruleservice.openl.home}/git
+   	`# The branch where deployed projects can be found.`
+	 production-repository.branch = master
+    	`# Committer's display name. If null, username will be “OpenL_Deployer”.`
+    	production-repository.user-display-name =
+    	`# Committer's email. If null, email will be empty.`
+    	production-repository.user-email =
+    	`# Repository connection timeout in seconds. Must be greater than zero.`
+    	production-repository.connection-timeout = 60
+    	`# Repository changes check interval in seconds. Must be greater than 0.`
+   	 production-repository.listener-timer-period = 10
 
 ##### Classpath JAR
 
@@ -472,7 +445,7 @@ This section introduces Service Configurer and includes the following topics:
 -   [Understanding Service Configurer](#understanding-service-configurer)
 -   [Deployment Configuration File](#deployment-configuration-file)
 -   [Service Description](#service-description)
--   [Configuring the Deployment Filter](#_Configuring_the_Deployment)
+-   [Configuring the Deployment Filter](#configuring-the-deployment-filter)
 
 ##### Understanding Service Configurer
 
@@ -586,9 +559,9 @@ To add a publisher, use any framework by implementations of `org.openl.rules.rul
 
 OpenL Tablets Rule Services supports following publisher implementations out of the box:
 
--   [CXF REST Publisher](#_CXF_REST_Publisher_1)
+-   [CXF REST Publisher](#cxf-rest-publisher)
 -   [RMI Publisher](#rmi-publisher)
--   [Kafka Publisher](#_Kafka_Publisher)
+-   [Kafka Publisher](#kafka-publisher)
 
 ##### CXF REST Publisher
 
@@ -634,11 +607,9 @@ Note that changing this setting affects all projects in the system. To change th
 
 Default JSON properties serialization and deserialization behavior can be changed via `ruleservice.jackson.` `serializationInclusion, ruleservice.jackson.caseInsensitiveProperties, `and` ruleservice.jackson.failOnUnknownProperties` in the `application.properties` file. The default value for this property is set as follows:
 
-`ruleservice.jackson.serializationInclusion = USE_DEFAULTS`
-
-`ruleservice.jackson.caseInsensitiveProperties = false`
-
-`ruleservice.jackson.failOnUnknownProperties = false`
+`ruleservice.jackson.serializationInclusion = USE_DEFAULTS
+ruleservice.jackson.caseInsensitiveProperties = false
+ruleservice.jackson.failOnUnknownProperties = false`
 
 These values are used by the system for all published projects that do not have these properties defined in the `rules-deploy.xml` file.
 
@@ -744,9 +715,8 @@ The appropriate port and host name for RMI can be defined in the `application.pr
 
 By default, these properties are defined as follows:
 
-`ruleservice.rmiPort = 1099 // Port for RMI`
-
-`ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI`
+`ruleservice.rmiPort = 1099 // Port for RMI
+ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI`
 
 ##### Kafka Publisher
 
@@ -759,7 +729,7 @@ The following topics are included in this section:
 -   [Modes for Exposing Services](#modes-for-exposing-services)
 -   [Supported Message Headers](#supported-message-headers)
 -   [Custom Message Serialization](#custom-message-serialization)
--   [Date Format Definition and JSON Serialization and Deserialization Configuration](#_Date_Format_Definition)
+-   [Date Format Definition and JSON Serialization and Deserialization Configuration](#date-format-definition-and-json-serialization-and-deserialization-configuration)
 -   [Spring Kafka Integration Support](#spring-kafka-integration-support)
 
 ###### Modes for Exposing Services
@@ -773,11 +743,11 @@ Kafka Publisher allows exposing the services in the following modes:
 
 The following topics are included in this section:
 
--   [Enabling Kafka Publisher for a Service](#_Enabling_Kafka_Publisher_1)
--   [Configuring Application Level Kafka Settings](#_Configuring_Application_Level)
--   [Configuring Service Level Kafka Settings](#_Configuring_Service_Level)
+-   [Enabling Kafka Publisher for a Service](#enabling-kafka-publisher-for-a-service)
+-   [Configuring Application Level Kafka Settings](#configuring-application-level-kafka-settings)
+-   [Configuring Service Level Kafka Settings](#configuring-service-level-kafka-settings)
 
-Enabling Kafka Publisher for a Service
+####### Enabling Kafka Publisher for a Service
 
 By default, Kafka Publisher is not used for deployed projects. To enable it, add the Kafka Publisher type to `rules-deploy.xml` as follows:
 
@@ -791,7 +761,7 @@ By default, Kafka Publisher is not used for deployed projects. To enable it, add
 </rules-deploy>
 ```
 
-Configuring Application Level Kafka Settings
+####### Configuring Application Level Kafka Settings
 
 OpenL Tablets Rule Services can be configured via the `application.properties` file or environment variables. Kafka-related settings are as follows:
 
@@ -800,7 +770,7 @@ OpenL Tablets Rule Services can be configured via the `application.properties` f
 | ruleservice.kafka.bootstrap.servers | localhost:9092   | Comma separated Kafka broker hosts.                            |
 | `ruleservice.kafka.group.id`        | openl-webservice | Group name for all Kafka consumers created by the application. |
 
-Configuring Service Level Kafka Settings
+####### Configuring Service Level Kafka Settings
 
 If an OpenL Tablets service is configured to use Kafka Publisher, the OpenL Tablets service must contain the `kafka-deploy.yaml` file in the same place where rules-deploy.xml deployment configuration is located.
 
@@ -883,7 +853,7 @@ Rules behavior in OpenL Tablets can be extended using one of the following optio
 
 -   [Dispatching Table Properties](#dispatching-table-properties)
 -   [Table Dispatching Validation Mode](#table-dispatching-validation-mode)
--   [Configuring a Number of Threads to Rules Compilation](#_Configure_a_Nnumber)
+-   [Configuring a Number of Threads to Rules Compilation](#configuring-a-number-of-threads-to-rules-compilation)
 -   [Enabling Logging to Console](#enabling-logging-to-console)
 -   [Configuring the Instantiation Strategy](#configuring-the-instantiation-strategy)
 
@@ -979,7 +949,7 @@ cors.preflight.maxage = 7200
 
 The system provides an ability to store all requests to OpenL Tablets Rule Services and their responds in a storage. The setting is defined in the `application.properties` file. The following topics describe logging setup:
 
--   [Understanding Logging to an External Storage](#_Understanding_logging_to)
+-   [Understanding Logging to an External Storage](#understanding-logging-to-an-external-storage)
 -   [Enabling Logging to an External Storage](#enabling-logging-to-an-external-storage)
 -   [Storing Log Records in Apache Cassandra](#storing-log-records-in-apache-cassandra)
 -   [Storing Log Records in the Relational Database](#storing-log-records-in-the-relational-database)
