@@ -1,1534 +1,2134 @@
-# Rule Services Usage and Customization Guide
+# OpenL Tablets Rule Services Usage and Customization Guide
 
 ```
-Release 5.27
+Release 5.26
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
 ```
 
-```
-OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
-```
+## Preface
 
-## Rule Services test
+OpenL Tablets is a Business Rules Management System (BRMS) based on the tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code.
 
-**OpenL Tablets** is a Business Rules Management System (BRMS) based on tables presented in the Microsoft Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as an executable source code.
+OpenL Tablets provides a set of tools addressing BRMS related capabilities including *OpenL Tablets Rule Services* *application* designed for integration of business rules into different customers’ applications.
 
-OpenL Tablets provides a set of tools addressing the BRMS related capabilities including *OpenL Tablets WebStudio* that can be used for creating, testing, and managing business rules and business rule projects, and *OpenL Tablets Rule Services* designed for integration of business rules into customer applications.
+The goal of this document is to explain how to configure Rule Services Core, that is, configure OpenL Tablets Rule Services or integrate the Rule Services Core module into the existing application, for different working environments and how to customize the services to meet particular customer requirements.
 
-The OpenL Tablets Installation Guide provides instructions for installing and customizing OpenL Tablets software. The document describes how to install OpenL Tablets under Apache Tomcat, deploy, and set up OpenL Tablets Rule Services.
+The following topics are included in this chapter:
 
-All installation and configuration can be done in the `application.properties` file. For an example of this file with all properties described, see <http://localhost:8080/webstudio/web/config/application.properties> or access it at the index page of the installed OpenL Tablets WebStudio.
-
-![](installation_guide_images/1ff42f8d9b8012a5f4307404f564d115.png)
-
-*Figure: Accessing the application.properties file example*
-
-This section includes the following topics:
-
--   [How This Guide Is Organized](#how-this-guide-is-organized)
 -   [Audience](#audience)
+-   [How This Guide Is Organized](#how-this-guide-is-organized)
 -   [Related Information](#related-information)
 -   [Typographic Conventions](#typographic-conventions)
 
-### How This Guide Is Organized
-
-| Section                                                                                                                                                                                     | Description                                                                                                  |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| [Before You Begin](#_Before_You_Begin)                                                                                                                                                      | Lists system requirements for installing and using OpenL Tablets software.                                   |
-| [Install OpenL Tablets WebStudio<br/> under Apache Tomcat](#_Install_OpenL_Tablets)                                                                                                              | Explains how to install OpenL Tablets WebStudio under Apache Tomcat.                                         |
-| [Deploy OpenL Tablets Rule Services<br/> under Apache Tomcat](#deploy-openl-tablets-rule-services-under-apache-tomcat)                                                                           | Designed for rule developers who need to use business rules as separate web services.                        |
-| [Install OpenL Tablets WebStudio and<br/>OpenL Tablets Rule Services on JBoss Application Server](#install-openl-tablets-webstudio-and-openl-tablets-rule-services-on-jboss-application-server) | Explains how to install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server. |
-| [OpenL Tablets WebStudio and OpenL Tablets Rule<br/> Services Integration](#openl-tablets-webstudio-and-rule-services-integration)                                                               | Explains how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services as an integrated environment. |
-| [Troubleshooting Notes](#_Troubleshooting_Notes) <br/>[Frequently Asked Questions](#frequently-asked-questions)                                                                                  | Provides useful information related to OpenL Tablets installation.                                           |
-
 ### Audience
 
-This guide is mainly targeted at business users and rule experts who define, view, and manage their business rules and rule projects via OpenL Tablets WebStudio. Developers can also use this document to learn how to install and set up OpenL Tablets Rule Services.
+This guide is targeted at rule developers who integrate the Rule Services Core module and set up, configure, and customize OpenL Tablets Rule Services to facilitate the needs of customer rules management applications.
 
-Basic knowledge of Java and Apache Tomcat is required to use this guide effectively.
+Basic knowledge of Java, Apache Tomcat, Ant, Maven, and Excel is required to use this guide effectively.
+
+### How This Guide Is Organized
+
+| Section                                                                                                                          | Description                                                                                                                             |
+|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| [Introduction](#_Introduction)                                                                                                   | Provides overall information about OpenL Tablets Rule Services.                                                                         |
+| [Rule Services Core](#_OpenL_Tablets_Web)                                                                                        | Introduces Rule Services Core functionality.                                                                                            |
+| [OpenL Tablets Rule Services Configuration](#_OpenL_Tablets_Web_5)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service Manager, and explains main configuration points. |
+| [OpenL Tablets Rule Services Advanced Configuration and Customization](#_OpenL_Tablets_Web_6)                                    | Describes OpenL Tablets Rule Services advanced services configuration and customization.                                                |
+| [Appendix A: Tips and Tricks](#appendix-a-using-openl-tablets-rest-services-from-java-code)                                      | Describes how to use OpenL Tablets Rule Services from Java code.                                                                        |
+| [Appendix B: Projects on the OpenL Tablets Rule Services Launch](#_Appendix_B:_Projects)                                         | Explains how projects appear upon OpenL Tablets Rule Services launch.                                                                   |
+| [Appendix C: Types of Exceptions in OpenL Tablets Rule Services](#appendix-c-types-of-exceptions-in-openl-tablets-rule-services) | Explains typical exceptions in OpenL Tablets Rule Services.                                                                             |
+| [Appendix D: OpenAPI Support](#_Appendix_D:_OpenAPI)                                                                             | Explains Swagger support in OpenL Tablets.                                                                                              |
+| [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)     | Describes how to locate a project with rules in the database repository without OpenL Tablets WebStudio deploy functionality.           |
+| [Appendix F: Backward Compatibility Settings](#appendix-f-backward-compatibility-settings)                                       | Describes backward compatibility settings.                                                                                              |
+| [Appendix G: Deployment Project ZIP Structure](#appendix-g-deployment-project-zip-structure)                                     | Describes ZIP structure for single and multiple project deployment.                                                                     |
+| [Appendix H: Manifest File for Deployed Projects](#appendix-h-manifest-file-for-deployed-projects)                               | Introduces manifest files created during project deployment from OpenL Tablets WebStudio or using the OpenL Tablets Maven plugin.       |
 
 ### Related Information
 
-The following table lists the sources of information related to contents of this guide:
+The following table lists sources of information related to contents of this guide:
 
 | Title                                                                                                                                                       | Description                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]** | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
-| **[OpenL Tablets Reference Guide]**                                                                                                                         | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
-| <https://openl-tablets.org/>                                                                                                                                | OpenL Tablets open source project website.                                                                    |
+| **[**[**OpenL Tablets Reference Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Reference%20Guide.pdf)**]**             | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
+| **[**[**OpenL Tablets Installation Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Installation%20Guide.pdf)**]**       | Describes how to install and set up OpenL Tablets software.                                                   |
+| [*https://openl-tablets.org/*](http://openl-tablets.org/)                                                                                                   | OpenL Tablets open source project website.                                                                    |
 
 ### Typographic Conventions
 
 The following styles and conventions are used in this guide:
 
-| Convention                 | Description                                                                                                                                                                                                                                                                                                                 |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, <br/>dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, <br/>tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as F9 or CTRL+A. <br/>Represents a term the first time it is defined. |
-| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                      |
-| `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                         |
-| **Select File \> Save As** | Represents a command to perform, such as opening the File menu and selecting Save As.                                                                                                                                                                                                                                       |
-| *Italic*                   | Represents any information to be entered in a field.  Represents documentation titles.                                                                                                                                                                                                                                      |
-| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                  |
-| Hyperlink                  | Represents a hyperlink. <br/>Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                             |
-| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                      |
+| Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
+| `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
+| Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
+| *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
+| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
+| Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
+| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                              |
 
-## Before You Begin
+## Introduction
 
-This section lists system requirements for OpenL Tablets software and introduces OpenL Tablets WebStudio instance properties. The following topics are included:
+The majority of OpenL Tablets customers need to expose business rules as REST web services. For this purpose, OpenL Tablets Rule Services is provided. To meet requirements of various customer project implementations, OpenL Tablets Rule Services provides the ability to dynamically create web services for customer rules and offers extensive configuration and customization capabilities.
 
--   [System Requirements for OpenL Tablets Software](#system-requirements-for-openl-tablets-software)
--   [Common Information about OpenL Tablets WebStudio Instances](#common-information-about-openl-tablets-webstudio-instances)
+Overall architecture of OpenL Tablets Rule Services is expandable and customizable. All functionality is divided into pieces; each of them is responsible for a small part of functionality and can be replaced by another implementation if it is required. Usually, default implementation is enough to cover all requirements of most customers.
 
-### System Requirements for OpenL Tablets Software
+![](ruleservices_guide_images/0c77b8ae9a8b78daab816ca0b6add357.jpg)
 
-The following table covers system requirements for installing and running OpenL Tablets software:
+*Overall OpenL Tablets Rule Services architecture*
 
-| Software          | Requirements description                                                                                                                                                                                                                                                                                      |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Operating systems | One of the following: <br/>• Microsoft Windows 7+ x86/64 <br/>• Ubuntu 12.x <br/>• Linux 3.x <br/>Note: OpenL Tablets software can potentially run on any operating system that supports Java Virtual Machine, for example, Mac OS. <br/>This table lists operating systems on which the OpenL Tablets software is tested and supported. |
-| Browsers          | One of the following: <br/>• Microsoft Internet Explorer 11.x <br/>• Firefox 60 ESR or later <br/>• Chrome 73+                                                                                                                                                                                                                     |
-| Data Bases        | One of the following: <br/>• MySQL 5.5+ <br/>• MariaDB 10.2+ <br/>• MS SQL Server 2008+ <br/>• Oracle 11g + <br/>• PostgreSQL 9.5+                                                                                                                                                                                                               |
-| Other software    | <br/>Java v8/11/12 x86/64  <br/>Apache Tomcat 7, 8.5, 9 <br/>WebSphere Application Server 8.5 <br/>JBoss EAP 7.1                                                                                                                                                                                                                  |
+OpenL Tablets Rule Services provides the following key features and benefits:
 
-**Hardware requirements:** RAM 4 GB minimum. 6 GB is recommended. 1 GHz or faster 32-bit (x86) or 64-bit (x64) processor.
+-   easily integrating customer business rules into various applications running on different platforms
+-   using different data sources, such as a central OpenL Tablets production repository or file system of a proper structure
+-   exposing multiple projects and modules as a single web service according to a project logical structure
 
-**User rights requirements:** Administrative permissions are required to install the software under Microsoft Windows or UNIX system.
+The subsequent chapters describe how to set up a data source, Service Configurer, and a service exposing method, and how to integrate OpenL Tablets into the existing application.
 
-!!! note
-	It is highly recommended to avoid using spaces and special characters in paths.
+OpenL Tablets Rule Services is based on Rule Services Core and supports all features provided by the Rule Services Core module.
 
-### Common Information about OpenL Tablets WebStudio Instances
+The following diagram identifies all components to be configured and customized.
 
-This section provides general information about OpenL Tablets WebStudio home directory structure and resources shared among multiple OpenL Tablets WebStudio instances. The following topics are included:
+![](ruleservices_guide_images/5d0d09ff58045febcb4f99f179e5050b.jpeg)
 
--   [OpenL Tablets WebStudio Home Directory Configuration](#openl-tablets-webstudio-home-directory-configuration)
--   [Starting OpenL Tablets WebStudio in the Cluster Mode](#starting-openl-tablets-webstudio-in-the-cluster-mode)
--   [Sharing webstudio.properties](#sharing-webstudioproperties)
--   [Sharing Project History](#sharing-project-history)
--   [Sharing Project Index](#sharing-project-index)
+*Configurable and customizable components of Rule Services Core*
 
-#### OpenL Tablets WebStudio Home Directory Configuration
+## Rule Services Core
 
-When OpenL Tablets WebStudio is run for the first time, by default `${user.home}/.openl `is used as the `openl.home` or `OPENL_HOME` directory where the application is deployed.
+This section introduces Rule Services Core functionality and includes the following topics:
 
-This folder contents depends on configuration. Example of its contents is as follows:
+-   [Adding Dependencies into the Project](#adding-dependencies-into-the-project)
+-   [Configuring Spring Integration for Rule Services Core](#configuring-spring-integration-for-rule-services-core)
+-   [Customizing and Configuring Rule Services Core](#customizing-and-configuring-rule-services-core)
 
-`locks`
+### Adding Dependencies into the Project
 
-`repositories` which is a settings folder
+To use the Rule Services Core within Maven, declare the module dependencies in the project object model (POM) as described in the following example:
 
-`user-workspace` that contains `.locks` folder and folders by users with `.history` folders
+`<dependency>`
 
-`webstudio.properties` file
+`	<groupId>org.openl.rules</groupId>`
 
-`cache`
+`	<artifactId>org.openl.rules.ruleservice</artifactId>`
 
-`repositories` that includes `deploy-config` and `design` folders
+`	<version>${openl.version}</version>`
 
-In case of multiple OpenL Tablets WebStudio instances, a shared file storage can be defined. The `openl.home.shared` folder must be defined in the `application.properties` file before launching OpenL Tablets WebStudio for the first time.
+`</dependency>`
 
-An example of the `openl.home.shared` folder contents is as follows:
+If Apache Maven is not used in the project, it is recommended to download all dependencies via Maven and add all downloaded dependencies into the existing project classpath.
 
-`locks`
+### Configuring Spring Integration for Rule Services Core
 
-`repositories` which is a settings folder
+This section describes how to configure Spring and Rule Services Core integration and includes the following topics:
 
-`user-workspace` that contains the `.locks` folder and folders by users with `.history` folders
+-   [Adding a Bean Configuration File to the Spring Context Definition](#adding-a-bean-configuration-file-to-the-spring-context-definition)
+-   [Simple Java Frontend Implementation](#simple-java-frontend-implementation)
 
-`webstudio.properties` file
+#### Adding a Bean Configuration File to the Spring Context Definition
 
-An example of the `openl.home` folder contents is as follows:
+To support the Rule Services Core features, add the `openl-ruleservice-beans.xml` bean configuration file into the application Spring context definition. An example is as follows:
 
-`cache`
+`<import resource="classpath:openl-ruleservice-beans.xml" />`
 
-`repositories` that includes `deploy-config` and `design` folders and by default can be set to one folder
+After adding the Rule Services Core beans, Spring configuration has a simple Java frontend service as a default publisher for all OpenL Tablets services.
 
-`users-db,` only for a local h2 database
+#### Simple Java Frontend Implementation
 
-This option is not available if OpenL Tablets WebStudio is installed using the installation wizard. In this case, `openl.home.shared` is set equal to `openl.home` and it cannot be modified in the installation wizard.
+Spring configuration defined in the `openl-ruleservice-beans.xml` file registers the `frontend` bean with default frontend implementation. This bean implements the `org.openl.rules.ruleservice.simple.RulesFrontend `interface that is designed to interact with deployed OpenL Tablets services.
 
-#### Starting OpenL Tablets WebStudio in the Cluster Mode
+| Inceptor                                                                                            | Description                                                                                                                                       |
+|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `OpenLService findServiceByName(String serviceName)`                                                | Find registered OpenL Tablets service by name.                                                                                                    |
+| `Object execute(String serviceName, String ruleName, Class<?>[] inputParamsTypes, Object[] params)` | Invokes a rule with the defined parameter types and parameter values from the deployed OpenL Tablets service.                                     |
+| `Object execute(String serviceName, String ruleName, Object... params)`                             | Invokes a rule with the defined parameter values from the deployed OpenL service. Parameter types are automatically defined from sent parameters. |
+| `Object getValue(String serviceName, String fieldName)`                                             | Returns field value from the defined OpenL Tablets service.                                                                                       |
+| `Collection<String> getServiceNames()`                                                              | Returns a list of registered OpenL Tablets services.                                                                                              |
+| `void registerService(OpenLService service)`                                                        | Registers the OpenL Tablets service.                                                                                                              |
+| `void unregisterService(String serviceName)`                                                        | Unregisters the OpenL Tablets service.                                                                                                            |
+| `<T> T buildServiceProxy(String serviceName, Class<T> proxyInterface)`                              | Builds a proxy for the OpenL Tablets service with a defined interface.                                                                            |
+| `T> T buildServiceProxy(String serviceName, Class<T> proxyInterface, ClassLoader classLoader)`      | Builds a proxy for the OpenL Tablets service with a defined interface and defined class loader.                                                   |
 
-To start OpenL Tablets WebStudio in the cluster mode, the `openl.home.shared` or `OPENL_HOME_SHARED` property must be defined properly. In the cluster mode, the same file storage can be used for multiple OpenL Tablets WebStudio instances.
+The `frontend `bean can be injected to user’s bean to interact with deployed OpenL Tablets services.
 
-<img src="../installation_guide_images/a9b21678a299178dbf55c69e15dc64db.jpeg" width="500">
+`OpenLServiceFactoryBean` is a factory bean implementation used to create a proxy object to interact with OpenL Tablets service. To create a proxy object, define a been factory as described in the following example:
 
-*Figure: Multiple OpenL Tablets WebStudio instances sharing the same drive*
+`<bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">`
 
-#### Sharing webstudio.properties
+`	<!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->`
 
-`webstudio.properties` can be shared among multiple instances of OpenL Tablets WebStudio. If the `openl.home.shared` path is added to `application.properties` before starting OpenL Tablets WebStudio, and it differs from the `openl.home` path, a separate folder is created for storing `webstudio.properties` file and administrative settings can be shared among several instances of OpenL Tablets WebStudio that have one `openl.home.shared` path.
+`	<property name="serviceName" value="service1"/>`
 
-`webstudio.properties` contents can be modified by OpenL Tablets WebStudio when saving settings.
+`	<property name="proxyInterface" value="com.myproject.Service1"/>`
 
-#### Sharing Project History
+`</bean>`
 
-Project history can be shared among multiple instances of OpenL Tablets WebStudio.
+In this example, `serviceName` is a name of the deployed OpenL Tablets service and `proxyInterface` is an interface for building a proxy object. All invocations of proxy object methods are delegated to the `execute `method of the `frontend `bean. The invoked method name with its parameters is used as input parameters for the `execute `method.
 
-It is stored in user workspace, in the `openl.home.shared` folder if set up so before launching OpenL Tablets WebStudio. Thus, users can view project history from different OpenL Tablets WebStudio instances.
+**Note:** Proxy beans and proxy objects created by `frontend` bean are automatically updated if the OpenL Tablets service is redeployed into a data source. Nevertheless, these objects are not working while the project is redeployed. To synchronize this process, use Service Publisher listeners described in further sections.
 
-#### Sharing Project Index
+### Customizing and Configuring Rule Services Core
 
-Project index can be shared among multiple instances of OpenL Tablets WebStudio to support work with the Git non-flat structure repository from different OpenL Tablets WebStudio instances. The `openl-projects.yaml` file that contains a list of projects and their paths is now stored in `repositories\settings\design` of the `openl.home.shared` folder, or `openl.home` if the shared folder is not configured.
+The Rule Services Core module configuration features resemble configuration features for OpenL Tablets Rule Services. The OpenL Tablets Rule Services customization and configuration information is provided in this document and can be applied to Rule Services Core in the same way. For the list of components supported only by OpenL Tablets Rule Services, see diagrams in [Introduction](#introduction).
 
-## Install OpenL Tablets WebStudio under Apache Tomcat
+## OpenL Tablets Rule Services Configuration
 
-This section describes how to set up the environment for working with OpenL Tablets software and deploy OpenL Tablets WebStudio under Apache Tomcat and provides information about settings required for proper functioning of the application.
+OpenL Tablets Rule Services architecture allows extending mechanisms of services loading and deployment according to the particular project requirements.
 
-Perform the following steps:
+This section describes OpenL Tablets Rule Services configuration and includes the following topics:
 
--   [Installing JDK](#installing-jdk)
--   [Installing Apache Tomcat](#installing-apache-tomcat)
--   [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio)
--   [Configuring External User Database](#configuring-external-user-database)
--   [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard)
--   [Integration with External Identify Providers](#integrationwithexternalidentityproviders)
--   [OpenL Tablets WebStudio Customization](#_OpenL_Tablets_WebStudio_1)
+-   [OpenL Tablets Rule Services Default Configuration](#_OpenL_Tablets_Web_2)
+-   [OpenL Tablets Rule Services Default Configuration Files](#_OpenL_Tablets_Web_3)
+-   [Service Manager](#_Service_Manager)
+-   [Configuration Points](#_Configuration_Points)
 
-### Installing JDK
+### OpenL Tablets Rule Services Default Configuration
 
-To install JDK, perform the following steps:
+All OpenL Tablets Rule Services configuration is specified in Spring configuration files and `application`*.*`properties` files. The `application.properties` file is located inside the application `.war `file (inside WEB-INF/classes folder), in a user’s directory or in a working directory.
 
-1. Download JDK.
+The configuration file located inside the `.war `file contains default settings for all properties. Use it as a reference of possible settings and redefine as required in your configuration file, such as the `application.properties` file located in a user’s home directory.
 
-	Options are as follows:
-	
-	-   Download OpenJDK 11 available at <https://openjdk.java.net/projects/jdk/11/>.
-	-   Download jdk-8u231 or later from <http://www.oracle.com/technetwork/java/javase/downloads/index.html> to the target directory.
-	
-    Further in the document, this catalog is referred to as `<JAVA_HOME>`.
+All settings used in `application.properties` file can be defined as JVM options. In this case, JVM options override settings defined in files.
 
-    !!! note
-    	It is highly recommended to avoid installing Java in the default Program Files directory because it can cause problems due to space characters in the path to the folder.
+By default, OpenL Tablets Rule Services is configured as follows:
 
-    For more information on the installation, see <http://www.oracle.com/technetwork/java/javase/index-137561.html>.
+1.  A data source is configured as `FileSystemDataSource` located in the `"${user.home}/.openl/datasource"` folder.
+2.  All services are exposed as REST services using the CXF framework.
+3.  `LastVersionProjectsServiceConfigurer` is used as a default service configurer that takes the last version of each deployment and creates the service for each project using all modules contained in the project.
 
-1. Install JDK according to the instructions.  
-	Now the environment variable `JAVA_HOME` must be set to the pathname of the directory where JDK is installed. 
-	1. For MS Windows, set the environment variable `JAVA_HOME` as follows:
-	2. To open the **System Properties** window, press **\<Windows\> + \<Pause\>** or right click the **My Computer** icon and in the pop-up menu, select **Properties**.
-	3. In the **Advanced** tab, click **Environment Variables**.
-	4. In the **System variables** area, click **New**.
-	5. In the **Variable** name field, enter *JAVA_HOME.*
-	6. In the **Variable** value field, enter the path to the directory where JDK is installed, for example, `C:\Java\jdk1.8.0_231`.
-	7.  Click **OK** to complete.
+### OpenL Tablets Rule Services Default Configuration Files
 
-8. For Unix/Linux environments, assuming the target directory is `/usr/lib/jvm/jdk1.8.0_231`, to set up the environment variable `JAVA_HOME` for a single user, proceed as follows:
-	9.  Log in to the account and open `.bash_profile:nano ~/.bash_profile`.
-	10. Add the following line
-        
-	    `export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_231`.
+If necessary, modify the OpenL Tablets Rule Services configuration by overriding the existing configuration files. All overridden Spring beans must be defined in the `openl-ruleservice-override-beans.xml `file. The following table lists Spring configuration files used in OpenL Tablets Rule Services:
 
-	11. Add or correct the system PATH as follows:
-	
-	    `export PATH=$PATH:$JAVA_HOME/bin`
-	
-	12. To save, press **CTRL+O** and then press **CTRL+X** to exit.
-	
-13. For Unix/Linux environments, assuming the target directory is `/usr/lib/jvm/jdk1.8.0_231`, to set up the environment variable `JAVA_HOME` for all users, proceed as follows:
-	14. Log in as root and open the `nano /etc/profile` profile.
-	15. Add the following line:
-	
-	    `export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_231`.
-	
-	16. Add or correct the system PATH as follows:
-	
-	    `export PATH=$PATH:$JAVA_HOME/bin`.
+| File                                          | Description                                                                                                                                      |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `openl-ruleservice-beans.xml`                 | Main configuration file that includes all other configuration files. This file is searched by OpenL Tablets Rule Services in the classpath root. |
+| `openl-ruleservice-core-beans.xml`            | Configuration for ServiceManager and InstantiationFactory.                                                                                       |
+| `openl-ruleservice-datasource-beans.xml`      | Configuration for data sources.                                                                                                                  |
+| `openl-ruleservice-loader-beans.xml`          | Configuration for rules loader.                                                                                                                  |
+| `openl-ruleservice-publisher-beans.xml`       | Common publisher configurations.                                                                                                                 |
+| `openl-ruleservice-jaxrs-publisher-beans.xml` | Configuration for RESTful services publisher.                                                                                                    |
+| `openl-ruleservice-rmi-publisher-beans.xml`   | Configuration for RMI services publisher.                                                                                                        |
+| `openl-ruleservice-kafka-publisher-beans.xml` | Configuration for Kafka services publisher.                                                                                                      |
+| `openl-ruleservice-conf-beans.xml`            | Configuration for Service Configurer.                                                                                                            |
+| `openl-ruleservice-store-log-data-beans.xml`  | Configuration for external request and response storages.                                                                                        |
+| `application.properties	`                      | Main configuration file containing properties for OpenL Tablets Rule Services configuration.                                                     |
 
-### Installing Apache Tomcat
+For more information on configuration files, see [Configuration Points](#_Configuration_Points).
 
-Apache Tomcat can be installed from a ZIP file or using Windows Service Installer. The following topics are included in this section:
+### Service Manager
 
--   [Installing Apache Tomcat on Windows](#installing-apache-tomcat-on-windows)
--   [Installing Apache Tomcat on UNIX / Linux Machine](#installing-apache-tomcat-on-unix--linux-machine)
+**Service Manager** is the main component of OpenL Tablets Rule Services frontend joining all major parts, such as a loader, rule service publishers, and Service Configurer. For more information on OpenL Tablets Rule Services frontend components, see **[**[**OpenL Tablets Developer Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Developer%20Guide.pdf)**]**.
 
-#### Installing Apache Tomcat on Windows
+Service Manager manages all currently running services and intelligently controls all operations for deploying, undeploying, and redeploying the services. These operations are only performed in the following cases:
 
-This section describes how to install Apache Tomcat on Windows and includes the following topics:
+-   initial deployment at application startup
+-   processing after data source update
 
--   [Installing Apache Tomcat from Zip File](#installing-apache-tomcat-from-zip-file)
--   [Installing Apache Tomcat Using Windows Service Installer](#_How_to_Installing)
+Service Manager always acts as a data source listener as described in further sections of this chapter.
 
-##### Installing Apache Tomcat from Zip File
+### Configuration Points
 
-To install Apache Tomcat 7.0.x or later, proceed as follows:
+Any part of OpenL Tablets Rule Services frontend can be replaced by the user’s own implementation. For more information on the system architecture, see **[**[**OpenL Tablets Developer Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Developer%20Guide.pdf)**].**
 
-1.  Open Apache Tomcat home page at <http://tomcat.apache.org/index.html>.
-2.  In the left-hand **Download** menu, click the latest available Tomcat version.
-3.  Locate the **Binary Distributions** area and in the **Core** list, click on the ZIP file corresponding to the required Windows version.
-4.  Save the ZIP file in a temporary directory.
-5.  Extract the downloaded ZIP file into the target folder on the computer.
+If the common approach is used, the following components must be configured:
 
-	This folder is referred to as `<TOMCAT_HOME> `further in this document.
+| Component                   | Description                                                                                     |
+|-----------------------------|-------------------------------------------------------------------------------------------------|
+| **Data source**             | Informs the OpenL Tablets system where to retrieve user’s rules.                                |
+| **Service exposing method** | Defines the way services are exposed, for example, as a web service or a simple Java framework. |
 
-1.  For Tomcat web server 7.0, to configure JVM options, open the `TOMCAT_HOME/conf/server.xml `file and add the `URIEncoding="UTF-8"` attribute for all `<Connector>` elements.
+The following sections describe how to configure these components:
 
-	For example:
+-   [Configuring a Data Source](#configuring-a-data-source)
+-   [Service Configurer](#service-configurer)
+-   [Service Exposing Methods](#service-exposing-methods)
+-   [Configuring System Settings](#_Configuring_System_Settings)
+-   [CORS Filter Support](#cors-filter-support)
+-   [Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#_Log_Requests_to)
 
-	```
-	<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/>
-	```
+    **Note:** There is a specific rule of parsing parameter names in methods. The algorithm checks the case of the second letter in a word and sets the first letter case the same as for the second letter. For example, parameters for `MyMethod (String fParam, String Sparam)` in REST requests are defined as `FParam` and `sparam`.
 
-##### Installing Apache Tomcat Using Windows Service Installer
+#### Configuring a Data Source
 
-This section describes how to install Apache Tomcat using Windows Service Installer.
+The system supports the following data source implementations:
 
-!!! note
-	It is not recommended to select this type of installation if planning to edit rule tables in Excel files from OpenL Tablets WebStudio as described in **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]**, the **Modifying Tables** section. This type of installation requires additional setup. To solve this issue, contact your OpenL Tablets administrator.
+-   [File System](#_File_System)
+-   [Relational Database](#relational-database)
+-   [Amazon AWS S3](#amazon-aws-s3)
+-   [GIT](#git)
+-   [Classpath JAR](#classpath-jar)
 
-!!! note
-	For OpenL Tablets administrator: to enable editing rule tables in Excel files from OpenL Tablets WebStudio, enable the **Allow** service to interact with desktop Tomcat service option using MMC or from the command line.
+##### File System
+
+Using a file system as a data source for projects means that projects are stored in a local folder. By default, the configuration folder represents a single deployment containing all the projects and does not support multiple deployments and project versions. This data source is used by default.
+
+To configure a local file system as a data source, proceed as follows:
+
+1.  In `application.properties,` set `production-repository.factory = repo-file.`
+
+By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
+
+1.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
+
+    **Note:** For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
+
+##### Relational Database
+
+To use a relational database repository as a data source, proceed as follows:
+
+1.  Add the appropriate driver library for a database.
+
+For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
+
+1.  In the `application.properties` file, set repository settings as follows:
+2.  Set `production-repository.factory = repo-jdbc.`
+3.  Set the value for `production-repository.uri` according to the database as follows:
+
+| Database       | URL value                                                                                     |
+|----------------|-----------------------------------------------------------------------------------------------|
+| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                         |
+| Oracle         | `jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE`                                                   |
+| `MS SQL`       | `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]` |
+| PostrgeSQL     | `jdbc:postrgesql://[host][:port]/[schema]`                                                    |
+
+`For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.`
+
+1.  `Set login and password for a connection to the database in production-repository.login and production-repository.password settings.`
+
+    **Note:**`	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. `
+
+`p`roduction-repository.factory = repo-jdbc
+
+production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
+
+production-repository.login = root
+
+production-repository.password = admin
+
+\# Secret key for password code/decode
+
+secret.key=
+
+\#secret.cipher=AES/CBC/PKCS5Padding
+
+##### Amazon AWS S3
+
+To use an AWS S3 repository as a data source, proceed as follows:
+
+1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.openl</groupId>
+    <artifactId>webservice-aws</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-beta</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.openl.version>#Define OpenL Tablets version here#</org.openl.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.openl.rules</groupId>
+            <artifactId>org.openl.rules.repository.aws</artifactId>
+            <version>${org.openl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openl.rules</groupId>
+            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+            <type>war</type>
+            <version>${org.openl.version}</version>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.9.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.9.5</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
+```
+
+1.  Set the following properties in the `application.properties` file:
+
+    production-repository.factory = repo-aws-s3
+
+    production-repository.bucket-name = yourBucketName
+
+    production-repository.region-name = yourS3Region
+
+    production-repository.access-key = yourAccessKey
+
+    production-repository.secret-key = yourSecretKey
+
+##### GIT
+
+To use a Git repository as a data source, proceed as follows:
+
+1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.git`, create a `pom.xml` file with the following content:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.openl</groupId>
+    <artifactId>webservice-git</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-beta</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.openl.version>>#Define OpenL Tablets version here#</org.openl.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.openl.rules</groupId>
+            <artifactId>org.openl.rules.repository.git</artifactId>
+            <version>${org.openl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openl.rules</groupId>
+            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+            <type>war</type>
+            <version>${org.openl.version}</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+1.  Build it with Maven: `mvn clean package`.
+2.  Replace `webservice.war` with the war file you built.
+3.  Set the following properties to the `application.properties` file (change necessary fields):
+
+    production-repository.factory = repo-git
+
+    `production-repository.uri = https://github.com/<your-name>/your-repo.git`
+
+    `production-repository.login = your-login`
+
+    `production-repository.password = your-password`
+
+4.  Additionally, to override default values, add these optional properties:
+
+    `# Local path for Git repository.`
+
+    `production-repository.local-repository-path = ${ruleservice.openl.home}/git`
+
+    `# The branch where deployed projects can be found.`
+
+    `production-repository.branch = master`
+
+    `# Committer's display name. If null, username will be “OpenL_Deployer”.`
+
+    `production-repository.user-display-name =`
+
+    `# Committer's email. If null, email will be empty.`
+
+    `production-repository.user-email =`
+
+    `# Repository connection timeout in seconds. Must be greater than zero.`
+
+    `production-repository.connection-timeout = 60`
+
+    \# Repository changes check interval in seconds. Must be greater than 0.
+
+    production-repository.listener-timer-period = 10
+
+##### Classpath JAR
+
+If rule projects with the `rules.xml` project descriptor are packed into a JAR file and placed in the classpath, these projects are deployed in the configured data source at the application launch.
 
 Proceed as follows:
 
-1.  Navigate to the Apache Tomcat site at <http://tomcat.apache.org/index.html> and in the left-hand **Download** menu, click the latest available Tomcat version.
-2.  Locate the **Binary Distributions** area and in the **Core** list, click the [32-bit/64-bit Windows Service Installer](http://www.sai.msu.su/apache/tomcat/tomcat-7/v7.0.29/bin/apache-tomcat-7.0.29.exe) link.
+1.  Put the JAR file with the project to `\<TOMCAT_HOME>\webapps\<rule services file name>\WEB-INF\lib`.
+2.  In the `application.properties` file, set up the `ruleservice.datasource.deploy.classpath.jars = ` `true. `
 
-	Save the apache-tomcat exe file in a temporary folder.
+By default, this property is set to `true.`
 
-1.  Run the exe file and follow the instructions of the installation wizard.
-2.  Click **Next**.
-3.  In the **License Agreement** window, click **I Agree**.
-4.  In the **Choose Components** dialog, leave the default **Normal** type of installation.
+Note: Project deployment is skipped if the data source already contains the project with the same name.
 
-	Experienced Tomcat users can select another installation type in the drop-down list.
+#### Service Configurer
 
-1.  In the **Configuration** dialog, proceed with default values.
-2.  In the next window, review the folder where Tomcat will be installed, the **Destination Folder**.
+This section introduces Service Configurer and includes the following topics:
 
-	This folder is referred to as `<TOMCAT_HOME> `further in this document.
+-   [Understanding Service Configurer](#understanding-service-configurer)
+-   [Deployment Configuration File](#deployment-configuration-file)
+-   [Service Description](#service-description)
+-   [Configuring the Deployment Filter](#_Configuring_the_Deployment)
 
-1.  Click **Install** to start the installation.
-2.  Click **Finish** to complete.
+##### Understanding Service Configurer
 
-	As a result, Apache Tomcat is installed and started on the user’s computer. In the **Notification Area** located next to the clock, the ![](installation_guide_images/3cb496a7a506c9a316dd860933a62610.png) icon appears. Tomcat is managed by using this icon or from the **Start** menu.
+Service Configurer resolves a list of services to be exposed, such as modules contained in each service, service interface, and runtime context provision.
 
-1.  To configure JVM options for Tomcat, in the **Notification** area, right click the **Apache Tomcat** icon and select **Configure;** or click **Start \> All Programs \> Apache Tomcat 7.0 \> Configure Tomcat**.
+Modules for a service can be retrieved for different projects. Each deployment containing in a data source has a set of properties and can be represented in several versions. Deployment consists of projects that also have properties and contain some modules. There can be only one version of a specific project in the deployment.
 
-	The Apache Tomcat Properties dialog appears.
+Each module for a service can be identified by the deployment name, deployment version, project name inside the deployment, and module name inside the project.
 
-1.  Click the **Java** tab and in the **Java Options** text box, add the following lines:
-	```
-	-Xms512m
-	-Xmx2000m
-	-XX: +UseConcMarkSweepGC
-	-XX:PermSize=128m
-	-XX:MaxPermSize=512m
-	```
+Different module gathering strategies according to their needs can be implemented by extending `org.openl.rules.ruleservice.conf.ServiceConfigurer` interface. Users can choose deployments and projects with concrete values of a specific property, such as service for some LOB property or service containing modules with an expiration date before a specific date, or versions of deployments, or both these approaches.
 
-	!!! note
-	Every option must be manually entered in a separate row.
+OpenL Tablets users typically need web services containing several rule projects or modules. In this case, multiple modules can be united in one service using the `org.openl.rules.ruleservice.core.ServiceDescription` service description. Service description contains information about the required service, such as the service name, URL, and service class, and can be expanded to contain new configurations. To instantiate several modules, users can rely on the OpenL Tablets multi-module mechanism that combines a group of modules into a single rules engine instance.
 
-1.  Click **Apply** and then click **OK**.
-2.  To restart Tomcat, in **Notification Area**, right click the Tomcat icon and select **Stop service**.
+The `org.openl.rules.ruleservice.conf.LastVersionProjectsServiceConfigurer` default implementation of Service Configurer retrieves all deployments from a data source and publishes the latest versions of projects with unique version from the corresponding deployment configuration file `rules-deploy.xml. `In other words, if the `version` tag is not used in service description files for the same project versions, only one latest deployment version is published; otherwise, all deployment versions with unique `version` tag are published.
 
-	The Tomcat icon changes to ![](installation_guide_images/92d4ddf0cb30a775c8a9386e39167b21.png).
+##### Deployment Configuration File
 
-1.  Select **Start Service**.
+Default implementation of Service Configurer uses the `rules-deploy.xml` deployment configuration file from the project root folder. This file is created manually or via OpenL Tablets WebStudio. An example of the `rules-deploy.xml` file is as follows:
 
-	Alternatively, Tomcat can be restarted from the **General** tab in the **Apache Tomcat Properties** window which appears after selecting **Start \> All Programs \> Apache Tomcat 7.0 \> Configure Tomcat**.
+```
+<rules-deploy>
+	<isProvideRuntimeContext>true</isProvideRuntimeContext>
+	<isProvideVariations>false</isProvideVariations>
+	<serviceName>myService</serviceName>
+	<serviceClass>com.example.MyService </serviceClass>
+	<url>com.example.MyService</url>
+	<publishers>
+		<publisher>RESTFUL</publisher>
+		
+       </publishers>
+       <configuration>
+		<entry>
+			<string>someString</string>
+			<string>someString</string>
+		</entry>
+	</configuration>
+</rules-deploy>
+```
 
-From this point, OpenL Tablets WebStudio can be run as described in [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio).
+When deploying a project to OpenL Tablets Rule Services, if the rules-deploy.xml file is missing or publishers are not defined, only the RESTful service is deployed according to the following property:
 
-#### Installing Apache Tomcat on UNIX / Linux Machine
+`ruleservice.publishers=RESTFUL`
 
-This section describes how to install Apache Tomcat on the UNIX or Linux machine and includes the following topics:
+| Tag                               |  Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Required            |
+|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| isProvideRuntimeContext           | Identifies, if set to` true,` that a project provides a runtime context.  The default value is defined in the `application.properties` file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No                  |
+| isProvideVariations               | Identifies, if set to` true,` that a project provides variations.  The default value is defined in the `application.properties` file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | No                  |
+| serviceName                       | Defines a service name. The service name defined in the file is displayed for a deployed project in the embedded mode only. Otherwise, the service name is derived from its path. A default pattern is "{deployment_configuration_name}/{project_name}".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No                  |
+| serviceClass                      | Defines a service class. If it is not defined, a generated class is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                  |
+| rmiServiceClass                   | Define a service class to be used by RMI publisher.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Yes, if RMI is used |
+| version                           | Defines a service version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No                  |
+| url                               | Defines URL for a service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No                  |
+| annotationTemplateClassName       | Defines an interface being used as a template to annotate dynamic generated interface class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No                  |
+| groups                            | Defines a list of comma-separated groups used for this project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No                  |
+| publishers                        | Defines a list of publishers for a project. Available values are as follows: [RESTFUL](#_CXF_REST_Publisher) [RMI](#rmi-publisher) [KAFKA](#kafka-publisher) If the publisher list is empty, the service is deployed as a Java object without network API defined. This can be useful if deploying multiple projects in one deployment where some of these projects must not define the network API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | No                  |
+| configuration                     | Is used as extension point for custom service configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No                  |
+| lazy-modules-for-compilation      | Defines a list of modules to be loaded in case lazy loading mechanism is used. Module names can contain Ant path expressions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | No                  |
+| jackson.serializationInclusion    | Serialization option for JSON based services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | No                  |
+| jackson.defaultDateFormat         | Used to define date format is used in JSON.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | No                  |
+| jackson.caseInsensitiveProperties | Deserialization option for JSON based services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No                  |
+| jackson.failOnUnknownProperties   | Deserialization option for JSON based services. For more information on this property, see [Configuring JSON Payload Serialization and Deserialization](#configuring-json-payload-serialization-and-deserialization).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | No                  |
+| jackson.propertyNamingStrategy    | Used to configure names of output spreadsheet attributes. Supported attribute name strategies are as follows: **org.openl.rules.serialization.spr.LowerCamelCaseStrategy** All name elements, excluding the first one, start with a capitalized letter, followed by lowercase ones. The first letter is lowercased, and there are no separators.  **Example:** columnName. **org.openl.rules.serialization.spr.SnakeCaseStrategy** All letters are lowercase with underscores used as separators between name elements. **Example:** columnname_rowname. **org.openl.rules.serialization.spr.LowerCaseStrategy** All letters are lowercase with no separators. **Example:** columnname. **org.openl.rules.serialization.spr.UpperCamelCaseStrategy** All name elements start with a capitalized letter, followed by lowercase ones, and there are no separators. **Example:** ColumnNameRowName. |                     |
+| rootClassNamesBinding             | Defines a list of classes for automatically define inheritance between defined classes and properly registering them.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | No                  |
 
--   [Installing Apache Tomcat from Repository](#installing-apache-tomcat-from-repository)
--   [Installing Apache Tomcat from ZIP File](#installing-apache-tomcat-from-zip-file-1)
--   [Configuring JVM Options for Tomcat on UNIX / Linux Machine](#configuring-jvm-options-for-tomcat-on-unix--linux-machine)
+##### Service Description
 
-##### Installing Apache Tomcat from Repository
+Commonly each service is represented by rules and service interface and consists of the following elements:
 
-This section describes how to install Apache Tomcat from repository as a service on Ubuntu 12.x.
+| Service                                | Description                                                                                                                                                                                                                                                    |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Service name                           | Unique service identifier. If a service name is defined in the `rules-deploy.xml `file, it is displayed for the service in the embedded mode only. Otherwise, the service name is generated from the path as "{deployment_configuration_name}/{project_name}". |
+| Service URL                            | URL path for the service. It is absolute for the console start and relative to the context root for the `ws.war` case.                                                                                                                                         |
+| Service class                          | Interface of the service to be used at the server and the client side.                                                                                                                                                                                         |
+| Version                                | Number of the service version.                                                                                                                                                                                                                                 |
+| Rules                                  | Module or a set of modules to be combined as a single rules module.                                                                                                                                                                                            |
+| **Provide runtime context** flag       | Identifier of whether the runtime context must be added to all rule methods. If it is set to `true`,` `the `IRulesRuntimeContext` argument must be added to each method in the service class.                                                                  |
+| **Support variations** flag (optional) | Identifier of whether the current service supports variations. For more information on variations, see [Variations](#_Variations).                                                                                                                             |
 
-!!! note
-	All commands must be entered into a terminal window using an account with `sudo` privileges.
+##### Configuring the Deployment Filter
 
-Proceed as follows:
+The system provides the ability to set up the Deployment Filter to filter deployments from configured data source when several applications use the same data source. Filtering selects deployments by name.
 
-1.  Open a terminal window and enter the following:
+The property `ruleservice.datasource.deployments` is defined in the `application.properties` file and it is disabled by default.
 
-	```
-	sudo apt-get install tomcat7
-	```
+To enable the Deployment Filter, set the exact deployment names using a comma separator, or use the wildcard character to enable the filter to match patterns in the deployment name:
 
-1.  Start Tomcat with the next command:
+`ruleservice.datasource.deployments = foo-deployment, bar-*`
 
-	```
-	sudo /etc/init.d/tomcat7 start
-	```
+The wildcard character “\*” matches any characters in the deployment name as follows:
 
-	All necessary folders must be located in `/var/lib/tomcat7`.
+-   If a single asterisk is used, any of the `foo-*`, `*deployment.single` wildcard character patterns detect `foo-deployment`.
+-   If multiple asterisks are used, any of the `*deploy*, *deployment*` single wildcard character patterns detect `foo-deployment`.
 
-1.  To ensure that Tomcat works properly, open the browser and enter *http://localhost:8080*.
+#### Service Exposing Methods
 
-	If all is correct, Apache Tomcat displays the welcome page with a message resembling the following:
+Common flow of service exposing is as follows:
 
-	**If you're seeing this, you've successfully installed Tomcat. Congratulations!**
+1.  Retrieve service descriptions from a data source.
+2.  Undeploy the currently running services that are not in services defined by Service Configurer.
 
-	If the 404 error appears, try to restart Tomcat as follows:
+Some services can become unnecessary in the new version of the product.
 
-	sudo /etc/init.d/tomcat7 restart
+1.  Redeploy currently running services that are still in services defined by Service Configurer, such as service update.
+2.  Deploy new services not represented earlier.
 
-	Alternatively, stop Tomcat by entering the following command in command line and then start it as described previously:
+To set the method of exposing services, configure a Spring bean with the `ruleServiceManager` name in `openl-ruleservice-publisher-beans.xml`.
 
-	sudo /etc/init.d/tomcat7 stop
+This bean supports mapping a concrete publisher for a service configuration or uses a default publisher if the publisher is not defined in the `rules-deploy.xml `deployment configuration file.
 
-##### Installing Apache Tomcat from ZIP File
+To add a publisher, use any framework by implementations of `org.openl.rules.ruleservice.publish.RuleServicePublisher `interface and register it in the `ruleServicePublisher` bean.
 
-This section describes how to install Apache Tomcat on Ubuntu 12.04 and Centos 6.3. The instructions are valid for other Linux distributions with small changes.
+OpenL Tablets Rule Services supports following publisher implementations out of the box:
 
-Proceed as follows:
+-   [CXF REST Publisher](#_CXF_REST_Publisher_1)
+-   [RMI Publisher](#rmi-publisher)
+-   [Kafka Publisher](#_Kafka_Publisher)
 
-1.  Download the appropriate Tomcat archive file, ZIP or `tar.gz` archive, from its official website <http://tomcat.apache.org/download-70.cgi> to the required user folder.
+##### CXF REST Publisher
 
-	In this example, Tomcat 7.0.39 is downloaded to the `/home/myuser `folder.
+CXF REST Service Publisher implementation class is org.openl.rules.ruleservice.publish.JAXRSRuleServicePublisher. The Spring configuration for this publisher is located in the `openl-ruleservice-jaxrs-publisher-beans.xml `file.
 
-1.  Open a terminal window and change directory to the folder containing the Tomcat archive.
-2.  Extract the archive by entering the following command in the terminal, modifying the Tomcat version as required:
+The following URL can be used to retrieve a list of methods for a service:
 
-	```
-	tar -zxvf apache-tomcat-7.0.39.tar.gz
-	```
+```
+webserver_context_path/ws_app_war_name/admin/services/{serviceName}/methods/
+```
 
-	The `apache-tomcat-7.0.39 `folder appears. For example:
+###### Configuring HTTP Status for Responses
 
-	```
-	/home/myuser/apache-tomcat-7.0.39
-	```
+The system can be configured to use the HTTP 200 status for all RESTful services requests even if service execution fails. To enable this feature, set `ruleservice.jaxrs.responseStatusAlwaysOK = true `in the `application.properties` file.
 
-1.  Change directory to the `tomcat/bin`:
+###### Defining a Date Format for JSON Serialization and Deserialization
 
-	```
-	cd apache-tomcat-7.0.39/bin
-	```
+REST services support the ISO-8601 standard for date type representation and accept the `yyyy-MM-dd'T'HH:mm:ss.SSS` format. Time and time zones are optional in requests. Time zones in ISO-8601 are represented as local time, with the location unspecified, as UTC, or as an offset from UTC. For more information on the ISO-8601 standard, see <https://en.wikipedia.org/wiki/ISO_8601>.
 
-1.  Make sure all `*.sh` files are executable, that is, they have `r` in all positions to the left of the file name, for example, `-rwxr-xr-x`.
+Date format can be defined in the `ruleservice.jackson.defaultDateFormat `property, in the `application.properties` file. The default date format value is as follows:
 
-	For that, in terminal, enter the following:
+`ruleservice.jackson.defaultDateFormat=yyyy-MM-dd'T'HH:mm:ss.SSS`
 
-	```
-	ls –la
-	```
+This value is used by the system for all published projects that do not have the date format defined in the deployment configuration `rules-deploy.xml` file.
 
-	The following information is displayed:
+The `jackson`.`defaultDateFormat` value must be in the same syntax of the date time pattern as `SimpleDateFormat` described in <https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html>.
 
-	![](installation_guide_images/315b31b0d9c0137373b2d81b29551174.png)
+Note that changing this setting affects all projects in the system. To change the date format for a particular project, modify the date format in the `rules-deploy.xml` deployment configuration file as follows:
 
-	*Figure: OpenL Tablets package is added*
+```
+<rules-deploy>
+   ….
+    <configuration>
+        <entry>
+            <string>jackson.defaultDateFormat</string>
+            <string>yyyyMMddHHmmss</string>
+        </entry>
+    </configuration>
+</rules-deploy>
+```
 
-1.  If some `sh` files are not executable, enter the following command:
+###### Configuring JSON Payload Serialization and Deserialization
 
-	```
-	chmod +x ./*.sh
-	```
+Default JSON properties serialization and deserialization behavior can be changed via `ruleservice.jackson.` `serializationInclusion, ruleservice.jackson.caseInsensitiveProperties, `and` ruleservice.jackson.failOnUnknownProperties` in the `application.properties` file. The default value for this property is set as follows:
 
-1.  Run the `sturtup.sh` file as follows:
+`ruleservice.jackson.serializationInclusion = USE_DEFAULTS`
 
-	```
-	sh ./startup.sh
-	```
+`ruleservice.jackson.caseInsensitiveProperties = false`
 
-1.  In the browser, enter the following URL:
+`ruleservice.jackson.failOnUnknownProperties = false`
 
-	[*http://localhost:8080*](http://localhost:8080)
+These values are used by the system for all published projects that do not have these properties defined in the `rules-deploy.xml` file.
 
-	If the installation is completed successfully, the Apache Tomcat welcome screen appears. The next thing to be done is to configure JVM options for Tomcat.
+`ruleservice.jackson.` `serializationInclusion `is used for JSON serialization. Supported values are as follows:
 
-##### Configuring JVM Options for Tomcat on UNIX / Linux Machine
+| Value        | Description                                                                                                                                                                                                              |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ALWAYS       | A property is always included, regardless of the property value.                                                                                                                                                         |
+| NON_ABSENT   | Properties with no null values including no content null values are used.                                                                                                                                                |
+| NON_DEFAULT  | All values except for the following are included: values considered empty primitive or wrapper default values date and time values that have a timestamp of \`0L\`, that is, \`long\` value of milliseconds since epoch  |
+| NON_EMPTY    | Properties with empty values are excluded.                                                                                                                                                                               |
+| NON_NULL     | Properties with non-null values are included.                                                                                                                                                                            |
+| USE_DEFAULTS | Defaults settings or annotations either from the class level or ObjectMapper level are used.                                                                                                                             |
 
-To configure JVM options for Tomcat on a UNIX / Linux machine, proceed as follows:
+For more information on serialization values, see <https://fasterxml.github.io/jackson-annotations/javadoc/2.6/com/fasterxml/jackson/annotation/JsonInclude.Include.html>.
 
-1.  For UNIX, create `TOMCAT_HOME/start.cmd `file and type the following:
+JSON payload of the same datatype with different `serializationInclusion` property values are as follows:
 
-	`export JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx2000m -XX:+` `UseConcMarkSweepGC -XX:PermSize=128m -XX:MaxPermSize=512m"`
+![](ruleservices_guide_images/01e96b672cddf6a2778693641109b4ab.jpeg)
 
-1.  Locate the `TOMCAT_HOME/conf/server.xml `file and add the `URIEncoding="UTF-8"` attribute for all `<Connector>` elements.
+*JSON payload of the same datatype with different* `serializationInclusion` *values*
 
-	For example:
+`ruleservice.jackson.caseInsensitiveProperties `is a JSON deserialization. The system matches JSON property names to a Java class ignoring case sensitivity if this property is enabled.
 
-	`<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/>`
+`ruleservice.jackson.failOnUnknownProperties `is a JSON deserialization. The system fails if a missing field in a datatype is present in the JSON request. By default, the system ignores JSON properties in a request that cannot be matched to existing Java classes.
 
-1.  From this point, deploy OpenL Tablets WebStudio as described in [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio).
+`ruleservice.jackson.failOnEmptyBeans` is used in JSON serialization. The system fails when a fieldless datatype is present in the response. If this property is enabled, which is a default value, an exception is thrown to indicate non-serializable datatypes. If the property is disabled, non-serializable objects are serialized as empty objects, that is, without any properties.
 
-### Deploying OpenL Tablets WebStudio
+**Note:** Changing these settings affects all projects in the system. To modify `serializationInclusion` for a particular project, modify the `rules-deploy.xml` deployment configuration file as follows:
 
-This section describes how to deploy and run OpenL Tablets WebStudio under Tomcat.
+```
+<rules-deploy>
+    …
+    <configuration>
+        <entry>
+            <string>jackson.serializationInclusion</string>
+            <string>NON_ABSENT</string>
+        </entry>
+        <entry>
+            <string>jackson.failOnUnknownProperties</string>
+            <string>true</string>
+        </entry>
+        <entry>
+            <string>jackson.caseInsensitiveProperties </string>
+            <string>NON_ABSENT</string>
+        </entry>
+        <entry>
+            <string>jackson.failOnEmptyBeans</string>
+            <string>false</string>
+        </entry>
+    </configuration>
+</rules-deploy>
+```
 
-The following topics are included:
+OpenL Tablets Rule Services uses a Jackson library to serialize an object to JSON and deserialize JSON to an object. This library supports configuration via MixIn annotation. For more information on MixIn annotations, see Jackson documentation <https://github.com/FasterXML/jackson-docs/wiki/JacksonMixInAnnotations>.
 
--   [Deploying OpenL Tablets WebStudio on a Windows Machine](#_Deploying_OpenL_Tablets)
--   [Deploying OpenL Tablets WebStudio on a Linux Machine and Mac](#deploying-openl-tablets-webstudio-on-a-linux-machine-and-mac)
+To register MixIn classes for a project, annotate the MixIn class with the org.openl.rules.ruleservice.databinding.annotation.MixInClassFor or org.openl.rules.ruleservice.databinding.annotation.MixInClassFor annotation and add this class to the rules-deploy.xml deployment configuration file as described further in this section. These annotations expect the class name that is used for registering MixIn class in the object mapper.
 
-#### Deploying OpenL Tablets WebStudio on a Windows Machine
+JAXB annotations is supported in the MixIn classes out of the box because the system is configured to use com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector as a secondary annotation interceptor in the object mapper for the deployed service.
 
-This section describes how to deploy and run OpenL Tablets WebStudio under Tomcat on a Windows machine.
+Example of the Jackson MixIn class implementation is as follows:
 
-Proceed as follows:
+```
+@MixInClass(“org.openl.generated.beans.Customer”)
+public abstract class CustomerMixIn {
 
-1.  Go to the <https://openl-tablets.org/downloads> page.
-2.  Click the appropriate OpenL Tablets WebStudio WAR link.
-3.  Save the file in a temporary folder and then copy the OpenL Tablets WebStudio WAR file.
+    @JsonProperty(required = true)
+    protected Integer customerID;
 
-	For example, `openl-tablets-webstudio-X.X.X.war` to the \<`TOMCAT_HOME>\webapps` folder.
+    @JsonIgnore
+    protected Integer privateField;
 
-1.  Run Tomcat as follows:
-	-   If Tomcat is installed from the ZIP file, in `TOMCAT_HOME\bin,` click the `startup.bat` file`.`
-	-   If Tomcat is installed using Windows Service Installer, restart Tomcat as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer).
+    @JsonFormat(pattern = “yyyy-MM-dd”)
+    protected Date dob;
 
-	Tomcat unpacks the WAR file into the `<TOMCAT_HOME>\webapps\<war file name>` folder. For example, for 5.9.4 version the target folder can be `<TOMCAT_HOME>\webapps\openl-tablets-webstudio-5.9.4`. For convenience, the folder can be renamed as needed but remember that this name is used to launch OpenL Tablets WebStudio under Tomcat.
+    @JsonProperty(“genderCd”)
+    @ApiModelProperty(example = “male”)
+    protected String gender;
+}
+```
 
-	From this point on, run OpenL Tablets WebStudio with default settings or make additional customizations by changing the user mode and configuring an external user database as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**.
+Example of the deployment configuration file is as follows:
 
-1.  To run OpenL Tablets WebStudio, in the browser, enter the following URL:
+```
+<rules-deploy>
+    …
+    <configuration>
+        <entry>
+            <string>rootClassNamesBinding</string>
+            <string>org.example.custom.mixin.CustomerMixIn</string>
+        </entry>
+    </configuration>
+</rules-deploy>
+```
 
-	*http://localhost:8080/\<WAR file name\>*
+##### RMI Publisher
 
-	That is, for this example, the URL is *http://localhost:8080/openl-tablets-webstudio-5.9.4*.
+RMI Service Publisher implementation class is `org.openl.rules.ruleservice.publish.RmiRuleServicePublisher`. The Spring configuration for this publisher is located in the `openl-ruleservice-rmi-publisher-beans.xml `file.
 
-	OpenL Tablets WebStudio is opened in the browser on the **Welcome to Installation Wizard** page. The wizard will guide through the setup process as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard). When setup is complete, use OpenL Tablets WebStudio to create new projects or download existing ones.
+**Note:** The full RMI service address is `rmi://hostname:port/rmi name specified by you in rules.xml file`.
 
-1.  After a new release of the OpenL Tablets WebStudio is installed, click **CTRL**+**F5** or clear cookies and cash manually to reload the page in the browser.
+The appropriate port and host name for RMI can be defined in the `application.properties` file.
 
-#### Deploying OpenL Tablets WebStudio on a Linux Machine and Mac
+By default, these properties are defined as follows:
 
-To install OpenL Tablets WebStudio under Linux and Mac OS, perform the following steps:
+`ruleservice.rmiPort = 1099 // Port for RMI`
 
-1.  Create the `<OPENL_HOME>` folder where the application will be deployed as follows:
+`ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI`
 
-	```
-	sudo mkdir /<OPENL_HOME>
-	```
+##### Kafka Publisher
 
-1.  Change access rights for this folder by entering the following command in the command line:
+The system handles messages from the Kafka input topic and publishes rules calculation results to an output topic or dead letter topic if any error occurs during message processing.
 
-	```
-	sudo chmod 775 -R /<OPENL_HOME>
-	```
-
-1.  Change the owner for this folder:
-
-	```
-	sudo chown tomcat7:tomcat7 /<OPENL_HOME>
-	```
-
-1.  Download OpenL Tablets WebStudio WAR file from <https://github.com/openl-tablets/openl-tablets/releases/> to a temporary folder.
-2.  Copy the downloaded WAR file to the Tomcat `webapps` folder:
-
-	```
-	cp /home/myuser/Downloads/<openl-tablets-webstudio-xxxx.war>/home/myuser/<TOMCAT_HOME>/webapps/webstudio.war
-	```
-
-1.  To stop Tomcat, run the following command from `/home/myuser/<TOMCAT_HOME>/bin` :
-
-	```
-	sh shutdown.sh
-	```
-
-1.  Start Tomcat from the same folder as follows:
-
-	```
-	sh startup.sh
-	```
-
-1.  In the browser, enter *http://localhost:8080/webstudio*.
-
-	If deployment is completed without errors, the OpenL Tablets WebStudio Installation Wizard described in the next step is opened in the browser.
-
-	If encountering any problems, for more information, see the following log files: `home/myuser/<TOMCAT_HOME>/logs/catalina.out `and `home/myuser//<TOMCAT_HOME>/logs/webstudio.log`
-
-### Configuring External User Database
-
-This step is only required if a user is planning to work in multi-user application modes such as Multi-user, Active Directory, SSO: CAS, SSO: SAML, or SSO:OAuth2. For more information, see [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1) and use an external database such as MySQL for managing users in OpenL Tablets WebStudio.
-
-By default, OpenL Tablets WebStudio can run using an internal user database based on the H2 database engine. It is a good idea to use the internal user database for demonstration purposes because it is provided by default and requires no additional setup. But in this case, all user management changes will be lost after server restart.
-
-In a production environment, it is strongly recommended to use an external database.
-
-**Note:** For more information on supported platforms, see <https://openl-tablets.org/>.
-
-The following topics are included:
-
--   [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and)
--   [Configuring MySQL Database as External User Storage](#configuring-mysql-database-as-external-user-storage)
--   [Configuring MariaDB Database as External User Storage](#configuring-mariadb-database-as-external-user-storage)
--   [Configuring Oracle Database as External User Storage](#configuring-oracle-database-as-external-user-storage)
-
-#### Adding Drivers and Installing and Configuring the Database
-
-Before configuration, perform the following steps:
-
-1.  Add the appropriate driver library for a database in OpenL Tablets WebStudio to `\WEB-INF\lib\`.
-
-	Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries.
-
-	| Database   | Driver                            |
-	|------------|-----------------------------------|
-	| MySQL      | `mysql-connector-java-5.1.31.jar` |
-	| MariaDB    | `mariadb-java-client-2.0.1.jar`   |
-	| Oracle     | `ojdbc6.jar`                      |
-	| MS SQL     | `mssql-jdbc-7.2.2.jre8.jar`       |
-	| PostgreSQL | `postgresql-9.3-1100.jdbc4.jar`   |
-
-	For more information on URL value according to the database type, see the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-
-1.  Install the database, defining login and password and creating a new schema or service.
-
-	Ensure all database settings are completed.
-
-1.  Start OpenL Tablets WebStudio and in the third step, select a **Multi-user**, **Active Directory,** or **SSO** mode.
-2.  Define database URL, username, and password.
-
-	![](installation_guide_images/6b1f61c6269e4c3be6d13a97f4228f2a.png)
-
-	*Figure: Creating a connection to the Oracle database in the installation wizard*
-
-1.  Click **Finish** to close the wizard when the installation is complete.
-2.  Log in with credentials of an administrative user defined in the third step of the installation wizard, in the **Configure initial users** section.
-
-	Note that even after configuring the database as user storage, a default user is available for login. The default user can manage user settings in OpenL Tablets WebStudio, for example, create a user or add privileges to a user. All user management activities can be performed via the OpenL Tablets WebStudio UI, in the **Admin** **\> User Management** section.
-
-	![](installation_guide_images/74d10c2b2686c171b48f6656b88d1629.png)
-
-	*Figure: Managing users in the User Management section of OpenL Tablets WebStudio*
-
-	Right after applying changes in OpenL Tablets WebStudio, the updates are applied to the database. A user can log in and work under a newly created account in OpenL Tablets WebStudio.
-
-	!!! note
-		During installation, several tables are created in the database. If the same tables exist in the database from the previous usage, a conflict occurs. To avoid this situation, the following tables must be removed:
-		-   ACCESSCONTROLENTRY
-		-   GROUP2GROUP
-		-   OPENLUSER
-		-   schema_version
-		-   USER2GROUP
-		-   USERGROUP
-		-   HIBERNATE_SEQUENCE table that has `SEQUENCE_OWNER=OPENL`
-		-   OPENL_EXTERNAL_GROUPS
-		-   OPENL_TAG_TYPES
-		-   OPENL_TAGS
-		-   OPENL_PROJECTS
-		-   OPENL_PROJECT_TAGS
-		-   OPENL_TAG_TEMPLATES
-
-#### Configuring MySQL Database as External User Storage
-
-This section explains how to set up a MySQL database. Proceed as follows:
-
-1.  Go to <http://dev.mysql.com/downloads/mysql/>.
-2.  Select the appropriate MSI Installer for system configuration and click **Download**.
-
-	For example, **Windows (x86, 32-bit)**, **MSI Installer** may be needed. It is recommended to use **ZIP Archive** version since it is intended for advanced users.
-
-1.  In the next window, register or log in to the MySQL site.
-
-	This step can be skipped, and users can proceed to **No thanks, just start my download!** link.
-
-1.  In the next window, select **Save File** and save the `.msi` file in a target folder.
-2.  Navigate to the folder containing the `.msi `file and double click the file to start the installation process.
-
-	The **MYSQL Server Setup Wizard Welcome** window appears.
-
-1.  Follow the wizard steps leaving the default values and clicking **Next** to proceed.
-2.  Click **Finish** to close the wizard when installation is complete.
-
-	    **Note:** It is recommended to configure the database server to use the UTF-8 character set.
-
-	When MySQL is successfully installed on the user’s computer, an empty database for OpenL Tablets WebStudio in MySQL must be created and permissions to modify this database granted to the user from which the OpenL Tablets WebStudio will work with this database.
-
-1.  To open MySQL Command Line Client, select **Start \> All Programs \> MySQL \> MySQL Server 5.5 \> MySQL Command Line Client** and enter the following commands:
-
-	`CREATE USER openl_user IDENTIFIED BY 'openl_password';`
-
-	`CREATE DATABASE openl CHARACTER SET utf8;`
-
-	`GRANT ALL PRIVILEGES ON openl.* TO openl_user;`
-
-#### Configuring MariaDB Database as External User Storage
-
-This section explains how to set up an MariaDB database. Proceed as follows:
-
-1.  Go to <https://downloads.mariadb.org>.
-2.  Select the appropriate version and click **Download**.
-3.  Select the appropriate MSI Installer for system configuration and click **Download**.
-4.  In the next window, select **Save File** and save the .msi file in a target folder.
-5.  Navigate to the folder containing the .msi file and double click the file to start the installation process.
-
-	The **MariaDB Setup Wizard Welcome** window appears.
-
-1.  Follow the wizard steps leaving the default values and clicking **Next** to proceed.
-2.  Define password for a **root** user.
-3.  Create a database.
-
-	![](installation_guide_images/374a4090e431b3fb9109f4cd4f92f3b2.png)
-
-	*Figure: Setting properties for the MariaDB database*
-
-1.  Click **Finish** to close the wizard when the installation is complete.
-2.  Start HeidiSQL application.
-3.  Click **New** to create a session.
-4.  Select the **Prompt for credentials** check box and define a database port.
-
-	    ![](installation_guide_images/d0b7936d6f8edbf001ae8fd8060ab59c.png)
-
-	*Figure: Creating a connection to the MariaDB database*
-
-1.  Click **Open** and save the changes.
-
-#### Configuring Oracle Database as External User Storage
-
-This section explains how to set up an Oracle database. Proceed as follows:
-
-1.  Go to <http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html>.
-2.  After registration, select the appropriate version and system configuration, and click **Download**.
-3.  Unzip 2 archives in one folder and click the `exe` file.
-4.  Configure the database and define a username and password.
-
-	These values will be used further for configuration.
-
-1.  To improve work with database, download Oracle SQL Developer at <http://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html>.
-
-	In this section, as an example, Oracle SQL Developer 3.2.2 is used.
-
-1.  Start Oracle Workbench and create a connection or select an existing database connection.
-
-	![](installation_guide_images/bcef7557ea9819f858e80d2338e3f516.png)
-
-	*Figure: Creating a connection to the Oracle database*
-
-1.  Enter username and password values defined when installing the database.
-
-### Setting Up OpenL Tablets WebStudio with Installation Wizard
-
-This topic describes the steps that must be taken after the first run of OpenL Tablets WebStudio under Tomcat. Accept the default options provided by the wizard by clicking **Next** to move to the next step or change the options as required and click **Next** to proceed.
-
-Proceed as follows:
-
-1.  In the **Welcome to OpenL Tablets WebStudio Installation Wizard** window, click **Start**.
-2.  In the next window, specify a **working directory** for OpenL Tablets.
-
-	By default, the following directory is displayed:
-
-	```
-	${user.home}/.openl
-	```
-
-	This folder is referred to as `<OPENL_HOME>` in the documentation. It is highly recommended not to use the system drive for that.
-
-1.  Click **Next** to proceed.
-2.  Specify **deployment** and design repositories:
-
-	| Type                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-	|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-	| **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
-	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system will retrieve it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
-	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**                                                                                |
-
-	If deploy configuration must be stored in a separate repository, not in Design repository, the **Use Design Repository** check box must be cleared and required parameter values must be provided.
-
-	The following table explains URL values according to the database type:
-
-	| Database       | URL value                                                                               |
-	|----------------|-----------------------------------------------------------------------------------------|
-	| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                   |
-	| Oracle         | `jdbc:oracle:thin:@//[ host][:port]/service`                                            |
-	| MS SQL         | `jdbc:sqlserver://[serverName[\instanceName][:port]][;property=value[;property=value]]` |
-	| PostgreSQL     | `jdbc:postgresql://[host][:port]/[schema]`                                              |
-
-	For more details about how to configure the repository of a specific type, please refer to the corresponding section below:
-
-	-   [Configuring OpenL Tablets WebStudio via JDBC Connection](#configuring-openl-tablets-webstudio-via-jdbc-connection)
-	-   [Configuring OpenL Tablets WebStudio via JNDI Connection](#configuring-openl-tablets-webstudio-via-jndi-connection)
-	-   [Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service](#configuring-openl-tablets-webstudio-via-amazon-simple-storage-service)
-	-   [Connecting to OpenL Tablets WebStudio via Proxy](#connecting-to-openl-tablets-webstudio-via-proxy)
-
-	For more information on repository security, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** the **Repository Settings** section.
-
-1.  Click **Next**.
-2.  Select a user mode as described in the following table:
-
-	| Mode                      | Description                                                                                                                                                                                                                                                                                                 |
-	|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Demo                      | This is a multi-user mode with the list of users predefined in the default database. <br/>The database does not require additional setup. <br/>All changes in the database will be lost after the application restart.                                                                                                |
-	| Single-user               | Only the user currently logged on to the computer can work with the OpenL Tablets WebStudio. <br/>For more information on the single user mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].** |
-	| Multi-user (recommended)  | Multiple users can run OpenL Tablets WebStudio with their unique names. <br/>WebStudio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
-	| Active Directory          | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>Active Directory will be used to authenticate and manage user credentials.                                                                                                                                                    |
-	| SSO: CAS                  | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials.                                                                                                                         |
-	| SSO: SAML                 | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials.                                                                                       |
-	| SSO:OAuth2                | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>User projects will be located in the './openl-demo/user-workspace/USERNAME' folder. <br/>OAuth2 supporting the identity provider server will be used to authenticate and manage user credentials.                                  |
-
-	For **Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2,** user modes proceed as described in [Integration with External Identity Providers](#_Integration_with_External).
-
-1.  If **Multi-user**, **Active Directory**, **SSO: CAS**, **SSO: SAML**, or **SSO:OAuth2** mode is selected, in the **Configure database** area that appears, modify the database parameters as follows:
-
-	| Parameter         | Description                                                                                                                               |
-	|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-	| Database URL      | Enter the URL for the selected database.                                                                                                  |
-	| Login / Password  | Username and password specified for the database <br/>as defined in [Configuring External User Database](#configuring-external-user-database). |
-
-1.  Click **Finish** to complete setup.
-
-    As a result, for the **Demo, Multi-user, Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2** modes, the login screen appears for entering user’s credentials to start working with OpenL Tablets WebStudio. If the **openl.home** registry variable is defined, upon OpenL Tablets WebStudio update, after replacing the war file, re-running installation wizard is not required as the fact of configuration is recorded in the system registry. However, if there are multiple instances of OpenL Tablets WebStudio installed on the same computer, OpenL Tablets WebStudio must be run via system properties.
-
-    For a list of users predefined in the **Demo** application mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *User Management \> Manage Users.*
-
-#### Configuring OpenL Tablets WebStudio via JDBC Connection
-
-Configure design and deployment repositories settings on the second step of OpenL Tablet WebStudio installation wizard as follows:
-
-1.  Select **JDBC** as the type of the connection database (JDBC).
-2.  Provide **URL** and authentication data.
-
-![](installation_guide_images/0c03bf32b2a043f41ab7ef85658f0c4a.png)
-
-*Figure: Setting up a JDBC connection using the installation wizard*
-
-#### Configuring OpenL Tablets WebStudio via JNDI Connection
-
-To configure the OpenL Tablets WebStudio via JNDI connection, perform the following steps:
-
--   [Configuring Resources for JNDI Context](#configuring-resources-for-jndi-context)
--   [Configuring Settings in OpenL Tablets WebStudio](#configuring-settings-in-openl-tablets-webstudio)
-
-##### Configuring Resources for JNDI Context
-
-Resource settings must be configured before deploying the application. Proceed as follows:
-
-1.  Open the `\conf\context.xml` file in Apache Tomcat and add the `Resource` tag as described in the following examples.
-
-	For the Oracle database, an example is as follows:
-
-	```
-	<Resource name=”jdbc/oracleJNDI” auth=”Container”
-		    type=”javax.sql.DataSource” username=”user” password=”password”
-		    driverClassName=”oracle.jdbc.OracleDriver” 
-		    url=”jdbc:oracle:thin:@localhost:1521:orcl”
-		    maxActive=”8”    
-		    /> 
-	```
-
-	`For the MySQL database, an example is as follows:`
-
-	```
-	<Resource name=”jdbc/mysqlJNDI” auth=”Container” type=”javax.sql.DataSource”
-		       maxActive=”100” maxIdle=”30” maxWait=”10000”
-		       username=”javauser” password=”javadude” driverClassName=”com.mysql.jdbc.Driver”
-		       url=”jdbc:mysql://localhost:3306/javatest”
-		       />
-	```
-
-	`For the MS SQL database, an example is as follows:`
-
-	```
-	<Resource name=”jdbc/mssqlJNDI” auth=”Container”
-		    type=”javax.sql.DataSource” username=”wally” password=”wally”
-		    driverClassName=”com.microsoft.sqlserver.jdbc.SQLServerDriver” 
-		    url=”jdbc:sqlserver://localhost;DatabaseName=mytest;SelectMethod=cursor;”
-		    maxActive=”8” 
-		    />
-	For the PostrgeSQL database, an example is as follows:
-	<Resource name=”jdbc/postgres” auth=”Container”
-		    type=”javax.sql.DataSource” username=”postgres” password=”Password1”
-		    driverClassName=”org.postgresql.Driver” 
-		    url=”jdbc:postgresql://localhost:5432/postgres”
-		    maxActive=”8” 
-		    />
-	```
-
-1.  Save the `context.xml` file.
-
-##### Configuring Settings in OpenL Tablets WebStudio
-
-Configure design and deployment repositories settings on the second step of OpenL Tablets WebStudio installation wizard as follows:
-
-1.  Select **JNDI** as the type of the connection database.
-2.  Enter a URL in the `java:comp/env/<resource name>` format.
-
-	Definition of the authentication data, that is, login and password, is not required in the installation wizard because this information is set in `context.xml` file already.
-
-	![](installation_guide_images/ca12844a99b8378804060adafd3e18c5.png)
-
-	*Figure: Setting up JNDI connection with installation wizard*
-
-#### Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service
-
-Configure design and deployment repositories settings on the second step of OpenL Tablets WebStudio installation wizard as follows:
-
-1.  Select **AWS S3** as the type of connection.
-2.  Specify the following information:
-
-	| Parameter             | Description                                                                                                                                                                                       |
-	|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Bucket name           | Enter the name of the bucket in which your data resides.                                                                                                                                          |
-	| Region name           | Select the name of the AWS region in which your bucket resides. <br/>For non-AWS S3 repositories, any value can be specified. <br/>This value cannot be omitted as it is required by the API specification. |
-	| Access key            | Enter your Amazon AWS access key.                                                                                                                                                                 |
-	| Secret key            | Enter your Amazon AWS secret access key.                                                                                                                                                          |
-	| Listener period (sec) | The time, in seconds, to wait for the Amazon server to respond.                                                                                                                                   |
-	| Endpoint              | Leave empty for a standard AWS S3 connection. <br/>To connect to the non-standard AWS S3 alternative repository, specify the endpoint.                                                                 |
-
-#### Connecting to OpenL Tablets WebStudio via Proxy
-
-The following diagram illustrates how to connect to OpenL Tablets WebStudio via proxy.
-
-![](installation_guide_images/3e3121758c148ab1c34f085210b39ee2.jpeg)
-
-*Figure: Connecting to OpenL Tablets WebStudio via proxy*
-
-### Integration with External Identity Providers
-
-To enhance sign in options for users, a third-party authentication can be established between organization authentication systems and OpenL Tablets WebStudio. After enabling third-party authentication, users can sign into OpenL Tablets using their organizational credentials.
+Only Kafka brokers 0.11.0 and later are supported.
 
 The following topics are included in this section:
 
--   [User Management](#user-management)
--   [Configuring Authentication via Active Directory](#_Configuring_Authentication_via)
--   [Configuring Single Sign On via CAS](#configuring-single-sign-on-via-cas)
--   [Configuring Single Sign On via SAML Server](#configuring-single-sign-on-via-saml-server)
--   [Configuring Single Sign On via OAuth2](#configuring-single-sign-on-via-oauth2)
+-   [Modes for Exposing Services](#modes-for-exposing-services)
+-   [Supported Message Headers](#supported-message-headers)
+-   [Custom Message Serialization](#custom-message-serialization)
+-   [Date Format Definition and JSON Serialization and Deserialization Configuration](#_Date_Format_Definition)
+-   [Spring Kafka Integration Support](#spring-kafka-integration-support)
 
-#### User Management
+###### Modes for Exposing Services
 
-OpenL Tablets WebStudio allows selecting where user permissions are managed in the case of integration with external identity providers. First of all, administrative users must be defined in the **Configure initial users** section that appears in the third step of the installation wizard. Proceed as follows:
+Kafka Publisher allows exposing the services in the following modes:
 
-1.  Provide at least one user to be granted administration privileges in the **Administrators** field.
-2.  Select the **All authenticated users have View access** check box to grant viewer privileges by default.
+| Mode                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `A user configures Kafka settings for each rules method to expose as a service.` | All messages in all input topics belong to one rule method and have the same format. One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
+| `A user configures Kafka settings for a service.`                                | All methods from this service are exposed as services. Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. The method name is set via Kafka Headers. One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. A service can be exposed in both modes at the same time.  |
 
-    ![](installation_guide_images/d00e1e24ed69010d2edabcfa8b742a4b.png)
+The following topics are included in this section:
 
-	*Figure: Configuring initial users*
+-   [Enabling Kafka Publisher for a Service](#_Enabling_Kafka_Publisher_1)
+-   [Configuring Application Level Kafka Settings](#_Configuring_Application_Level)
+-   [Configuring Service Level Kafka Settings](#_Configuring_Service_Level)
 
-#### Configuring Authentication via Active Directory
+Enabling Kafka Publisher for a Service
 
-This section explains how to set up authentication via Active Directory. Proceed as follows:
-
-1.  Specify Active Directory domain, URL, user filter, and group filter.
-2.  To verify connection to Active Directory, enter credentials of the existing Active Directory user and click **Check Connection**.
-
-	*![](installation_guide_images/b0af66e4a4c7fd05a595fbaed7d3da7c.png)*
-
-	*Figure: Configuring authentication via Active Directory*
-
-#### Configuring Single Sign On via CAS
-
-This section explains how to set up authentication via CAS.
-
-Define the following parameters:
-
-| Parameter                      | Description                                                                                         |
-|--------------------------------|-----------------------------------------------------------------------------------------------------|
-| **WebStudio server URL**       | URL for OpenL Tablets WebStudio.                                                                    |
-| **CAS server URL**             | URL for the selected CAS server.                                                                    |
-| **Attribute for First Name**   | CAS attribute for the first name. <br/>Keep it blank if the CAS server does not return this attribute.   |
-| **Attribute for Second Name**  | CAS attribute for the second name. <br/>Keep it blank if the CAS server does not return this attribute.  |
-| **Attribute for Display Name** | CAS attribute for the display name. <br/>Keep it blank if the CAS server does not return this attribute. |
-| **Attribute for Email**        | CAS attribute for the email. <br/>Keep it blank if the CAS server does not return this attribute.        |
-| **Attribute for Groups**       | CAS attribute for groups. <br/>Keep it blank if the CAS server does not return this attribute.           |
-
-!!! note
-	Contact CAS server administrator for attribute names information.
-
-*![](installation_guide_images/7f89597173892c2fccf1676b7d6db8de.png)*
-
-*Figure: Configuring CAS*
-
-#### Configuring Single Sign On via SAML Server
-
-This section describes single sign on configuration via the SAML server and includes the following topics:
-
--   [Configuring SAML via the Installation Wizard](#configuring-saml-via-the-installation-wizard)
--   [Configuring SAML on Azure Kubernetes](#_Configuring_Microsoft_Excel)
-
-##### Configuring SAML via the Installation Wizard
-
-This section explains how to set up authentication via the SAML server using the installation wizard.
-
-Define the following parameters:
-
-| Parameter                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Entity ID**                           | Entity identifier. Alternatively, its value can be set for the security.saml.entity-id property, in the webstudio.properties file.<br/>An administrator must add the same entity ID to the clients list on the server which serves as an identity provider instance before setting it up in OpenL Tablets WebStudio.<br/>Adding the Entity ID parameter allows using several OpenL Tablets WebStudio instances on the same server with one Keycloak server. |
-| **SAML server metadata URL**            | URL of the metadata XML file of the Identity Provider.                                                                                                                                                                                                                                                                                                                                                                                              |
-| **SAML remote server X509 certificate** | PEM Base-64 encoded string, which contains a public key for SAML IDP Server. <br/>The begin and end tags are not required.                                                                                                                                                                                                                                                                                                                               |
-| **Attribute for Username**              | SAML attribute for a username. <br/>Keep it blank if SAML server does not return this attribute, or if default algorithm for username retrieval must be used.                                                                                                                                                                                                                                                                                            |
-| **Attribute for First Name**            | SAML attribute for the first name. <br/>Keep it blank if SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                     |
-| **Attribute for Second Name**           | SAML attribute for second name. <br/>Keep it blank if SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                        |
-| **Attribute for Display Name**          | SAML attribute for the display name. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                               |
-| **Attribute for Email**                 | SAML attribute for the email. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                      |
-| **Attribute for Groups**                | SAML attribute for groups. <br/>Keep it blank if the SAML server does not return this attribute.                                                                                                                                                                                                                                                                                                                                                         |
-
-![](installation_guide_images/e1bc1d72cfd7f7e2cf44ad34b7279a77.png)
-
-*Figure: Configuring SAML*
-
-##### Configuring SAML on Azure Kubernetes
-
-SAML configuration on Azure Kubernetes includes the following steps:
-
--   If the OpenL Tablets WebStudio Docker image is deployed on Azure Kubernetes, set the parameters on the Azure Basic SAML configuration as follows:
-
-| Parameter              | Description                                                                                                                                                      |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Identifier (Entity ID) | Audience of the SAML response for IDP-initiated SSO. <br/>Example: https://example.com/ saml2/service-provider-metadata/webstudio                                     |
-| Reply URL              | Destination in the SAML response for IDP-initiated SSO. <br/>Example: [https://example.com/ login/saml2/sso/webstudio](https://example.com/openl/webstudio/saml/SSO)  |
-| Logout URL             | Called URL for the logout operation. <br/>Example: [https://example.com/ logout/saml2/slo](https://example.com/openl/webstudio/saml/SingleLogout)                     |
-
-URLs must be accessible by Azure.
-
--   To specify the Azure metadata URL in the OpenL Tablets WebStudio, search for **App Federation Metadata URL** in the Azure SAML Signing certificate.
-
-Username, first name, last name, group, and other attributes can also be retrieved from App Federation Metadata XML.
-
--   Build the image with the required JDBC driver.
-
-OpenL Tablets WebStudio stores information about users and their groups in the database, so there must be a remote database server when OpenL Tablets WebStudio is used in Kubernetes.
-
-In Kubernetes, application configuration is described in the configuration map and installer must not be used. For an example of the configuration, see [Appendix B: OpenL Tablets WebStudio Image Configuration for SAML Under Kubernetes](#appendix-b-openl-tablets-webstudio-image-configuration-for-saml-under-kubernetes).
-
-#### Configuring Single Sign On via OAuth2
-
-This section explains how to set up authentication via the OAuth2 server using the installation wizard. Define the following parameters:
-
-| Parameter                       | Description                                                                                                                                                                                                                       |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Client ID**                   | Parameter required for an identity provider to identify OpenL Tablets WebStudio as a separate service provider.  <br/>For Keycloak, the value must exactly match the client ID. In Okta, it must match the service provider entity ID. |
-| **Issuer URI**                  | OAuth2 authorization server URL. <br/>It is used for binding with the server to get additional settings for autoconfiguration.                                                                                                         |
-| **Client Secret**               | Client secret. <br/>It is used by the OAuth client to authenticate to the authorization server.                                                                                                                                        |
-| **Scope**                       | Scope requested by the client during the authorization request flow, such as openid, email, or profile. https://oauth.net/2/scope/                                                                                                |
-| **Attribute for Username**      | OAuth2 attribute for a username. <br/>Keep it blank if OAuth2 server does not return this attribute, or if default algorithm for username retrieval must be used.                                                                      |
-| **Attribute for First Name**    | OAuth2 attribute for the first name. <br/>Keep it blank if OAuth2 server does not return this attribute.                                                                                                                               |
-| **Attribute for Second Name**   | OAuth2 attribute for second name. <br/>Keep it blank if OAuth2 server does not return this attribute.                                                                                                                                  |
-| **Attribute for Display Name**  | OAuth2 attribute for the display name. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                         |
-| **Attribute for Email**         | OAuth2 attribute for the email. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                                |
-| **Attribute for Groups**        | SA OAuth2 ML attribute for groups. <br/>Keep it blank if the OAuth2 server does not return this attribute.                                                                                                                             |
-
-![](installation_guide_images/9cdb3316b12b230a6ad1f8cc0c38fc06.jpeg)
-
-*Figure: Configuring single sign on via OAuth2*
-
-An example of how to configure single sign on via OAuth2 using properties is as follows:
+By default, Kafka Publisher is not used for deployed projects. To enable it, add the Kafka Publisher type to `rules-deploy.xml` as follows:
 
 ```
-security.oauth2.client-id=a57bd7bd-2c22-4ef3-xxxx-xxxxxxxxxxx
-security.oauth2.issuer-uri=https://login.microsoftonline.com/bebd0062-openid-connect/v2.0
-security.oauth2.client-secret=xzB8Q~XxxXx-Secret-key-XxxXxxXxXxxx
+<rules-deploy>
+    …
+    <publishers>
+        <publisher>KAFKA</publisher>
+    </publishers>
+    …
+</rules-deploy>
 ```
 
-### OpenL Tablets WebStudio Customization
+Configuring Application Level Kafka Settings
 
-This section describes additional configuration for OpenL Tablets WebStudio and includes the following topics:
+OpenL Tablets Rule Services can be configured via the `application.properties` file or environment variables. Kafka-related settings are as follows:
 
--   [Updating User Database Configuration](#updating-user-database-configuration)
--   [Configuring User Mode](#configuring-user-mode)
--   [Configuring Google Analytics](#configuring-google-analytics)
--   [Configuring Private Key for Repository Security](#configuring-private-key-for-repository-security)
+| Property name                       | Default value    | Description                                                    |
+|-------------------------------------|------------------|----------------------------------------------------------------|
+| ruleservice.kafka.bootstrap.servers | localhost:9092   | Comma separated Kafka broker hosts.                            |
+| `ruleservice.kafka.group.id`        | openl-webservice | Group name for all Kafka consumers created by the application. |
 
-The changes described in this section can be made in the properties file as described in [OpenL Tablets WebStudio Home Directory Configuration](#openl-tablets-webstudio-home-directory-configuration).
+Configuring Service Level Kafka Settings
 
-#### Updating User Database Configuration
+If an OpenL Tablets service is configured to use Kafka Publisher, the OpenL Tablets service must contain the `kafka-deploy.yaml` file in the same place where rules-deploy.xml deployment configuration is located.
 
-An example of the configuration that can be used for the user database is as follows:
+| Kafka settings for a service                                                                                                                                                                   | Kafka setting for each rules method that want to expose as a service                                                                                                                                                                                                                                                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| service:     in.topic.name: in-topic-for-service     out.topic.name: out-topic-for-service     dlt.topic.name: dlt-topic-for-service     consumer.configs:         auto.offset.reset: earliest | method.configs:   - method.name: method1     in.topic.name: in-topic-for-method1     out.topic.name: out-topic-for-method1     dlt.topic.name: dlt-topic-for-method1   - method.name: method2     in.topic.name: in-topic-for-method2     out.topic.name: out-topic-for-method2     dlt.topic.name: dlt-topic-for-method2     consumer.configs:         auto.offset.reset: earliest |
 
-```
-db.url = jdbc:oracle:thin:@localhost:1521:openltest
-db.user = loginname
-db.password = myPassword
-```
+Configuring Kafka consumers or Kafka producer is supported via `producer.configs`, `consumer.configs`, and `dlt.producer.configs`. These settings can be used for a service or each method.
 
-#### Configuring User Mode
+The default configuration for all methods or service is supported if `producer.configs`, `consumer.configs` and `dlt.producer.configs` are defined at the top level of `kafka-deploy.yaml`.
 
-Normally, user mode in OpenL Tablets WebStudio is set to **multi-user** by using OpenL Tablets WebStudio Installation Wizard as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1).
-
-User mode can also be changed as a JVM option for Tomcat. For that, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer), and in the **Java Options** text box, add the following line:
+An example of `consumer.configs` is as follows:
 
 ```
--Duser.mode=multi
+auto.offset.reset: earliest
 ```
 
-**Note:** User mode set as a Java option takes precedence over the corresponding value specified in the OpenL Tablets WebStudio Installation Wizard. If both are defined, the Java option value is used.
-
-#### Configuring Google Analytics
-
-Google Analytics is a service offered by [Google](https://en.wikipedia.org/wiki/Google) that generates detailed [statistics](https://en.wikipedia.org/wiki/Statistics) about [website](https://en.wikipedia.org/wiki/Website) traffic and traffic sources. To configure Google Analytics for OpenL, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer) and in the **Java Options** text box, add the following lines:
+An example of the `method.configs` is as follows:
 
 ```
-webstudio.analytics=number 
+  - method.name: method1
+    in.topic.name: in-topic-for-method1
+    out.topic.name: out-topic-for-method1
+    dlt.topic.name: dlt-topic-for-method1
+  - method.name: method2
+    in.topic.name: in-topic-for-method2
+    out.topic.name: out-topic-for-method2
+    dlt.topic.name: dlt-topic-for-method2
 ```
 
-`number` is a number provided by Google during registration.
+Kafka consumers for all methods are configured to use `auto.offset.reset = earliest` as described in the previous example.
 
-#### Configuring Private Key for Repository Security
+For a complete list of configuration properties, see [https://kafka.apache.org/documentation/\#consumerconfigs](https://kafka.apache.org/documentation/#consumerconfigs) and [https://kafka.apache.org/documentation/\#producerconfigs](https://kafka.apache.org/documentation/#producerconfigs).
 
-OpenL Tablets WebStudio allows connecting to secured repositories. In this case, passwords are stored in OpenL Tablets WebStudio workspace. To improve passwords protection, a private key can be used.
+###### Supported Message Headers
 
-**Private key** is a special secure sentence for coding and encoding repository passwords. By default, the private key is empty. It can be set up as a JVM option for Tomcat by adding and specifying the value of the following parameter:
+Configurations `out.topic.name` and `dlt.topic.name` are optional, and the system can handle an output topic name and DLT topic name from record headers. A list of supported headers is as follows:
+
+| Header name                      | Description                                                                                                                                                                                                                                                                                             |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `methodName`                     | Method name. If an OpenL Tablets service is configured to use one input topic for all rule methods, this header defines a rule method name to invoke. If a rule method name is not unique in rules, for example, when overloading is used for a method, `methodParameters` header must be used as well. |
+| `methodParameters`               | Comma separated list of rule method types. Wildcards are supported.                                                                                                                                                                                                                                     |
+| `kafka_correlationId`            | Information to correlate requests and replies.                                                                                                                                                                                                                                                          |
+| `kafka_replyPartition`           | Partition number on which to send the reply.                                                                                                                                                                                                                                                            |
+| `kafka_replyTopic`               | Default reply topic. If this header is defined, the output topic from a header is used by Kafka Publisher for this message.                                                                                                                                                                             |
+| `kafka_replyDltPartition`        | Partition number on which to send the reply DLT topic.                                                                                                                                                                                                                                                  |
+| `kafka_replyDltTopic`            | Default reply DLT topic. If this header is defined, the DLT topic from a header is used by Kafka Publisher for this message.                                                                                                                                                                            |
+| `kafka_dlt-exception-fqcn`       | Exception class name for a record published sent to a dead-letter topic.                                                                                                                                                                                                                                |
+| `kafka_dlt-exception_message`    | Exception message for a record published to a dead-letter topic.                                                                                                                                                                                                                                        |
+| `kafka_dlt-original-offset`      | Original offset for a record published to a dead-letter topic.                                                                                                                                                                                                                                          |
+| `kafka_dlt-original-topic`       | Original topic for a record published to a dead-letter topic.                                                                                                                                                                                                                                           |
+| `kafka_dlt-original-partition`   | Original partition for a record published to a dead-letter topic.                                                                                                                                                                                                                                       |
+| `kafka_dlt-original-message-key` | Original message key for a record published to a dead-letter topic.                                                                                                                                                                                                                                     |
+
+###### Custom Message Serialization
+
+By default, Kafka Publisher uses the JSON format.
+
+To use custom serializers and deserializers, do the following:
+
+-   Implement custom deserializer for input parameters via the implementation `org.openl.rules.ruleservice.kafka.ser.MessageDeserializer` class.
+-   Register a custom implemented deserializer in the `value.serializer` Kafka configuration property for particular consumers.
+
+###### Date Format Definition and JSON Serialization and Deserialization Configuration
+
+JSON configuration is the same as described for the REST services:
+
+-   [Defining a Date Format for JSON Serialization and Deserialization](#defining-a-date-format-for-json-serialization-and-deserialization)
+-   [Configuring JSON Payload Serialization and Deserialization](#configuring-json-payload-serialization-and-deserialization)
+
+    **Note:** The same JSON serialization and deserialization configuration is used for REST publisher and Kafka publisher.
+
+###### Spring Kafka Integration Support
+
+Kafka Publisher supports Spring Kafka headers to work with Spring Kafka Request Reply design pattern implementation out of the box.
+
+#### Configuring System Settings
+
+Rules behavior in OpenL Tablets can be extended using one of the following options:
+
+-   [Dispatching Table Properties](#dispatching-table-properties)
+-   [Table Dispatching Validation Mode](#table-dispatching-validation-mode)
+-   [Configuring a Number of Threads to Rules Compilation](#_Configure_a_Nnumber)
+-   [Enabling Logging to Console](#enabling-logging-to-console)
+-   [Configuring the Instantiation Strategy](#configuring-the-instantiation-strategy)
+
+These settings are defined in the `application.properties` configuration file.
+
+##### Dispatching Table Properties
+
+Previously selecting tables that correspond to the current runtime context was processed by Java code. Now rules dispatching is the responsibility of the generated Dispatcher decision table. Such table is generated for each group of methods overloaded by dimension properties. The Dispatcher table works like all decision tables, so the first rule matched by properties is executed even if there are several tables matched by properties. Previously, in Java code dispatching, AmbiguousMethodException would be thrown in such case.
+
+To support both functionalities, the dispatching.mode system property is introduced. It has the following possible values:
+
+| **Value** | **Description**                                                                                                                                                               |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **java**  | Dispatching is processed by Java code. The benefit of such approach is stricter dispatching: if several tables are matched by properties, AmbiguousMethodException is thrown. |
+| **dt**    | Deprecated. Dispatching is processed by the Dispatcher decision table.                                                                                                        |
+
+If the system property is not specified or if the dispatching.mode property has an incorrect value, the Java approach is used by default.
+
+##### Table Dispatching Validation Mode
+
+An explanation of table dispatching validation is as follows.
+
+Consider a rule table for which some business dimension properties are set up. There is only one version of this rule table. The following table describes options of versioning functionality behavior for this case depending on the dispatching.validation property value located in webstudio\\WEB-INF\\conf:
+
+| **Value** | **Versioning behavior description**                                                                                                                                                                                                                                                              |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| True      | Versioning functionality works as for a rule that has only one version. OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. Otherwise, the **No matching methods for context** error message is returned. |
+| False     | OpenL Tablets ignores properties of this rule table, and this rule is always executed and returns the result value despite of runtime context.                                                                                                                                                   |
+
+For table testing, dispatching validation is enabled by setting the dispatching.validation property value to true. The property is located in the application.properties file. In this case, versioning functionality works as for a rule that has only one version, and OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. In production, this property value must be set to false.
+
+By default, the dispatching.validation value is set to false in OpenL Tablets Rule Services and to true in OpenL Tablets WebStudio.
+
+##### Configuring a Number of Threads to Rules Compilation
+
+The system supports parallel rules compilation. Rules compilation consumes a large amount of memory. If the system tries to compile too many rules at once, it fails with an out of memory exception.
+
+Use the `ruleservice.instantiation.strategy.maxthreadsforcompile `property in the `application.properties` file to limit the number of threads to compile rules.
+
+By default, only three threads are used to compile rules in parallel:
 
 ```
-secret.key=mySecretPhrase
+ruleservice.instantiation.strategy.maxthreadsforcompile = 3
 ```
 
-The private key must be specified without spaces.
-
-!!! note
-	The private key must be configured prior to creating any secured connections. Otherwise, all stored passwords become invalid.
-
-## Deploy OpenL Tablets Rule Services under Apache Tomcat
-
-This chapter is designed for rule developers who need to use business rules as separate web services.
-
-For more information on how to configure OpenL Tablets Rule Services, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**].**
-
-Before deploying OpenL Tablets Rule Services under Apache Tomcat, ensure the following tasks are performed:
-
--   The `JAVA_HOME` environment variable is set to the pathname of the directory where JDK is installed.
--   JVM options are set up as described in [Installing Apache Tomcat](#installing-apache-tomcat).
-
-The folder where Tomcat is installed is referred to as `<TOMCAT_HOME>.`
-
-`This section contains the following topics:`
-
--   [Downloading Preconfigured OpenL Tablets Rule Services](#downloading-preconfigured-openl-tablets-rule-services)
--   [Configuring OpenL Tablets Rule Services for a Local Data Source](#configuring-openl-tablets-rule-services-for-a-local-data-source)
--   [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Attention!_For_proper)
--   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
--   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
-
-### Downloading Preconfigured OpenL Tablets Rule Services
-
-To download the preconfigured OpenL Tablets Rule Services application in a WAR file, proceed as follows:
-
-1.  Locate <https://openl-tablets.org/downloads>.
-2.  Click the appropriate OpenL Tablets Rule Services WAR link.
-3.  Save the WAR file to the `<TOMCAT_HOME>\webapps` directory.
-
-### Configuring OpenL Tablets Rule Services for a Local Data Source
-
-This section describes how to configure settings for a local storage with deployed projects there. The following topics are included:
-
--   [Configuring OpenL Tablets Rule Services via Local File System](#configuring-openl-tablets-rule-services-via-local-file-system)
--   [Configuring OpenL Tablets Rule Services via Local ZIP Archives](#configuring-openl-tablets-rule-services-via-local-zip-archives)
--   [Configuring OpenL Tablets Rule Services via Classpath JAR](#configuring-openl-tablets-rule-services-via-classpath-jar)
-
-#### Configuring OpenL Tablets Rule Services via Local File System
-
-Using a file system as a data source for user projects means that projects are stored in a local folder. This folder represents multi deployments containing one or multiple projects for each deployment. Each deployment must be represented as a separate folder and, at the same time, the project must also be represented as a separate folder inside the deployment folder.
-
-To deploy OpenL Tablets Rule Services, configure a local file system as a data source as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-file 
-	production-repository.uri = d:/datasource/
-	```
-
-	!!! note
-	For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
-
-1.  Save the rule project in the appropriate `datasource` folder.
-
-	Every rule project must be represented as a separate folder. As an example, use OpenL Tablets Tutorial available at <https://openl-tablets.org/documentation/tutorials>.
-
-1.  To run Tomcat, in `<TOMCAT_HOME>\bin,` click the `startup.bat` file.
-
-To ensure the deployment is successful, try loading the appropriate CXF page with web services.  
-An example is <http://localhost:8080/openl-tablets-ws-X.X.X>`.`
-
-Users can also pack their rule projects in a `jar` file and use this file as a data source as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**],** **JAR File Data Source** section.
-
-#### Configuring OpenL Tablets Rule Services via Local ZIP Archives
-
-Using a local zip archive as a data source for user projects means that zipped projects are stored in a local folder. This folder represents rule project or deployment as a separate zip archive:
-
--   Each dependent rule projects must be represented as a deployment zip archive and each project must be in a separate folder inside the deployment archive.
--   Each independent rule project must be represented as a separate zip archive.
-
-To set up local zip archives for deployment to OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-		production-repository.factory = repo-zip
-		production-repository.uri = d:/datasource
-	```
-
-1.  Save the zipped rule projects in the appropriate `datasource` folder.
-
-	Every rule project must be represented as a separate archive. As an example, use OpenL Tablets tutorial available at <https://openl-tablets.org/documentation/tutorials>.
-
-It is also possible to configure separate zip archives from different locations. For that, set up the `production-repository.archives` property and define the exact address to the zip archive. Use the comma “,” separator to configure multiple archives. An example is as follows:
-
-`production-repository.archives = d:/datasource/project1.zip, c:/folder/project2.zip`
-
-#### Configuring OpenL Tablets Rule Services via Classpath JAR
-
-If rule projects with the `rules.xml` project descriptor in the archive root or deployments with the `deployment.xml` or `deployment.yaml` deployment descriptor in the archive root are packed into a JAR file and placed in the `classpath`, these projects are deployed at the application launch. It is default configuration.
-
-To set up a classpath JAR for deploy to OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-		production-repository.factory = repo-jar
-	```
-
-1.  Put the JAR file with the project to `\<TOMCAT_HOME>\webapps\<rule services file name>\WEB-INF\lib`.
-
-Alternatively, zip archives with deployments or rule projects can be saved to `\<TOMCAT_HOME>\webapps\<rule services file name>\WEB-INF\classes\openl.`
-
-### Configuring OpenL Tablets Rule Services for a Database Data Source
-
-This section describes how to configure settings to connect to a database for storing deployed projects there. Such configuration requires that the appropriate database exists and is launched. The following topics are included:
-
--   [Configuring OpenL Tablets Rule Services via JDBC Connection](#configuring-openl-tablets-rule-services-via-jdbc-connection)
--   Configuring OpenL Tablets Rule Services via JNDI Connection
--   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
--   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
--   [Configuring OpenL Tablets Rule Services via Azure Blob Connection](#configuring-openl-tablets-rule-services-via-azure-blob-connection)
-
-Before configuration, add the appropriate driver library for a database in OpenL Tablets Rule Services to `\WEB-INF\lib\.`Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries. Install the database, defining a login and password and creating a new schema or service.
-
-For more information on drivers, see the **Driver name for appropriate databases** table in [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and).
-
-#### Configuring OpenL Tablets Rule Services via JDBC Connection
-
-To set up JDBC connection settings for OpenL Tablets Rule Services, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-jdbc
-	production-repository.uri = jdbc:mysql://localhost/deployment-repository
-	```
-
-1.  Set the URL value for `production-repository.uri` according to the appropriate database as described in the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-2.  Set the login `production-repository.login `and password `production-repository.password `for connection to the database defined while installing the database.
-
-	The password must be encoded via the Base64 encoding schema when `secret.key` is also defined.
-
-#### Configuring OpenL Tablets Rule Services via JNDI Connection
-
-This section describes how to configure JNDI connection when OpenL Tablets Rule Services is started under Apache Tomcat. Before configuration, ensure that resources are set up in the `context.xml` file as described in [Configuring Resources for JNDI Context](#configuring-resources-for-jndi-context).
-
-To configure OpenL Tablets Rule Services via JNDI connection, proceed as follows:
-
-1.  Open the `application.properties` file.
-2.  Set the following properties with the following values:
-
-	```
-	production-repository.factory = repo-jndi
-	production-repository.uri = java:comp/env/jdbc/deploymentDB
-	```
-
-1.  Change the URL value for `production-repository.uri` according to the appropriate database as described in the **URL value according to the database type** table in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-
-    !!! note
-	` `Login and password are not required for definition inside the `application.properties` file while configuring JNDI settings.
-
-### Configuring OpenL Tablets Rule Services via AWS S3 Connection
-
-This section describes how to configure an AWS S3 connection when OpenL Tablets Rule Services is started under Apache Tomcat.
-
-To configure OpenL Tablets Rule Services via an AWS S3 connection, add the following properties to the `application.properties` file:
+For example, to permit only one thread to compile rules, set value to one as follows:
 
 ```
-production-repository.factory = repo-aws-s3
-production-repository.bucket-name = yourBucketName
-production-repository.region-name = yourS3Region
-production-repository.access-key = yourAccessKey
-production-repository.secret-key = yourSecretKey
+ruleservice.instantiation.strategy.maxthreadsforcompile = 1
 ```
 
-### Configuring OpenL Tablets Rule Services via GIT Connection
+##### Enabling Logging to Console
 
-To configure OpenL Tablets Rule Services via a GIT connection, add the following properties to the application.properties file:
+To enable logging all requests to OpenL Tablets Rule Services and their responds to standard output, set the `ruleservice.logging.enabled `property in the `application.properties` file to `true`. This feature is very valuable in development. By default, it is disabled.
 
-```
-production-repository.factory = repo-git
-production-repository.uri = https://github.com/<your-name>/<your-repo>.git
-production-repository.login = your-login
-production-repository.password = your-password
-```
+##### Configuring the Instantiation Strategy
 
-### Configuring OpenL Tablets Rule Services via Azure Blob Connection
+The system provides an ability to change an instantiation strategy. The property `ruleservice.instantiation.strategy.lazy` is defined in the `application.properties` file.
 
-To configure OpenL Tablets Rule Services via the Azure Blob connection using SAS, add the following properties to the application.properties file:
+By default, the lazy initialization strategy is enabled:
 
 ```
-production-repository.factory=repo-azure-blob
-production-repository.uri=https://myStorage.blob.core.windows.net/container/?sv=2015-07-08
+ruleservice.instantiation.strategy.lazy = true
 ```
 
-## Install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server
+Modules are compiled upon the first request and can be unloaded in future for memory save.
 
-This section explains how to install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server in a standalone mode.
+To disable the lazy initialization strategy, set `ruleservice.instantiation.strategy.lazy = false`. All modules are compiled on the application launch.
+
+#### CORS Filter Support
+
+**Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. The specification defines a set of Access-Control-\* headers that allow the browser and server to communicate about which requests are allowed. The filter also protects against HTTP response splitting. If request is invalid or is not permitted, the request is rejected with HTTP status code 403 (Forbidden). For more information on CORS, see <https://fetch.spec.whatwg.org/>.
+
+The CORS filter supports the following initialization parameters:
+
+| Attribute               | Description                                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cors.allowed.origins`  | A list of [origins](https://tools.ietf.org/html/rfc6454) that are allowed to access the resource. A \* can be specified to enable access to resource from any origin. Otherwise, an allowed list of comma-separated origins can be provided.  Examples: https://www.w3.org, https://www.example.com.  The empty string means that no origin is allowed to access the resource. |
+| `cors.allowed.methods`  | A comma separated list of HTTP methods that can be used to access the resource using cross-origin requests. These methods are also included as a part of the `Access-Control-Allow-Methods` header in pre-flight response.  Example: GET,POST.                                                                                                                                 |
+| `cors.allowed.headers`  | A comma separated list of request headers for making an actual request. These headers are also returned as a part of the `Access-Control-Allow-Headers` header in pre-flight response.  Example: Origin,Accept.                                                                                                                                                                |
+| `cors.preflight.maxage` | The number of seconds a browser is allowed to cache the result of the pre-flight request. This attribute is included as a part of the `Access-Control-Max-Age` header in the pre-flight response. A negative value prevents a CORS filter from adding this response header to the pre-flight response.                                                                         |
+
+The default CORS configuration is as follows:
+
+```
+cors.allowed.origins =
+cors.allowed.methods = GET,OPTIONS,HEAD,PUT,POST
+cors.allowed.headers = Content-Type,Accept,api_key,Authorization
+cors.preflight.maxage = 7200
+```
+
+#### Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage
+
+The system provides an ability to store all requests to OpenL Tablets Rule Services and their responds in a storage. The setting is defined in the `application.properties` file. The following topics describe logging setup:
+
+-   [Understanding Logging to an External Storage](#_Understanding_logging_to)
+-   [Enabling Logging to an External Storage](#enabling-logging-to-an-external-storage)
+-   [Storing Log Records in Apache Cassandra](#storing-log-records-in-apache-cassandra)
+-   [Storing Log Records in the Relational Database](#storing-log-records-in-the-relational-database)
+-   [Storing Log Records in Hive](#storing-log-records-in-hive)
+
+##### Understanding Logging to an External Storage
+
+OpenL Tablets Rule Services supports storing requests and responses for the REST and Kafka publishers in the external storage. This feature is designed to support any external storage and use the Apache Casandra out of the box.
+
+For each request to OpenL Tablets Rule Services, the system creates an object of the `org.openl.rules.ruleservice.storelogdata.StoreLogData` class, which is populated with data during request processing and then can be stored in the configured storage. It contains the following data:
+
+| Field name           | Description                                                                                                                |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------|
+| requestMessage       | Request data for logging, such as request body, URL, request header, and request content type.                             |
+| responseMessage      | Response data for logging, such as response body, response status, and response header.                                    |
+| incomingMessageTime  | Time when request is received by the server.                                                                               |
+| outcomingMessageTime | Time when response message preparation is completed and the message is ready to be sent to the client.                     |
+| service              | OpenL Tablets service used for the call. Data includes service name, compiled OpenL Tablets rules, and other information.  |
+| inputName            | Method used for the call.                                                                                                  |
+| parameters           | Parameters of the call, which is an array of objects after binding request message to models.                              |
+
+When the logging data is collected, the system invokes the storing service responsible for saving logging data. The storing service must implement the `org.openl.rules.ruleservice.storelogdata.StoreLogDataService` interface.
+
+##### Enabling Logging to an External Storage
+
+By default, logging requests to OpenL Tablets Rule Services and their responds is disabled:
+
+```
+ruleservice.store.logs.enabled = false
+```
+
+To enable logging, set `ruleservice.store.logs.enabled = true`.
+
+##### Storing Log Records in Apache Cassandra
+
+Apache Cassandra is a free and open-source, distributed, wide column storage database that can be used as external storage. To start using Apache Cassandra, proceed as follows:
+
+1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+
+```
+mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+```
+
+1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true `setting in the` application.properties `file`.`
+2.  Set up Cassandra connection settings defined in the `application.properties` file as described in the following lines:
+
+    `datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1`
+
+    `datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042`
+
+    `datastax-java-driver.basic.session-keyspace = openl_ws_logging`
+
+    `datastax-java-driver.advanced.protocol.version = V4`
+
+    `datastax-java-driver.advanced.auth-provider.username =`
+
+    `datastax-java-driver.advanced.auth-provider.password =`
+
+    For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
+
+3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
+4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
+
+By default, this option is enabled. When the schema is created, set this property to the `false` value.
+
+As a result, the following table with the `openl_log_data` name is created in the Cassandra database:
+
+| Column name    | Type      | Description                                                    |
+|----------------|-----------|----------------------------------------------------------------|
+| ID             | TEXT      | Unique ID for the request. It is a primary key for the record. |
+| INCOMINGTIME   | TIMESTAMP | Incoming request time.                                         |
+| METHOD_NAME    | TEXT      | Method of a service that was called.                           |
+| OUTCOMINGTIME  | TIMESTAMP | Outgoing response time.                                        |
+| PUBLISHER_TYPE | TEXT      | Request source, such as web service or REST service.           |
+| REQUEST        | TEXT      | Request body.                                                  |
+| RESPONSE       | TEXT      | Response body.                                                 |
+| SERVICE_NAME   | TEXT      | Deployment service that was called.                            |
+| URL            | TEXT      | URL of the request.                                            |
+
+**Note:** Only methods annotated with `org.openl.rules.ruleservice.storelogdata.cassandra.annotation.StoreLogDataToCassandra `are used for storing their requests and responses in Apache Cassandra. The system supports customization to use different tables for each OpenL Tablets project, use product specific table names, and configure a set of columns of tables. For more information on customization using annotations, see [Service Customization through Annotations](#service-customization-through-annotations).
+
+##### Storing Log Records in the Relational Database
+
+To start using a relational database, proceed as follows:
+
+1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+
+```
+mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+```
+
+1.  Enable the relational database Storing Log feature using the `ruleservice.store.logs.db.enabled=true` setting` `in the `application.properties` file.
+2.  Set up the Hibernate connection settings defined in the `application.properties` file as described in the following lines:
+
+    `hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver`
+
+    `hibernate.connection.url=`
+
+    `hibernate.connection.username=`
+
+    `hibernate.connection.password=`
+
+    `hibernate.show_sql=false`
+
+    `hibernate.hbm2ddl.auto=update`
+
+    `hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider`
+
+    `hibernate.hikari.connectionTimeout=20000`
+
+    `hibernate.hikari.minimumIdle=10`
+
+    `hibernate.hikari.maximumPoolSize=20`
+
+    `hibernate.hikari.idleTimeout=300000`
+
+Relational database is supported via the Hibernate framework. Hibernate connection properties, such as `hibernate.connection.driver_class` and `hibernate.connection.url`, must be used to configure a connection to a relational database. For a full list of properties, see Hibernate documentation at [https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html\#database](https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#database).
+
+If table creating is enabled in Hibernate, the system creates the following table with the `openl_log_data` name:
+
+| Column name    | Type      | Description                                                    |
+|----------------|-----------|----------------------------------------------------------------|
+| ID             | TEXT      | Unique ID for the request. It is a primary key for the record. |
+| INCOMINGTIME   | TIMESTAMP | Incoming request time.                                         |
+| METHOD_NAME    | TEXT      | Method of a service that was called.                           |
+| OUTCOMINGTIME  | TIMESTAMP | Outgoing response time.                                        |
+| PUBLISHER_TYPE | TEXT      | Request source, such as web service or REST service.           |
+| REQUEST        | TEXT      | Request body.                                                  |
+| RESPONSE       | TEXT      | Response body.                                                 |
+| SERVICE_NAME   | TEXT      | Deployment service that was called.                            |
+| URL            | TEXT      | URL of the request.                                            |
+
+**Note:** Only methods annotated with `org.openl.rules.ruleservice.storelogdata.db.annotation.StoreLogDataToDB `are used for storing their requests and responses in a relational database. The system supports customization to use different tables for each OpenL Tablets project, use product specific table names, and configure a set of columns for tables. For more information on customization using annotations, see [Service Customization through Annotations](#service-customization-through-annotations).
+
+##### Storing Log Records in Hive
+
+Apache Hive is supported as external storage out of the box. The Hive data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive.
+
+The system uses the JDBC driver to communicate with the Hive server that process application requests.
+
+To start using Hive, proceed as follows:
+
+1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+
+```
+mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
+```
+
+1.  Set up Hive connection settings defined in the `application.properties` file as follows:
+
+```
+ruleservice.store.logs.hive.enabled = true
+hive.connection.url = jdbc:hive2://localhost:10000/default
+hive.connection.username =
+hive.connection.password =
+hive.connection.pool.maxSize = 10
+```
+
+The following properties can be modified to configure Hive:
+
+| Property                                 | Description                                                                                                                                                                                             |
+|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ruleservice.store.logs.hive.enabled      | Property to enable storing Hive logs.                                                                                                                                                                   |
+| hive.connection.url                      | `URL for connecting to the Hive server. An example is as follows:` `hive.connection.url = jdbc:hive2://localhost:10000/default`                                                                         |
+| hive.connection.username                 | `Username for connecting to the Hive server.`                                                                                                                                                           |
+| hive.connection.password                 | `Password for connecting to the Hive server.`                                                                                                                                                           |
+| hive.connection.pool.maxSize             | `OpenL Tablets uses HikariCP JDBC connection pool for managing Hive connections. The default pool size is 10.` `For more information on HikariCP, see `<https://github.com/brettwooldridge/HikariCP>`.` |
+| ruleservice.store.logs.hive.table.create | `If set to true, property that enables the SQL script to create a table before making a record in it.`                                                                                                  |
+
+As a result, the following table with the default openl_log_data name is created in Hive:
+
+| **Column name** | **Type**  | **Description**                                                |
+|-----------------|-----------|----------------------------------------------------------------|
+| ID              | STRING    | Unique ID for the request. It is a primary key for the record. |
+| INCOMINGTIME    | TIMESTAMP | Incoming request time.                                         |
+| METHODNAME      | STRING    | Method of a service that was called.                           |
+| OUTCOMINGTIME   | TIMESTAMP | Outgoing response time.                                        |
+| PUBLISHERTYPE   | STRING    | Request source, such as web service or REST service.           |
+| REQUEST         | STRING    | Request body stored as JSON.                                   |
+| RESPONSE        | STRING    | Response body stored as JSON.                                  |
+| SERVICENAME     | STRING    | Deployment service that was called.                            |
+| URL             | STRING    | URL of the request.                                            |
+
+**Note:** Only methods annotated with org.openl.rules.ruleservice.storelogdata.hive.annotation.StoreLogDataToHive are used for storing their requests and responses to Hive. The system supports customization to use different tables for each OpenL Tablets project, use product specific table names, and configure a set of columns of the tables. For more information on customization using annotations, see [Service Customization through Annotations](#service-customization-through-annotations).
+
+## OpenL Tablets Rule Services Advanced Configuration and Customization
+
+This section describes OpenL Tablets Rule Services advanced services configuration and customization and explains the following:
+
+-   [OpenL Tablets Rule Services Customization Algorithm](#_OpenL_Tablets_Web_4)
+-   [Data Source Listeners](#data-source-listeners)
+-   [Service Publishing Listeners](#service-publishing-listeners)
+-   [Dynamic Interface Support](#dynamic-interface-support)
+-   [Service Customization through Annotations](#_Service_Customization_through)
+-   [Variations](#variations)
+-   [Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#customization-of-log-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
+
+### OpenL Tablets Rule Services Customization Algorithm
+
+If a project has specific requirements, OpenL Tablets Rule Services customization algorithm is as follows:
+
+1.  Create a Maven project that extends OpenL Tablets Rule Services.
+2.  Add or change the required points of configuration.
+3.  Add the following dependency to the `pom.xml` file with the version used in the project specified:
+
+```
+<dependency>
+		<groupId>org.openl.rules</groupId>
+		<artifactId>org.openl.rules.ruleservice.ws</artifactId>
+		<version>5.X.X</version>
+		<type>war</type>
+		<scope>runtime</scope>
+</dependency>
+```
+
+1.  Use the following Maven plugin to control the OpenL Tablets Rule Services building with user’s custom configurations and classes:
+
+```
+<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-war-plugin</artifactId>
+		<configuration>
+			<warSourceDirectory>webapps/ws</warSourceDirectory>
+			<!—Define war name here-->
+			<warName>${war.name}-${project.version}</warName>
+			<packaging Excludes>
+			<!—Exclude unnecessary libraries from parent project here-->
+			WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
+			</packaging Excludes>
+			<!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
+			<web Resources>
+				<resource>
+					<directory>src/main/resources</directory>
+				</resource>
+				<resource>
+					<directory>war-specific-conf</directory>
+				</resource>
+			</web Resources>
+		</configuration>
+</plugin>
+```
+
+1.  If necessary, add customized spring beans into openl-ruleservice-override-beans.xml in src/main/resources.
+
+### Data Source Listeners
+
+A data source registers data source listeners and notifies some components of OpenL Tablets Rule Services about modifications. The only available event type on the production repository modification is about newly added deployment.
+
+A service manager is always a data source listener because it must handle all modifications in the data source.
+
+Users can add their own listener implementing `org.openl.rules.ruleservice.loader.DataSourceListener` for additional control of data source modifications with the required behavior and register it in data source via Spring configuration.
+
+### Service Publishing Listeners
+
+Service publishing listeners notify about the deployed or undeployed OpenL Tablets projects. Users can add their own listeners implementing `org.openl.rules.ruleservice.publisher.RuleServicePublisherListener` for additional control of deploying and undeploying projects with the required behavior and add them to the Spring configuration. The system automatically finds and registers all Spring beans implemented `RuleServicePublisherListener` interface as a publishing listener.
+
+The `org.openl.rules.ruleservice.publisher.RuleServicePublisherListener` interface has the following methods:
+
+| Inceptor                         | Description                                                                                               |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `onDeploy(OpenLService)`         | Invoked each time when the OpenL Tablets service is deployed with the publisher that fires this listener. |
+| `onUndeploy(String serviceName)` | Invoked each time when the service with the defined name is undeployed.                                   |
+
+### Dynamic Interface Support
+
+OpenL Tablets Rule Services supports interface generation for services at runtime. This feature is called **Dynamic Interface Support.** If a static interface is not defined for a service, the system automatically generates an interface at runtime with all methods defined in the module or, in case of a multimodule, in the list of modules.
+
+This feature is enabled by default. To use a dynamic interface, do not define a static interface for a service in `rules-deploy.xml `service description file.
+
+It is not a good practice to use all methods from a module in a generated interface because of the following limitations:
+
+-   All return types and method arguments in all methods must be transferrable through network.
+-   An interface for web services must not contain the method designed for internal usage.
+
+The system provides a mechanism for filtering methods in modules by including or excluding them from the dynamic interface.
+
+This configuration can be applied to projects using the `rules.xml` file. An example is as follows:
+
+```
+<project>
+	<name>project-name</name>
+	<modules>
+			<module>
+				<name>module-name</name>
+				<rules-root path="rules/Calculation.xlsx"/>
+				<method-filter>
+					<includes>
+						<value>.*determinePolicyPremium.*</value>
+						<value>.*vehiclePremiumCalculation.*</value>
+					</includes>
+				</method-filter>
+			</module>
+	</modules>
+	<classpath>
+		<entry path="lib/*"/>
+	</classpath>	
+</project>
+```
+
+For filtering methods, define the `method`-filter tag in the `rules`.xml file. This tag contains the `includes` and `excludes` tags. The algorithm is as follows:
+
+-   If the `method`-filter tag is not defined in the `rules`.xml, the system generates a dynamic interface with all methods provided in the module or modules for multimodule.
+-   If the `includes` tag is defined for method filtering, the system uses the methods which names match a regular expression of defined patterns.
+-   If the `includes` tag is not defined, the system includes all methods.
+-   If the `excludes` tag is defined for method filtering, the system uses methods which method names do not match a regular expression for defined patterns.
+-   If the excludes tag is not defined, the system does not exclude the methods.
+
+If OpenL Tablets Dynamic Interface feature is used, a client interface can also be generated dynamically at runtime. Apache CXF supports the dynamic client feature. For more information on dynamic interface support by Apache CXF, see <http://cxf.apache.org/docs/dynamic-clients.html>.
+
+Note: If a project is empty and does not contain any method, it is unavailable as a service.
+
+### Service Customization through Annotations
+
+This section describes interface customization using annotations. The following topics are included:
+
+-   [Interceptors for Methods](#_Interceptors_for_Methods)
+-   [Method Return Type Customization through Annotations](#_Method_Return_Type)
+-   [REST Endpoint Customization through Annotations](#rest-endpoint-customization-through-annotations)
+-   [Customization through Annotations for Dynamic Generated Interfaces](#customization-through-annotations-for-dynamic-generated-interfaces)
+
+#### Interceptors for Methods
+
+Required Maven dependency for OpenL Tablets Rule Services annotations is org.openl.rules:org.openl.rules.ruleservice.annotation. Use the provided scope for dependency because this dependency already exists in OpenL Tablets Rule Services and it must not be included in the deployment distributive to avoid class duplication in the Java ClassLoader.
+
+Interceptors for service methods can be specified using the following annotations:
+
+-   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallBeforeInterceptor`
+
+This annotation is used to define “before” interceptors for the annotated method. The goal of these interceptors is to add extra logic before service method invocation, such as validation for service method arguments, or to change values in input arguments. A class of the “before” interceptor must implement the `org.openl.rules.ruleservice.core.interceptors.ServiceMethodBeforeAdvice` interface.
+
+An example is as follows:
+
+```
+public class RequestModelValidator implements ServiceMethodBeforeAdvice {
+    public void before(Method interfaceMethod, Object proxy, 
+                       Object... args) throws Throwable {
+        if (args == null || args.length == 0) {
+            throw new IllegalArgumentException("Service method should have at least one argument");
+        }
+        //other validation logic
+    }
+}
+```
+
+To use the “before” interceptor, proceed as follows:
+
+```
+@ServiceMethodBeforeAdvice({ RequestModelValidator.class })
+Result doSomething(RequestModel requestModel);
+```
+
+-   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAroundInterceptor `
+
+This annotation is used to define “around” interceptors. A class for the “around” interceptor must implement the `org.openl.rules.ruleservice.core.interceptors.ServiceMethodAroundAdvice` interface. “Around” interceptors are used to add around logic for service method invocation. An example is when arguments of the case service method must be converted to another type before using them in service rules, and the results also require additional processing before return.
+
+An example is as follows:
+
+```
+public class MyMethodAroundInterceptor implements ServiceMethodAroundAdvice<Response> {
+    @Override
+    public Response around(Method interfaceMethod, Method proxyMethod, Object proxy, Object... args) throws Throwable {
+        Result res = (Result) proxyMethod.invoke(proxy, args);
+        return new Response("SUCCESS", res);
+    }
+}
+```
+
+To use the “around” interceptor, proceed as follows:
+
+```
+@ServiceCallAroundInterceptor({ MyMethodAroundInterceptor.class })
+Response doSomething(RequestModel requestModel);
+```
+
+-   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor`
+
+This annotation is used to defined “after” interceptors. This type of interceptions is used for result processing or error handling before return by the service method.
+
+The following table describes “after” interceptor types:
+
+| Inceptor          | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `After Returning` | Intercepts the result of a successfully calculated method, with a possibility of post processing of the return result, including result conversion to another type. In this case, the type must be specified as the return type for the method in the service class. `After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterReturningAdvice.` |
+| `After Throwing`  | Intercepts a method that has an exception thrown, with a possibility of post processing of an error and throwing another type of exception. `After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterThrowingAdvice.`                                                                                                                           |
+
+Example of the “after” interceptor implementation with after returning logic is as follows:
+
+```
+public class SpreadsheetResultConverter extends
+                               AbstractServiceMethodAfterReturningAdvice<ResponseDTO> {
+
+    @Override
+    public ResponseDTO afterReturning(Method interfaceMethod,
+                                      Object result, Object... args) {
+        SpreadsheetResult = (SpreadsheetResult) result;
+        return mapSpreadsheetResultToResponseDTO(spreadsheetResult);
+    }
+
+    private ResponseDTO mapSpreadsheetResultToResponseDTO(SpreadsheetResult result) {
+        ResponseDTO response = new ResponseDTO();
+        response.setPremium((Double) result.getFieldValue("$Value$PremiumStep"));
+        // Do some other mapping logic...
+        return response;
+    }
+}
+```
+
+Example of the “after” interceptor implementation with after throwing logic is as follows:
+
+```
+public class ExceptionHandlingAdvice extends
+                                AbstractServiceMethodAfterThrowingAdvice <ResponseDTO> {
+    private static final Logger LOG = LoggerFactory
+                                           .getLogger(ExceptionHandlingAdvice.class);
+    @Override
+    public ResponseDTO afterThrowing(Method iMethod, Exception t, Object... args) {
+        LOG.error(t.getMessage(), t);
+        return new ResponseDTO("INTERNAL_ERROR", t.getMessage());
+    }
+}
+To use the “after” interceptor, proceed as follows:
+@ServiceCallAfterInterceptor({ SpreadsheetResultConverter.class,
+                              ExceptionHandlingAdvice.class })
+ResponseDTO doSometing(Request request);
+```
+
+Use `@org.openl.rules.ruleservice.core.interceptors.annotations.NotConvertor` or `@org.openl.rules.ruleservice.core.interceptors.annotations.UseOpenMethodReturnType` on an interceptor implementation class when an interceptor must return a type of the generated class that is not available at compilation time to use as a generic parameter of the interceptor class. The `NotConvertor` annotation instructs the system that the interceptor does not change the return type of the method even if `Object` or any other class is used as a generic parameter of the class. The `UseOpenMethodReturnType` annotation instructs the system that the interceptor returns the original type of the rules method even if any other type is used as a generic parameter of the interceptor class.
+
+-   `@` `org.openl.rules.ruleservice.core.annotations.ServiceExtraMethod`
+
+This annotation is used to define the extra method absent in OpenL rules. Additional method implementation must implement `org.openl.rules.ruleservice.core.annotations.ServiceExtraMethodHandler` interface, and it exposes methods that differ in signature with the rules or do not exist in the Excel sheet.
+
+For example, an Excel file contains the `String hello(String)` method and this method must be exposed as `String hello(Integer)`.
+
+The advice class uses the same class loader that is used to compile the OpenL Tablets project. It means that a user can access all datatype classes generated by the system for a particular project. An additional method can be used when additional mapping between the OpenL Tablets model and external model is required, for example:
+
+```
+public static class LoadClassExtraMethod implements ServiceExtraMethodHandler<Object> {
+        @Override
+        public Object invoke(Method interfaceMethod, Object serviceBean, Object... args) throws Exception {
+            // MyBean is Datatype defined in OpenL
+            Class<?> myBeanClass = Thread.currentThread().getContextClassLoader()
+                        .loadClass("org.openl.generated.beans.MyBean");
+            Object myBean = myBeanClass.newInstance();
+            // … Do some mapping below and then return result
+            return myBean;
+        }
+    }
+```
+
+**Note:** Java byte code does not have argument names in interfaces, so they are named as 'arg0', 'arg1', and so on. To request more meaningful names for parameters, use the @ org.openl.rules.ruleservice.core.annotations.Name annotation together with @ServiceExtraMethod.
+
+Use the org.openl.rules.ruleservice.core.interceptors.IOpenMemberAware and org.openl.rules.ruleservice.core.interceptors.IOpenClassAware interfaces if a reference to the compiled IOpenClass or IOpenMember object is required in an interceptor implementation class.
+
+#### Method Return Type Customization through Annotations
+
+By default, OpenL Tablets applies the org.openl.rules.ruleservice.core.interceptors.converters.SPRToPlainConverterAdvice interceptor to all spreadsheet table methods that return SpreadsheetResult and org.openl.rules.ruleservice.core.interceptors.converters.VariationResultSPRToPlainConverterAdvice interceptor to all variations methods that correspond to spreadsheet table methods that return SpreadsheetResult. These annotations transform the spreadsheet table result to the generated Java bean and return it instead of SpreadsheetResult.
+
+**Note:**  If any interceptor is used on the method, the SPRToPlainConverterAdvice or VariationResultSPRToPlainConverterAdvice interceptors must be added manually to keep default behavior**.**
+
+To change default behavior, define `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor `with an empty value on the method to return SpreadsheetResult.
+
+#### REST Endpoint Customization through Annotations
+
+By default, URLs and HTTP method type for methods are determined automatically by the system. The path for the methods equals the corresponding service method name, and HTTP method type depends on used arguments: if the service method has at least one argument, a HTTP method type is set to POST, otherwise, to GET.
+
+The following JAX-RS annotations can be used to override the default behavior of service method publishing:
+
+| Annotation | Import details             |
+|------------|----------------------------|
+| `@POST`    | `import javax.ws.rs.POST;` |
+| `@GET`     | `import javax.ws.rs.GET;`  |
+| `@Path`    | `import javax.ws.rs.Path;` |
+
+-   `@POST` annotation overrides a default method type.
+
+Service methods annotated `@POST` accepts only POST requests. Usage example is as follows:
+
+```
+@POST
+MyResponse someMethod();
+```
+
+-   `@GET` annotation overrides a default method type.
+
+Service method annotated `@GET` accepts only GET requests. Usage example is as follows:
+
+```
+@GET
+MyResponse someMethod(MyType myType);
+```
+
+-   `@Path` annotation overrides a default URL method path.
+
+Usage example is as follows:
+
+```
+@Path(“/customPrefix/someMethod”)
+MyResponse someMethod(MyType myType);
+```
+
+Required Maven dependency is as follows:
+
+```
+<dependency>
+    <groupId>jakarta.ws.rs</groupId>
+    <artifactId>jakarta.ws.rs-api</artifactId>
+    <version>2.1.5</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+**Note:** It is not necessary to declare pairs of `@POST` + `@Path` or `@GET` + `@Path` because OpenL Tablets provides the capability to define a single annotation and generate the other one automatically.
+
+All other JAX-RS annotations, such as `@PUT`, `@DELETE`, `@QueryParam`, and `@PathParam,` are also supported by OpenL Tablets. For more information on JAX-RS annotation, see <https://docs.oracle.com/javaee/7/api/javax/ws/rs/package-summary.html>.
+
+#### Customization through Annotations for Dynamic Generated Interfaces
+
+Annotation customization can be used for dynamically generated interfaces. This feature is only supported for projects that contain the `rules-deploy.xml `deployment configuration file. To enable customization through annotation, proceed as follows:
+
+1.  Add the `annotationTemplateClassName `tag to the `rules-deploy.xml` file*.*
+
+An example is as follows:
+
+```
+<rules-deploy>
+	<isProvideRuntimeContext>true</isProvideRuntimeContext>
+	<isProvideVariations>false</isProvideVariations>
+	<serviceName>dynamic-interface-test3</serviceName>
+	<annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
+	<url></url>
+</rules-deploy> 
+```
+
+1.  Define a template interface with the annotated methods with the same signature as in a generated dynamic interface.
+
+This approach supports replacing argument types in the method signature with types assignable from generated types in the generated interface.
+
+**Example:** SubType is a subclass of class MyType. Consider the following methods are generated in the generated interface:
+
+```
+void someMethod(IRulesRuntimeContext context, MyType myType);
+void someMethod(IRulesRuntimeContext context, SubType otherType);
+```
+
+Add an annotation to the first method using the same method signature in the template interface as follows:
+
+```
+@ServiceCallAfterInterceptor(value = { MyAfterAdvice.class })
+void someMethod(IRulesRuntimeContext context, MyType myType);
+```
+
+If the `MyType` class is also generated at runtime, use a super type of the `MyType` class. An example is as follows:
+
+```
+@ServiceCallAfterInterceptor(value = { MyAfterAdvice.class })
+void someMethod(IRulesRuntimeContext context, @RulesType("MyType") Object myType);
+```
+
+This example uses the `@` `org.openl.rules.ruleservice.core.interceptors.RulesType` annotation. If this annotation is missed, this template method is applied to both methods because `Object` is assignable from both types `MyType `and `SubType`.
+
+The `@RulesType` annotation value accepts the following:
+
+-   canonical class name
+-   datatype name
+-   custom SpreadsheetResult name
+
+Use this annotation if more details are required to define a template method.
+
+**Note:** A user can also use class level annotations for a dynamically generated class. It can be useful for JAX-WS or JAX-RS interface customization.
+
+### Variations
+
+In highly loaded applications, performance of execution is a crucial point in development. There are many approaches to speed up the application. One of them is to calculate rules with variations.
+
+A **variation** stands for additional calculation of the same rule with a slight modification in its arguments. Variations are very useful when a rule must be calculated several times with similar arguments. The idea of this approach is to once calculate rules for particular arguments and then recalculate only the rules or steps that depend on the modified, by variation, fields in those arguments.
 
 The following topics are included:
 
--   [Deploying OpenL Tablets WebStudio on JBoss Application Server](#deploying-openl-tablets-webstudio-on-jboss-application-server)
--   [Deploying OpenL Tablets Rule Services on JBoss Application Server](#deploying-openl-tablets-rule-services-on-jboss-application-server)
--   [Setting Up a JDBC Connection](#_Setting_Up_a)
--   [Setting Up a JNDI Connection](#setting-up-a-jndi-connection)
+-   [Variations Algorithm](#variations-algorithm)
+-   [Predefined Variations](#predefined-variations)
+-   [Variations Factory](#variations-factory)
+-   [Enabling Variations Support](#_Enabling_Variations_Support)
 
-### Deploying OpenL Tablets WebStudio on JBoss Application Server
+#### Variations Algorithm
 
-To deploy OpenL Tablets WebStudio on JBoss Application Server, proceed as follows:
+A rule that can be calculated with variations must have the following methods in a service class:
 
-1.  Rename the OpenL Tablets WebStudio war file to `webstudio.war`.
-1.  Copy `webstudio.war` to the `<JBoss home directory>\standalone\deployments` directory.
-1.  If the `auto-deploy-zipped` attribute is set to `true` in the `standalone.xml` file, manually create an empty file `webstudio.war.dodeploy`.
-1.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-1.  Verify that the `webstudio.war.deployed` marker is generated.
-1.  To run OpenL Tablets WebStudio, in a browser, enter *http://localhost:8080/webstudio/*.
-1.  The **Welcome to OpenL Tablets WebStudio Installation Wizard** window.
-2.  Set up the application as required.
+-   original method with a corresponding rule signature
+-   method with injected variations
 
-### Deploying OpenL Tablets Rule Services on JBoss Application Server
+The method enhanced with variations has a signature similar to the original method. Add the argument of the `org.openl.rules.variation.VariationsPack` type as the last argument. The return type must be generic `org.openl.rules.variation.VariationsResult<T>`, where `T` is the return type of the original method.   
+The` VariationsPack` class contains all required variations to be calculated. The` VariationsResult<T> `class contains results of the original calculation, without any modifications of arguments, and all calculated variations that can be retrieved by variation ID. There can be errors during calculation of a specific variation. The following methods are used to get result of a particular variation:
 
-To deploy OpenL Tablets Rule Services on JBoss Application Server, proceed as follows:
+| Method                                            | Description                                                |
+|---------------------------------------------------|------------------------------------------------------------|
+| `getResultForVariation(String variationID)`       | Returns the result of a successfully calculated variation. |
+| `getFailureErrorForVariation(String variationID)` | Returns the corresponding error message.                   |
 
-1.  Rename the OpenL Tablets Rule Services file to `webservice.war.`
-2.  Copy the `webservice.war` file to the `<JBoss home directory>\standalone\deployments` directory.
-3.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-4.  Verify that the `webservice.war.deployed` marker is generated.
-5.  To run OpenL Tablets Rule Services, in a browser, enter *http://localhost:8080/webservice/*.
+**Note:** When using a user’s own service class instead of the one generated by default, the original method must be defined for each method with variations.
 
-### Setting Up a JDBC Connection
+**Note:** The result of the original calculation can be retrieved in the same manner as for all variations, by using the special `Original calculation `ID in code as `org.openl.rules.project.instantiation.variation.NoVariation.ORIGINAL_CALCULATION.`
 
-To set up a JDBC connection for OpenL Tablets WebStudio, proceed as follows:
+#### Predefined Variations
 
-1.  Download a required JDBC driver.
-1.  Run `< JBoss home directory >\bin\standalone.bat.`
-1.  Run JBoss command line client `<JBoss home directory>\bin\jboss-cli.bat.`
-1.  In Jboss-cli:, connect to the server using the `connect` command.
-1.  In Jboss-cli:, add a module using the following command:
+A variation typically has a unique ID and is responsible for modifying arguments and restoring original values. The ID is a `String` value used to retrieve the result of the calculation with this variation.
 
-	`module add --name=<module name> --resources=<path to the driver> --dependencies=javax.api,javax.transaction.api`
+By default, the variation’s abstract class `org.openl.rules.project.instantiation.variation.Variation` has two methods, `applyModification` and `revertModifications`. The first method modifies arguments; the second rolls back the changes. For this purpose, a special instance of Stack is passed to both these methods: in the `applyModification` method, the previous values must be stored; in `revertModifications,` the previous values can be retrieved from the Stack and saved into arguments.
 
-	An example of the MySQL driver copied to the `<JBoss home directory>\bin` directory is as follows:
+The following table describes predefined variation types in the `org.openl.rules.variation `package:
 
-	`module add --name=org.mysql --resources=mysql-connector-java-8.0.11.jar --dependencies=javax.api,javax.transaction.api`
+| Variation type                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `NoVariation`                  | Empty variation without any modifications. It is used for the original calculation and has a predefined `Original calculation` ID.                                                                                                                                                                                                                                                                                                                                                                                        |
+| `ArgumentReplacementVariation` | Variation that replaces an entire argument. It was introduced because `JXPathVariation` cannot replace a value of a root object, or argument. The argument index, value to be set instead of the argument, and ID are required to construct this variation.                                                                                                                                                                                                                                                               |
+| `JXPathVariation`              | Variation that modifies an object field or replaces an element in the array defined by the special path. JXPath is used to analyze paths and set values to corresponding fields, therefore use JXPath-consistent path expressions. The following data is required for this variation: index of the argument to be modified path to the field that must be modified in the JXPath notation value to be set instead of the original field value ID For more information on JXPath, see <http://commons.apache.org/jxpath/>. |
+| `ComplexVariation`             | Variation that combines multiple variations as a single variation. It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
+| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  This variation is not recommended because of performance drawbacks: the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
 
-1.  To prepare `*.war` files for deployment, in the `META-INF\jboss-deployment-structure.xml` file, add the following structure:
+If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation `class. Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
 
-	`<dependencies>`
+#### Variations Factory
 
-	`		<module name="<module_name>" export="true" />`
+The` org.openl.rules.project.VariationsFactory` class is a utility class for simple creation of predefined variations. It uses the following arguments:
 
-	`</dependencies>`
+| Argument         | Description                                                                                           |
+|------------------|-------------------------------------------------------------------------------------------------------|
+| `variationId`    | Unique ID for a variation.                                                                            |
+| `argumentIndex`  | 0-based index of an argument to be modified.                                                          |
+| `path`           | Path to the field to be modified, or just a dot `.` to modify the root object, that is, the argument. |
+| `valueToSet`     | Value to be set by path.                                                                              |
+| `cloneArguments` | Identifier of whether cloning must be used.                                                           |
 
-1.  For `webservice.war`, in the `application.properties` file, specify a connection to the database as follows:
+Usually `VariationsFactory` creates the `JXPathVariation` variation which covers most cases of variations usage. When a dot `.` is specified as a path, `ArgumentReplacementVariation` is constructed. The `cloneArguments` option says to `VariaitonsFactory` to wrap created variation by `DeepCloninigVariation`.
 
-	`production-repository.factory = repo-jdbc`
+An alternative way is to use a special `VariationDescription` bean that contains all fields described previously in this section. It is useful to transmit a variation in OpenL Tablets Rule Services and define variations in rules.
 
-	`production-repository.uri = jdbc:mysql://localhost/deployment-repository`
+#### Enabling Variations Support
 
-1.  Ensure that the `application.properties` file is “visible” at the JBoss launch location.
-
-	For example, if the `application.properties` file is located in JBoss home directory, JBoss must be run from this directory via the `bin\standalone.bat` command.
-
-1.  Configure a JDBC connection for OpenL Tablets WebStudio as described in [Configuring OpenL Tablets WebStudio via JDBC Connection](#configuring-openl-tablets-webstudio-via-jdbc-connection).
-
-### Setting Up a JNDI Connection
-
-To set up a JNDI connection settings for OpenL Tablets WebStudio, proceed as follows:
-
-1.  Copy a database driver to the `<JBoss home directory>\ standalone\deployments\` directory.
-1.  Run the `<JBoss home directory>\bin\standalone.bat` file.
-1.  In a browser, enter *http://localhost:8080/*.
-1.  Click **Administration console.**
-1.  Click the **Configuration** link.
-1.  Select **Subsystems \> Datasources \> Non-XA**.
-1.  Click **Add.**
-
-	![](installation_guide_images/b126142f46ae04166e7bb40b25a718a3.png)
-
-	*Figure: Configuring a JNDI connection*
-
-1.  In the **Create Datasource** window, select a data source and click **Next.**
-1.  Enter the data source name and JNDI name and click **Next.**
-1.  Switch to the **Detected Driver** tab.
-
-	![](installation_guide_images/8e8e680140b9e8160fba58d2222e2047.png)
-
-	*Figure: JDBC driver collection*
-
-1.  Select a JDBC driver and click **Next.**
-1.  Specify database connection settings and click **Next.**
-1.  To test the JDBC connection, click **Test Connection.**
-1.  Click **Next** and then click **Finish.**
-1.  For `webservice.war`, in the `application.properties` file, specify the connection to a database as follows:
-
-	`production-repository.factory = repo-jndi`
-
-	`production-repository.uri = <JNDI Name>`
-
-1.  Configure a JNDI connection for OpenL Tablets WebStudio as described in [Configuring Settings in OpenL Tablets WebStudio](#configuring-settings-in-openl-tablets-webstudio).
-
-## OpenL Tablets WebStudio and Rule Services Integration
-
-This section describes how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services integration and enable backward compatibility and includes the following topics:
-
--   [Deploying Rules to the Production Server](#_Deploying_Rules_to)
--   [Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository](#_Backward_Compatibility_of)
-
-### Deploying Rules to the Production Server
-
-After integration any changes can be made in user’s rule in OpenL Tablets WebStudio, and then the project must be saved and redeployed. These changes immediately affect the rule represented as web service. During development, rules are stored in the file system of the development server. When development is finished, rules can be deployed to the production server as follows:
-
-1.  OpenL Tablets WebStudio sends the rules project to the database repository, using the JDBC driver for connection, in case of integration via database repository.
-2.  The rules are saved on the production server.
-3.  OpenL Tablets Rule Services detects a new version of the deployed rules and starts using it.
-
-	The following diagram illustrates the OpenL Tablets WebStudio and OpenL Tablets Rule Services integration:
-
-	![](installation_guide_images/7d47ea73c919e3bfe300c8906cd7f750.png)
-
-	*Figure: OpenL Tablets WebStudio and OpenL Tablets Rule Services deployment*
-
-### Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository
-
-This section describes an alternative way of how to set up an integrated environment that enables work with business rules from OpenL Tablets WebStudio and launch these rules as OpenL Tablets Rule Services. To set up OpenL Tablets WebStudio and OpenL Tablets Rule Services integration using the database as storage for deployment repository, proceed as follows:
-
-1.  Install OpenL Tablets WebStudio and OpenL Tablets Rule Services on the same application server.
-2.  Connect OpenL Tablets WebStudio to the database to store deployed projects as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-3.  Configure OpenL Tablets Rule Services for a database data source as described in [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Configure_Web_Services_2).
-
-## Troubleshooting
-
-If OpenL Tablets WebStudio is deployed under Tomcat in the Unix/Linux environment, consider the following troubleshooting recommendations:
-
-1.  Before starting Tomcat under Linux, make sure that no Java processes are running:
-
-	`sudo ps -A | grep j`
-
-	If found, the process name and number are displayed.
-
-1.  If any Java process is running, stop it as follows:
-
-	`kill -9 <process number>`
-
-1.  Make sure that port 8080 is available as follows:
-
-	`sudo netstart –an | grep 8080`
-
-1.  Run Tomcat under Linux as follows:
-
-	`<TOMCAT_HOME>/bin/startup.sh`
-
-1.  If the **command not found** error appears, mark the `.sh` file as an executable script as follows:
-
-	`chmod +x startup.sh`
-
-2.  If the **Permission denied** or **The BASEDIR environment variable is not defined correctly** error is displayed, make all `.sh` files in the `bin` folder executable as follows:
-
-	`chmod 777 *.sh`
-
-1.  Verify that all `.sh` files in the `bin` folder are executable as follows:
-
-	`ls –la`
-
-1.  Run Tomcat as follows:
-
-	`<TOMCAT_HOME>/bin/startup.sh`
-
-## Frequently Asked Questions
-
-This section provides the most common questions and answers related to the OpenL Tablets installation procedure. For more information on working with Java, Tomcat, and other third party software, see the corresponding sites of the software manufacturers.
-
-| \#    | Question                                                                                                                         | Answer                                                                                                                                                                                                                                                                                                                                   |
-|-------|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1** | How can I check if Java is installed on my PC?                                                                                   | Proceed as follows: <br/>Open **Start \> Control Panel.** <br/>Perform either of the following: <br/>• For Windows XP, double click **Add or Remove Programs**. <br/>• For Windows 7/Vista, click **Programs \> Programs and Features**. <br/>Look through the list for **Java(TM)…** or **Java(TM) Update…** items. If any is present, Java is installed on your PC. |
-| **2** | During Java installation, the page for Java registration appears. <br/>Do I have to register Java?                                    | No, it is optional. You can close the registration page.                                                                                                                                                                                                                                                                                 |
-| 3     | How can I check which version of Java is installed on my PC?                                                                     | Open the [**Verify Java Version**](http://java.com/en/download/installed.jsp) page and click the **Verify Java Version** button.  <br/>In a few seconds a new page appears where you will find the message like the following one: **Your Java version: Version 6 Update 26**.                                                                |
-| 4     | How can I see the error message in the Tomcat <br/>console that appears when I start Tomcat? <br/>The error screen disappears too quickly. | Proceed as follows: <br/>Click **Start \> Run**. <br/>Locate the `<TOMCAT_HOME>\bin` folder. <br/>Select `catalina.bat` and enter *run* in the command line.                                                                                                                                                                                            |
-
-## Appendix A: Official Docker Images for OpenL Tablets
-
-OpenL Tablets supports Docker containers. The following table provides links to the Docker images for OpenL Tablets:
-
-| **OpenL Tablet resource**   | **Reference**                                      |
-|-----------------------------|----------------------------------------------------|
-| OpenL Tablets Rule Services | <https://hub.docker.com/r/openltablets/ws/>        |
-| OpenL Tablets WebStudio     | <https://hub.docker.com/r/openltablets/webstudio/> |
-| OpenL Tablets demo          | <https://hub.docker.com/r/openltablets/demo/>      |
-
-## Appendix B: OpenL Tablets WebStudio Image Configuration for SAML Under Kubernetes
+Default value for all deployed services is defined in the `ruleservice.isSupportVariations `property in` application.properties`.` `By default, it is disabled. A variation can be enabled and disabled on the project level using the `rules-deploy.xml` deployment configuration file. An example is as follows:
 
 ```
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: webstudio
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: webstudio
-  serviceName: webstudio
-  template:
-    metadata:
-      labels:
-        app: webstudio
-    spec:
-      containers:
-        - name: webstudio
-          image: openltablets/webstudio:latest
-          resources:
-            limits:
-              memory: "32768Mi"
-            requests:
-              memory: "1024Mi"
-          ports:
-            - containerPort: 8080
-          readinessProbe:
-            tcpSocket:
-              port: 8080
-            initialDelaySeconds: 30
-            periodSeconds: 60
-          livenessProbe:
-            tcpSocket:
-              port: 8080
-            initialDelaySeconds: 60
-            periodSeconds: 120
-          env:
-            - name: WEBSTUDIO_CONFIGURED
-              value: "true"
-            - name: DB_URL
-              value: "jdbc:postgresql://dbserver:5432/studio_db"
-            - name: DB_USER
-              value: "pgadmin@studio"
-            - name: DB_PASSWORD
-              value: "Pa$$w0rd"
-            - name: USER_MODE
-              value: "saml"
-            - name: SECURITY_SAML_ENTITY-ID
-              value: "webstudio"
-            - name: SECURITY_SAML_SAML-SERVER-METADATA-URL
-              value: "https://saml-idp-server/path/to/metadata"
-            - name: SECURITY_ADMINISTRATORS
-              value: "mylogin@example.com"
-            - name: SECURITY_SAML_SERVER-CERTIFICATE
-              value: "BASE64 encoded public key (optional)"
-            - name: SECURITY_SAML_ATTRIBUTE_FIRST-NAME
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
-            - name: SECURITY_SAML_ATTRIBUTE_LAST-NAME
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
-            - name: SECURITY_SAML_ATTRIBUTE_DISPLAY-NAME
-              value: "http://schemas.microsoft.com/identity/claims/displayname"
-            - name: SECURITY_SAML_ATTRIBUTE_EMAIL
-              value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-            - name: SECURITY_SAML_ATTRIBUTE_GROUPS
-              value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-            - name: USER_MODE
-              value: "saml"
-      imagePullSecrets:
-        - name: regcreds
+<rules-deploy>
+	…
+	<isProvideVariations>false</isProvideVariations>
+	…
+</rules-deploy> 
 ```
 
-## Appendix C: CORS Filter Support Enablement in <br/>OpenL Tablets WebStudio
+### Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage
 
-**Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. For more information on how to enable CORS filter support in OpenL Tablets WebStudio, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**, the CORS Filter Support section.
+This section describes advanced customization for logging requests to OpenL Tablets Rule Services and their responds in a storage if different parts of the input and output data must be stored separately. It also describes how to customize a structure of tables and indexes in a storage.
+
+The following topics are included:
+
+-   [Storage Service for Log Requests and Their Responds](#storage-service-for-log-requests-and-their-responds)
+-   [Customization for Apache Cassandra](#customization-for-apache-cassandra)
+-   [Customization for the Relational Database](#customization-for-the-relational-database)
+-   [Customization for Hive](#_Customization_for_Hive)
+
+#### Storage Service for Log Requests and Their Responds
+
+This section describes storage service used for log requests and responds and includes the following topics:
+
+-   [Log Request and Response Storage Service Overview](#log-request-and-response-storage-service-overview)
+-   [Collecting Data from Requests and Their Responds and Populating Custom Values](#collecting-data-from-requests-and-their-responds-and-populating-custom-values)
+-   [Log Requests and Their Responds Customization Using Annotations](#_Log_Requests_and)
+
+##### Log Request and Response Storage Service Overview
+
+OpenL Tablets Rule Services supports Apache Cassandra and relational database storages to log request and their responds out of the box. This part of the system is designed customizable and extendable via the org.openl.rules.ruleservice.storelogdata.StoreLogDataService interface to support the third-party storages.
+
+The StoreLogDataService interface has the following methods:
+
+| Method                               | Description                                            |
+|--------------------------------------|--------------------------------------------------------|
+| boolean isEnabled()                  | Identifies whether the log storing service is enabled. |
+| void save(StoreLogData storeLogData) | Saves storeLogData data to a storage.                  |
+
+The implementation class of this interface must be registered in the application Spring context. The system discovers all implementation of the interface automatically and uses all found services at the same time.
+
+org.openl.rules.ruleservice.storelogdata.StoreLogData is a class that contains all available data from the request and respond. This class has the getCustomValues() method that returns a map for interested values that can be stored separately from request payload.
+
+Custom implementation of the StoreLogDataService interface supports all features described in this document.
+
+Annotation on the called method @org.openl.rules.ruleservice.storelogdata.annotation.SkipFaultStoreLogData instructs the system to skip storing fault requests and their responds in a storage.
+
+##### Collecting Data from Requests and Their Responds and Populating Custom Values
+
+Populating custom values in the StoreLogData object and collecting data for service methods is defined using the @org.openl.rules.ruleservice.storelogdata.annotation.PrepareStoreLogData annotation.
+
+| Attribute                 | Description                                                                                                                                                                                                                                                                                                                                   |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `value`                   | Mandatory reference to the StoreLogDataAdvice interface implementation. The implementation class defines which data is collected.                                                                                                                                                                                                             |
+| bindToServiceMethodAdvice | Optional reference to an implementation of the ServiceMethodAdvice interface. It defines that the implementation of the theStoreLogDataAdvice interface must be invoked before or after the corresponding ServiceMethodAdvice implementation. It is used when required data for collecting is not more available after result transformation. |
+| `before`                  | Optional attribute specifying the order of the called data collecting advice. If the bindToServiceMethodAdvice attribute is present, before determines the advice execution relative to the defined interceptor, otherwise relative to the base method. The default value is false, that is, execution happens after method or interceptor.   |
+
+Implement a single method in the StoreLogDataAdvice interface for collecting data to be used along with the `@Value` annotation in entities or directly from StoreLogData.getCustomValues().
+
+Using more than one @PrepareStoreLogData to logically decouple the code of collecting a data is allowed for the same method.
+
+All these annotations can be used on fields or on getter or setter methods in entity classes.
+
+The org.openl.rules.ruleservice.storelogdata.advice.StoreLogDataAdvice interface has only one method to implement. An example is as follows:
+
+```
+public class CollectDataStoreLogDataAdvice implements StoreLogDataAdvice {
+   @Override
+   public void prepare(Map<String, Object> values, Object[] args, Object result, Exception ex) {
+       values.put(“state", ((CalculationResult)result).getState());
+   }
+}
+```
+
+To programmatically control whether a call to the service must be stored or skipped, use the org.openl.rules.ruleservice.storelogdata.StoreLogDataHolder.get().ignore() line of code in implementation of StoreLogDataAdvice.
+
+If compound object serialization to string is required in StoreLogDataAdvice, use the org.openl.rules.ruleservice.storelogdata.advice.ObjectSerializerAware interface. It injects the org.openl.rules.ruleservice.storelogdata.ObjectSerializer instance automatically via the void setObjectSerializer(ObjectSerializer objectSerializer) method. ObjectSerializer provides functionality to serialize an object to a string with the same mechanism used in the invoked publisher. For example, it produces a JSON string for REST or Kafka services.
+
+##### Log Requests and Their Responds Customization Using Annotations
+
+OpenL Tablets Rule Services has annotations for mapping requests and their responds data to entity classes. The org.openl.rules: org.openl.rules.ruleservice.ws.storelogdata Maven dependency is required for the log requests and their respond annotations. Use the provided scope for dependency as it already exists in OpenL Tablets Rule Services and it must not be included in the deployment distributive to avoid class duplication in ClassLoader.
+
+The org.openl.rules.ruleservice.storelogdata.StoreLogDataMapper class maps OpenL Tablets annotations to the entity class.
+
+The following annotations located in the org.openl.rules.ruleservice.storelogdata.annotation package are supported:
+
+| **Annotation**       | **Field Type**  | **Description**                                                                                                                                                    |
+|----------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `IncomingTime`       | `ZonedDateTime` | Incoming request time.                                                                                                                                             |
+| `OutcomingTime`      | `ZonedDateTime` | Outgoing response time.                                                                                                                                            |
+| `MethodName`         | `String`        | Method of a service that is called.                                                                                                                                |
+| `ServiceName`        | `String`        | Deployment service name that is called.                                                                                                                            |
+| `Publisher`          | `String`        | Request source, such as web service or REST service or Kafka.                                                                                                      |
+| `Request`            | `String`        | Request body, such as JSON for the REST service, and message body for Kafka.                                                                                       |
+| `Response`           | `String`        | Response body, such as JSON for REST service, and message body for Kafka.                                                                                          |
+| `Url`                | `String`        | URL of the request if available.                                                                                                                                   |
+| `Value`              | `Object`        | Value from the map that is returned by StoreLogData .getCustomValues()                                                                                             |
+| `KafkaMessageHeader` | `byte[]`        | Kafka message header data. The value attribute with a defined header name is required. The type attribute is used to define a producer or consumer message to use. |
+
+All annotations described in this section have an optional converter attribute for converting a collected type into the required field type. Use implementation of the org.openl.rules.ruleservice.storelogdata.Converter interface for the convertor attribute. A usage example of this interface is as follows:
+
+```
+public final class ZonedDataTimeToDateConvertor implements Converter<ZonedDateTime, Date> {
+    @Override
+    public Date apply(ZonedDateTime value) {
+        return value != null ? Date.from(value.toInstant()) : null;
+    }
+}
+```
+
+#### Customization for Apache Cassandra
+
+This section describes customization for Apache Cassandra and automatically creating a table schema for entity classes. The following topics are described:
+
+-   [Log Requests and Responds Customization for Apache Cassandra](#log-requests-and-responds-customization-for-apache-cassandra)
+-   [Automatically Creating a Cassandra Table Schema Creation for Entity Classes](#automatically-creating-a-cassandra-table-schema-for-entity-classes)
+
+##### Log Requests and Responds Customization for Apache Cassandra
+
+Service storing log requests and their responds for Apache Cassandra requires a Cassandra driver version 4.x. The Cassandra driver uses a new mapping model between object in the code and a table in a database. For more information on mapping, see <https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/>. The nutshell working with this model assumes that there are three objects: Entity, Dao, and Mapper interface.
+
+For a method, to enable logging requests and their responds to Apache Cassandra, annotate calling method with the `@org.openl.rules.ruleservice.storelogdata.cassandra.annotation.StoreLogDataToCassandra` annotation. The annotation has an optional attribute that obtains entity classes. If `@StoreLogDataToCassandra` is used with an empty value, the default table described in [Storing Log Records in Apache Cassandra](#storing-log-records-in-apache-cassandra) is used. If more than one entity class is used in the value attribute for the `@StoreLogDataToCassandra` annotation, the system splits data and stores it in multiple Cassandra tables.
+
+An entity is a simple data container that represents a row in the product table. For more information on entities, see <https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/entities/>.
+
+Cassandra entity example is as follows:
+
+```
+@Entity
+@EntitySupport(PersonOperations.class)
+@CqlName("person")
+public class Person {
+   @PartitionKey()
+   @Value("id")
+   private String id;
+   @PartitionKey(1)
+   @Value(value = "birthday")
+   private ZonedDateTime birthday;
+   @Request
+   private String request;
+   @Response
+   private String response;	
+…
+}
+```
+
+A **data access object** (DAO) defines a set of query methods to insert entities into a storage. For more information on DAO, see <https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/daos/>.
+
+DAO interface example to insert a Person entity is as follows:
+
+```
+@Dao
+public interface PersonDao {
+   @Insert
+   CompletionStage<Void> insert(Person entity);
+}
+```
+
+Mapper interface is a top-level entry point for mapper features used to obtain DAO instances. For more information on Mapper interface, see <https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/mapper/>.
+
+Mapper example that obtains PersonDao is as follows:
+
+```
+@Mapper
+public interface PersonMapper {
+   @DaoFactory
+   PersonDao getDao();
+}
+```
+
+Generate an implementation for these interfaces to use it at runtime. To generate the code annotation processor, add it to the Maven build script. For more information on how to configure the annotation processor, see <https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/config/>.
+
+An example of using Maven plugin to generate implementations is as follows:
+
+```
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>com.datastax.oss</groupId>
+                <artifactId>java-driver-mapper-processor</artifactId>
+                <version>${cassandra.driver.version}</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>      
+```
+
+The @org.openl.rules.ruleservice.storelogdata.cassandra.annotation.EntitySupport annotation is used to define a class that instantiates a mapper instance with generated mapper builder and implements insert operation. This annotation must be used on the entity class as follows:
+
+```
+@Entity
+@EntitySupport(PersonOperations.class)
+@CqlName("person")
+public class Person {
+  …
+}
+public class PersonOperations implements EntityOperations<PersonDao, Person> {
+   @Override
+   public PersonDao buildDao(CqlSession cqlSession) throws DaoCreationException {
+       PersonMapper entityMapper = new PersonMapperBuilder(cqlSession).build();
+       return entityMapper.getDao();
+   }
+   @Override
+   public CompletionStage<Void> insert(PersonDao, Person person) {
+       return personDao.insert(person);
+   }
+}
+```
+
+##### Automatically Creating a Cassandra Table Schema for Entity Classes
+
+The system uses the ClassLoader CQL scripts that are located in the same package and have the same names as entity classes and the `.cql` file extension to create Cassandra schema tables automatically on application launch.
+
+Cassandra identifiers, such as keyspace, table, and column names, are case-insensitive by default. There are several naming strategies to map names and fields. By default , it is [`SNAKE_CASE_INSENSITIVE`](https://docs.datastax.com/en/drivers/java/4.3/com/datastax/oss/driver/api/mapper/entity/naming/NamingConvention.html#SNAKE_CASE_INSENSITIVE) that divides the Java name into words, splits on upper-case characters, lower-cases everything concatenates the words with underscore separators, and makes the result a case-insensitive CQL name. For example, Product =\> product, productId =\> product_id.
+
+The default strategy can be modified. For more information on naming strategies, see [https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/entities/\#naming-strategy](https://docs.datastax.com/en/developer/java-driver/4.3/manual/mapper/entities/#naming-strategy).
+
+An example is as follows:
+
+```
+CREATE TABLE IF NOT EXISTS person(
+  id text,
+  birthday timestamp,
+  request text,
+  response text,
+  …
+}
+```
+
+#### Customization for the Relational Database
+
+OpenL Tablets Rule Services uses Hibernate implementation to store requests and their responds in the relational database.
+
+To enable logging requests and their responses to the relational database, mark the method with the org.openl.rules.ruleservice.storelogdata.db.annotation.StoreLogDataToDB annotation. It resembles @StoreLogDataToCassandra described in [Log Requests and Responds Customization for Apache Cassandra](#log-requests-and-responds-customization-for-apache-cassandra), and it has entity classes as optional attributes.
+
+If entity classes are not defined in @StoreLogDataToDB, all records are stored in `openl_log_data`.
+
+A custom relational database entity example is as follows:
+
+```
+@Entity(name = "person")
+public class Person {
+    
+    @Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
+@SequenceGenerator(name = "person_generator", sequenceName = "openl_log_data_generator", allocationSize = 50)
+    private Long id;
+    
+    @IncomingTime
+    private Date incomingTime;
+
+    @OutcomingTime(converter = ZonedDataTimeToDateConvertor.class)
+    private ZonedDateTime outcomingTime;
+
+    @Request
+    private String requestBody;
+
+    @Response
+    private String responseBody;
+
+}
+```
+
+#### Customization for Hive
+
+OpenL Tablets Rule Services stores its requests and responds in Hive.
+
+To enable logging requests and their responses to Hive, mark the method with the `org.openl.rules.ruleservice.storelogdata.hive.annotation.StoreLogDataToHive` annotation. It resembles `@StoreLogDataToCassandra` described in [Log Requests and Responds Customization for Apache Cassandra](#log-requests-and-responds-customization-for-apache-cassandra), and it has entity classes as optional attributes.
+
+If entity classes are not defined in `@StoreLogDataToHive`, all records are stored in the table described in [Storing Log Records in Hive](#storing-log-records-in-hive).
+
+If only one entity class is defined, for example, `@StoreLogDataToHive(CustomHiveEntity.class)`, the system uses a table defined in the custom entity.
+
+If multiple entity classes are defined, for example, `@StoreLogDataToHive(HiveEntity1.class, HiveEntity2.class, ..., HiveEntityN.class)`, the system splits data into multiple Hive tables.
+
+Custom Hive entity example is as follows:
+
+```
+@Entity("person_data")
+public class Person {
+    
+@Value(converter = RandomUUID.class)
+private String id;
+
+@IncomingTime
+private ZonedDateTime incomingTime;
+
+@OutcomingTime
+private ZonedDateTime  outcomingTime;
+
+@Request
+private String request;
+
+@Response
+private String response;
+
+@ServiceName
+private String serviceName;
+
+@MethodName
+private String methodName;
+
+@Publisher
+private String publisherType;
+
+@Url
+private String url;
+}
+```
+
+Entity annotation identifies a domain object to be persisted in Hive.
+
+The system uses the ClassLoader SQL scripts which are located in the same package and have the same names as entity classes and the .sql file extension to create Hive table automatically on application launch. For more information on how to enable this feature, see [Storing Log Records in Hive](#storing-log-records-in-hive).
+
+## Appendix A: Using OpenL Tablets REST Services from Java Code
+
+This section describes how to write a client code that invokes OpenL Tablets REST services projects. Another way can be used to invoke services, but it is recommended to use Apache CXF framework to prevent additional effort for data binding.
+
+The following example illustrates client code generation for the JSON content type:
+
+```
+JacksonObjectMapperFactoryBean = new JacksonObjectMapperFactoryBean();
+jacksonObjectMapperFactoryBean.setEnableDefaultTyping(true);
+Set<String> overrideTypes = new HashSet<String>();
+overrideTypes.add(SomeClass.class.getName());
+        
+jacksonObjectMapperFactoryBean.setOverrideTypes(overrideTypes);
+ObjectMapper mapper = jacksonObjectMapperFactoryBean.createJacksonDatabinding();
+        
+final JacksonJsonProvider jsonProvider = new JacksonJsonProvider();
+
+WebClient webClient = WebClient.create(#REST service url#,
+            new ArrayList<Object>() {
+                private static final long serialVersionUID = 5636807402394548461L;
+                {
+                    add(jsonProvider);
+                }
+            });
+        
+webClient.type(MediaType.APPLICATION_JSON);
+        
+Response response = webClient.get();
+```
+
+**Note**: If you use POST request for more than one argument, create a DTO that contains field with method argument names and send this DTO object via `webClient.post()` method.
+
+## Appendix B: Projects on the OpenL Tablets Rule Services Launch
+
+When OpenL Tablets Rule Services is launched using the `openl:port/webservice` link, the system displays a list of deployed projects.
+
+![](ruleservices_guide_images/3ea704f1152d2ec3c40eeda6d2ee51af.jpg)
+
+*List of projects displayed upon OpenL Tablets Rule Services launch*
+
+The successfully deployed projects appear with the green check mark that can be clicked to expand the list of available methods for the project.
+
+![Graphical user interface, text Description automatically generated]
+(ruleservices_guide_images/20b330671989d257a47bb04fb811dcc5.jpg)
+
+*Expanding project methods*
+
+Projects deployed with errors are marked with the red cross mark that is clickable and displays the error message.
+
+![Graphical user interface, text, application, email Description automatically generated](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.jpg)
+
+*Viewing error message for a project*
+
+## Appendix C: Types of Exceptions in OpenL Tablets Rule Services
+
+The following table describes exception types in OpenL Tablets Rule Services:
+
+| Cause                                                                                                           | Status code | REST                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------|
+| error("Some message") in rules                                                                                  | 400         | {   message : "Some message",   type : "USER_ERROR" }                                                 |
+| Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.                                        | 500         | {   message : "Cannot convert '1ab2' to Double",   type : "RULES_RUNTIME" }                           |
+| Compilation and parsing errors.                                                                                 | 500         | {   message : "Missed condition column in Rules table",   type : "COMPILATION" }                      |
+| Other exception outside the OpenL engine, such as NPE, CCE, and AccessException.                                | 500         | {   message : "Cannot be null",   type : "SYSTEM" }                                                   |
+| Validation errors in input parameters, such as a value outside of a valid domain or wrong value in the context. | 500         | {    message : "'Mister' is outside of valid domain ['Male', 'Female']",    type : "RULES_RUNTIME"  } |
+
+## Appendix D: OpenAPI Support
+
+**Swagger** is an open-source software framework backed by a large ecosystem of tools that helps developers design, build, document, and consume RESTful web services. While most users identify Swagger by the Swagger UI tool, the Swagger toolset includes support for automated documentation, code generation, and test-case generation. For more information on Swagger, see <https://swagger.io/docs/>.
+
+In OpenL, Swagger v3 (OpenAPI) is used. It allows directly accessing project methods, data types, and methods, and enables simple, convenient, and quick running or testing of rules deployed as services.
+
+To use Swagger, in OpenL Tablets Rule Services, click the Swagger (UI) link, select the required rule, click **Try it out,** enter input parameters, and click **Execute.**
+
+![](ruleservices_guide_images/09a5e4fecf604849af7681cd8771ed37.png)
+
+*Using Swagger UI*
+
+## Appendix E: Programmatically Deploying Rules to a Repository
+
+If a user does not use OpenL Tablets WebStudio deploy functionality to locate a project with rules in the database repository, use the deploy(File zipFile, String config) method of the org.openl.rules.workspace.deploy.ProductionRepositoryDeployer class in the WEB-`INF\lib\org.openl.rules.workspace-5.X.X.jar library`.
+
+The first method parameter zipFile contains the path to the project zip file, and the config parameter sets the location of the deployer.properties file, containing the same properties as described in [Configuring a Data Source](#configuring-a-data-source).
+
+## Appendix F: Backward Compatibility Settings
+
+This appendix describes backward compatibility settings and includes the following topics:
+
+-   [Version in Deployment Name](#version-in-deployment-name)
+-   [Custom Spreadsheet Type](#custom-spreadsheet-type)
+
+### Version in Deployment Name
+
+If the Deployment repository is created in an OpenL Tablets version older than 5.20, the **Version in deployment name** option must be enabled for backward compatibility.
+
+The 5.20 version of the OpenL Tablets Deployment repository contains only actual deployments which are exposed as services. Each new deployment updates the current deployment, while older versions are hidden in history and cannot be loaded into the RuleService directly. Different API versions of services are located in different deployments. They are distinguished by a suffix generated in OpenL Tablets WebStudio according to the API version in `rules-deploy.xml`. As a result, services are exposed more quickly. However, if a user created a repository in the OpenL Tablets version older than 5.20 and migrated to a newer OpenL Tablets Rule Services, enable the **Version in deployment name** option to expose services correctly.
+
+In this case, add the following property to the `application.properties` file:
+
+```
+version-in-deployment-name = true
+```
+
+If you create a new repository, omit this property or set it to false.
+
+### Custom Spreadsheet Type
+
+In OpenL Tablets, **custom spreadsheet type** is used by default. To enable support of the previously created rules based on other types, in the `application.properties` configuration file, set this property to `false`.
+
+## Appendix G: Deployment Project ZIP Structure
+
+Deployment projects described in this section can be built via **OpenL Maven Plugin** or archived manually. The following topics are included:
+
+-   [Single Project Deployment Structure](#single-project-deployment-structure)
+-   [Multiple Projects Deployment Structure](#multiple-projects-deployment-structure)
+
+### Single Project Deployment Structure
+
+Deployable single project must be archived into ZIP file and have the following structure:
+
+```
+deployment.zip:
+    rules.xml                    OpenL Tablets project descriptor
+    rules-deploy.xml             OpenL Tablets project deployment configuration
+    *.xlsx                       Excel files with rules
+```
+
+OpenL Tablets project descriptor and project deployment configuration are optional and can be skipped in deployment archive.
+
+### Multiple Projects Deployment Structure
+
+Deployable multiple projects must be archived into ZIP file and have the following structure:
+
+```
+deployment.zip:
+	deployment.yaml			OpenL Tablets deployment descriptor
+	project-1				OpenL Tablets project folder #1
+		rules.xml
+		rules-deploy.xml
+		*.xlsx
+	project-2				OpenL Tablets project folder #2
+rules.xml
+		rules-deploy.xml
+		*.xlsx
+	project-*				OpenL Tablets project folder #N
+rules.xml
+		rules-deploy.xml
+		*.xlsx
+```
+
+This type of deployment is useful when several projects have mutual dependencies and must be deployed as single deployment.
+
+OpenL Tablets deployment descriptor is a marker which tells OpenL Tablets Engine that this type of deployment may contain several OpenL Tablets projects. This file is mandatory and may optionally contain the name property to customize deployment name:
+
+```
+name: openl-multiple-project-deployment
+```
+
+## Appendix H: Manifest File for Deployed Projects
+
+When a user deploys the OpenL Tablets project from OpenL Tablets WebStudio or using the OpenL Tablets Maven plugin, the MANIFEST.MF file is generated. This file contains information about deployment author, deployment time, project version, and OpenL Tablets version used for deployment.
+
+If OpenL Tablets Maven plugin is used for deployment, the manifest file contains the following information:
+
+| Attribute              | Description                                                                    |
+|------------------------|--------------------------------------------------------------------------------|
+| Build-Date             | Current zone datetime in the ISO8601 format.                                   |
+| Built-By               | Name of the user currently logged in.                                          |
+| Created-By             | OpenL Maven Plugin \<OpenL version\>                                           |
+| Implementation-Title   | Deployment project name. Default format is project.groupId:project.artifactId. |
+| Implementation-Version | Project version from the Maven pom.xml file.                                   |
+| Implementation-Vendor  | Deployment project vendor. By default, it is project organization.             |
+
+If the project is deployed in OpenL Tablets WebStudio, the manifest file contains the following information:
+
+| Attribute            | Description                                                   |
+|----------------------|---------------------------------------------------------------|
+| Build-Date           | Current zone datetime.                                        |
+| Build-Number         | Git revision ID or database revision value.                   |
+| Built-By             | Name of the user currently logged in OpenL Tablets WebStudio. |
+| Implementation-Title | Deployment project name.                                      |
+| Branch-Name          | Git branch if the project is connected to Git.                |
+| Created-By           | OpenL Tablets WebStudio version.                              |
+
+The manifest file is available in OpenL Tablets Rule Services, on the main page, for each deployed service.
+
+![Graphical user interface, text, application, email Description automatically generated](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.jpg)
+
+*Manifest file available for the deployed project*
+
+If the project was deployed in a different way and it does not contain the manifest file, no link to it appears after the project name.
+
+An example of the file contents is as follows:
+
+![Text, letter Description automatically generated](ruleservices_guide_images/8b85539e71fe2a539aa9c1a7aebf2a06.png)
+
+*Manifest file contents example*
