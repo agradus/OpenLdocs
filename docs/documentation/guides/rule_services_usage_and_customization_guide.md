@@ -107,11 +107,11 @@ This section introduces Rule Services Core functionality and includes the follow
 
 To use the Rule Services Core within Maven, declare the module dependencies in the project object model (POM) as described in the following example:
 
-`<dependency>
+```<dependency>
 	<groupId>org.openl.rules</groupId>
 	<artifactId>org.openl.rules.ruleservice</artifactId>
 	<version>${openl.version}</version>
-`</dependency>`
+</dependency>```
 
 If Apache Maven is not used in the project, it is recommended to download all dependencies via Maven and add all downloaded dependencies into the existing project classpath.
 
@@ -150,15 +150,11 @@ The `frontend `bean can be injected to user’s bean to interact with deployed O
 
 `OpenLServiceFactoryBean` is a factory bean implementation used to create a proxy object to interact with OpenL Tablets service. To create a proxy object, define a been factory as described in the following example:
 
-`<bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">`
-
-`	<!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->`
-
-`	<property name="serviceName" value="service1"/>`
-
-`	<property name="proxyInterface" value="com.myproject.Service1"/>`
-
-`</bean>`
+```<bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">
+	<!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
+	<property name="serviceName" value="service1"/>
+	<property name="proxyInterface" value="com.myproject.Service1"/>
+</bean>```
 
 In this example, `serviceName` is a name of the deployed OpenL Tablets service and `proxyInterface` is an interface for building a proxy object. All invocations of proxy object methods are delegated to the `execute `method of the `frontend `bean. The invoked method name with its parameters is used as input parameters for the `execute `method.
 
@@ -287,23 +283,17 @@ To use a relational database repository as a data source, proceed as follows:
 	
 	`For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.`
 	
-1.  `Set login and password for a connection to the database in production-repository.login and production-repository.password settings.`
+1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
     **Note:**`	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. `
 
-`p`roduction-repository.factory = repo-jdbc
-
-production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
-
-production-repository.login = root
-
-production-repository.password = admin
-
-\# Secret key for password code/decode
-
-secret.key=
-
-\#secret.cipher=AES/CBC/PKCS5Padding
+	```production-repository.factory = repo-jdbc
+	production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
+	production-repository.login = root
+	production-repository.password = admin
+	\# Secret key for password code/decode
+	secret.key=
+	\#secret.cipher=AES/CBC/PKCS5Padding```
 
 ##### Amazon AWS S3
 
@@ -360,11 +350,11 @@ To use an AWS S3 repository as a data source, proceed as follows:
 	```
 	
 1.  Set the following properties in the `application.properties` file:
-    	production-repository.factory = repo-aws-s3
+    	```production-repository.factory = repo-aws-s3
     	production-repository.bucket-name = yourBucketName
     	production-repository.region-name = yourS3Region
     	production-repository.access-key = yourAccessKey
-    	production-repository.secret-key = yourSecretKey
+    	production-repository.secret-key = yourSecretKey```
 
 ##### GIT
 
@@ -405,25 +395,25 @@ To use a Git repository as a data source, proceed as follows:
 2.  Replace `webservice.war` with the war file you built.
 3.  Set the following properties to the `application.properties` file (change necessary fields):
 
-    	production-repository.factory = repo-git
+    	```production-repository.factory = repo-git
     	production-repository.uri = https://github.com/<your-name>/your-repo.git
     	production-repository.login = your-login
-    	production-repository.password = your-password
+    	production-repository.password = your-password```
 
 4.  Additionally, to override default values, add these optional properties:
 
-   	`# Local path for Git repository.`
+   	```\# Local path for Git repository.
     	production-repository.local-repository-path = ${ruleservice.openl.home}/git
-   	`# The branch where deployed projects can be found.`
+   	\# The branch where deployed projects can be found.
 	 production-repository.branch = master
-    	`# Committer's display name. If null, username will be “OpenL_Deployer”.`
+    	\# Committer's display name. If null, username will be “OpenL_Deployer”.
     	production-repository.user-display-name =
-    	`# Committer's email. If null, email will be empty.`
+    	\# Committer's email. If null, email will be empty.
     	production-repository.user-email =
-    	`# Repository connection timeout in seconds. Must be greater than zero.`
+    	\# Repository connection timeout in seconds. Must be greater than zero.
     	production-repository.connection-timeout = 60
-    	`# Repository changes check interval in seconds. Must be greater than 0.`
-   	 production-repository.listener-timer-period = 10
+    	\# Repository changes check interval in seconds. Must be greater than 0.
+   	 production-repository.listener-timer-period = 10```
 
 ##### Classpath JAR
 
@@ -569,9 +559,7 @@ CXF REST Service Publisher implementation class is org.openl.rules.ruleservice.p
 
 The following URL can be used to retrieve a list of methods for a service:
 
-```
-webserver_context_path/ws_app_war_name/admin/services/{serviceName}/methods/
-```
+`webserver_context_path/ws_app_war_name/admin/services/{serviceName}/methods/`
 
 ###### Configuring HTTP Status for Responses
 
@@ -607,9 +595,9 @@ Note that changing this setting affects all projects in the system. To change th
 
 Default JSON properties serialization and deserialization behavior can be changed via `ruleservice.jackson.` `serializationInclusion, ruleservice.jackson.caseInsensitiveProperties, `and` ruleservice.jackson.failOnUnknownProperties` in the `application.properties` file. The default value for this property is set as follows:
 
-`ruleservice.jackson.serializationInclusion = USE_DEFAULTS
+```ruleservice.jackson.serializationInclusion = USE_DEFAULTS
 ruleservice.jackson.caseInsensitiveProperties = false
-ruleservice.jackson.failOnUnknownProperties = false`
+ruleservice.jackson.failOnUnknownProperties = false```
 
 These values are used by the system for all published projects that do not have these properties defined in the `rules-deploy.xml` file.
 
@@ -715,8 +703,8 @@ The appropriate port and host name for RMI can be defined in the `application.pr
 
 By default, these properties are defined as follows:
 
-`ruleservice.rmiPort = 1099 // Port for RMI
-ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI`
+```ruleservice.rmiPort = 1099 // Port for RMI
+ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI```
 
 ##### Kafka Publisher
 
@@ -995,25 +983,20 @@ mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.fu
 
 1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true `setting in the` application.properties `file`.`
 2.  Set up Cassandra connection settings defined in the `application.properties` file as described in the following lines:
-
-    `datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1`
-
-    `datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042`
-
-    `datastax-java-driver.basic.session-keyspace = openl_ws_logging`
-
-    `datastax-java-driver.advanced.protocol.version = V4`
-
-    `datastax-java-driver.advanced.auth-provider.username =`
-
-    `datastax-java-driver.advanced.auth-provider.password =`
-
-    For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
-
+	
+	```datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1
+	datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042
+	datastax-java-driver.basic.session-keyspace = openl_ws_logging
+	datastax-java-driver.advanced.protocol.version = V4
+	datastax-java-driver.advanced.auth-provider.username =
+	datastax-java-driver.advanced.auth-provider.password =```
+	
+    	For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
+	
 3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
 4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
-
-By default, this option is enabled. When the schema is created, set this property to the `false` value.
+	
+	By default, this option is enabled. When the schema is created, set this property to the `false` value.
 
 As a result, the following table with the `openl_log_data` name is created in the Cassandra database:
 
@@ -1036,35 +1019,25 @@ As a result, the following table with the `openl_log_data` name is created in th
 To start using a relational database, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
-
-```
-mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
-```
-
+	
+	```
+	mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+	```
+	
 1.  Enable the relational database Storing Log feature using the `ruleservice.store.logs.db.enabled=true` setting` `in the `application.properties` file.
 2.  Set up the Hibernate connection settings defined in the `application.properties` file as described in the following lines:
-
-    `hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver`
-
-    `hibernate.connection.url=`
-
-    `hibernate.connection.username=`
-
-    `hibernate.connection.password=`
-
-    `hibernate.show_sql=false`
-
-    `hibernate.hbm2ddl.auto=update`
-
-    `hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider`
-
-    `hibernate.hikari.connectionTimeout=20000`
-
-    `hibernate.hikari.minimumIdle=10`
-
-    `hibernate.hikari.maximumPoolSize=20`
-
-    `hibernate.hikari.idleTimeout=300000`
+		
+	```hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+	hibernate.connection.url=
+	hibernate.connection.username=
+	hibernate.connection.password=
+	hibernate.show_sql=false
+	hibernate.hbm2ddl.auto=update
+	hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+	hibernate.hikari.connectionTimeout=20000
+	hibernate.hikari.minimumIdle=10
+	hibernate.hikari.maximumPoolSize=20
+	hibernate.hikari.idleTimeout=300000```
 
 Relational database is supported via the Hibernate framework. Hibernate connection properties, such as `hibernate.connection.driver_class` and `hibernate.connection.url`, must be used to configure a connection to a relational database. For a full list of properties, see Hibernate documentation at [https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html\#database](https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#database).
 
@@ -1093,20 +1066,20 @@ The system uses the JDBC driver to communicate with the Hive server that process
 To start using Hive, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
-
-```
-mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
-```
-
+	
+	```
+	mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
+	```
+	
 1.  Set up Hive connection settings defined in the `application.properties` file as follows:
-
-```
-ruleservice.store.logs.hive.enabled = true
-hive.connection.url = jdbc:hive2://localhost:10000/default
-hive.connection.username =
-hive.connection.password =
-hive.connection.pool.maxSize = 10
-```
+	
+	```
+	ruleservice.store.logs.hive.enabled = true
+	hive.connection.url = jdbc:hive2://localhost:10000/default
+	hive.connection.username =
+	hive.connection.password =
+	hive.connection.pool.maxSize = 10
+	```
 
 The following properties can be modified to configure Hive:
 
@@ -1139,11 +1112,11 @@ As a result, the following table with the default openl_log_data name is created
 
 This section describes OpenL Tablets Rule Services advanced services configuration and customization and explains the following:
 
--   [OpenL Tablets Rule Services Customization Algorithm](#_OpenL_Tablets_Web_4)
+-   [OpenL Tablets Rule Services Customization Algorithm](#openl-tablets-rule-services-customization-algorithm)
 -   [Data Source Listeners](#data-source-listeners)
 -   [Service Publishing Listeners](#service-publishing-listeners)
 -   [Dynamic Interface Support](#dynamic-interface-support)
--   [Service Customization through Annotations](#_Service_Customization_through)
+-   [Service Customization through Annotations](#service-customization-through-annotations)
 -   [Variations](#variations)
 -   [Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#customization-of-log-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
 
@@ -1154,44 +1127,44 @@ If a project has specific requirements, OpenL Tablets Rule Services customizatio
 1.  Create a Maven project that extends OpenL Tablets Rule Services.
 2.  Add or change the required points of configuration.
 3.  Add the following dependency to the `pom.xml` file with the version used in the project specified:
-
-```
-<dependency>
-		<groupId>org.openl.rules</groupId>
-		<artifactId>org.openl.rules.ruleservice.ws</artifactId>
-		<version>5.X.X</version>
-		<type>war</type>
-		<scope>runtime</scope>
-</dependency>
-```
-
+	
+	```
+	<dependency>
+			<groupId>org.openl.rules</groupId>
+			<artifactId>org.openl.rules.ruleservice.ws</artifactId>
+			<version>5.X.X</version>
+			<type>war</type>
+			<scope>runtime</scope>
+	</dependency>
+	```
+	
 1.  Use the following Maven plugin to control the OpenL Tablets Rule Services building with user’s custom configurations and classes:
-
-```
-<plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-war-plugin</artifactId>
-		<configuration>
-			<warSourceDirectory>webapps/ws</warSourceDirectory>
-			<!—Define war name here-->
-			<warName>${war.name}-${project.version}</warName>
-			<packaging Excludes>
-			<!—Exclude unnecessary libraries from parent project here-->
-			WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
-			</packaging Excludes>
-			<!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
-			<web Resources>
-				<resource>
-					<directory>src/main/resources</directory>
-				</resource>
-				<resource>
-					<directory>war-specific-conf</directory>
-				</resource>
-			</web Resources>
-		</configuration>
-</plugin>
-```
-
+	
+	```
+	<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<configuration>
+				<warSourceDirectory>webapps/ws</warSourceDirectory>
+				<!—Define war name here-->
+				<warName>${war.name}-${project.version}</warName>
+				<packaging Excludes>
+				<!—Exclude unnecessary libraries from parent project here-->
+				WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
+				</packaging Excludes>
+				<!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
+				<web Resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+					<resource>
+						<directory>war-specific-conf</directory>
+					</resource>
+				</web Resources>
+			</configuration>
+	</plugin>
+	```
+	
 1.  If necessary, add customized spring beans into openl-ruleservice-override-beans.xml in src/main/resources.
 
 ### Data Source Listeners
@@ -1265,8 +1238,8 @@ Note: If a project is empty and does not contain any method, it is unavailable a
 
 This section describes interface customization using annotations. The following topics are included:
 
--   [Interceptors for Methods](#_Interceptors_for_Methods)
--   [Method Return Type Customization through Annotations](#_Method_Return_Type)
+-   [Interceptors for Methods](#interceptors-for-methods)
+-   [Method Return Type Customization through Annotations](#method-return-type-customization-through-annotations)
 -   [REST Endpoint Customization through Annotations](#rest-endpoint-customization-through-annotations)
 -   [Customization through Annotations for Dynamic Generated Interfaces](#customization-through-annotations-for-dynamic-generated-interfaces)
 
@@ -1471,19 +1444,19 @@ All other JAX-RS annotations, such as `@PUT`, `@DELETE`, `@QueryParam`, and `@Pa
 Annotation customization can be used for dynamically generated interfaces. This feature is only supported for projects that contain the `rules-deploy.xml `deployment configuration file. To enable customization through annotation, proceed as follows:
 
 1.  Add the `annotationTemplateClassName `tag to the `rules-deploy.xml` file*.*
-
-An example is as follows:
-
-```
-<rules-deploy>
-	<isProvideRuntimeContext>true</isProvideRuntimeContext>
-	<isProvideVariations>false</isProvideVariations>
-	<serviceName>dynamic-interface-test3</serviceName>
-	<annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
-	<url></url>
-</rules-deploy> 
-```
-
+	
+	An example is as follows:
+	
+	```
+	<rules-deploy>
+		<isProvideRuntimeContext>true</isProvideRuntimeContext>
+		<isProvideVariations>false</isProvideVariations>
+		<serviceName>dynamic-interface-test3</serviceName>
+		<annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
+		<url></url>
+	</rules-deploy> 
+	```
+	
 1.  Define a template interface with the annotated methods with the same signature as in a generated dynamic interface.
 
 This approach supports replacing argument types in the method signature with types assignable from generated types in the generated interface.
@@ -1532,7 +1505,7 @@ The following topics are included:
 -   [Variations Algorithm](#variations-algorithm)
 -   [Predefined Variations](#predefined-variations)
 -   [Variations Factory](#variations-factory)
--   [Enabling Variations Support](#_Enabling_Variations_Support)
+-   [Enabling Variations Support](#enabling-variations-support)
 
 #### Variations Algorithm
 
@@ -1608,7 +1581,7 @@ The following topics are included:
 -   [Storage Service for Log Requests and Their Responds](#storage-service-for-log-requests-and-their-responds)
 -   [Customization for Apache Cassandra](#customization-for-apache-cassandra)
 -   [Customization for the Relational Database](#customization-for-the-relational-database)
--   [Customization for Hive](#_Customization_for_Hive)
+-   [Customization for Hive](#customization-for-hive)
 
 #### Storage Service for Log Requests and Their Responds
 
@@ -1616,7 +1589,7 @@ This section describes storage service used for log requests and responds and in
 
 -   [Log Request and Response Storage Service Overview](#log-request-and-response-storage-service-overview)
 -   [Collecting Data from Requests and Their Responds and Populating Custom Values](#collecting-data-from-requests-and-their-responds-and-populating-custom-values)
--   [Log Requests and Their Responds Customization Using Annotations](#_Log_Requests_and)
+-   [Log Requests and Their Responds Customization Using Annotations](#log-requests-and-their-responds-customization-using-annotations)
 
 ##### Log Request and Response Storage Service Overview
 
@@ -1948,14 +1921,13 @@ When OpenL Tablets Rule Services is launched using the `openl:port/webservice` l
 
 The successfully deployed projects appear with the green check mark that can be clicked to expand the list of available methods for the project.
 
-![Graphical user interface, text Description automatically generated]
-(ruleservices_guide_images/20b330671989d257a47bb04fb811dcc5.jpg)
+![](ruleservices_guide_images/20b330671989d257a47bb04fb811dcc5.jpg)
 
 *Expanding project methods*
 
 Projects deployed with errors are marked with the red cross mark that is clickable and displays the error message.
 
-![Graphical user interface, text, application, email Description automatically generated](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.jpg)
+![](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.jpg)
 
 *Viewing error message for a project*
 
@@ -2091,7 +2063,7 @@ If the project is deployed in OpenL Tablets WebStudio, the manifest file contain
 
 The manifest file is available in OpenL Tablets Rule Services, on the main page, for each deployed service.
 
-![Graphical user interface, text, application, email Description automatically generated](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.jpg)
+![](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.jpg)
 
 *Manifest file available for the deployed project*
 
