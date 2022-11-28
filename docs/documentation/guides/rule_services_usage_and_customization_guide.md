@@ -472,7 +472,8 @@ The `org.openl.rules.ruleservice.conf.LastVersionProjectsServiceConfigurer` defa
 
 Default implementation of Service Configurer uses the `rules-deploy.xml` deployment configuration file from the project root folder. This file is created manually or via OpenL Tablets WebStudio. An example of the `rules-deploy.xml` file is as follows:
 
-```xml
+```
+xml
 <rules-deploy>
     <isProvideRuntimeContext>true</isProvideRuntimeContext>
     <isProvideVariations>false</isProvideVariations>
