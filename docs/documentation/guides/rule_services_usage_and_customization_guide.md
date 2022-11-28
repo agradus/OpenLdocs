@@ -146,7 +146,7 @@ Spring configuration defined in the `openl-ruleservice-beans.xml` file registers
 | `void registerService(OpenLService service)`                                                        | Registers the OpenL Tablets service.                                                                                                              |
 | `void unregisterService(String serviceName)`                                                        | Unregisters the OpenL Tablets service.                                                                                                            |
 | `<T> T buildServiceProxy(String serviceName, Class<T> proxyInterface)`                              | Builds a proxy for the OpenL Tablets service with a defined interface.                                                                            |
-| `T> T buildServiceProxy(String serviceName, Class<T> proxyInterface, ClassLoader classLoader)`      | Builds a proxy for the OpenL Tablets service with a defined interface and defined class loader.                                                   |
+| `<T> T buildServiceProxy(String serviceName, Class<T> proxyInterface, ClassLoader classLoader)`      | Builds a proxy for the OpenL Tablets service with a defined interface and defined class loader.                                                   |
 
 The `frontend `bean can be injected to user’s bean to interact with deployed OpenL Tablets services.
 
@@ -264,7 +264,7 @@ To configure a local file system as a data source, proceed as follows:
 
 1.  In `application.properties,` set `production-repository.factory = repo-file.`
         By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
-1.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
+2.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
 
     **Note:** For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
 
@@ -274,9 +274,9 @@ To use a relational database repository as a data source, proceed as follows:
 
 1.  Add the appropriate driver library for a database.
     For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
-1.  In the `application.properties` file, set repository settings as follows:
-2.  Set `production-repository.factory = repo-jdbc.`
-3.  Set the value for `production-repository.uri` according to the database as follows:
+2.  In the `application.properties` file, set repository settings as follows:
+3.  Set `production-repository.factory = repo-jdbc.`
+4.  Set the value for `production-repository.uri` according to the database as follows:
         
     | Database       | URL value                                                                                   |
     |----------------|---------------------------------------------------------------------------------------------|
@@ -286,15 +286,15 @@ To use a relational database repository as a data source, proceed as follows:
     | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
         
     For example, for MySQL:
-    ```properties
+    ```
     production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
     ```
 
-1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
+5.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
     **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 	
-    ```properties
+    ```
     production-repository.factory = repo-jdbc
     production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
     production-repository.login = root
