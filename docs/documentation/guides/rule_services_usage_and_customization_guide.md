@@ -286,7 +286,6 @@ To use a relational database repository as a data source, proceed as follows:
     | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
         
     For example, for MySQL:
-
     ```properties
     production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
     ```
