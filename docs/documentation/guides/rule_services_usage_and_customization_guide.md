@@ -152,11 +152,11 @@ The `frontend `bean can be injected to user’s bean to interact with deployed O
 
 `OpenLServiceFactoryBean` is a factory bean implementation used to create a proxy object to interact with OpenL Tablets service. To create a proxy object, define a been factory as described in the following example:
 
-```
+```xml
 <bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">
-        <!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
-        <property name="serviceName" value="service1"/>
-        <property name="proxyInterface" value="com.myproject.Service1"/>
+    <!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
+    <property name="serviceName" value="service1"/>
+    <property name="proxyInterface" value="com.myproject.Service1"/>
 </bean>
 ```
 
@@ -899,13 +899,13 @@ Use the `ruleservice.instantiation.strategy.maxthreadsforcompile `property in th
 
 By default, only three threads are used to compile rules in parallel:
 
-```
+```properties
 ruleservice.instantiation.strategy.maxthreadsforcompile = 3
 ```
 
 For example, to permit only one thread to compile rules, set value to one as follows:
 
-```
+```properties
 ruleservice.instantiation.strategy.maxthreadsforcompile = 1
 ```
 
@@ -919,7 +919,7 @@ The system provides an ability to change an instantiation strategy. The property
 
 By default, the lazy initialization strategy is enabled:
 
-```
+```properties
 ruleservice.instantiation.strategy.lazy = true
 ```
 
@@ -942,7 +942,7 @@ The CORS filter supports the following initialization parameters:
 
 The default CORS configuration is as follows:
 
-```
+```properties
 cors.allowed.origins =
 cors.allowed.methods = GET,OPTIONS,HEAD,PUT,POST
 cors.allowed.headers = Content-Type,Accept,api_key,Authorization
@@ -981,7 +981,7 @@ When the logging data is collected, the system invokes the storing service respo
 
 By default, logging requests to OpenL Tablets Rule Services and their responds is disabled:
 
-```
+```properties
 ruleservice.store.logs.enabled = false
 ```
 
@@ -993,21 +993,23 @@ Apache Cassandra is a free and open-source, distributed, wide column storage dat
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
 
-```
-mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
-```
+    ```sh
+    mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+    ```
 
 1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true `setting in the` application.properties `file`.`
 2.  Set up Cassandra connection settings defined in the `application.properties` file as described in the following lines:
         
-        ```datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1
-        datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042
-        datastax-java-driver.basic.session-keyspace = openl_ws_logging
-        datastax-java-driver.advanced.protocol.version = V4
-        datastax-java-driver.advanced.auth-provider.username =
-        datastax-java-driver.advanced.auth-provider.password =```
+    ```properties
+    datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1
+    datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042
+    datastax-java-driver.basic.session-keyspace = openl_ws_logging
+    datastax-java-driver.advanced.protocol.version = V4
+    datastax-java-driver.advanced.auth-provider.username =
+    datastax-java-driver.advanced.auth-provider.password =
+    ```
         
-            For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
+    For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
         
 3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
 4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
@@ -1036,24 +1038,26 @@ To start using a relational database, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
         
-        ```
-        mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
-        ```
+    ```sh
+    mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+    ```
         
 1.  Enable the relational database Storing Log feature using the `ruleservice.store.logs.db.enabled=true` setting` `in the `application.properties` file.
 2.  Set up the Hibernate connection settings defined in the `application.properties` file as described in the following lines:
                 
-        ```hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
-        hibernate.connection.url=
-        hibernate.connection.username=
-        hibernate.connection.password=
-        hibernate.show_sql=false
-        hibernate.hbm2ddl.auto=update
-        hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-        hibernate.hikari.connectionTimeout=20000
-        hibernate.hikari.minimumIdle=10
-        hibernate.hikari.maximumPoolSize=20
-        hibernate.hikari.idleTimeout=300000```
+    ```properties
+    hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+    hibernate.connection.url=
+    hibernate.connection.username=
+    hibernate.connection.password=
+    hibernate.show_sql=false
+    hibernate.hbm2ddl.auto=update
+    hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+    hibernate.hikari.connectionTimeout=20000
+    hibernate.hikari.minimumIdle=10
+    hibernate.hikari.maximumPoolSize=20
+    hibernate.hikari.idleTimeout=300000
+    ```
 
 Relational database is supported via the Hibernate framework. Hibernate connection properties, such as `hibernate.connection.driver_class` and `hibernate.connection.url`, must be used to configure a connection to a relational database. For a full list of properties, see Hibernate documentation at [https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html\#database](https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#database).
 
@@ -1083,19 +1087,19 @@ To start using Hive, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
         
-        ```
-        mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
-        ```
+    ```sh
+    mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
+    ```
         
 1.  Set up Hive connection settings defined in the `application.properties` file as follows:
         
-        ```
-        ruleservice.store.logs.hive.enabled = true
-        hive.connection.url = jdbc:hive2://localhost:10000/default
-        hive.connection.username =
-        hive.connection.password =
-        hive.connection.pool.maxSize = 10
-        ```
+    ```properties
+    ruleservice.store.logs.hive.enabled = true
+    hive.connection.url = jdbc:hive2://localhost:10000/default
+    hive.connection.username =
+    hive.connection.password =
+    hive.connection.pool.maxSize = 10
+    ```
 
 The following properties can be modified to configure Hive:
 
@@ -1144,42 +1148,42 @@ If a project has specific requirements, OpenL Tablets Rule Services customizatio
 2.  Add or change the required points of configuration.
 3.  Add the following dependency to the `pom.xml` file with the version used in the project specified:
         
-        ```
-        <dependency>
-                        <groupId>org.openl.rules</groupId>
-                        <artifactId>org.openl.rules.ruleservice.ws</artifactId>
-                        <version>5.X.X</version>
-                        <type>war</type>
-                        <scope>runtime</scope>
-        </dependency>
-        ```
+    ```xml
+    <dependency>
+        <groupId>org.openl.rules</groupId>
+        <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+        <version>5.X.X</version>
+        <type>war</type>
+        <scope>runtime</scope>
+    </dependency>
+    ```
         
 1.  Use the following Maven plugin to control the OpenL Tablets Rule Services building with user’s custom configurations and classes:
         
-        ```
-        <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <configuration>
-                                <warSourceDirectory>webapps/ws</warSourceDirectory>
-                                <!—Define war name here-->
-                                <warName>${war.name}-${project.version}</warName>
-                                <packaging Excludes>
-                                <!—Exclude unnecessary libraries from parent project here-->
-                                WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
-                                </packaging Excludes>
-                                <!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
-                                <web Resources>
-                                        <resource>
-                                                <directory>src/main/resources</directory>
-                                        </resource>
-                                        <resource>
-                                                <directory>war-specific-conf</directory>
-                                        </resource>
-                                </web Resources>
-                        </configuration>
-        </plugin>
-        ```
+    ```xml
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+            <warSourceDirectory>webapps/ws</warSourceDirectory>
+            <!—Define war name here-->
+            <warName>${war.name}-${project.version}</warName>
+            <packaging Excludes>
+                <!—Exclude unnecessary libraries from parent project here-->
+                WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
+            </packaging Excludes>
+            <!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
+            <web Resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                </resource>
+                <resource>
+                    <directory>war-specific-conf</directory>
+                </resource>
+            </web Resources>
+        </configuration>
+    </plugin>
+    ```
         
 1.  If necessary, add customized spring beans into openl-ruleservice-override-beans.xml in src/main/resources.
 
@@ -1217,24 +1221,24 @@ The system provides a mechanism for filtering methods in modules by including or
 
 This configuration can be applied to projects using the `rules.xml` file. An example is as follows:
 
-```
+```xml
 <project>
-        <name>project-name</name>
-        <modules>
-                        <module>
-                                <name>module-name</name>
-                                <rules-root path="rules/Calculation.xlsx"/>
-                                <method-filter>
-                                        <includes>
-                                                <value>.*determinePolicyPremium.*</value>
-                                                <value>.*vehiclePremiumCalculation.*</value>
-                                        </includes>
-                                </method-filter>
-                        </module>
-        </modules>
-        <classpath>
-                <entry path="lib/*"/>
-        </classpath>        
+    <name>project-name</name>
+    <modules>
+        <module>
+            <name>module-name</name>
+            <rules-root path="rules/Calculation.xlsx"/>
+            <method-filter>
+                <includes>
+                    <value>.*determinePolicyPremium.*</value>
+                    <value>.*vehiclePremiumCalculation.*</value>
+                </includes>
+           </method-filter>
+       </module>
+    </modules>
+    <classpath>
+        <entry path="lib/*"/>
+    </classpath>        
 </project>
 ```
 
@@ -1271,7 +1275,7 @@ This annotation is used to define “before” interceptors for the annotated me
 
 An example is as follows:
 
-```
+```java
 public class RequestModelValidator implements ServiceMethodBeforeAdvice {
     public void before(Method interfaceMethod, Object proxy, 
                        Object... args) throws Throwable {
@@ -1285,7 +1289,7 @@ public class RequestModelValidator implements ServiceMethodBeforeAdvice {
 
 To use the “before” interceptor, proceed as follows:
 
-```
+```java
 @ServiceMethodBeforeAdvice({ RequestModelValidator.class })
 Result doSomething(RequestModel requestModel);
 ```
@@ -1296,7 +1300,7 @@ This annotation is used to define “around” interceptors. A class for the “
 
 An example is as follows:
 
-```
+```java
 public class MyMethodAroundInterceptor implements ServiceMethodAroundAdvice<Response> {
     @Override
     public Response around(Method interfaceMethod, Method proxyMethod, Object proxy, Object... args) throws Throwable {
@@ -1308,7 +1312,7 @@ public class MyMethodAroundInterceptor implements ServiceMethodAroundAdvice<Resp
 
 To use the “around” interceptor, proceed as follows:
 
-```
+```java
 @ServiceCallAroundInterceptor({ MyMethodAroundInterceptor.class })
 Response doSomething(RequestModel requestModel);
 ```
@@ -1326,7 +1330,7 @@ The following table describes “after” interceptor types:
 
 Example of the “after” interceptor implementation with after returning logic is as follows:
 
-```
+```java
 public class SpreadsheetResultConverter extends
                                AbstractServiceMethodAfterReturningAdvice<ResponseDTO> {
 
@@ -1348,18 +1352,18 @@ public class SpreadsheetResultConverter extends
 
 Example of the “after” interceptor implementation with after throwing logic is as follows:
 
-```
-public class ExceptionHandlingAdvice extends
-                                AbstractServiceMethodAfterThrowingAdvice <ResponseDTO> {
-    private static final Logger LOG = LoggerFactory
-                                           .getLogger(ExceptionHandlingAdvice.class);
+```java
+public class ExceptionHandlingAdvice extends AbstractServiceMethodAfterThrowingAdvice <ResponseDTO> {
+    private static final Logger LOG = LoggerFactory.getLogger(ExceptionHandlingAdvice.class);
     @Override
     public ResponseDTO afterThrowing(Method iMethod, Exception t, Object... args) {
         LOG.error(t.getMessage(), t);
         return new ResponseDTO("INTERNAL_ERROR", t.getMessage());
     }
 }
+```
 To use the “after” interceptor, proceed as follows:
+```java
 @ServiceCallAfterInterceptor({ SpreadsheetResultConverter.class,
                               ExceptionHandlingAdvice.class })
 ResponseDTO doSometing(Request request);
@@ -1375,8 +1379,8 @@ For example, an Excel file contains the `String hello(String)` method and this m
 
 The advice class uses the same class loader that is used to compile the OpenL Tablets project. It means that a user can access all datatype classes generated by the system for a particular project. An additional method can be used when additional mapping between the OpenL Tablets model and external model is required, for example:
 
-```
-public static class LoadClassExtraMethod implements ServiceExtraMethodHandler<Object> {
+```java
+    public static class LoadClassExtraMethod implements ServiceExtraMethodHandler<Object> {
         @Override
         public Object invoke(Method interfaceMethod, Object serviceBean, Object... args) throws Exception {
             // MyBean is Datatype defined in OpenL
@@ -1417,7 +1421,7 @@ The following JAX-RS annotations can be used to override the default behavior of
 
 Service methods annotated `@POST` accepts only POST requests. Usage example is as follows:
 
-```
+```java
 @POST
 MyResponse someMethod();
 ```
@@ -1426,7 +1430,7 @@ MyResponse someMethod();
 
 Service method annotated `@GET` accepts only GET requests. Usage example is as follows:
 
-```
+```java
 @GET
 MyResponse someMethod(MyType myType);
 ```
@@ -1435,14 +1439,14 @@ MyResponse someMethod(MyType myType);
 
 Usage example is as follows:
 
-```
+```java
 @Path(“/customPrefix/someMethod”)
 MyResponse someMethod(MyType myType);
 ```
 
 Required Maven dependency is as follows:
 
-```
+```xml
 <dependency>
     <groupId>jakarta.ws.rs</groupId>
     <artifactId>jakarta.ws.rs-api</artifactId>
@@ -1463,15 +1467,15 @@ Annotation customization can be used for dynamically generated interfaces. This 
         
         An example is as follows:
         
-        ```
-        <rules-deploy>
-                <isProvideRuntimeContext>true</isProvideRuntimeContext>
-                <isProvideVariations>false</isProvideVariations>
-                <serviceName>dynamic-interface-test3</serviceName>
-                <annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
-                <url></url>
-        </rules-deploy> 
-        ```
+    ```xml
+    <rules-deploy>
+        <isProvideRuntimeContext>true</isProvideRuntimeContext>
+        <isProvideVariations>false</isProvideVariations>
+        <serviceName>dynamic-interface-test3</serviceName>
+        <annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
+        <url></url>
+    </rules-deploy> 
+    ```
         
 1.  Define a template interface with the annotated methods with the same signature as in a generated dynamic interface.
 
@@ -1479,21 +1483,21 @@ This approach supports replacing argument types in the method signature with typ
 
 **Example:** SubType is a subclass of class MyType. Consider the following methods are generated in the generated interface:
 
-```
+```java
 void someMethod(IRulesRuntimeContext context, MyType myType);
 void someMethod(IRulesRuntimeContext context, SubType otherType);
 ```
 
 Add an annotation to the first method using the same method signature in the template interface as follows:
 
-```
+```java
 @ServiceCallAfterInterceptor(value = { MyAfterAdvice.class })
 void someMethod(IRulesRuntimeContext context, MyType myType);
 ```
 
 If the `MyType` class is also generated at runtime, use a super type of the `MyType` class. An example is as follows:
 
-```
+```java
 @ServiceCallAfterInterceptor(value = { MyAfterAdvice.class })
 void someMethod(IRulesRuntimeContext context, @RulesType("MyType") Object myType);
 ```
@@ -1580,11 +1584,11 @@ An alternative way is to use a special `VariationDescription` bean that contains
 
 Default value for all deployed services is defined in the `ruleservice.isSupportVariations `property in` application.properties`.` `By default, it is disabled. A variation can be enabled and disabled on the project level using the `rules-deploy.xml` deployment configuration file. An example is as follows:
 
-```
+```xml
 <rules-deploy>
-        …
-        <isProvideVariations>false</isProvideVariations>
-        …
+    …
+    <isProvideVariations>false</isProvideVariations>
+    …
 </rules-deploy> 
 ```
 
@@ -1644,7 +1648,7 @@ All these annotations can be used on fields or on getter or setter methods in en
 
 The org.openl.rules.ruleservice.storelogdata.advice.StoreLogDataAdvice interface has only one method to implement. An example is as follows:
 
-```
+```java
 public class CollectDataStoreLogDataAdvice implements StoreLogDataAdvice {
    @Override
    public void prepare(Map<String, Object> values, Object[] args, Object result, Exception ex) {
@@ -1680,7 +1684,7 @@ The following annotations located in the org.openl.rules.ruleservice.storelogdat
 
 All annotations described in this section have an optional converter attribute for converting a collected type into the required field type. Use implementation of the org.openl.rules.ruleservice.storelogdata.Converter interface for the convertor attribute. A usage example of this interface is as follows:
 
-```
+```java
 public final class ZonedDataTimeToDateConvertor implements Converter<ZonedDateTime, Date> {
     @Override
     public Date apply(ZonedDateTime value) {
@@ -1706,7 +1710,7 @@ An entity is a simple data container that represents a row in the product table.
 
 Cassandra entity example is as follows:
 
-```
+```java
 @Entity
 @EntitySupport(PersonOperations.class)
 @CqlName("person")
@@ -1729,7 +1733,7 @@ A **data access object** (DAO) defines a set of query methods to insert entities
 
 DAO interface example to insert a Person entity is as follows:
 
-```
+```java
 @Dao
 public interface PersonDao {
    @Insert
@@ -1741,7 +1745,7 @@ Mapper interface is a top-level entry point for mapper features used to obtain D
 
 Mapper example that obtains PersonDao is as follows:
 
-```
+```java
 @Mapper
 public interface PersonMapper {
    @DaoFactory
@@ -1753,7 +1757,7 @@ Generate an implementation for these interfaces to use it at runtime. To generat
 
 An example of using Maven plugin to generate implementations is as follows:
 
-```
+```xml
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
     <configuration>
@@ -1770,13 +1774,16 @@ An example of using Maven plugin to generate implementations is as follows:
 
 The @org.openl.rules.ruleservice.storelogdata.cassandra.annotation.EntitySupport annotation is used to define a class that instantiates a mapper instance with generated mapper builder and implements insert operation. This annotation must be used on the entity class as follows:
 
-```
+```java
 @Entity
 @EntitySupport(PersonOperations.class)
 @CqlName("person")
 public class Person {
   …
 }
+```
+
+```java
 public class PersonOperations implements EntityOperations<PersonDao, Person> {
    @Override
    public PersonDao buildDao(CqlSession cqlSession) throws DaoCreationException {
@@ -1800,7 +1807,7 @@ The default strategy can be modified. For more information on naming strategies,
 
 An example is as follows:
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS person(
   id text,
   birthday timestamp,
@@ -1820,13 +1827,13 @@ If entity classes are not defined in @StoreLogDataToDB, all records are stored i
 
 A custom relational database entity example is as follows:
 
-```
+```java
 @Entity(name = "person")
 public class Person {
     
     @Id
-@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
-@SequenceGenerator(name = "person_generator", sequenceName = "openl_log_data_generator", allocationSize = 50)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
+    @SequenceGenerator(name = "person_generator", sequenceName = "openl_log_data_generator", allocationSize = 50)
     private Long id;
     
     @IncomingTime
@@ -1858,36 +1865,36 @@ If multiple entity classes are defined, for example, `@StoreLogDataToHive(HiveEn
 
 Custom Hive entity example is as follows:
 
-```
+```java
 @Entity("person_data")
 public class Person {
     
-@Value(converter = RandomUUID.class)
-private String id;
+    @Value(converter = RandomUUID.class)
+    private String id;
 
-@IncomingTime
-private ZonedDateTime incomingTime;
+    @IncomingTime
+    private ZonedDateTime incomingTime;
 
-@OutcomingTime
-private ZonedDateTime  outcomingTime;
+    @OutcomingTime
+    private ZonedDateTime  outcomingTime;
 
-@Request
-private String request;
+    @Request
+    private String request;
 
-@Response
-private String response;
+    @Response
+    private String response;
 
-@ServiceName
-private String serviceName;
+    @ServiceName
+    private String serviceName;
 
-@MethodName
-private String methodName;
+    @MethodName
+    private String methodName;
 
-@Publisher
-private String publisherType;
+    @Publisher
+    private String publisherType;
 
-@Url
-private String url;
+    @Url
+    private String url;
 }
 ```
 
@@ -1901,7 +1908,7 @@ This section describes how to write a client code that invokes OpenL Tablets RES
 
 The following example illustrates client code generation for the JSON content type:
 
-```
+```java
 JacksonObjectMapperFactoryBean = new JacksonObjectMapperFactoryBean();
 jacksonObjectMapperFactoryBean.setEnableDefaultTyping(true);
 Set<String> overrideTypes = new HashSet<String>();
@@ -1992,7 +1999,7 @@ The 5.20 version of the OpenL Tablets Deployment repository contains only actual
 
 In this case, add the following property to the `application.properties` file:
 
-```
+```properties
 version-in-deployment-name = true
 ```
 
@@ -2047,7 +2054,7 @@ This type of deployment is useful when several projects have mutual dependencies
 
 OpenL Tablets deployment descriptor is a marker which tells OpenL Tablets Engine that this type of deployment may contain several OpenL Tablets projects. This file is mandatory and may optionally contain the name property to customize deployment name:
 
-```
+```yaml
 name: openl-multiple-project-deployment
 ```
 
