@@ -292,6 +292,7 @@ To use a relational database repository as a data source, proceed as follows:
     **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 
     ```
+    
     properties
     production-repository.factory = repo-jdbc
     production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
