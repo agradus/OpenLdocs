@@ -2094,6 +2094,18 @@ If the project was deployed in a different way and it does not contain the manif
 
 An example of the file contents is as follows:
 
-![Text, letter Description automatically generated](ruleservices_guide_images/8b85539e71fe2a539aa9c1a7aebf2a06.png)
-
-*Manifest file contents example*
+```json
+{
+  "entries": {},
+  "mainAttributes": {
+    "Manifest-Version": "1.0",
+    "Build-Date": "2022-05-26T00:47:06.894013+02:00",
+    "Built-By": "openl",
+    "Implementation-Title": "Sample Project",
+    "Implementation-Version": "1.0-SNAPSHOT",
+    "Created-By": "OpenL WebStudio v5.26.0",
+    "Build-Branch": "master",
+    "Build-Number": "0123abcd968574142536fedc01cc",
+  }
+}
+```
