@@ -290,9 +290,8 @@ To use a relational database repository as a data source, proceed as follows:
 1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
     **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
-
-    ```
-    
+	
+    ```xml    
     properties
     production-repository.factory = repo-jdbc
     production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
@@ -358,6 +357,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
     ```
         
 1.  Set the following properties in the `application.properties` file:
+    
     ```xml
     properties
     production-repository.factory = repo-aws-s3
