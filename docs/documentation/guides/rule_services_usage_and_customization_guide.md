@@ -291,7 +291,8 @@ To use a relational database repository as a data source, proceed as follows:
 
     **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 
-    ```properties
+    ```
+    properties
     production-repository.factory = repo-jdbc
     production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
     production-repository.login = root
@@ -357,7 +358,8 @@ To use an AWS S3 repository as a data source, proceed as follows:
         
 1.  Set the following properties in the `application.properties` file:
 
-    ```properties
+    ```
+    properties
     production-repository.factory = repo-aws-s3
     production-repository.bucket-name = yourBucketName
     production-repository.region-name = yourS3Region
@@ -413,7 +415,8 @@ To use a Git repository as a data source, proceed as follows:
 
 4.  Additionally, to override default values, add these optional properties:
 
-    ```properties
+    ```
+    properties
     # Local path for Git repository.
     production-repository.local-repository-path = ${ruleservice.openl.home}/git
     # The branch where deployed projects can be found.
