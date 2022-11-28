@@ -7,6 +7,13 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 
 ## Preface
 
+1.  xxx
+
+    For example, for MySQL:
+    ```properties
+    production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
+    ```
+
 OpenL Tablets is a Business Rules Management System (BRMS) based on the tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code.
 
 OpenL Tablets provides a set of tools addressing BRMS related capabilities including *OpenL Tablets Rule Services* *application* designed for integration of business rules into different customers’ applications.
@@ -262,7 +269,7 @@ Using a file system as a data source for projects means that projects are stored
 
 To configure a local file system as a data source, proceed as follows:
 
-1.  In `application.properties,` set `production-repository.factory = repo-file.`
+1.  In `application.properties`, set `production-repository.factory = repo-file`.
         By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
 2.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
 
@@ -275,7 +282,7 @@ To use a relational database repository as a data source, proceed as follows:
 1.  Add the appropriate driver library for a database.
     For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
 2.  In the `application.properties` file, set repository settings as follows:
-3.  Set `production-repository.factory = repo-jdbc.`
+3.  Set `production-repository.factory = repo-jdbc`.
 4.  Set the value for `production-repository.uri` according to the database as follows:
 
     | Database       | URL value                                                                                   |
