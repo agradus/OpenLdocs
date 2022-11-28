@@ -306,6 +306,7 @@ To use a relational database repository as a data source, proceed as follows:
 To use an AWS S3 repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
+	
 	<?xml version="1.0" encoding="UTF-8"?>
 	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	    <modelVersion>4.0.0</modelVersion>
@@ -353,6 +354,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
 	</project>
 	
 1.  Set the following properties in the `application.properties` file:
+	
     	production-repository.factory = repo-aws-s3
     	production-repository.bucket-name = yourBucketName
     	production-repository.region-name = yourS3Region
