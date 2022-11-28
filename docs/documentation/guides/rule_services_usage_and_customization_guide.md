@@ -107,11 +107,11 @@ This section introduces Rule Services Core functionality and includes the follow
 
 To use the Rule Services Core within Maven, declare the module dependencies in the project object model (POM) as described in the following example:
 
-```
+```xml
 <dependency>
-	<groupId>org.openl.rules</groupId>
-	<artifactId>org.openl.rules.ruleservice</artifactId>
-	<version>${openl.version}</version>
+    <groupId>org.openl.rules</groupId>
+    <artifactId>org.openl.rules.ruleservice</artifactId>
+    <version>${openl.version}</version>
 </dependency>
 ```
 
@@ -154,9 +154,9 @@ The `frontend `bean can be injected to user’s bean to interact with deployed O
 
 ```
 <bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">
-	<!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
-	<property name="serviceName" value="service1"/>
-	<property name="proxyInterface" value="com.myproject.Service1"/>
+        <!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
+        <property name="serviceName" value="service1"/>
+        <property name="proxyInterface" value="com.myproject.Service1"/>
 </bean>
 ```
 
@@ -209,7 +209,7 @@ If necessary, modify the OpenL Tablets Rule Services configuration by overriding
 | `openl-ruleservice-kafka-publisher-beans.xml` | Configuration for Kafka services publisher.                                                                                                      |
 | `openl-ruleservice-conf-beans.xml`            | Configuration for Service Configurer.                                                                                                            |
 | `openl-ruleservice-store-log-data-beans.xml`  | Configuration for external request and response storages.                                                                                        |
-| `application.properties	`                      | Main configuration file containing properties for OpenL Tablets Rule Services configuration.                                                     |
+| `application.properties        `                      | Main configuration file containing properties for OpenL Tablets Rule Services configuration.                                                     |
 
 For more information on configuration files, see [Configuration Points](#configuration-points).
 
@@ -263,7 +263,7 @@ Using a file system as a data source for projects means that projects are stored
 To configure a local file system as a data source, proceed as follows:
 
 1.  In `application.properties,` set `production-repository.factory = repo-file.`
-	By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
+        By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
 1.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
 
     **Note:** For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
@@ -273,94 +273,97 @@ To configure a local file system as a data source, proceed as follows:
 To use a relational database repository as a data source, proceed as follows:
 
 1.  Add the appropriate driver library for a database.
-	For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
+        For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
 1.  In the `application.properties` file, set repository settings as follows:
 2.  Set `production-repository.factory = repo-jdbc.`
 3.  Set the value for `production-repository.uri` according to the database as follows:
-	
-	| Database       | URL value                                                                                     |
-	|----------------|-----------------------------------------------------------------------------------------------|
-	| MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
-	| Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
-	| MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
-	| PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
-	
-	For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.
-	
+        
+        | Database       | URL value                                                                                     |
+        |----------------|-----------------------------------------------------------------------------------------------|
+        | MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
+        | Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
+        | MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
+        | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
+        
+        For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.
+        
 1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
-    **Note:**	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
+    **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 
-	```
-	production-repository.factory = repo-jdbc
-	production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
-	production-repository.login = root
-	production-repository.password = admin
-	\# Secret key for password code/decode
-	secret.key=
-	\#secret.cipher=AES/CBC/PKCS5Padding
-	```
+    ```properties
+    production-repository.factory = repo-jdbc
+    production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
+    production-repository.login = root
+    production-repository.password = admin
+    # Secret key for password code/decode
+    secret.key=
+    #secret.cipher=AES/CBC/PKCS5Padding
+    ```
 
 ##### Amazon AWS S3
 
 To use an AWS S3 repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
-	```
-	<?xml version="1.0" encoding="UTF-8"?>
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	    <modelVersion>4.0.0</modelVersion>
-	    <groupId>com.example.openl</groupId>
-	    <artifactId>webservice-aws</artifactId>
-	    <packaging>war</packaging>
-	    <version>1.0-beta</version>
-	
-	    <properties>
-	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	        <org.openl.version>#Define OpenL Tablets version here#</org.openl.version>
-	    </properties>
-	    <dependencies>
-	        <dependency>
-	            <groupId>org.openl.rules</groupId>
- 	           <artifactId>org.openl.rules.repository.aws</artifactId>
-	            <version>${org.openl.version}</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>org.openl.rules</groupId>
-	            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
- 	           <type>war</type>
- 	           <version>${org.openl.version}</version>
- 	       </dependency>
-	    </dependencies>
-	    <dependencyManagement>
-	        <dependencies>
-	            <dependency>
-	                <groupId>com.fasterxml.jackson.core</groupId>
-	                <artifactId>jackson-databind</artifactId>
- 	               <version>2.9.5</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>com.fasterxml.jackson.core</groupId>
- 	               <artifactId>jackson-annotations</artifactId>
-	                <version>2.9.5</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>commons-codec</groupId>
-	                <artifactId>commons-codec</artifactId>
-	                <version>1.11</version>
-	            </dependency>
-	        </dependencies>
-	    </dependencyManagement>
-	</project>
-	```
-	
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.example.openl</groupId>
+        <artifactId>webservice-aws</artifactId>
+        <packaging>war</packaging>
+        <version>1.0-beta</version>
+
+	<properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <org.openl.version>#Define OpenL Tablets version here#</org.openl.version>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>org.openl.rules</groupId>
+                <artifactId>org.openl.rules.repository.aws</artifactId>
+                <version>${org.openl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openl.rules</groupId>
+                <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+                <type>war</type>
+                <version>${org.openl.version}</version>
+            </dependency>
+        </dependencies>
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                    <version>2.9.5</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                    <version>2.9.5</version>
+                </dependency>
+                <dependency>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                    <version>1.11</version>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+    </project>
+    ```
+        
 1.  Set the following properties in the `application.properties` file:
-	
-    	production-repository.factory = repo-aws-s3
-    	production-repository.bucket-name = yourBucketName
-    	production-repository.region-name = yourS3Region
-    	production-repository.access-key = yourAccessKey
-    	production-repository.secret-key = yourSecretKey
+
+    ```properties
+    production-repository.factory = repo-aws-s3
+    production-repository.bucket-name = yourBucketName
+    production-repository.region-name = yourS3Region
+    production-repository.access-key = yourAccessKey
+    production-repository.secret-key = yourSecretKey
+    ```
 
 ##### GIT
 
@@ -368,62 +371,62 @@ To use a Git repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.git`, create a `pom.xml` file with the following content:
 	
-	```
-	<?xml version="1.0" encoding="UTF-8"?>
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	    <modelVersion>4.0.0</modelVersion>
-	    <groupId>com.example.openl</groupId>
-	    <artifactId>webservice-git</artifactId>
-	    <packaging>war</packaging>
-	    <version>1.0-beta</version>
-	
-	    <properties>
-	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	        <org.openl.version>>#Define OpenL Tablets version here#</org.openl.version>
-	    </properties>
-	    <dependencies>
-	        <dependency>
-	            <groupId>org.openl.rules</groupId>
-	            <artifactId>org.openl.rules.repository.git</artifactId>
-	            <version>${org.openl.version}</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>org.openl.rules</groupId>
-	            <artifactId>org.openl.rules.ruleservice.ws</artifactId>
-	            <type>war</type>
- 	           <version>${org.openl.version}</version>
-	        </dependency>
-	    </dependencies>
-	</project>
-	```
-	
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.example.openl</groupId>
+        <artifactId>webservice-git</artifactId>
+        <packaging>war</packaging>
+        <version>1.0-beta</version>
+
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <org.openl.version>>#Define OpenL Tablets version here#</org.openl.version>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>org.openl.rules</groupId>
+                <artifactId>org.openl.rules.repository.git</artifactId>
+                <version>${org.openl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openl.rules</groupId>
+                <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+                <type>war</type>
+                <version>${org.openl.version}</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+        
 1.  Build it with Maven: `mvn clean package`.
 2.  Replace `webservice.war` with the war file you built.
 3.  Set the following properties to the `application.properties` file (change necessary fields):
 
-    	```
-	production-repository.factory = repo-git
-    	production-repository.uri = https://github.com/<your-name>/your-repo.git
-    	production-repository.login = your-login
-    	production-repository.password = your-password
-	```
+    ```properties
+    production-repository.factory = repo-git
+    production-repository.uri = https://github.com/<your-name>/your-repo.git
+    production-repository.login = your-login
+    production-repository.password = your-password
+    ```
 
 4.  Additionally, to override default values, add these optional properties:
 
-   	```
-	\# Local path for Git repository.
-    	production-repository.local-repository-path = ${ruleservice.openl.home}/git
-   	\# The branch where deployed projects can be found.
-	 production-repository.branch = master
-    	\# Committer's display name. If null, username will be “OpenL_Deployer”.
-    	production-repository.user-display-name =
-    	\# Committer's email. If null, email will be empty.
-    	production-repository.user-email =
-    	\# Repository connection timeout in seconds. Must be greater than zero.
-    	production-repository.connection-timeout = 60
-    	\# Repository changes check interval in seconds. Must be greater than 0.
-   	 production-repository.listener-timer-period = 10
-	```
+    ```properties
+    # Local path for Git repository.
+    production-repository.local-repository-path = ${ruleservice.openl.home}/git
+    # The branch where deployed projects can be found.
+    production-repository.branch = master
+    # Committer's display name. If null, username will be “OpenL_Deployer”.
+    production-repository.user-display-name =
+    # Committer's email. If null, email will be empty.
+    production-repository.user-email =
+    # Repository connection timeout in seconds. Must be greater than zero.
+    production-repository.connection-timeout = 60
+    # Repository changes check interval in seconds. Must be greater than 0.
+    production-repository.listener-timer-period = 10
+    ```
 
 ##### Classpath JAR
 
@@ -465,23 +468,22 @@ The `org.openl.rules.ruleservice.conf.LastVersionProjectsServiceConfigurer` defa
 
 Default implementation of Service Configurer uses the `rules-deploy.xml` deployment configuration file from the project root folder. This file is created manually or via OpenL Tablets WebStudio. An example of the `rules-deploy.xml` file is as follows:
 
-```
+```xml
 <rules-deploy>
-	<isProvideRuntimeContext>true</isProvideRuntimeContext>
-	<isProvideVariations>false</isProvideVariations>
-	<serviceName>myService</serviceName>
-	<serviceClass>com.example.MyService </serviceClass>
-	<url>com.example.MyService</url>
-	<publishers>
-		<publisher>RESTFUL</publisher>
-		
-       </publishers>
-       <configuration>
-		<entry>
-			<string>someString</string>
-			<string>someString</string>
-		</entry>
-	</configuration>
+    <isProvideRuntimeContext>true</isProvideRuntimeContext>
+    <isProvideVariations>false</isProvideVariations>
+    <serviceName>myService</serviceName>
+    <serviceClass>com.example.MyService </serviceClass>
+    <url>com.example.MyService</url>
+    <publishers>
+        <publisher>RESTFUL</publisher>
+    </publishers>
+    <configuration>
+        <entry>
+            <string>someString</string>
+            <string>someString</string>
+        </entry>
+    </configuration>
 </rules-deploy>
 ```
 
@@ -589,7 +591,7 @@ The `jackson`.`defaultDateFormat` value must be in the same syntax of the date t
 
 Note that changing this setting affects all projects in the system. To change the date format for a particular project, modify the date format in the `rules-deploy.xml` deployment configuration file as follows:
 
-```
+```xml
 <rules-deploy>
    ….
     <configuration>
@@ -605,9 +607,11 @@ Note that changing this setting affects all projects in the system. To change th
 
 Default JSON properties serialization and deserialization behavior can be changed via `ruleservice.jackson.` `serializationInclusion, ruleservice.jackson.caseInsensitiveProperties, `and` ruleservice.jackson.failOnUnknownProperties` in the `application.properties` file. The default value for this property is set as follows:
 
-```ruleservice.jackson.serializationInclusion = USE_DEFAULTS
+```properties
+ruleservice.jackson.serializationInclusion = USE_DEFAULTS
 ruleservice.jackson.caseInsensitiveProperties = false
-ruleservice.jackson.failOnUnknownProperties = false```
+ruleservice.jackson.failOnUnknownProperties = false
+```
 
 These values are used by the system for all published projects that do not have these properties defined in the `rules-deploy.xml` file.
 
@@ -638,7 +642,7 @@ JSON payload of the same datatype with different `serializationInclusion` proper
 
 **Note:** Changing these settings affects all projects in the system. To modify `serializationInclusion` for a particular project, modify the `rules-deploy.xml` deployment configuration file as follows:
 
-```
+```xml
 <rules-deploy>
     …
     <configuration>
@@ -670,7 +674,7 @@ JAXB annotations is supported in the MixIn classes out of the box because the sy
 
 Example of the Jackson MixIn class implementation is as follows:
 
-```
+```groovy
 @MixInClass(“org.openl.generated.beans.Customer”)
 public abstract class CustomerMixIn {
 
@@ -691,7 +695,7 @@ public abstract class CustomerMixIn {
 
 Example of the deployment configuration file is as follows:
 
-```
+```xml
 <rules-deploy>
     …
     <configuration>
@@ -713,8 +717,10 @@ The appropriate port and host name for RMI can be defined in the `application.pr
 
 By default, these properties are defined as follows:
 
-```ruleservice.rmiPort = 1099 // Port for RMI
-ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI```
+```properties
+ruleservice.rmiPort = 1099 // Port for RMI
+ruleservice.rmiHost = 127.0.0.1 // Used as host for RMI
+```
 
 ##### Kafka Publisher
 
@@ -749,7 +755,7 @@ The following topics are included in this section:
 
 By default, Kafka Publisher is not used for deployed projects. To enable it, add the Kafka Publisher type to `rules-deploy.xml` as follows:
 
-```
+```xml
 <rules-deploy>
     …
     <publishers>
@@ -782,13 +788,13 @@ The default configuration for all methods or service is supported if `producer.c
 
 An example of `consumer.configs` is as follows:
 
-```
+```yaml
 auto.offset.reset: earliest
 ```
 
 An example of the `method.configs` is as follows:
 
-```
+```yaml
   - method.name: method1
     in.topic.name: in-topic-for-method1
     out.topic.name: out-topic-for-method1
@@ -993,20 +999,20 @@ mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.fu
 
 1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true `setting in the` application.properties `file`.`
 2.  Set up Cassandra connection settings defined in the `application.properties` file as described in the following lines:
-	
-	```datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1
-	datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042
-	datastax-java-driver.basic.session-keyspace = openl_ws_logging
-	datastax-java-driver.advanced.protocol.version = V4
-	datastax-java-driver.advanced.auth-provider.username =
-	datastax-java-driver.advanced.auth-provider.password =```
-	
-    	For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
-	
+        
+        ```datastax-java-driver.basic.load-balancing-policy.local-datacenter = datacenter1
+        datastax-java-driver.basic.contact-points.0 = 127.0.0.1:9042
+        datastax-java-driver.basic.session-keyspace = openl_ws_logging
+        datastax-java-driver.advanced.protocol.version = V4
+        datastax-java-driver.advanced.auth-provider.username =
+        datastax-java-driver.advanced.auth-provider.password =```
+        
+            For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
+        
 3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
 4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
-	
-	By default, this option is enabled. When the schema is created, set this property to the `false` value.
+        
+        By default, this option is enabled. When the schema is created, set this property to the `false` value.
 
 As a result, the following table with the `openl_log_data` name is created in the Cassandra database:
 
@@ -1029,25 +1035,25 @@ As a result, the following table with the `openl_log_data` name is created in th
 To start using a relational database, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
-	
-	```
-	mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
-	```
-	
+        
+        ```
+        mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
+        ```
+        
 1.  Enable the relational database Storing Log feature using the `ruleservice.store.logs.db.enabled=true` setting` `in the `application.properties` file.
 2.  Set up the Hibernate connection settings defined in the `application.properties` file as described in the following lines:
-		
-	```hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
-	hibernate.connection.url=
-	hibernate.connection.username=
-	hibernate.connection.password=
-	hibernate.show_sql=false
-	hibernate.hbm2ddl.auto=update
-	hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-	hibernate.hikari.connectionTimeout=20000
-	hibernate.hikari.minimumIdle=10
-	hibernate.hikari.maximumPoolSize=20
-	hibernate.hikari.idleTimeout=300000```
+                
+        ```hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+        hibernate.connection.url=
+        hibernate.connection.username=
+        hibernate.connection.password=
+        hibernate.show_sql=false
+        hibernate.hbm2ddl.auto=update
+        hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+        hibernate.hikari.connectionTimeout=20000
+        hibernate.hikari.minimumIdle=10
+        hibernate.hikari.maximumPoolSize=20
+        hibernate.hikari.idleTimeout=300000```
 
 Relational database is supported via the Hibernate framework. Hibernate connection properties, such as `hibernate.connection.driver_class` and `hibernate.connection.url`, must be used to configure a connection to a relational database. For a full list of properties, see Hibernate documentation at [https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html\#database](https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#database).
 
@@ -1076,20 +1082,20 @@ The system uses the JDBC driver to communicate with the Hive server that process
 To start using Hive, proceed as follows:
 
 1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
-	
-	```
-	mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
-	```
-	
+        
+        ```
+        mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
+        ```
+        
 1.  Set up Hive connection settings defined in the `application.properties` file as follows:
-	
-	```
-	ruleservice.store.logs.hive.enabled = true
-	hive.connection.url = jdbc:hive2://localhost:10000/default
-	hive.connection.username =
-	hive.connection.password =
-	hive.connection.pool.maxSize = 10
-	```
+        
+        ```
+        ruleservice.store.logs.hive.enabled = true
+        hive.connection.url = jdbc:hive2://localhost:10000/default
+        hive.connection.username =
+        hive.connection.password =
+        hive.connection.pool.maxSize = 10
+        ```
 
 The following properties can be modified to configure Hive:
 
@@ -1137,44 +1143,44 @@ If a project has specific requirements, OpenL Tablets Rule Services customizatio
 1.  Create a Maven project that extends OpenL Tablets Rule Services.
 2.  Add or change the required points of configuration.
 3.  Add the following dependency to the `pom.xml` file with the version used in the project specified:
-	
-	```
-	<dependency>
-			<groupId>org.openl.rules</groupId>
-			<artifactId>org.openl.rules.ruleservice.ws</artifactId>
-			<version>5.X.X</version>
-			<type>war</type>
-			<scope>runtime</scope>
-	</dependency>
-	```
-	
+        
+        ```
+        <dependency>
+                        <groupId>org.openl.rules</groupId>
+                        <artifactId>org.openl.rules.ruleservice.ws</artifactId>
+                        <version>5.X.X</version>
+                        <type>war</type>
+                        <scope>runtime</scope>
+        </dependency>
+        ```
+        
 1.  Use the following Maven plugin to control the OpenL Tablets Rule Services building with user’s custom configurations and classes:
-	
-	```
-	<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-war-plugin</artifactId>
-			<configuration>
-				<warSourceDirectory>webapps/ws</warSourceDirectory>
-				<!—Define war name here-->
-				<warName>${war.name}-${project.version}</warName>
-				<packaging Excludes>
-				<!—Exclude unnecessary libraries from parent project here-->
-				WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
-				</packaging Excludes>
-				<!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
-				<web Resources>
-					<resource>
-						<directory>src/main/resources</directory>
-					</resource>
-					<resource>
-						<directory>war-specific-conf</directory>
-					</resource>
-				</web Resources>
-			</configuration>
-	</plugin>
-	```
-	
+        
+        ```
+        <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <configuration>
+                                <warSourceDirectory>webapps/ws</warSourceDirectory>
+                                <!—Define war name here-->
+                                <warName>${war.name}-${project.version}</warName>
+                                <packaging Excludes>
+                                <!—Exclude unnecessary libraries from parent project here-->
+                                WEB-INF/lib/org.openl.rules.ruleservice.ws.lib-*.jar
+                                </packaging Excludes>
+                                <!—Define paths for resources. Developer has to create a file with the same name to overload existing file in the parent project-->
+                                <web Resources>
+                                        <resource>
+                                                <directory>src/main/resources</directory>
+                                        </resource>
+                                        <resource>
+                                                <directory>war-specific-conf</directory>
+                                        </resource>
+                                </web Resources>
+                        </configuration>
+        </plugin>
+        ```
+        
 1.  If necessary, add customized spring beans into openl-ruleservice-override-beans.xml in src/main/resources.
 
 ### Data Source Listeners
@@ -1213,22 +1219,22 @@ This configuration can be applied to projects using the `rules.xml` file. An exa
 
 ```
 <project>
-	<name>project-name</name>
-	<modules>
-			<module>
-				<name>module-name</name>
-				<rules-root path="rules/Calculation.xlsx"/>
-				<method-filter>
-					<includes>
-						<value>.*determinePolicyPremium.*</value>
-						<value>.*vehiclePremiumCalculation.*</value>
-					</includes>
-				</method-filter>
-			</module>
-	</modules>
-	<classpath>
-		<entry path="lib/*"/>
-	</classpath>	
+        <name>project-name</name>
+        <modules>
+                        <module>
+                                <name>module-name</name>
+                                <rules-root path="rules/Calculation.xlsx"/>
+                                <method-filter>
+                                        <includes>
+                                                <value>.*determinePolicyPremium.*</value>
+                                                <value>.*vehiclePremiumCalculation.*</value>
+                                        </includes>
+                                </method-filter>
+                        </module>
+        </modules>
+        <classpath>
+                <entry path="lib/*"/>
+        </classpath>        
 </project>
 ```
 
@@ -1454,19 +1460,19 @@ All other JAX-RS annotations, such as `@PUT`, `@DELETE`, `@QueryParam`, and `@Pa
 Annotation customization can be used for dynamically generated interfaces. This feature is only supported for projects that contain the `rules-deploy.xml `deployment configuration file. To enable customization through annotation, proceed as follows:
 
 1.  Add the `annotationTemplateClassName `tag to the `rules-deploy.xml` file*.*
-	
-	An example is as follows:
-	
-	```
-	<rules-deploy>
-		<isProvideRuntimeContext>true</isProvideRuntimeContext>
-		<isProvideVariations>false</isProvideVariations>
-		<serviceName>dynamic-interface-test3</serviceName>
-		<annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
-		<url></url>
-	</rules-deploy> 
-	```
-	
+        
+        An example is as follows:
+        
+        ```
+        <rules-deploy>
+                <isProvideRuntimeContext>true</isProvideRuntimeContext>
+                <isProvideVariations>false</isProvideVariations>
+                <serviceName>dynamic-interface-test3</serviceName>
+                <annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
+                <url></url>
+        </rules-deploy> 
+        ```
+        
 1.  Define a template interface with the annotated methods with the same signature as in a generated dynamic interface.
 
 This approach supports replacing argument types in the method signature with types assignable from generated types in the generated interface.
@@ -1576,9 +1582,9 @@ Default value for all deployed services is defined in the `ruleservice.isSupport
 
 ```
 <rules-deploy>
-	…
-	<isProvideVariations>false</isProvideVariations>
-	…
+        …
+        <isProvideVariations>false</isProvideVariations>
+        …
 </rules-deploy> 
 ```
 
@@ -1714,7 +1720,7 @@ public class Person {
    @Request
    private String request;
    @Response
-   private String response;	
+   private String response;        
 …
 }
 ```
@@ -2022,19 +2028,19 @@ Deployable multiple projects must be archived into ZIP file and have the followi
 
 ```
 deployment.zip:
-	deployment.yaml			OpenL Tablets deployment descriptor
-	project-1				OpenL Tablets project folder #1
-		rules.xml
-		rules-deploy.xml
-		*.xlsx
-	project-2				OpenL Tablets project folder #2
+        deployment.yaml                        OpenL Tablets deployment descriptor
+        project-1                                OpenL Tablets project folder #1
+                rules.xml
+                rules-deploy.xml
+                *.xlsx
+        project-2                                OpenL Tablets project folder #2
 rules.xml
-		rules-deploy.xml
-		*.xlsx
-	project-*				OpenL Tablets project folder #N
+                rules-deploy.xml
+                *.xlsx
+        project-*                                OpenL Tablets project folder #N
 rules.xml
-		rules-deploy.xml
-		*.xlsx
+                rules-deploy.xml
+                *.xlsx
 ```
 
 This type of deployment is useful when several projects have mutual dependencies and must be deployed as single deployment.
