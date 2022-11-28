@@ -366,7 +366,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
     production-repository.region-name = yourS3Region
     production-repository.access-key = yourAccessKey
     production-repository.secret-key = yourSecretKey
-	```
+    ```
   
 	
 ##### GIT
@@ -1019,7 +1019,7 @@ Apache Cassandra is a free and open-source, distributed, wide column storage dat
 3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
 4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
         
-        By default, this option is enabled. When the schema is created, set this property to the `false` value.
+    By default, this option is enabled. When the schema is created, set this property to the `false` value.
 
 As a result, the following table with the `openl_log_data` name is created in the Cassandra database:
 
@@ -1274,7 +1274,7 @@ Required Maven dependency for OpenL Tablets Rule Services annotations is org.ope
 
 Interceptors for service methods can be specified using the following annotations:
 
--   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallBeforeInterceptor`
+-   `@org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallBeforeInterceptor`
 
 This annotation is used to define “before” interceptors for the annotated method. The goal of these interceptors is to add extra logic before service method invocation, such as validation for service method arguments, or to change values in input arguments. A class of the “before” interceptor must implement the `org.openl.rules.ruleservice.core.interceptors.ServiceMethodBeforeAdvice` interface.
 
@@ -1299,7 +1299,7 @@ To use the “before” interceptor, proceed as follows:
 Result doSomething(RequestModel requestModel);
 ```
 
--   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAroundInterceptor `
+-   `@org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAroundInterceptor`
 
 This annotation is used to define “around” interceptors. A class for the “around” interceptor must implement the `org.openl.rules.ruleservice.core.interceptors.ServiceMethodAroundAdvice` interface. “Around” interceptors are used to add around logic for service method invocation. An example is when arguments of the case service method must be converted to another type before using them in service rules, and the results also require additional processing before return.
 
@@ -1322,7 +1322,7 @@ To use the “around” interceptor, proceed as follows:
 Response doSomething(RequestModel requestModel);
 ```
 
--   `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor`
+-   `@org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor`
 
 This annotation is used to defined “after” interceptors. This type of interceptions is used for result processing or error handling before return by the service method.
 
@@ -1367,16 +1367,17 @@ public class ExceptionHandlingAdvice extends AbstractServiceMethodAfterThrowingA
     }
 }
 ```
+
 To use the “after” interceptor, proceed as follows:
+
 ```java
-@ServiceCallAfterInterceptor({ SpreadsheetResultConverter.class,
-                              ExceptionHandlingAdvice.class })
+@ServiceCallAfterInterceptor({ SpreadsheetResultConverter.class, ExceptionHandlingAdvice.class })
 ResponseDTO doSometing(Request request);
 ```
 
 Use `@org.openl.rules.ruleservice.core.interceptors.annotations.NotConvertor` or `@org.openl.rules.ruleservice.core.interceptors.annotations.UseOpenMethodReturnType` on an interceptor implementation class when an interceptor must return a type of the generated class that is not available at compilation time to use as a generic parameter of the interceptor class. The `NotConvertor` annotation instructs the system that the interceptor does not change the return type of the method even if `Object` or any other class is used as a generic parameter of the class. The `UseOpenMethodReturnType` annotation instructs the system that the interceptor returns the original type of the rules method even if any other type is used as a generic parameter of the interceptor class.
 
--   `@` `org.openl.rules.ruleservice.core.annotations.ServiceExtraMethod`
+-   `@org.openl.rules.ruleservice.core.annotations.ServiceExtraMethod`
 
 This annotation is used to define the extra method absent in OpenL rules. Additional method implementation must implement `org.openl.rules.ruleservice.core.annotations.ServiceExtraMethodHandler` interface, and it exposes methods that differ in signature with the rules or do not exist in the Excel sheet.
 
@@ -1470,7 +1471,7 @@ Annotation customization can be used for dynamically generated interfaces. This 
 
 1.  Add the `annotationTemplateClassName `tag to the `rules-deploy.xml` file*.*
         
-        An example is as follows:
+    An example is as follows:
         
     ```xml
     <rules-deploy>
@@ -1507,7 +1508,7 @@ If the `MyType` class is also generated at runtime, use a super type of the `MyT
 void someMethod(IRulesRuntimeContext context, @RulesType("MyType") Object myType);
 ```
 
-This example uses the `@` `org.openl.rules.ruleservice.core.interceptors.RulesType` annotation. If this annotation is missed, this template method is applied to both methods because `Object` is assignable from both types `MyType `and `SubType`.
+This example uses the `@org.openl.rules.ruleservice.core.interceptors.RulesType` annotation. If this annotation is missed, this template method is applied to both methods because `Object` is assignable from both types `MyType `and `SubType`.
 
 The `@RulesType` annotation value accepts the following:
 
