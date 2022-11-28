@@ -265,18 +265,18 @@ To configure a local file system as a data source, proceed as follows:
 1.  In `application.properties,` set `production-repository.factory = repo-file.`
         By default, the `${user.home}/.openl/openl-ruleservice/datasource` folder is used as a local folder for projects.
 2.  To enable versioning support for deployment, set the `ruleservice.datasource.filesystem.supportVersion` setting to `true`.
-
-    **Note:** For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
-
-##### Relational Database
-
-To use a relational database repository as a data source, proceed as follows:
-
 1.  Add the appropriate driver library for a database.
     For example, for MySQL 5.6, it is the `mysql-connector-java-5.1.31.jar`.
 2.  In the `application.properties` file, set repository settings as follows:
 3.  Set `production-repository.factory = repo-jdbc.`
 4.  Set the value for `production-repository.uri` according to the database as follows:
+
+    | Database       | URL value                                                                                   |
+    |----------------|---------------------------------------------------------------------------------------------|
+    | MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
+    | Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
+    | MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
+    | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
 
     For example, for MySQL:
     ```properties
