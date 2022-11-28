@@ -401,14 +401,17 @@ To use a Git repository as a data source, proceed as follows:
 2.  Replace `webservice.war` with the war file you built.
 3.  Set the following properties to the `application.properties` file (change necessary fields):
 
-    	```production-repository.factory = repo-git
+    	```
+	production-repository.factory = repo-git
     	production-repository.uri = https://github.com/<your-name>/your-repo.git
     	production-repository.login = your-login
-    	production-repository.password = your-password```
+    	production-repository.password = your-password
+	```
 
 4.  Additionally, to override default values, add these optional properties:
 
-   	```\# Local path for Git repository.
+   	```
+	\# Local path for Git repository.
     	production-repository.local-repository-path = ${ruleservice.openl.home}/git
    	\# The branch where deployed projects can be found.
 	 production-repository.branch = master
@@ -419,7 +422,8 @@ To use a Git repository as a data source, proceed as follows:
     	\# Repository connection timeout in seconds. Must be greater than zero.
     	production-repository.connection-timeout = 60
     	\# Repository changes check interval in seconds. Must be greater than 0.
-   	 production-repository.listener-timer-period = 10```
+   	 production-repository.listener-timer-period = 10
+	```
 
 ##### Classpath JAR
 
