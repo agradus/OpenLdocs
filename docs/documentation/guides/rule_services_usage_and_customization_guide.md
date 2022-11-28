@@ -357,15 +357,13 @@ To use an AWS S3 repository as a data source, proceed as follows:
     ```
         
 1.  Set the following properties in the `application.properties` file:
-	
-    ```
     properties
     production-repository.factory = repo-aws-s3
     production-repository.bucket-name = yourBucketName
     production-repository.region-name = yourS3Region
     production-repository.access-key = yourAccessKey
     production-repository.secret-key = yourSecretKey
-    ```
+  
 	
 ##### GIT
 
