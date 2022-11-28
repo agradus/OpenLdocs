@@ -357,7 +357,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
     ```
         
 1.  Set the following properties in the `application.properties` file:
-
+	
     ```
     properties
     production-repository.factory = repo-aws-s3
@@ -366,7 +366,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
     production-repository.access-key = yourAccessKey
     production-repository.secret-key = yourSecretKey
     ```
-
+	
 ##### GIT
 
 To use a Git repository as a data source, proceed as follows:
@@ -406,7 +406,8 @@ To use a Git repository as a data source, proceed as follows:
 2.  Replace `webservice.war` with the war file you built.
 3.  Set the following properties to the `application.properties` file (change necessary fields):
 
-    ```properties
+    ```
+    properties
     production-repository.factory = repo-git
     production-repository.uri = https://github.com/<your-name>/your-repo.git
     production-repository.login = your-login
