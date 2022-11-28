@@ -277,16 +277,9 @@ To use a relational database repository as a data source, proceed as follows:
 2.  In the `application.properties` file, set repository settings as follows:
 3.  Set `production-repository.factory = repo-jdbc.`
 4.  Set the value for `production-repository.uri` according to the database as follows:
-        
-    | Database       | URL value                                                                                   |
-    |----------------|---------------------------------------------------------------------------------------------|
-    | MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
-    | Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
-    | MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
-    | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
-        
+
     For example, for MySQL:
-    ```
+    ```properties
     production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
     ```
 
@@ -294,7 +287,7 @@ To use a relational database repository as a data source, proceed as follows:
 
     **Note:**        The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 	
-    ```
+    ```properties
     production-repository.factory = repo-jdbc
     production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
     production-repository.login = root
