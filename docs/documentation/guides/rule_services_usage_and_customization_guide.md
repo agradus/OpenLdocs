@@ -7,14 +7,6 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 
 ## Preface
 
-1.  xxx
-
-    For example, for MySQL:
-	```properties
-	production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
-	```
-1.  yyy
-
 OpenL Tablets is a Business Rules Management System (BRMS) based on the tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code.
 
 OpenL Tablets provides a set of tools addressing BRMS related capabilities including *OpenL Tablets Rule Services* *application* designed for integration of business rules into different customers’ applications.
