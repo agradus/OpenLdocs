@@ -30,14 +30,14 @@ Basic knowledge of Java, Apache Tomcat, Ant, Maven, and Excel is required to use
 
 | Section                                                                                                                          | Description                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| [Introduction](#_Introduction)                                                                                                   | Provides overall information about OpenL Tablets Rule Services.                                                                         |
-| [Rule Services Core](#_OpenL_Tablets_Web)                                                                                        | Introduces Rule Services Core functionality.                                                                                            |
-| [OpenL Tablets Rule Services Configuration](#_OpenL_Tablets_Web_5)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service Manager, and explains main configuration points. |
-| [OpenL Tablets Rule Services Advanced Configuration and Customization](#_OpenL_Tablets_Web_6)                                    | Describes OpenL Tablets Rule Services advanced services configuration and customization.                                                |
+| [Introduction](#introduction)                                                                                                   | Provides overall information about OpenL Tablets Rule Services.                                                                         |
+| [Rule Services Core](#rule-services-core)                                                                                        | Introduces Rule Services Core functionality.                                                                                            |
+| [OpenL Tablets Rule Services Configuration](#openl-tablets-rule-services-configuration)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service Manager, and explains main configuration points. |
+| [OpenL Tablets Rule Services Advanced Configuration and Customization](#openl-tablets-rule-services-advanced-configuration-and-customization)                                    | Describes OpenL Tablets Rule Services advanced services configuration and customization.                                                |
 | [Appendix A: Tips and Tricks](#appendix-a-using-openl-tablets-rest-services-from-java-code)                                      | Describes how to use OpenL Tablets Rule Services from Java code.                                                                        |
-| [Appendix B: Projects on the OpenL Tablets Rule Services Launch](#_Appendix_B:_Projects)                                         | Explains how projects appear upon OpenL Tablets Rule Services launch.                                                                   |
+| [Appendix B: Projects on the OpenL Tablets Rule Services Launch](#appendix-b-projects-on-the-openl-tablets-rule-services-launch)                                         | Explains how projects appear upon OpenL Tablets Rule Services launch.                                                                   |
 | [Appendix C: Types of Exceptions in OpenL Tablets Rule Services](#appendix-c-types-of-exceptions-in-openl-tablets-rule-services) | Explains typical exceptions in OpenL Tablets Rule Services.                                                                             |
-| [Appendix D: OpenAPI Support](#_Appendix_D:_OpenAPI)                                                                             | Explains Swagger support in OpenL Tablets.                                                                                              |
+| [Appendix D: OpenAPI Support](#appendix-d-openapi-support)                                                                             | Explains Swagger support in OpenL Tablets.                                                                                              |
 | [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)     | Describes how to locate a project with rules in the database repository without OpenL Tablets WebStudio deploy functionality.           |
 | [Appendix F: Backward Compatibility Settings](#appendix-f-backward-compatibility-settings)                                       | Describes backward compatibility settings.                                                                                              |
 | [Appendix G: Deployment Project ZIP Structure](#appendix-g-deployment-project-zip-structure)                                     | Describes ZIP structure for single and multiple project deployment.                                                                     |
@@ -52,7 +52,7 @@ The following table lists sources of information related to contents of this gui
 | [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
 | [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide)             | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
 | [OpenL Tablets Installation Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide)       | Describes how to install and set up OpenL Tablets software.                                                   |
-| [*https://openl-tablets.org/*](http://openl-tablets.org/)                                                                                                   | OpenL Tablets open source project website.                                                                    |
+| [https://openl-tablets.org/](http://openl-tablets.org/)                                                                                                   | OpenL Tablets open source project website.                                                                    |
 
 ### Typographic Conventions
 
@@ -60,7 +60,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
@@ -107,11 +107,13 @@ This section introduces Rule Services Core functionality and includes the follow
 
 To use the Rule Services Core within Maven, declare the module dependencies in the project object model (POM) as described in the following example:
 
-```<dependency>
+```
+<dependency>
 	<groupId>org.openl.rules</groupId>
 	<artifactId>org.openl.rules.ruleservice</artifactId>
 	<version>${openl.version}</version>
-</dependency>```
+</dependency>
+```
 
 If Apache Maven is not used in the project, it is recommended to download all dependencies via Maven and add all downloaded dependencies into the existing project classpath.
 
