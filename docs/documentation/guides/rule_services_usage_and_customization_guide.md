@@ -32,16 +32,16 @@ Basic knowledge of Java, Apache Tomcat, Ant, Maven, and Excel is required to use
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | [Introduction](#introduction)                                                                                                   | Provides overall information about OpenL Tablets Rule Services.                                                                         |
 | [Rule Services Core](#rule-services-core)                                                                                        | Introduces Rule Services Core functionality.                                                                                            |
-| [OpenL Tablets Rule Services Configuration](#openl-tablets-rule-services-configuration)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service Manager, and explains main configuration points. |
+| [OpenL Tablets Rule Services Configuration](#openl-tablets-rule-services-configuration)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service Manager, <br/>and explains main configuration points. |
 | [OpenL Tablets Rule Services Advanced Configuration and Customization](#openl-tablets-rule-services-advanced-configuration-and-customization)                                    | Describes OpenL Tablets Rule Services advanced services configuration and customization.                                                |
 | [Appendix A: Tips and Tricks](#appendix-a-using-openl-tablets-rest-services-from-java-code)                                      | Describes how to use OpenL Tablets Rule Services from Java code.                                                                        |
 | [Appendix B: Projects on the OpenL Tablets Rule Services Launch](#appendix-b-projects-on-the-openl-tablets-rule-services-launch)                                         | Explains how projects appear upon OpenL Tablets Rule Services launch.                                                                   |
 | [Appendix C: Types of Exceptions in OpenL Tablets Rule Services](#appendix-c-types-of-exceptions-in-openl-tablets-rule-services) | Explains typical exceptions in OpenL Tablets Rule Services.                                                                             |
 | [Appendix D: OpenAPI Support](#appendix-d-openapi-support)                                                                             | Explains Swagger support in OpenL Tablets.                                                                                              |
-| [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)     | Describes how to locate a project with rules in the database repository without OpenL Tablets WebStudio deploy functionality.           |
+| [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)     | Describes how to locate a project with rules in the database repository <br/>without OpenL Tablets WebStudio deploy functionality.           |
 | [Appendix F: Backward Compatibility Settings](#appendix-f-backward-compatibility-settings)                                       | Describes backward compatibility settings.                                                                                              |
 | [Appendix G: Deployment Project ZIP Structure](#appendix-g-deployment-project-zip-structure)                                     | Describes ZIP structure for single and multiple project deployment.                                                                     |
-| [Appendix H: Manifest File for Deployed Projects](#appendix-h-manifest-file-for-deployed-projects)                               | Introduces manifest files created during project deployment from OpenL Tablets WebStudio or using the OpenL Tablets Maven plugin.       |
+| [Appendix H: Manifest File for Deployed Projects](#appendix-h-manifest-file-for-deployed-projects)                               | Introduces manifest files created during project deployment from OpenL Tablets WebStudio <br/>or using the OpenL Tablets Maven plugin.       |
 
 ### Related Information
 
@@ -152,11 +152,13 @@ The `frontend `bean can be injected to user’s bean to interact with deployed O
 
 `OpenLServiceFactoryBean` is a factory bean implementation used to create a proxy object to interact with OpenL Tablets service. To create a proxy object, define a been factory as described in the following example:
 
-```<bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">
+```
+<bean id="service1" class="org.openl.rules.ruleservice.simple.OpenLServiceFactoryBean">
 	<!-- <property name="rulesFrontend" ref="frontend"/> optional. For custom implementation of RulesFrontend  -->
 	<property name="serviceName" value="service1"/>
 	<property name="proxyInterface" value="com.myproject.Service1"/>
-</bean>```
+</bean>
+```
 
 In this example, `serviceName` is a name of the deployed OpenL Tablets service and `proxyInterface` is an interface for building a proxy object. All invocations of proxy object methods are delegated to the `execute `method of the `frontend `bean. The invoked method name with its parameters is used as input parameters for the `execute `method.
 
@@ -179,7 +181,7 @@ This section describes OpenL Tablets Rule Services configuration and includes th
 
 ### OpenL Tablets Rule Services Default Configuration
 
-All OpenL Tablets Rule Services configuration is specified in Spring configuration files and `application`*.*`properties` files. The `application.properties` file is located inside the application `.war `file (inside WEB-INF/classes folder), in a user’s directory or in a working directory.
+All OpenL Tablets Rule Services configuration is specified in Spring configuration files and `application*.*properties` files. The `application.properties` file is located inside the application `.war `file (inside WEB-INF/classes folder), in a user’s directory or in a working directory.
 
 The configuration file located inside the `.war `file contains default settings for all properties. Use it as a reference of possible settings and redefine as required in your configuration file, such as the `application.properties` file located in a user’s home directory.
 
@@ -278,32 +280,32 @@ To use a relational database repository as a data source, proceed as follows:
 	
 	| Database       | URL value                                                                                     |
 	|----------------|-----------------------------------------------------------------------------------------------|
-	| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                         |
-	| Oracle         | `jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE`                                                   |
-	| `MS SQL`       | `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]` |
-	| PostrgeSQL     | `jdbc:postrgesql://[host][:port]/[schema]`                                                    |
+	| MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
+	| Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
+	| MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
+	| PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
 	
-	`For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.`
+	For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.
 	
 1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
-    **Note:**`	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. `
+    **Note:**	The password must be encoded via Base64 encoding schema if the repository.encode.decode.key property is not empty. 
 
-	```production-repository.factory = repo-jdbc
+	```
+	production-repository.factory = repo-jdbc
 	production-repository.uri = jdbc:h2:mem:repo;DB_CLOSE_DELAY=-1
 	production-repository.login = root
 	production-repository.password = admin
 	\# Secret key for password code/decode
 	secret.key=
-	\#secret.cipher=AES/CBC/PKCS5Padding```
+	\#secret.cipher=AES/CBC/PKCS5Padding
+	```
 
 ##### Amazon AWS S3
 
 To use an AWS S3 repository as a data source, proceed as follows:
 
 1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
-	
-	```
 	<?xml version="1.0" encoding="UTF-8"?>
 	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	    <modelVersion>4.0.0</modelVersion>
@@ -349,14 +351,13 @@ To use an AWS S3 repository as a data source, proceed as follows:
 	        </dependencies>
 	    </dependencyManagement>
 	</project>
-	```
 	
 1.  Set the following properties in the `application.properties` file:
-    	```production-repository.factory = repo-aws-s3
+    	production-repository.factory = repo-aws-s3
     	production-repository.bucket-name = yourBucketName
     	production-repository.region-name = yourS3Region
     	production-repository.access-key = yourAccessKey
-    	production-repository.secret-key = yourSecretKey```
+    	production-repository.secret-key = yourSecretKey
 
 ##### GIT
 
