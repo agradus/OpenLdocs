@@ -24,7 +24,7 @@ nav:
   
 theme: readthedocs
 
-repo_url: https://github.com/EISTW/OpenLdocs/main
+repo_url: https://github.com/EISTW/OpenLdocs/
 
 markdown_extensions:
   - markdown.extensions.admonition
