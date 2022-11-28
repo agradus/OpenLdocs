@@ -278,14 +278,17 @@ To use a relational database repository as a data source, proceed as follows:
 2.  Set `production-repository.factory = repo-jdbc.`
 3.  Set the value for `production-repository.uri` according to the database as follows:
         
-        | Database       | URL value                                                                                     |
-        |----------------|-----------------------------------------------------------------------------------------------|
-        | MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
-        | Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
-        | MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
-        | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
+    | Database       | URL value                                                                                   |
+    |----------------|---------------------------------------------------------------------------------------------|
+    | MySQL, MariaDB | jdbc:mysql://[host][:port]/[schema]                                                         |
+    | Oracle         | jdbc:oracle:thin:@//[HOST][:PORT]/SERVICE                                                   |
+    | MS SQL         | jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]] |
+    | PostrgeSQL     | jdbc:postrgesql://[host][:port]/[schema]                                                    |
         
-        For example, for MySQL, production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository.
+    For example, for MySQL:
+    ```properties
+    production-repository.uri = jdbc:mysql://localhost:3306/deployment-repository
+    ```
         
 1.  Set login and password for a connection to the database in production-repository.login and production-repository.password settings.
 
