@@ -60,7 +60,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
@@ -627,7 +627,7 @@ These values are used by the system for all published projects that do not have 
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ALWAYS       | A property is always included, regardless of the property value.                                                                                                                                                         |
 | NON_ABSENT   | Properties with no null values including no content null values are used.                                                                                                                                                |
-| NON_DEFAULT  | All values except for the following are included: values considered empty primitive or wrapper default values date and time values that have a timestamp of \`0L\`, that is, \`long\` value of milliseconds since epoch  |
+| NON_DEFAULT  | All values except for the following are included: <br/>values considered empty <br/>primitive or wrapper default values <br/>date and time values that have a timestamp of \`0L\`, that is, \`long\` value of milliseconds since epoch  |
 | NON_EMPTY    | Properties with empty values are excluded.                                                                                                                                                                               |
 | NON_NULL     | Properties with non-null values are included.                                                                                                                                                                            |
 | USE_DEFAULTS | Defaults settings or annotations either from the class level or ObjectMapper level are used.                                                                                                                             |
@@ -748,8 +748,8 @@ Kafka Publisher allows exposing the services in the following modes:
 
 | Mode                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `A user configures Kafka settings for each rules method to expose as a service.` | All messages in all input topics belong to one rule method and have the same format. One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
-| `A user configures Kafka settings for a service.`                                | All methods from this service are exposed as services. Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. The method name is set via Kafka Headers. One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. A service can be exposed in both modes at the same time.  |
+| `A user configures Kafka settings for each rules method to expose as a service.` | All messages in all input topics belong to one rule method and have the same format. <br/>One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. <br/>Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
+| `A user configures Kafka settings for a service.`                                | All methods from this service are exposed as services. <br/>Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. <br/>The method name is set via Kafka Headers. <br/>One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. <br/>One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. <br/>A service can be exposed in both modes at the same time.  |
 
 The following topics are included in this section:
 
@@ -783,10 +783,32 @@ OpenL Tablets Rule Services can be configured via the `application.properties` f
 ####### Configuring Service Level Kafka Settings
 
 If an OpenL Tablets service is configured to use Kafka Publisher, the OpenL Tablets service must contain the `kafka-deploy.yaml` file in the same place where rules-deploy.xml deployment configuration is located.
+Kafka settings for a service:
 
-| Kafka settings for a service                                                                                                                                                                   | Kafka setting for each rules method that want to expose as a service                                                                                                                                                                                                                                                                                                                |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| service:     in.topic.name: in-topic-for-service     out.topic.name: out-topic-for-service     dlt.topic.name: dlt-topic-for-service     consumer.configs:         auto.offset.reset: earliest | method.configs:   - method.name: method1     in.topic.name: in-topic-for-method1     out.topic.name: out-topic-for-method1     dlt.topic.name: dlt-topic-for-method1   - method.name: method2     in.topic.name: in-topic-for-method2     out.topic.name: out-topic-for-method2     dlt.topic.name: dlt-topic-for-method2     consumer.configs:         auto.offset.reset: earliest |
+```
+service:
+    in.topic.name: in-topic-for-service
+    out.topic.name: out-topic-for-service
+    dlt.topic.name: dlt-topic-for-service
+    consumer.configs:
+        auto.offset.reset: earliest
+```
+
+Kafka setting for each rules method that want to expose as a service:
+
+```
+method.configs:
+  - method.name: method1
+    in.topic.name: in-topic-for-method1
+    out.topic.name: out-topic-for-method1
+    dlt.topic.name: dlt-topic-for-method1
+  - method.name: method2
+    in.topic.name: in-topic-for-method2
+    out.topic.name: out-topic-for-method2
+    dlt.topic.name: dlt-topic-for-method2
+    consumer.configs:
+        auto.offset.reset: earliest
+```
 
 Configuring Kafka consumers or Kafka producer is supported via `producer.configs`, `consumer.configs`, and `dlt.producer.configs`. These settings can be used for a service or each method.
 
@@ -821,7 +843,7 @@ Configurations `out.topic.name` and `dlt.topic.name` are optional, and the syste
 
 | Header name                      | Description                                                                                                                                                                                                                                                                                             |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `methodName`                     | Method name. If an OpenL Tablets service is configured to use one input topic for all rule methods, this header defines a rule method name to invoke. If a rule method name is not unique in rules, for example, when overloading is used for a method, `methodParameters` header must be used as well. |
+| `methodName`                     | Method name. <br/>If an OpenL Tablets service is configured to use one input topic for all rule methods, this header defines a rule method name to invoke. <br/>If a rule method name is not unique in rules, for example, when overloading is used for a method, <br/>`methodParameters` header must be used as well. |
 | `methodParameters`               | Comma separated list of rule method types. Wildcards are supported.                                                                                                                                                                                                                                     |
 | `kafka_correlationId`            | Information to correlate requests and replies.                                                                                                                                                                                                                                                          |
 | `kafka_replyPartition`           | Partition number on which to send the reply.                                                                                                                                                                                                                                                            |
@@ -877,7 +899,7 @@ To support both functionalities, the dispatching.mode system property is introdu
 
 | **Value** | **Description**                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **java**  | Dispatching is processed by Java code. The benefit of such approach is stricter dispatching: if several tables are matched by properties, AmbiguousMethodException is thrown. |
+| **java**  | Dispatching is processed by Java code. <br/>The benefit of such approach is stricter dispatching: if several tables are matched by properties, AmbiguousMethodException is thrown. |
 | **dt**    | Deprecated. Dispatching is processed by the Dispatcher decision table.                                                                                                        |
 
 If the system property is not specified or if the dispatching.mode property has an incorrect value, the Java approach is used by default.
@@ -890,7 +912,7 @@ Consider a rule table for which some business dimension properties are set up. T
 
 | **Value** | **Versioning behavior description**                                                                                                                                                                                                                                                              |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| True      | Versioning functionality works as for a rule that has only one version. OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. Otherwise, the **No matching methods for context** error message is returned. |
+| True      | Versioning functionality works as for a rule that has only one version. <br/>OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. <br/>Otherwise, the **No matching methods for context** error message is returned. |
 | False     | OpenL Tablets ignores properties of this rule table, and this rule is always executed and returns the result value despite of runtime context.                                                                                                                                                   |
 
 For table testing, dispatching validation is enabled by setting the dispatching.validation property value to true. The property is located in the application.properties file. In this case, versioning functionality works as for a rule that has only one version, and OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. In production, this property value must be set to false.
@@ -941,10 +963,10 @@ The CORS filter supports the following initialization parameters:
 
 | Attribute               | Description                                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cors.allowed.origins`  | A list of [origins](https://tools.ietf.org/html/rfc6454) that are allowed to access the resource. A \* can be specified to enable access to resource from any origin. Otherwise, an allowed list of comma-separated origins can be provided.  Examples: https://www.w3.org, https://www.example.com.  The empty string means that no origin is allowed to access the resource. |
-| `cors.allowed.methods`  | A comma separated list of HTTP methods that can be used to access the resource using cross-origin requests. These methods are also included as a part of the `Access-Control-Allow-Methods` header in pre-flight response.  Example: GET,POST.                                                                                                                                 |
-| `cors.allowed.headers`  | A comma separated list of request headers for making an actual request. These headers are also returned as a part of the `Access-Control-Allow-Headers` header in pre-flight response.  Example: Origin,Accept.                                                                                                                                                                |
-| `cors.preflight.maxage` | The number of seconds a browser is allowed to cache the result of the pre-flight request. This attribute is included as a part of the `Access-Control-Max-Age` header in the pre-flight response. A negative value prevents a CORS filter from adding this response header to the pre-flight response.                                                                         |
+| cors.allowed.origins  | A list of [origins](https://tools.ietf.org/html/rfc6454) that are allowed to access the resource. A \* can be specified to enable access to resource from any origin. Otherwise, an allowed list of comma-separated origins can be provided.  Examples: https://www.w3.org, https://www.example.com.  The empty string means that no origin is allowed to access the resource. |
+| cors.allowed.methods  | A comma separated list of HTTP methods that can be used to access the resource using cross-origin requests. These methods are also included as a part of the `Access-Control-Allow-Methods` header in pre-flight response.  Example: GET,POST.                                                                                                                                 |
+| cors.allowed.headers  | A comma separated list of request headers for making an actual request. These headers are also returned as a part of the `Access-Control-Allow-Headers` header in pre-flight response.  Example: Origin,Accept.                                                                                                                                                                |
+| cors.preflight.maxage | The number of seconds a browser is allowed to cache the result of the pre-flight request. This attribute is included as a part of the `Access-Control-Max-Age` header in the pre-flight response. A negative value prevents a CORS filter from adding this response header to the pre-flight response.                                                                         |
 
 The default CORS configuration is as follows:
 
@@ -1209,8 +1231,8 @@ The `org.openl.rules.ruleservice.publisher.RuleServicePublisherListener` interfa
 
 | Inceptor                         | Description                                                                                               |
 |----------------------------------|-----------------------------------------------------------------------------------------------------------|
-| `onDeploy(OpenLService)`         | Invoked each time when the OpenL Tablets service is deployed with the publisher that fires this listener. |
-| `onUndeploy(String serviceName)` | Invoked each time when the service with the defined name is undeployed.                                   |
+| onDeploy(OpenLService)         | Invoked each time when the OpenL Tablets service is deployed with the publisher that fires this listener. |
+| onUndeploy(String serviceName) | Invoked each time when the service with the defined name is undeployed.                                   |
 
 ### Dynamic Interface Support
 
@@ -1331,8 +1353,8 @@ The following table describes “after” interceptor types:
 
 | Inceptor          | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `After Returning` | Intercepts the result of a successfully calculated method, with a possibility of post processing of the return result, including result conversion to another type. In this case, the type must be specified as the return type for the method in the service class. `After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterReturningAdvice.` |
-| `After Throwing`  | Intercepts a method that has an exception thrown, with a possibility of post processing of an error and throwing another type of exception. `After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterThrowingAdvice.`                                                                                                                           |
+| `After Returning` | Intercepts the result of a successfully calculated method, with a possibility of post processing of the return result, including result conversion to another type. <br/>In this case, the type must be specified as the return type for the method in the service class. <Br/>`After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterReturningAdvice.` |
+| `After Throwing`  | Intercepts a method that has an exception thrown, with a possibility of post processing of an error and throwing another type of exception. <br/>`After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterThrowingAdvice.`                                                                                                                           |
 
 Example of the “after” interceptor implementation with after returning logic is as follows:
 
@@ -1563,13 +1585,13 @@ The following table describes predefined variation types in the `org.openl.rules
 
 | Variation type                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `NoVariation`                  | Empty variation without any modifications. It is used for the original calculation and has a predefined `Original calculation` ID.                                                                                                                                                                                                                                                                                                                                                                                        |
-| `ArgumentReplacementVariation` | Variation that replaces an entire argument. It was introduced because `JXPathVariation` cannot replace a value of a root object, or argument. The argument index, value to be set instead of the argument, and ID are required to construct this variation.                                                                                                                                                                                                                                                               |
-| `JXPathVariation`              | Variation that modifies an object field or replaces an element in the array defined by the special path. JXPath is used to analyze paths and set values to corresponding fields, therefore use JXPath-consistent path expressions. The following data is required for this variation: index of the argument to be modified path to the field that must be modified in the JXPath notation value to be set instead of the original field value ID For more information on JXPath, see <http://commons.apache.org/jxpath/>. |
-| `ComplexVariation`             | Variation that combines multiple variations as a single variation. It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  This variation is not recommended because of performance drawbacks: the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
+| `NoVariation`                  | Empty variation without any modifications. <br/>It is used for the original calculation and has a predefined `Original calculation` ID.                                                                                                                                                                                                                                                                                                                                                                                        |
+| `ArgumentReplacementVariation` | Variation that replaces an entire argument. <br/>It was introduced because `JXPathVariation` cannot replace a value of a root object, or argument. <br/>The argument index, value to be set instead of the argument, and ID are required to construct this variation.                                                                                                                                                                                                                                                               |
+| `JXPathVariation`              | Variation that modifies an object field or replaces an element in the array defined by the special path. <br/>JXPath is used to analyze paths and set values to corresponding fields, therefore use JXPath-consistent path expressions. <br/>The following data is required for this variation: <br/>- index of the argument to be modified <br/>- path to the field that must be modified in the JXPath notation <br/>- value to be set instead of the original field value <br/>- ID <br/>For more information on JXPath, see <http://commons.apache.org/jxpath/>. |
+| `ComplexVariation`             | Variation that combines multiple variations as a single variation. <Br/>It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
+| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. <br/>This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  <br/>This variation is not recommended because of performance drawbacks: the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
 
-If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation `class. Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
+If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation `class. <br/>Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
 
 #### Variations Factory
 
@@ -1631,11 +1653,11 @@ The StoreLogDataService interface has the following methods:
 
 The implementation class of this interface must be registered in the application Spring context. The system discovers all implementation of the interface automatically and uses all found services at the same time.
 
-org.openl.rules.ruleservice.storelogdata.StoreLogData is a class that contains all available data from the request and respond. This class has the getCustomValues() method that returns a map for interested values that can be stored separately from request payload.
+`org.openl.rules.ruleservice.storelogdata.StoreLogData` is a class that contains all available data from the request and respond. This class has the `getCustomValues()` method that returns a map for interested values that can be stored separately from request payload.
 
 Custom implementation of the StoreLogDataService interface supports all features described in this document.
 
-Annotation on the called method @org.openl.rules.ruleservice.storelogdata.annotation.SkipFaultStoreLogData instructs the system to skip storing fault requests and their responds in a storage.
+Annotation on the called method `@org.openl.rules.ruleservice.storelogdata.annotation.SkipFaultStoreLogData` instructs the system to skip storing fault requests and their responds in a storage.
 
 ##### Collecting Data from Requests and Their Responds and Populating Custom Values
 
@@ -1643,9 +1665,9 @@ Populating custom values in the StoreLogData object and collecting data for serv
 
 | Attribute                 | Description                                                                                                                                                                                                                                                                                                                                   |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `value`                   | Mandatory reference to the StoreLogDataAdvice interface implementation. The implementation class defines which data is collected.                                                                                                                                                                                                             |
-| bindToServiceMethodAdvice | Optional reference to an implementation of the ServiceMethodAdvice interface. It defines that the implementation of the theStoreLogDataAdvice interface must be invoked before or after the corresponding ServiceMethodAdvice implementation. It is used when required data for collecting is not more available after result transformation. |
-| `before`                  | Optional attribute specifying the order of the called data collecting advice. If the bindToServiceMethodAdvice attribute is present, before determines the advice execution relative to the defined interceptor, otherwise relative to the base method. The default value is false, that is, execution happens after method or interceptor.   |
+| `value`                   | Mandatory reference to the StoreLogDataAdvice interface implementation. <br/>The implementation class defines which data is collected.                                                                                                                                                                                                             |
+| bindToServiceMethodAdvice | Optional reference to an implementation of the ServiceMethodAdvice interface. <br/>It defines that the implementation of the theStoreLogDataAdvice interface must be invoked before or after the corresponding ServiceMethodAdvice implementation. <br/>It is used when required data for collecting is not more available after result transformation. |
+| `before`                  | Optional attribute specifying the order of the called data collecting advice. <br/>If the bindToServiceMethodAdvice attribute is present, before determines the advice execution relative to the defined interceptor, otherwise relative to the base method. <br/>The default value is false, that is, execution happens after method or interceptor.   |
 
 Implement a single method in the StoreLogDataAdvice interface for collecting data to be used along with the `@Value` annotation in entities or directly from StoreLogData.getCustomValues().
 
@@ -1687,7 +1709,7 @@ The following annotations located in the org.openl.rules.ruleservice.storelogdat
 | `Response`           | `String`        | Response body, such as JSON for REST service, and message body for Kafka.                                                                                          |
 | `Url`                | `String`        | URL of the request if available.                                                                                                                                   |
 | `Value`              | `Object`        | Value from the map that is returned by StoreLogData .getCustomValues()                                                                                             |
-| `KafkaMessageHeader` | `byte[]`        | Kafka message header data. The value attribute with a defined header name is required. The type attribute is used to define a producer or consumer message to use. |
+| `KafkaMessageHeader` | `byte[]`        | Kafka message header data. The value attribute with a defined header name is required. <br/>The type attribute is used to define a producer or consumer message to use. |
 
 All annotations described in this section have an optional converter attribute for converting a collected type into the required field type. Use implementation of the org.openl.rules.ruleservice.storelogdata.Converter interface for the convertor attribute. A usage example of this interface is as follows:
 
@@ -1788,9 +1810,6 @@ The @org.openl.rules.ruleservice.storelogdata.cassandra.annotation.EntitySupport
 public class Person {
   …
 }
-```
-
-```java
 public class PersonOperations implements EntityOperations<PersonDao, Person> {
    @Override
    public PersonDao buildDao(CqlSession cqlSession) throws DaoCreationException {
@@ -1964,14 +1983,45 @@ Projects deployed with errors are marked with the red cross mark that is clickab
 ## Appendix C: Types of Exceptions in OpenL Tablets Rule Services
 
 The following table describes exception types in OpenL Tablets Rule Services:
+**Cause:** error("Some message") in rules
+**Status code:** 400
+**REST:** 
+{
+  message : "Some message",
+  type : "USER_ERROR"
+}
 
-| Cause                                                                                                           | Status code | REST                                                                                                  |
-|-----------------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------|
-| error("Some message") in rules                                                                                  | 400         | {   message : "Some message",   type : "USER_ERROR" }                                                 |
-| Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.                                        | 500         | {   message : "Cannot convert '1ab2' to Double",   type : "RULES_RUNTIME" }                           |
-| Compilation and parsing errors.                                                                                 | 500         | {   message : "Missed condition column in Rules table",   type : "COMPILATION" }                      |
-| Other exception outside the OpenL engine, such as NPE, CCE, and AccessException.                                | 500         | {   message : "Cannot be null",   type : "SYSTEM" }                                                   |
-| Validation errors in input parameters, such as a value outside of a valid domain or wrong value in the context. | 500         | {    message : "'Mister' is outside of valid domain ['Male', 'Female']",    type : "RULES_RUNTIME"  } |
+**Cause**: Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.
+**Status code:** 500
+**REST:**
+{
+  message : "Cannot convert '1ab2' to Double",
+  type : "RULES_RUNTIME"
+}
+
+**Cause**: Compilation and parsing errors.
+**Status code:** 500
+**REST:**
+{
+  message : "Missed condition column in Rules table",
+  type : "COMPILATION"
+}
+
+**Cause**: Other exception outside the OpenL engine, such as NPE, CCE, and AccessException.
+**Status code:** 500
+**REST:**
+{
+  message : "Cannot be null",
+  type : "SYSTEM"
+}
+
+**Cause**: Validation errors in input parameters, such as a value outside of a valid domain or wrong value in the context.
+**Status code:** 500
+**REST:**
+{ 
+  message : "'Mister' is outside of valid domain ['Male', 'Female']", 
+  type : "RULES_RUNTIME" 
+}
 
 ## Appendix D: OpenAPI Support
 
