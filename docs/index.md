@@ -2,7 +2,7 @@
 
 ## User Guides
 !!! note
-	To access the set of guides for another OpenL Tablets release version, use the following URL after adjusting the version part of it appropriately:<br>
+	To access the set of guides for a different OpenL Tablets release version, use the following URL after adjusting the version part of it appropriately:<br>
 	https://openldocs.readthedocs.io/en/**v5.25**/
 
 [Installation Guide](documentation/guides/installation_guide.md)
