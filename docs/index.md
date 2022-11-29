@@ -1,5 +1,4 @@
-![](img/OpenLHome.png)
-
+<img src="../img/OpenLHome.png" width="500">
 # User Guides
 
 
