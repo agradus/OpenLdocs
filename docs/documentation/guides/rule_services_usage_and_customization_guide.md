@@ -1983,21 +1983,24 @@ Projects deployed with errors are marked with the red cross mark that is clickab
 ## Appendix C: Types of Exceptions in OpenL Tablets Rule Services
 
 The following table describes exception types in OpenL Tablets Rule Services:
-**Cause:** error("Some message") in rules
-**Status code:** 400
-**REST:** 
-{
-  message : "Some message",
-  type : "USER_ERROR"
-}
 
-**Cause**: Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.
-**Status code:** 500
-**REST:**
+<br/>**Cause:** error("Some message") in rules
+<br/>**Status code:** 400
+<br/>**REST:** 
+<br/>{
+<br/>  message : "Some message",
+<br/>  type : "USER_ERROR"
+<br/>}
+<br/>
+<br/>**Cause**: Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.
+<br/>**Status code:** 500
+<br/>**REST:**
+```
 {
   message : "Cannot convert '1ab2' to Double",
   type : "RULES_RUNTIME"
 }
+```
 
 **Cause**: Compilation and parsing errors.
 **Status code:** 500
