@@ -1,6 +1,6 @@
 ![](img/OpenLHome.png)
 
-# Latest User Guides
+# User Guides
 
 
 [Installation Guide](documentation/guides/installation_guide.md)
@@ -22,3 +22,6 @@
 [Activiti Integration Guide](ddocumentation/guides/activiti_integration_guide.md)
 
 [Maven Plugin Guide](documentation/guides/maven_plugin_guide.md)
+
+!!! note
+	To access the set of guides for another OpenL Tablets release version, use the following URL after adjusting the version part of it appropriately: https://openldocs.readthedocs.io/en/**v5.25**/
