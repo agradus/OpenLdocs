@@ -1,4 +1,4 @@
-<img src="../../img/OpenLHome.png" width="500">
+<img src="img/OpenLHome.png" width="500">
 
 # User Guides
 
