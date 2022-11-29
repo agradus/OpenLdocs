@@ -14,7 +14,7 @@ nav:
       - Developer Guide: documentation/guides/developer_guide.md
       - Activiti Integration Guide: documentation/guides/activiti_integration_guide.md
       - Maven Plugin Guide: documentation/guides/maven_plugin_guide.md
-    - THE OPENL PROJECT:
+  - THE OPENL PROJECT:
     - About OpenL: about.md
   
 theme: readthedocs
