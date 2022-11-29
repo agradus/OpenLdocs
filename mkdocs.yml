@@ -29,7 +29,6 @@ repo_url: https://github.com/EISTW/OpenLdocs/
 
 markdown_extensions:
   - markdown.extensions.admonition
-  - pymdownx.superfences
   - toc:
       permalink: True
   
