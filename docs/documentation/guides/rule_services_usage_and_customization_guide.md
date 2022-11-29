@@ -748,8 +748,8 @@ Kafka Publisher allows exposing the services in the following modes:
 
 | Mode                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `A user configures Kafka settings for each rules method to expose as a service.` | All messages in all input topics belong to one rule method and have the same format. <br/>One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. <br/>Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
-| `A user configures Kafka settings for a service.`                                | All methods from this service are exposed as services. <br/>Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. <br/>The method name is set via Kafka Headers. <br/>One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. <br/>One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. <br/>A service can be exposed in both modes at the same time.  |
+| `A user configures Kafka settings for each rules method to expose as a service.` | - All messages in all input topics belong to one rule method and have the same format. <br/>- One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. <br/>- Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
+| `A user configures Kafka settings for a service.`                                | - All methods from this service are exposed as services. <br/>- Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. <br/>- The method name is set via Kafka Headers. <br/>- One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. <br/>- One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. <br/>- A service can be exposed in both modes at the same time.  |
 
 The following topics are included in this section:
 
@@ -963,10 +963,10 @@ The CORS filter supports the following initialization parameters:
 
 | Attribute               | Description                                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| cors.allowed.origins  | A list of [origins](https://tools.ietf.org/html/rfc6454) that are allowed to access the resource. A \* can be specified to enable access to resource from any origin. Otherwise, an allowed list of comma-separated origins can be provided.  Examples: https://www.w3.org, https://www.example.com.  The empty string means that no origin is allowed to access the resource. |
-| cors.allowed.methods  | A comma separated list of HTTP methods that can be used to access the resource using cross-origin requests. These methods are also included as a part of the `Access-Control-Allow-Methods` header in pre-flight response.  Example: GET,POST.                                                                                                                                 |
-| cors.allowed.headers  | A comma separated list of request headers for making an actual request. These headers are also returned as a part of the `Access-Control-Allow-Headers` header in pre-flight response.  Example: Origin,Accept.                                                                                                                                                                |
-| cors.preflight.maxage | The number of seconds a browser is allowed to cache the result of the pre-flight request. This attribute is included as a part of the `Access-Control-Max-Age` header in the pre-flight response. A negative value prevents a CORS filter from adding this response header to the pre-flight response.                                                                         |
+| cors.allowed.origins  | A list of [origins](https://tools.ietf.org/html/rfc6454) that are allowed to access the resource. <br/>A \* can be specified to enable access to resource from any origin. <br/>Otherwise, an allowed list of comma-separated origins can be provided.  <br/>**Examples:** https://www.w3.org, https://www.example.com.  <br/>The empty string means that no origin is allowed to access the resource. |
+| cors.allowed.methods  | A comma separated list of HTTP methods that can be used to access the resource using cross-origin requests. <br/>These methods are also included as a part of the `Access-Control-Allow-Methods` header in pre-flight response.  <br/>**Example:** GET,POST.                                                                                                                                 |
+| cors.allowed.headers  | A comma separated list of request headers for making an actual request. <br/>These headers are also returned as a part of the `Access-Control-Allow-Headers` header in pre-flight response.  <br/>**Example:** Origin,Accept.                                                                                                                                                                |
+| cors.preflight.maxage | The number of seconds a browser is allowed to cache the result of the pre-flight request. <br/>This attribute is included as a part of the `Access-Control-Max-Age` header in the pre-flight response. <br/>A negative value prevents a CORS filter from adding this response header to the pre-flight response.                                                                         |
 
 The default CORS configuration is as follows:
 
@@ -1134,11 +1134,11 @@ The following properties can be modified to configure Hive:
 | Property                                 | Description                                                                                                                                                                                             |
 |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ruleservice.store.logs.hive.enabled      | Property to enable storing Hive logs.                                                                                                                                                                   |
-| hive.connection.url                      | `URL for connecting to the Hive server. An example is as follows:` `hive.connection.url = jdbc:hive2://localhost:10000/default`                                                                         |
-| hive.connection.username                 | `Username for connecting to the Hive server.`                                                                                                                                                           |
-| hive.connection.password                 | `Password for connecting to the Hive server.`                                                                                                                                                           |
-| hive.connection.pool.maxSize             | `OpenL Tablets uses HikariCP JDBC connection pool for managing Hive connections. The default pool size is 10.` `For more information on HikariCP, see `<https://github.com/brettwooldridge/HikariCP>`.` |
-| ruleservice.store.logs.hive.table.create | `If set to true, property that enables the SQL script to create a table before making a record in it.`                                                                                                  |
+| hive.connection.url                      | URL for connecting to the Hive server. <br/>An example is as follows: hive.connection.url = jdbc:hive2://localhost:10000/default`                                                                         |
+| hive.connection.username                 | Username for connecting to the Hive server.                                                                                                                                                           |
+| hive.connection.password                 | Password for connecting to the Hive server.                                                                                                                                                           |
+| hive.connection.pool.maxSize             | OpenL Tablets uses HikariCP JDBC connection pool for managing Hive connections. The default pool size is 10. <br/>For more information on HikariCP, see <https://github.com/brettwooldridge/HikariCP>. |
+| ruleservice.store.logs.hive.table.create | If set to true, property that enables the SQL script to create a table before making a record in it.                                                                                                  |
 
 As a result, the following table with the default openl_log_data name is created in Hive:
 
@@ -1589,7 +1589,7 @@ The following table describes predefined variation types in the `org.openl.rules
 | `ArgumentReplacementVariation` | Variation that replaces an entire argument. <br/>It was introduced because `JXPathVariation` cannot replace a value of a root object, or argument. <br/>The argument index, value to be set instead of the argument, and ID are required to construct this variation.                                                                                                                                                                                                                                                               |
 | `JXPathVariation`              | Variation that modifies an object field or replaces an element in the array defined by the special path. <br/>JXPath is used to analyze paths and set values to corresponding fields, therefore use JXPath-consistent path expressions. <br/>The following data is required for this variation: <br/>- index of the argument to be modified <br/>- path to the field that must be modified in the JXPath notation <br/>- value to be set instead of the original field value <br/>- ID <br/>For more information on JXPath, see <http://commons.apache.org/jxpath/>. |
 | `ComplexVariation`             | Variation that combines multiple variations as a single variation. <Br/>It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. <br/>This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  <br/>This variation is not recommended because of performance drawbacks: the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
+| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. <br/>This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  <br/>This variation is not recommended because of performance drawbacks: <br/>the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
 
 If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation `class. <br/>Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
 
@@ -1666,8 +1666,8 @@ Populating custom values in the StoreLogData object and collecting data for serv
 | Attribute                 | Description                                                                                                                                                                                                                                                                                                                                   |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `value`                   | Mandatory reference to the StoreLogDataAdvice interface implementation. <br/>The implementation class defines which data is collected.                                                                                                                                                                                                             |
-| bindToServiceMethodAdvice | Optional reference to an implementation of the ServiceMethodAdvice interface. <br/>It defines that the implementation of the theStoreLogDataAdvice interface must be invoked before or after the corresponding ServiceMethodAdvice implementation. <br/>It is used when required data for collecting is not more available after result transformation. |
-| `before`                  | Optional attribute specifying the order of the called data collecting advice. <br/>If the bindToServiceMethodAdvice attribute is present, before determines the advice execution relative to the defined interceptor, otherwise relative to the base method. <br/>The default value is false, that is, execution happens after method or interceptor.   |
+| bindToServiceMethodAdvice | Optional reference to an implementation of the ServiceMethodAdvice interface. <br/>It defines that the implementation of the theStoreLogDataAdvice interface must be invoked <br/>before or after the corresponding ServiceMethodAdvice implementation. <br/>It is used when required data for collecting is not more available after result transformation. |
+| `before`                  | Optional attribute specifying the order of the called data collecting advice. <br/>If the bindToServiceMethodAdvice attribute is present, before determines the advice execution relative to the defined interceptor, <br/>otherwise relative to the base method. <br/>The default value is false, that is, execution happens after method or interceptor.   |
 
 Implement a single method in the StoreLogDataAdvice interface for collecting data to be used along with the `@Value` annotation in entities or directly from StoreLogData.getCustomValues().
 
@@ -1983,7 +1983,6 @@ Projects deployed with errors are marked with the red cross mark that is clickab
 ## Appendix C: Types of Exceptions in OpenL Tablets Rule Services
 
 The following table describes exception types in OpenL Tablets Rule Services:
-
 <br/>**Cause:** error("Some message") in rules
 <br/>**Status code:** 400
 <br/>**REST:** 
@@ -1995,36 +1994,34 @@ The following table describes exception types in OpenL Tablets Rule Services:
 <br/>**Cause**: Runtime execution error in OpenL rules, such as NPE, CCE, and DivByZero.
 <br/>**Status code:** 500
 <br/>**REST:**
-```
-{
-  message : "Cannot convert '1ab2' to Double",
-  type : "RULES_RUNTIME"
-}
-```
-
-**Cause**: Compilation and parsing errors.
-**Status code:** 500
-**REST:**
-{
-  message : "Missed condition column in Rules table",
-  type : "COMPILATION"
-}
-
-**Cause**: Other exception outside the OpenL engine, such as NPE, CCE, and AccessException.
-**Status code:** 500
-**REST:**
-{
-  message : "Cannot be null",
-  type : "SYSTEM"
-}
-
-**Cause**: Validation errors in input parameters, such as a value outside of a valid domain or wrong value in the context.
-**Status code:** 500
-**REST:**
-{ 
-  message : "'Mister' is outside of valid domain ['Male', 'Female']", 
-  type : "RULES_RUNTIME" 
-}
+<br/>{
+<br/>  message : "Cannot convert '1ab2' to Double",
+<br/>  type : "RULES_RUNTIME"
+<br/>}
+<br/>
+<br/>**Cause**: Compilation and parsing errors.
+<br/>**Status code:** 500
+<br/>**REST:**
+<br/>{
+<br/>  message : "Missed condition column in Rules table",
+<br/>  type : "COMPILATION"
+<br/>}
+<br/>
+<br/>**Cause**: Other exception outside the OpenL engine, such as NPE, CCE, and AccessException.
+<br/>**Status code:** 500
+<br/>**REST:**
+<br/>{
+<br/>  message : "Cannot be null",
+<br/>  type : "SYSTEM"
+<br/>}
+<br/>
+<br/>**Cause**: Validation errors in input parameters, such as a value outside of a valid domain or wrong value in the context.
+<br/>**Status code:** 500
+<br/>**REST:**
+<br/>{ 
+<br/>  message : "'Mister' is outside of valid domain ['Male', 'Female']", 
+<br/>  type : "RULES_RUNTIME" 
+<br/>}
 
 ## Appendix D: OpenAPI Support
 
