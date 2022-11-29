@@ -24,4 +24,6 @@
 [Maven Plugin Guide](documentation/guides/maven_plugin_guide.md)
 
 !!! note
-	To access the set of guides for another OpenL Tablets release version, use the following URL after adjusting the version part of it appropriately: https://openldocs.readthedocs.io/en/**v5.25**/
+	To access the set of guides for another OpenL Tablets release version, 
+	use the following URL after adjusting the version part of it appropriately:
+	https://openldocs.readthedocs.io/en/**v5.25**/
