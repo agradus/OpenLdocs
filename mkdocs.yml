@@ -2,7 +2,7 @@ site_name: OpenL Tablets
 site_url: https://openl.readthedocs.io/en/latest/
 edit_uri: edit/main/docs/
 nav:
-  - LATEST USER GUIDES: 
+  - USER GUIDES: 
     - Installation/demo guides: 
       - Installation Guide: documentation/guides/installation_guide.md
       - Demo Package Guide: documentation/guides/demo_package_guide.md
@@ -14,13 +14,7 @@ nav:
       - Developer Guide: documentation/guides/developer_guide.md
       - Activiti Integration Guide: documentation/guides/activiti_integration_guide.md
       - Maven Plugin Guide: documentation/guides/maven_plugin_guide.md
-  - PREVIOUS USER GUIDES: 
-    - 5.25: 
-          - 5.25.0: documentation/previousversions/5.25/_guides.md
-          - 5.25.1: documentation/previousversions/5.25.1/_guides.md
-    - 5.24: documentation/previousversions/5.24/_guides.md
-    - 5.23: documentation/previousversions/5.23/_guides.md
-  - THE OPENL PROJECT:
+    - THE OPENL PROJECT:
     - About OpenL: about.md
   
 theme: readthedocs
