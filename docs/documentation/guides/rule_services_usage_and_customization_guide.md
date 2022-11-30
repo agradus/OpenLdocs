@@ -747,7 +747,7 @@ Kafka Publisher allows exposing the services in the following modes:
 
 | Mode                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| A user configures Kafka settings <br/>for each rules method to expose as a service. | - All messages in all input topics belong to one rule method and have the same format. <br/>- One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. <br/>- Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
+| A user configures Kafka settings <br/>for each rules method to expose <br/>as a service. | - All messages in all input topics belong to one rule method and have the same format. <br/>- One Kafka Consumer and two Kafka producers, that is, output topic and dead letter topic, are created for each exposed method. <br/>- Input topic, output topic, and DLT must be created for each method.                                                                                                                                                                                                               |
 | A user configures Kafka settings <br/>for a service.                                | - All methods from this service are exposed as services. <br/>- Messages in the input topic belong to different rule methods and are of different format, depending on the method input parameters. <br/>- The method name is set via Kafka Headers. <br/>- One Kafka consumer and two producers, that is, output topic and dead letter topic, are created for a service. <br/>- One input topic, one output topic, and one DLT is enough for the OpenL Tablets service. <br/>- A service can be exposed in both modes at the same time.  |
 
 The following topics are included in this section:
@@ -1024,7 +1024,7 @@ Apache Cassandra is a free and open-source, distributed, wide column storage dat
     mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
     ```
 
-1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true `setting in the` application.properties `file`.`
+1.  Enable the Cassandra Storing Log feature using the `ruleservice.store.logs.cassandra.enabled=true` setting in the `application.properties` file.
 2.  Set up Cassandra connection settings defined in the `application.properties` file as described in the following lines:
         
     ```properties
@@ -1133,7 +1133,7 @@ The following properties can be modified to configure Hive:
 | Property                                 | Description                                                                                                                                                                                             |
 |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ruleservice.store.logs.hive.enabled      | Property to enable storing Hive logs.                                                                                                                                                                   |
-| hive.connection.url                      | URL for connecting to the Hive server. <br/>An example is as follows: hive.connection.url = jdbc:hive2://localhost:10000/default`                                                                         |
+| hive.connection.url                      | URL for connecting to the Hive server. <br/>**Example:** `hive.connection.url = jdbc:hive2://localhost:10000/default`                                                                         |
 | hive.connection.username                 | Username for connecting to the Hive server.                                                                                                                                                           |
 | hive.connection.password                 | Password for connecting to the Hive server.                                                                                                                                                           |
 | hive.connection.pool.maxSize             | OpenL Tablets uses HikariCP JDBC connection pool for managing Hive connections. The default pool size is 10. <br/>For more information on HikariCP, see <https://github.com/brettwooldridge/HikariCP>. |
@@ -1269,9 +1269,9 @@ This configuration can be applied to projects using the `rules.xml` file. An exa
 </project>
 ```
 
-For filtering methods, define the `method`-filter tag in the `rules`.xml file. This tag contains the `includes` and `excludes` tags. The algorithm is as follows:
+For filtering methods, define the `method`-filter tag in the `rules.xml` file. This tag contains the `includes` and `excludes` tags. The algorithm is as follows:
 
--   If the `method`-filter tag is not defined in the `rules`.xml, the system generates a dynamic interface with all methods provided in the module or modules for multimodule.
+-   If the `method`-filter tag is not defined in the `rules.xml`, the system generates a dynamic interface with all methods provided in the module or modules for multimodule.
 -   If the `includes` tag is defined for method filtering, the system uses the methods which names match a regular expression of defined patterns.
 -   If the `includes` tag is not defined, the system includes all methods.
 -   If the `excludes` tag is defined for method filtering, the system uses methods which method names do not match a regular expression for defined patterns.
@@ -1352,8 +1352,8 @@ The following table describes “after” interceptor types:
 
 | Inceptor          | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `After Returning` | Intercepts the result of a successfully calculated method, with a possibility of post processing of the return result, including result conversion to another type. <br/>In this case, the type must be specified as the return type for the method in the service class. <Br/>`After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterReturningAdvice.` |
-| `After Throwing`  | Intercepts a method that has an exception thrown, with a possibility of post processing of an error and throwing another type of exception. <br/>`After Returning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterThrowingAdvice.`                                                                                                                           |
+| `AfterReturning` | Intercepts the result of a successfully calculated method, with a possibility of post processing of the return result, including result conversion to another type. <br/>In this case, the type must be specified as the return type for the method in the service class. <Br/>`AfterReturning` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterReturningAdvice.` |
+| `AfterThrowing`  | Intercepts a method that has an exception thrown, with a possibility of post processing of an error and throwing another type of exception. <br/>`AfterThrowing` interceptors must be a subclass of `org.openl.rules.ruleservice.core.interceptors.AbstractServiceMethodAfterThrowingAdvice.`                                                                                                                           |
 
 Example of the “after” interceptor implementation with after returning logic is as follows:
 
@@ -1431,7 +1431,7 @@ By default, OpenL Tablets applies the org.openl.rules.ruleservice.core.intercept
 
 **Note:**  If any interceptor is used on the method, the SPRToPlainConverterAdvice or VariationResultSPRToPlainConverterAdvice interceptors must be added manually to keep default behavior**.**
 
-To change default behavior, define `@` `org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor `with an empty value on the method to return SpreadsheetResult.
+To change default behavior, define `@org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor `with an empty value on the method to return SpreadsheetResult.
 
 #### REST Endpoint Customization through Annotations
 
@@ -1491,7 +1491,7 @@ All other JAX-RS annotations, such as `@PUT`, `@DELETE`, `@QueryParam`, and `@Pa
 
 Annotation customization can be used for dynamically generated interfaces. This feature is only supported for projects that contain the `rules-deploy.xml `deployment configuration file. To enable customization through annotation, proceed as follows:
 
-1.  Add the `annotationTemplateClassName `tag to the `rules-deploy.xml` file*.*
+1.  Add the `annotationTemplateClassName` tag to the `rules-deploy.xml` file*.*
         
     An example is as follows:
         
@@ -1572,7 +1572,7 @@ The` VariationsPack` class contains all required variations to be calculated. Th
 
 **Note:** When using a user’s own service class instead of the one generated by default, the original method must be defined for each method with variations.
 
-**Note:** The result of the original calculation can be retrieved in the same manner as for all variations, by using the special `Original calculation `ID in code as `org.openl.rules.project.instantiation.variation.NoVariation.ORIGINAL_CALCULATION.`
+**Note:** The result of the original calculation can be retrieved in the same manner as for all variations, by using the special `Original calculation `ID in code as `org.openl.rules.project.instantiation.variation.NoVariation.ORIGINAL_CALCULATION`.
 
 #### Predefined Variations
 
@@ -1590,7 +1590,7 @@ The following table describes predefined variation types in the `org.openl.rules
 | `ComplexVariation`             | Variation that combines multiple variations as a single variation. <Br/>It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
 | `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. <br/>This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  <br/>This variation is not recommended because of performance drawbacks: <br/>the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
 
-If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation `class. <br/>Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
+If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation` class. <br/>Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
 
 #### Variations Factory
 
@@ -1610,7 +1610,7 @@ An alternative way is to use a special `VariationDescription` bean that contains
 
 #### Enabling Variations Support
 
-Default value for all deployed services is defined in the `ruleservice.isSupportVariations `property in` application.properties`.` `By default, it is disabled. A variation can be enabled and disabled on the project level using the `rules-deploy.xml` deployment configuration file. An example is as follows:
+Default value for all deployed services is defined in the `ruleservice.isSupportVariations` property in` application.properties`. By default, it is disabled. A variation can be enabled and disabled on the project level using the `rules-deploy.xml` deployment configuration file. An example is as follows:
 
 ```xml
 <rules-deploy>
