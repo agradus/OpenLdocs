@@ -1,7 +1,7 @@
 # OpenL Tablets BRMS Installation Guide
 
 ```
-Release 5.27
+Release 5.26
 OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
 ```
 
