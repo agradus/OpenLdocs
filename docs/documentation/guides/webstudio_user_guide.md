@@ -34,7 +34,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
 | *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
@@ -48,8 +48,8 @@ This chapter introduces main OpenL Tablets WebStudio concepts. The following top
 
 -   [What Is OpenL Tablets WebStudio?](#what-is-openl-tablets-webstudio)
 -   [Working with Projects in OpenL Tablets WebStudio](#working-with-projects-in-openl-tablets-webstudio)
--   [OpenL Tablets WebStudio Components](#_OpenL_Web_Studio)
--   [Security Overview](#_Security_Overview)
+-   [OpenL Tablets WebStudio Components](#openl-tablets-webstudio-components)
+-   [Security Overview](#security-overview)
 
 ### What Is OpenL Tablets WebStudio?
 
@@ -116,8 +116,8 @@ This chapter explains logging into OpenL Tablets WebStudio and briefly introduce
 -   [Modifying User Profile](#modifying-user-profile)
 -   [Displaying the OpenL Tablets WebStudio Help](#displaying-the-openl-tablets-webstudio-help)
 -   [Signing Out of OpenL Tablets WebStudio](#signing-out-of-openl-tablets-webstudio)
--   [Introducing Rules Editor](#_Introducing_Rules_Editor)
--   [Introducing Repository Editor](#_Introducing_Repository_Editor)
+-   [Introducing Rules Editor](#introducing-rules-editor)
+-   [Introducing Repository Editor](#introducing-repository-editor)
 
 ### Signing In to OpenL Tablets WebStudio
 
@@ -351,7 +351,7 @@ This chapter describes basic tasks that can be performed in Rules Editor. For mo
 
 The following topics are included in this chapter:
 
--   [Filtering Projects](#_Filtering_Projects)
+-   [Filtering Projects](#filtering-projects)
 -   [Viewing a Project](#viewing-a-project)
 -   [Viewing a Module](#viewing-a-module)
 -   [Managing Projects and Modules](#managing-projects-and-modules)
@@ -359,10 +359,10 @@ The following topics are included in this chapter:
 -   [Viewing Tables](#viewing-tables)
 -   [Modifying Tables](#modifying-tables)
 -   [Referring to Tables](#referring-to-tables)
--   [Managing Range Data Types](#_Managing_Range_Data)
+-   [Managing Range Data Types](#managing-range-data-types)
 -   [Creating Tables by Copying](#creating-tables-by-copying)
 -   [Performing a Search](#performing-a-search)
--   [Creating Tables](#_Creating_New_Table)
+-   [Creating Tables](#creating-tables)
 -   [Comparing Excel Files](#comparing-excel-files)
 -   [Viewing and Editing Project-Related OpenAPI Details](#viewing-and-editing-project-related-openapi-details)
 -   [Reconciling an OpenAPI Project](#reconciling-an-openapi-project)
@@ -394,7 +394,7 @@ Rules Editor allows a user to work with one module at a time. To select a module
 -   tree in the left pane displaying module tables
 -   general module information displayed in the middle pane, including project and module names, associated Excel file, number of tables, and module dependencies
 
-If a particular module is not available, the project in which it is defined must be opened as described in [Opening a Project](#_Opening_a_Project_1).
+If a particular module is not available, the project in which it is defined must be opened as described in [Opening a Project](#opening-a-project).
 
 By default, a project is opened in the multi-module mode. This is a common production mode. In the multi-module mode, all modules of the current project with all their dependencies are displayed, that is, modules of projects defined as the project dependencies.
 
@@ -422,13 +422,13 @@ When loading is completed, the **Within Current Module Only** check box is clear
 
 This section explains the following tasks that can be performed on projects in Rules Editor:
 
--   [Editing and Saving a Project](#_Editing_and_Saving)
+-   [Editing and Saving a Project](#editing-and-saving-a-project)
 -   [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility)
 -   [Updating and Exporting a Project](#updating-and-exporting-a-project)
--   [Copying a Project](#_Copy_Project)
+-   [Copying a Project](#copying-a-project)
 -   [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module)
--   Comparing and Reverting Module Changes
--   [Copying a Module](#_Copying_a_Module)
+-   [Comparing and Reverting Module Changes] (#comparing-and-reverting-module-changes)
+-   [Copying a Module](#copying-a-module)
 
 #### Editing and Saving a Project
 
@@ -563,7 +563,7 @@ When **Restore** is clicked, the corresponding changes are restored but this act
 
 OpenL Tablets WebStudio allows creating a copy of the existing module, in Editor, in either **Project** page, or in the **Module** page. The following topics are included in this section:
 
--   [Copying a Simple Module](#_Copying_a_Simple)
+-   [Copying a Simple Module](#copying-a-simple-module)
 -   [Copying a Module Defined Using the File Path Pattern](#copying-a-module-defined-using-the-file-path-pattern)
 
 ##### Copying a Simple Module
@@ -881,8 +881,8 @@ To create a table as a new business dimension version, proceed as follows:
 
 OpenL Tablets WebStudio provides search functionality to look through all module tables data for a particular project. The following topics describe search modes in OpenL Tablets WebStudio:
 
--   [Performing a Simple Search](#_Performing_a_Simple)
--   [Performing an Advanced Search](#_Advanced_Search_)
+-   [Performing a Simple Search](#performing-a-simple-search)
+-   [Performing an Advanced Search](#performing-an-advanced-search)
 
 #### Performing a Simple Search
 
@@ -1213,9 +1213,9 @@ It contains the following information:
 The following topics are described in this section:
 
 -   [Generating an OpenAPI File from Rules and Datatype Tables for Reconciliation](#generating-an-openapi-file-from-rules-and-datatype-tables-for-reconciliation)
--   [Adding OpenAPI for Reconciliation to an Existing Project](#_Adding_OpenAPI_for)
+-   [Adding OpenAPI for Reconciliation to an Existing Project](#adding-openapi-for-reconciliation-to-an-existing-project)
 -   [Regenerating a Project from Another OpenAPI File](#regenerating-a-project-from-another-openapi-file)
--   [Updating the OpenAPI File](#_Updating_the_OpenAPI)
+-   [Updating the OpenAPI File](#updating-the-openapi-file)
 
 #### Generating an OpenAPI File from Rules and Datatype Tables for Reconciliation
 
@@ -1283,7 +1283,7 @@ The rules and model modules are created or updated. The OpenAPI data is updated.
 
 #### Regenerating a Project from Another OpenAPI File
 
-If a project is initially created from an OpenAPI file, it can be regenerated from another OpenAPI file. For project regeneration, follow the steps described in [Adding OpenAPI for Reconciliation to an Existing Project](#_Adding_OpenAPI_for). The name of the OpenAPI file is preset for regeneration.
+If a project is initially created from an OpenAPI file, it can be regenerated from another OpenAPI file. For project regeneration, follow the steps described in [Adding OpenAPI for Reconciliation to an Existing Project](#adding-openapi-for-reconciliation-to-an-existing-project). The name of the OpenAPI file is preset for regeneration.
 
 #### Updating the OpenAPI File
 
@@ -1344,7 +1344,7 @@ Reconciliation does not expect exactly the same OpenAPI generated by the project
 This chapter describes advanced OpenL Tablets WebStudio functions, such as table editing, performing unit tests, rule tracing, and benchmarking. The following sections are included in this chapter:
 
 -   [Editing Tables](#editing-tables)
--   [Using Table Versioning](#_Using_Table_Versioning)
+-   [Using Table Versioning](#using-table-versioning)
 -   [Performing Unit Tests](#performing-unit-tests)
 -   [Tracing Rules](#tracing-rules)
 -   [Using Benchmarking Tools](#using-benchmarking-tools)
@@ -1423,7 +1423,7 @@ The following topics are included in this section:
 
 ##### Editing System Properties
 
-By default, OpenL Tablets WebStudio applies system properties to each created or edited table. For information on how to switch off this option, please refer to [Managing Common Settings](#_Common__Settings). The values of the System properties are provided in the table and in the Properties section.
+By default, OpenL Tablets WebStudio applies system properties to each created or edited table. For information on how to switch off this option, please refer to [Managing Common Settings](#managing-common-settings). The values of the System properties are provided in the table and in the Properties section.
 
 The **modifiedBy** property value is set using the name of the currently logged in user. The **modifiedOn** property is set according to the current date. These properties are applied upon each save.
 
@@ -1514,7 +1514,7 @@ OpenL Tablets WebStudio supports visual controls for creating and running projec
 The following topics are included in this section:
 
 -   [Adding Navigation to a Table](#adding-navigation-to-a-table)
--   [Running Unit Tests](#_Running_Unit_Tests)
+-   [Running Unit Tests](#running-unit-tests)
 -   [Creating a Test](#creating-a-test)
 
 #### Adding Navigation to a Table
@@ -1653,7 +1653,7 @@ In cases when test result is complex (compound), there is an option to display t
 
 *Displaying compound result*
 
-This setting for a particular test run (without updating user settings) can be changed in the same ways as it is described in [Displaying Failures Only](#_Displaying_Ffailures_Oonly).
+This setting for a particular test run (without updating user settings) can be changed in the same ways as it is described in [Displaying Failures Only](#displaying-failures-only).
 
 #### Creating a Test
 
@@ -1800,17 +1800,17 @@ This chapter describes tasks that can be performed in repository editor. For gen
 The following topics are included in this chapter:
 
 -   [Browsing Design Repository](#browsing-design-repository)
--   [Filtering the Project Tree](#_Filtering_the_Project)
+-   [Filtering the Project Tree](#filtering-the-project-tree)
 -   [Creating Projects in Design Repository](#creating-projects-in-design-repository)
--   [Opening a Project](#_Opening_a_Project_1)
+-   [Opening a Project](#opening-a-project)
 -   [Closing a Project](#closing-a-project)
--   Saving a Project
+-   [Saving a Project](#saving-a-project)
 -   [Viewing Project Properties](#viewing-project-properties)
 -   [Modifying Project Contents](#modifying-project-contents)
--   [Copying a Project](#copying-a-project-1)
+-   [Copying a Project](#copying-a-project)
 -   [Removing a Project](#removing-a-project)
 -   [Deploying Projects](#deploying-projects)
--   [Comparing Project Versions](#_Comparing_Project_Versions)
+-   [Comparing Project Versions](#comparing-project-versions)
 -   [Exporting a Project or a File](#exporting-a-project-or-a-file)
 -   [Unlocking a Project](#unlocking-a-project)
 -   [Browsing the Deployment Repository](#browsing-the-deployment-repository)
@@ -1861,11 +1861,11 @@ OpenL Tablets WebStudio allows users to create new rule projects in the Design r
 
 | Way                                        | Section                                                                       |
 |--------------------------------------------|-------------------------------------------------------------------------------|
-| Create a rule project from a template      | [Creating a Project from Template](#_Creatinge_a_Project)                     |
+| Create a rule project from a template      | [Creating a Project from Template](#creating-a-project)                     |
 | Create a rule project from Excel files     | [Creating a Project from Excel Files](#creating-a-project-from-excel-files)   |
 | Create a rule project from an OpenAPI file | [Creating a Project from OpenAPI file](#creating-a-project-from-openapi-file) |
 | Create a rule project from a zip archive   | Creating a Project from ZIP Archive                                           |
-| Import a rule project from workspace       | [Importing a Project from Workspace](#_Importing_a_Project)                   |
+| Import a rule project from workspace       | [Importing a Project from Workspace](#importing-a-project-from-workspace)                   |
 | Create a rule project from repository      | [Creating a Project from a Repository](#creating-a-project-from-a-repository) |
 
 Whatever the way used, new projects are created in the **No Changes** status that means they are open and can be modified.
@@ -2328,10 +2328,10 @@ This section describes tasks related to deploying rule projects to deployment re
 
 The following topics are included in this section:
 
--   [Creating a Deploy Configuration](#_Creating_a_Deploy)
--   [Defining Projects to Deploy](#_Defining_Projects_to)
--   [Deploying a Deploy Configuration](#_Deploying_a_Deploy)
--   [Opening Deployed Configurations](#_Opening_Deployed_Configurations)
+-   [Creating a Deploy Configuration](#creating-a-deploy-configuration)
+-   [Defining Projects to Deploy](#cefining-projects-to-deploy)
+-   [Deploying a Deploy Configuration](#deploying-a-deploy-configuration)
+-   [Opening Deployed Configurations](#opening-deployed-configurations)
 -   [Redeploying Projects](#redeploying-projects)
 -   [Configuring Additional Rules Deploy Configuration Settings](#configuring-additional-rules-deploy-configuration-settings)
 -   [Defining Rule Service Version](#defining-rule-service-version)
@@ -2569,7 +2569,7 @@ It is recommended to grant permission to the “Unlock” functionality only for
 
 ### Browsing the Deployment Repository
 
-**The Deployment repository** contains project deployments and is also the location from where solution applications use them. OpenL Tablets WebStudio allows connecting several deployment repositories. For information on how to configure deployment repositories, refer to [Managing Repository Settings](#_Managing_Repository_Settings_1).
+**The Deployment repository** contains project deployments and is also the location from where solution applications use them. OpenL Tablets WebStudio allows connecting several deployment repositories. For information on how to configure deployment repositories, refer to [Managing Repository Settings](#managing-repository-settings).
 
 To browse a deployment repository, proceed as follows:
 
@@ -2609,7 +2609,7 @@ This section introduces project branches and describes how to use them. Branches
 The following topics are included in this section:
 
 -   [Creating a Branch](#creating-a-branch)
--   [Working with Branches](#_Working_with_Branches)
+-   [Working with Branches](#working-with-branches)
 -   [Resolving Conflicts](#resolving-conflicts)
 -   [Using Protected Branches](#using-protected-branches)
 
@@ -2740,10 +2740,10 @@ Normally, the default settings are recommended, but users with appropriate permi
 
 The following topics are included:
 
--   [Managing Common Settings](#_Managing_Common_Settings)
--   [Managing Repository Settings](#_Resolving_Conflicts)
+-   [Managing Common Settings](#managing-common-settings)
+-   [Managing Repository Settings](#managing-repository-settings)
 -   [Managing System Settings](#managing-system-settings)
--   [Managing User Information](#_Managing_User_Information)
+-   [Managing User Information](#managing-user-information)
 -   [Managing Notifications](#managing-notifications)
 -   [Managing Tags](#managing-tags)
 -   [Managing Email Server Configuration](#managing-email-server-configuration)
@@ -2923,11 +2923,11 @@ This section explains how to create, modify, and delete a user group with a cert
 
 The following topics are included in this section:
 
--   Viewing a List of Groups
+-   [Viewing a List of Groups](#viewing-a-list-of-groups)
 -   [Adding a Group](#adding-a-group)
 -   [Editing a Group](#editing-a-group)
 -   [Deleting a Group](#deleting-a-group)
--   Managing a Group in Case of Third Party Identity Provider
+-   [Managing a Group in Case of Third Party Identity Provider](#managing-a-group-in-case-of-third-party-identity-provider)
 
 ##### Viewing a List of Groups
 
@@ -3032,7 +3032,7 @@ By default, there are the following users in OpenL Tablets WebStudio predefined 
 | a1        | a1            | Administrators       |
 | admin     | admin         | Administrators       |
 
-On the first start of OpenL Tablets WebStudio in the multi user mode, users with administrator permissions are defined in the installation wizard, **Configure initial users** section, **Administrators** field. Administrators password is set equal to their username and can be changed later as necessary. Administrators can then create new users or update existing users in OpenL Tablets WebStudio as needed. For information about the permissions of the groups, refer to [Managing Groups](#_Managinge_Groups).
+On the first start of OpenL Tablets WebStudio in the multi user mode, users with administrator permissions are defined in the installation wizard, **Configure initial users** section, **Administrators** field. Administrators password is set equal to their username and can be changed later as necessary. Administrators can then create new users or update existing users in OpenL Tablets WebStudio as needed. For information about the permissions of the groups, refer to [Managing Groups](#managing-groups).
 
 The following topics are included in this section:
 
@@ -3307,7 +3307,7 @@ The following topics are described in this section:
 -   [Parameters](#parameters)
 -   [Responses](#responses)
 -   [Request Body Model Decomposition](#request-body-model-decomposition)
--   [Inheritance and Polymorphism Using OneOf, AllOf, and AnyOf](#_Inheritance_and_Polymorphism)
+-   [Inheritance and Polymorphism Using OneOf, AllOf, and AnyOf](#inheritance-and-polymorphism-using-oneof-allof-and-anyof)
 
 #### Parameters
 
