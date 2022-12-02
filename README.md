@@ -1,5 +1,5 @@
 # MarkdownTest
 
-v8
+This comment added for latest guides
 
 dev comment
