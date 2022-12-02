@@ -1,7 +1,7 @@
 # Maven Plugin Guide
 
 ```
-Release 5.27
+Release 5.26
 ```
 
 ```
