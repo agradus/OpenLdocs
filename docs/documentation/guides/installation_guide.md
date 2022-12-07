@@ -665,7 +665,7 @@ This section explains how to set up an MariaDB database. Proceed as follows:
 3.  Click **New** to create a session.
 4.  Select the **Prompt for credentials** check box and define a database port.
 
-	    ![](installation_guide_images/CreatingConnectionMariaDB.png)
+	![](installation_guide_images/CreatingConnectionMariaDB.png)
 
 	*Figure: Creating a connection to the MariaDB database*
 
