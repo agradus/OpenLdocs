@@ -158,15 +158,15 @@ To manage user details, proceed as follows:
 
 1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User Details**.
-   
-   ![](webstudio_guide_images/df45cb1defa171f24c6b94d3fca8ce9b.png)
-   
-   *Viewing user details*
-   
+       
+    ![](webstudio_guide_images/df45cb1defa171f24c6b94d3fca8ce9b.png)
+    
+    *Viewing user details*
+    
 1.  To update user’s first or last name, display name, or email, modify values as required.
-   
-   If user data is retrieved from a third party system, such as Active Directory, these fields cannot be edited.
-   
+    
+    If user data is retrieved from a third party system, such as Active Directory, these fields cannot be edited.
+    
 1.  To update the password, in the **Change Password** section, enter the current and new password values.
 2.  Click **Save.**
 
@@ -207,11 +207,11 @@ To manage user settings, proceed as follows:
 
 1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User settings**.
-   
-   ![](webstudio_guide_images/1d1e945655986d1923f3ccf4acd684dd.jpeg)
-   
-   *Viewing user settings*
-   
+    
+    ![](webstudio_guide_images/1d1e945655986d1923f3ccf4acd684dd.jpeg)
+    
+    *Viewing user settings*
+    
 1.  In the **Table Settings** section, identify whether table header and MS Excel formulas must be displayed.
 2.  In the **Testing settings**, select values for displaying rule test results.
    
@@ -313,8 +313,8 @@ By default, tables are sorted by type.
 | Mode                     | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **By Category**          | The tree structure is rather logical than physical. <br/>Rule tables are organized into categories based on the **Category** table property or, if the property is not defined, based on the Excel table sheet names. <br/>This view is **simple.** An example of a module tree sorted by the category parameter is as follows: <br/>![](webstudio_guide_images/78d69ca2ae827a178758b1467ea7486d.png) <br/>*Module tree sorted by category* |
-| **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, <br/>for example, **Test \> Auto** category is displayed in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
-| **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) *Module tree sorted by Category Inversed*                                                                                                                                                |
+| **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, for example, **Test \> Auto** category is displayed in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
+| **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) <br/>*Module tree sorted by Category Inversed*                                                                                                                                                |
 
 **Note:** If the scope in a **Properties** table is defined as **Module**, in the **By Category** view, this table is displayed in the **Module Properties** sub-node as in the last example. If the scope is defined as **Category**, the table is displayed in the Category **Properties** sub-node.
 
@@ -337,8 +337,8 @@ The following table describes repository editor organization:
 
 | Pane        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Left pane` | Contains a tree of projects stored in Design repository and user's workspace. Unlike Rules Editor, repository editor displays physical project contents in terms of files and folders.                                                                                                                                                                                                                                                                                                                                                           |
-| Middle pane | Displays content for the element selected in the tree. For each project, the following actions are available: copying a project ![](webstudio_guide_images/61ca4838d9e3263452ff757b0421d25f.png) archiving a project ![](webstudio_guide_images/fc8772103632ad8c83d7bf22f4c3d3e5.png) closing a project ![](webstudio_guide_images/b60ca00f25e0c6804341401a988d282a.png) opening a project ![](webstudio_guide_images/c0c29a6dfc7c28d78c77413e4f606f1b.png) deploying a project ![](webstudio_guide_images/f083800966546f77abdadf220acf81ab.png) |
+| `Left pane` | Contains a tree of projects stored in Design repository and user's workspace. <br/>Unlike Rules Editor, repository editor displays physical project contents in terms of files and folders.                                                                                                                                                                                                                                                                                                                                                           |
+| Middle pane | Displays content for the element selected in the tree. For each project, the following actions are available: <br/>- copying a project ![](webstudio_guide_images/61ca4838d9e3263452ff757b0421d25f.png) <br/>- archiving a project ![](webstudio_guide_images/fc8772103632ad8c83d7bf22f4c3d3e5.png) <br/>- closing a project ![](webstudio_guide_images/b60ca00f25e0c6804341401a988d282a.png) <br/>- opening a project ![](webstudio_guide_images/c0c29a6dfc7c28d78c77413e4f606f1b.png) <br/>- deploying a project ![](webstudio_guide_images/f083800966546f77abdadf220acf81ab.png) |
 
 A user can switch to Rules Editor by clicking the **Rules Editor** control.
 
