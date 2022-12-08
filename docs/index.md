@@ -1,6 +1,6 @@
-<img src="img/OpenLHome.png" width="500">
+<img src="img/OpenLHome.png" width="700">
 
-## User Guides
+## Previous User Guides
 !!! note
 	To access the set of guides for a different OpenL Tablets release version, use the following URL after adjusting the version part of it appropriately:<br>
 	https://openldocs.readthedocs.io/en/**v5.25**/
