@@ -124,17 +124,17 @@ This chapter explains logging into OpenL Tablets WebStudio and briefly introduce
 To sign in to OpenL Tablets WebStudio, proceed as follows:
 
 1.  In the web browser address bar, enter the OpenL Tablets WebStudio URL provided by the system administrator.
-
-The OpenL Tablets WebStudio URL has the following pattern:
-
-`http://<server>:<port>/webstudio`
-
-In the single user mode, users are automatically signed in using the DEFAULT account. In the multi-user mode, the following form appears.
-
-![](webstudio_guide_images/bed46e2b1c31e2224a7ef6da37e8fdb8.png)
-
-*Login window*
-
+   
+   The OpenL Tablets WebStudio URL has the following pattern:
+   
+   `http://<server>:<port>/webstudio`
+   
+   In the single user mode, users are automatically signed in using the DEFAULT account. In the multi-user mode, the following form appears.
+   
+   ![](webstudio_guide_images/bed46e2b1c31e2224a7ef6da37e8fdb8.png)
+   
+   *Login window*
+   
 1.  Enter the user name and password provided by the system administrator and click **Sign in**.
 
 For more information on OpenL Tablets WebStudio UI, see [Introducing Rules Editor](#introducing-rules-editor) and [Introducing Repository Editor](#introducing-repository-editor). For more information on the single and multi-user modes, see [Security Overview](#security-overview).
@@ -159,15 +159,15 @@ To manage user details, proceed as follows:
 
 1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User Details**.
-
-![](webstudio_guide_images/df45cb1defa171f24c6b94d3fca8ce9b.png)
-
-*Viewing user details*
-
+   
+   ![](webstudio_guide_images/df45cb1defa171f24c6b94d3fca8ce9b.png)
+   
+   *Viewing user details*
+   
 1.  To update user’s first or last name, display name, or email, modify values as required.
-
-If user data is retrieved from a third party system, such as Active Directory, these fields cannot be edited.
-
+   
+   If user data is retrieved from a third party system, such as Active Directory, these fields cannot be edited.
+   
 1.  To update the password, in the **Change Password** section, enter the current and new password values.
 2.  Click **Save.**
 
@@ -208,16 +208,16 @@ To manage user settings, proceed as follows:
 
 1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User settings**.
-
-![](webstudio_guide_images/1d1e945655986d1923f3ccf4acd684dd.jpeg)
-
-*Viewing user settings*
-
+   
+   ![](webstudio_guide_images/1d1e945655986d1923f3ccf4acd684dd.jpeg)
+   
+   *Viewing user settings*
+   
 1.  In the **Table Settings** section, identify whether table header and MS Excel formulas must be displayed.
 2.  In the **Testing settings**, select values for displaying rule test results.
-
-By default, all test results are displayed with five test tables, or unit tests, and compound result is not displayed. For more information on testing settings, see [Running Unit Tests](#running-unit-tests).
-
+   
+   By default, all test results are displayed with five test tables, or unit tests, and compound result is not displayed. For more information on testing settings, see [Running Unit Tests](#running-unit-tests).
+   
 1.  In the **Trace Settings,** specify whether numbers must be displayed without formatting.
 
 ### Displaying the OpenL Tablets WebStudio Help
@@ -260,10 +260,10 @@ The following table describes Rules Editor organization:
 
 | Pane                     | Description                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Left pane`              | Displays the module tree providing a list of elements in the currently displayed rule module.                                                      |
+| Left pane              | Displays the module tree providing a list of elements in the currently displayed rule module.                                                      |
 | Middle pane              | Displays contents of the table selected in the left pane and provides controls for modifying table data, running tests, and checking test results. |
 | Right pane               | Displays properties of the currently displayed table.                                                                                              |
-| Upper part of the window | Contains toolbars with controls as described further in this section.                                                                              |
+| Upper part <br/>of the window | Contains toolbars with controls as described further in this section.                                                                              |
 
 The following table describes the Rules Editor toolbar controls:
 
