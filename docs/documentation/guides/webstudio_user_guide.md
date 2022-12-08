@@ -314,7 +314,7 @@ By default, tables are sorted by type.
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **By Category**          | The tree structure is rather logical than physical. <br/>Rule tables are organized into categories based on the **Category** table property or, if the property is not defined, based on the Excel table sheet names. <br/>This view is **simple.** An example of a module tree sorted by the category parameter is as follows: <br/>![](webstudio_guide_images/78d69ca2ae827a178758b1467ea7486d.png) <br/>*Module tree sorted by category* |
 | **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, for example, **Test \> Auto** category is displayed <br/>in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
-| **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) <br/>*Module tree sorted by Category Inversed*                                                                                                                                                |
+| **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) <br/>*Module tree sorted by Category Inversed*                                                                                                                                                |
 
 **Note:** If the scope in a **Properties** table is defined as **Module**, in the **By Category** view, this table is displayed in the **Module Properties** sub-node as in the last example. If the scope is defined as **Category**, the table is displayed in the Category **Properties** sub-node.
 
@@ -441,7 +441,7 @@ A project can be opened for editing and saved directly in Rules Editor.
 
 | Project details                                                                                                                               | Available actions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General project information and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see the **Properties Defined in the File Name** section of [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). |
+| General project information <br/>and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see the **Properties Defined in the File Name** section of [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). |
 | Project sources                                                                                                                               | Put the mouse cursor over the **Sources** label and click **Manage Sources** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Modules configuration                                                                                                                         | Put the mouse cursor over the **Modules** label or a particular module name and click **Add Module** ![](webstudio_guide_images/b1bc8af33d20e0e52b2bbdd4ad1a7ea3.png) or **Edit Module** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) or **Remove Module** ![](webstudio_guide_images/bc579ab11b13186a7e43f09904b47ccc.png).                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Project dependencies                                                                                                                          | Manage dependencies as described in [Defining Project Dependencies](#defining-project-dependencies).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -516,7 +516,6 @@ A user can export, update, or edit a module directly in Rules Editor. Proceed as
 #### Comparing and Reverting Module Changes
 
 OpenL Tablets WebStudio allows comparing module versions and rolling back module changes against the specific date.
-
 To compare module versions, proceed as follows:
 
 1.  In the **Projects** tree, select the module.
@@ -534,27 +533,27 @@ To compare module versions, proceed as follows:
     
     *Clicking Save to complete project update and save changes as a revision version*
     
-    1.  To compare the changes, select check boxes for two required versions and click **Compare**.
+    1. To compare the changes, select check boxes for two required versions and click **Compare**.
     
     ![](webstudio_guide_images/6e36755fc51d6b93b3a7d9632c5a36dc.jpeg)
-    
+        
     *Comparing module versions*
-    
+        
     The system displays the module in a separate browser window where changed tables are marked as displayed in the following example.
     
     ![](webstudio_guide_images/9140048a2c374acb80aa5246c9f03de6.jpeg)
     
     *Tables with changes*
     
-    1.  To view the changes, click the required table.
+    1. To view the changes, click the required table.
     
     The result of the comparison is displayed in the bottom of the window.
     
     ![](webstudio_guide_images/3356efaccc4fc27518b62adbd2f70379.jpeg)
     
     *The result of the module version comparison*
-    
-1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
+     
+    1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
     
     When **Restore** is clicked, the corresponding changes are restored but this action is not added to the history as a change.
 
