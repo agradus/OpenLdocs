@@ -269,14 +269,14 @@ The following table describes the Rules Editor toolbar controls:
 
 | Control                                                                                                                           | Description                                                                                                                                                                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](webstudio_guide_images/b44d6031431834721d3ad26fa9661c9a.png)                                                                  | The following table describes the available options: - Revisions: displays project revisions. - Local Changes: opens a page for reverting module changes. - Table Dependencies: opens a graph displaying dependencies among tables of the module. - Compare Excel files: initiates a dialog for comparing Excel files. |
+| ![](webstudio_guide_images/b44d6031431834721d3ad26fa9661c9a.png)                                                                  | The following table describes the available options: <br/>- Revisions: displays project revisions. <br/>- Local Changes: opens a page for reverting module changes. <br/>- Table Dependencies: opens a graph displaying dependencies among tables of the module. <br/>- Compare Excel files: initiates a dialog for comparing Excel files. |
 | ![](webstudio_guide_images/5af9107db56bbb53d95b5363c086971c.png)                                                                  | Runs a simple search. For more information on performing searches, see [Performing a Search](#performing-a-search).                                                                                                                                                                                                    |
 | ![](webstudio_guide_images/0178224646b2a0fd610df78c61ae7cf4.png)                                                                  | Refreshes OpenL Tablets WebStudio with the latest changes in Excel files.                                                                                                                                                                                                                                              |
 | ![](webstudio_guide_images/6e2e80e87665feea8c2d3249748e299e.png)                                                                  | Initiates the table creation wizard.                                                                                                                                                                                                                                                                                   |
 | ![](webstudio_guide_images/e2fe1eb32d37936b56bb5e1878e1c948.png)                                                                  | Displays recently viewed tables instead of the module tree.                                                                                                                                                                                                                                                            |
 | ![](webstudio_guide_images/eb87615b3b0005c7bd22ba758a2bff32.png)                                                                  | Returns to the module tree view.                                                                                                                                                                                                                                                                                       |
 | ![](webstudio_guide_images/16a4ff6e135df887fe05458cb52db404.png)                                                                  | Hides comment tables and dispatcher tables generated automatically when a rule table is overloaded by business dimension property.                                                                                                                                                                                     |
-| ![](webstudio_guide_images/9ef2e1ddb26eecc9d93dedaa3dd2e099.emf)                                                                  | Deploys the project. For more information on project deployment, see [Deploying Projects](#deploying-projects).                                                                                                                                                                                                        |
+| ![](webstudio_guide_images/9ef2e1ddb26eecc9d93dedaa3dd2e099.png)                                                                  | Deploys the project. For more information on project deployment, see [Deploying Projects](#deploying-projects).                                                                                                                                                                                                        |
 | ![](webstudio_guide_images/de506ec2df528b6efa2cee42255aad59.png)                                                                  | Synchronizes and merges the updates made in the specified branches.                                                                                                                                                                                                                                                    |
 | ![](webstudio_guide_images/5433ec319580497a8181f2de529a87d7.png)                                                                  | Copies the project. For more information on project copying, see [Copying a Project](#copying-a-project).                                                                                                                                                                                                              |
 | ![](webstudio_guide_images/065a365a7725869b00c56a0709886a2e.png)                                                                  | Saves the changes and sets the project status to **No Changes**.                                                                                                                                                                                                                                                       |
@@ -313,9 +313,9 @@ By default, tables are sorted by type.
 
 | Mode                     | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **By Category**          | The tree structure is rather logical than physical. Rule tables are organized into categories based on the **Category** table property or, if the property is not defined, based on the Excel table sheet names. This view is **simple.** An example of a module tree sorted by the category parameter is as follows: ![](webstudio_guide_images/78d69ca2ae827a178758b1467ea7486d.png) *Module tree sorted by category* |
-| **By Category Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. In the following example, the same module tree is sorted by **Category Detailed** and, for example, **Test \> Auto** category is displayed in the **Test** node and **Auto** sub-node: ![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) *Module tree sorted by Category Detailed*            |
-| **By Category Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: ![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) *Module tree sorted by Category Inversed*                                                                                                                                                |
+| **By Category**          | The tree structure is rather logical than physical. <br/>Rule tables are organized into categories based on the **Category** table property or, if the property is not defined, based on the Excel table sheet names. <br/>This view is **simple.** An example of a module tree sorted by the category parameter is as follows: <br/>![](webstudio_guide_images/78d69ca2ae827a178758b1467ea7486d.png) <br/>*Module tree sorted by category* |
+| **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, <br/>for example, **Test \> Auto** category is displayed in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
+| **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) *Module tree sorted by Category Inversed*                                                                                                                                                |
 
 **Note:** If the scope in a **Properties** table is defined as **Module**, in the **By Category** view, this table is displayed in the **Module Properties** sub-node as in the last example. If the scope is defined as **Category**, the table is displayed in the Category **Properties** sub-node.
 
@@ -323,8 +323,8 @@ The two following modes display a project in a way convenient to experienced use
 
 | Mode        | Description                                                                                                                                                                            |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **By Type** | An example of a module tree displayed in extended view and sorted by type is as follows: ![](webstudio_guide_images/987ef7f5c03cdb2fbb899f185a9b0e4e.png) *Module tree sorted by type* |
-| **By File** | The following module tree is sorted by file and by spreadsheets within the file: ![](webstudio_guide_images/d1d63b677bb144d3d0ecb041c7a8f4a4.png) *Module tree sorted by file*         |
+| **By Type** | An example of a module tree displayed in extended view and sorted by type is as follows: <br/>![](webstudio_guide_images/987ef7f5c03cdb2fbb899f185a9b0e4e.png) <br/>*Module tree sorted by type* |
+| **By File** | The following module tree is sorted by file and by spreadsheets within the file: <br/>![](webstudio_guide_images/d1d63b677bb144d3d0ecb041c7a8f4a4.png) <br/>*Module tree sorted by file*         |
 
 ### Introducing Repository Editor
 
@@ -339,7 +339,7 @@ The following table describes repository editor organization:
 | Pane        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Left pane` | Contains a tree of projects stored in Design repository and user's workspace. Unlike Rules Editor, repository editor displays physical project contents in terms of files and folders.                                                                                                                                                                                                                                                                                                                                                           |
-| Middle pane | Displays content for the element selected in the tree. For each project, the following actions are available: copying a project ![](webstudio_guide_images/61ca4838d9e3263452ff757b0421d25f.emf) archiving a project ![](webstudio_guide_images/fc8772103632ad8c83d7bf22f4c3d3e5.png) closing a project ![](webstudio_guide_images/b60ca00f25e0c6804341401a988d282a.png) opening a project ![](webstudio_guide_images/c0c29a6dfc7c28d78c77413e4f606f1b.png) deploying a project ![](webstudio_guide_images/f083800966546f77abdadf220acf81ab.png) |
+| Middle pane | Displays content for the element selected in the tree. For each project, the following actions are available: copying a project ![](webstudio_guide_images/61ca4838d9e3263452ff757b0421d25f.png) archiving a project ![](webstudio_guide_images/fc8772103632ad8c83d7bf22f4c3d3e5.png) closing a project ![](webstudio_guide_images/b60ca00f25e0c6804341401a988d282a.png) opening a project ![](webstudio_guide_images/c0c29a6dfc7c28d78c77413e4f606f1b.png) deploying a project ![](webstudio_guide_images/f083800966546f77abdadf220acf81ab.png) |
 
 A user can switch to Rules Editor by clicking the **Rules Editor** control.
 
@@ -529,7 +529,7 @@ The **Local** **Changes** page appears displaying all module versions, with the 
 
 *Displaying the Changes window*
 
-When a project is modified, upon clicking the **Save** icon ![](webstudio_guide_images/7cb3dcd35c8672b10e5c931de331b408.emf), a temporary version of the module is created, and it appears in the list of local changes. When project update is complete, clicking **Save** removes all temporary versions from Local Changes, and a new version is added to the list of revisions.
+When a project is modified, upon clicking the **Save** icon ![](webstudio_guide_images/7cb3dcd35c8672b10e5c931de331b408.png), a temporary version of the module is created, and it appears in the list of local changes. When project update is complete, clicking **Save** removes all temporary versions from Local Changes, and a new version is added to the list of revisions.
 
 ![](webstudio_guide_images/be93798eadb10fd4553148886ad8012d.jpeg)
 
@@ -1181,7 +1181,7 @@ The list of tables and Excel elements is displayed, grouped by Excel sheets. Cli
 
 *Excel file comparison results*
 
-Elements and tables that changed the location or contents are marked with the asterisk icon ![](webstudio_guide_images/2fa6082304b71636adcd5d0aeb872641.emf). Added elements are marked with the plus sign icon ![](webstudio_guide_images/bd04610a773ff9db7e14dd8d2151dea2.png). Removed elements or tables are marked with the deletion icon ![](webstudio_guide_images/e0e42e29e021404ff525b226ed35c59b.png).
+Elements and tables that changed the location or contents are marked with the asterisk icon ![](webstudio_guide_images/2fa6082304b71636adcd5d0aeb872641.png). Added elements are marked with the plus sign icon ![](webstudio_guide_images/bd04610a773ff9db7e14dd8d2151dea2.png). Removed elements or tables are marked with the deletion icon ![](webstudio_guide_images/e0e42e29e021404ff525b226ed35c59b.png).
 
 1.  To view or hide equal rows in the table, select or clear the **Show equal rows** check box.
 2.  To display all equal tables and Excel file elements in the selected Excel files, select **Show equal elements** check box and click **Compare.**
@@ -1292,7 +1292,7 @@ When the project is generated from the OpenAPI file and reconciliation is done, 
 To reconcile a project using an OpenAPI file with a different name, proceed as follows:
 
 1.  Ensure that the OpenAPI file is uploaded to the project via the **Repository** tab.
-2.  In Rules Editor, click **OpenAPI Import icon ![](webstudio_guide_images/2e0ac2477a2ef46417855fcfad305c36.emf).**
+2.  In Rules Editor, click **OpenAPI Import icon ![](webstudio_guide_images/2e0ac2477a2ef46417855fcfad305c36.png).**
 
 ![](webstudio_guide_images/5ecf6f1a839b5fba461ce1f14e9ee2cf.jpeg)
 
@@ -1851,9 +1851,9 @@ To group projects by repository or tag types, click the **Group Projects** icon 
 
 *Grouping projects by tags*
 
-To expand or collapse the repository tree, use the expand and collapse icons ![](webstudio_guide_images/70ea87784e324e0c231ea3cc4cad4bef.emf).
+To expand or collapse the repository tree, use the expand and collapse icons ![](webstudio_guide_images/70ea87784e324e0c231ea3cc4cad4bef.png).
 
-To view archived deleted projects, click the advanced filter icon ![](webstudio_guide_images/2ad8c5cb644cb4a787c63fa8252298ec.emf)and clear that the **Hide deleted projects** option.
+To view archived deleted projects, click the advanced filter icon ![](webstudio_guide_images/2ad8c5cb644cb4a787c63fa8252298ec.png)and clear that the **Hide deleted projects** option.
 
 ### Creating Projects in Design Repository
 
@@ -3095,7 +3095,7 @@ If the **Other** option is selected, the field becomes editable and any display 
 
 The system displays the new user in the **Users** list. If the username and password values are the same, an exclamation mark is displayed next to the username. A user can change the password to improve security.
 
-![](webstudio_guide_images/6d47073a836f7c46f45a187e9211751d.emf)
+![](webstudio_guide_images/6d47073a836f7c46f45a187e9211751d.png)
 
 *A list of users*
 
@@ -3185,7 +3185,7 @@ When at least one tag type is added, a field for adding tag values appears.
 2.  To delete a tag type, click the red cross icon for the appropriate tag.
 3.  To add a tag value, in the **New Tag** field, enter the tag name and press **Enter.**
 4.  To edit a tag, click the menu icon ![](webstudio_guide_images/f2996d868400e9a96780f9111861cfa7.png), select **Edit,** modify the tag, and press **Enter** or click outside the field.
-5.  To delete a tag, click the menu icon ![](webstudio_guide_images/f2996d868400e9a96780f9111861cfa7.emf)and select **Delete.**
+5.  To delete a tag, click the menu icon ![](webstudio_guide_images/f2996d868400e9a96780f9111861cfa7.png)and select **Delete.**
 
 All created tag types and values are saved automatically. These values are now available for selection when assigning tags to projects as described in [Creating Projects in Design Repository](#creating-projects-in-design-repository).
 
