@@ -214,9 +214,9 @@ To manage user settings, proceed as follows:
     
 1.  In the **Table Settings** section, identify whether table header and MS Excel formulas must be displayed.
 2.  In the **Testing settings**, select values for displaying rule test results.
-   
-   By default, all test results are displayed with five test tables, or unit tests, and compound result is not displayed. For more information on testing settings, see [Running Unit Tests](#running-unit-tests).
-   
+    
+    By default, all test results are displayed with five test tables, or unit tests, and compound result is not displayed. For more information on testing settings, see [Running Unit Tests](#running-unit-tests).
+    
 1.  In the **Trace Settings,** specify whether numbers must be displayed without formatting.
 
 ### Displaying the OpenL Tablets WebStudio Help
@@ -313,7 +313,7 @@ By default, tables are sorted by type.
 | Mode                     | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **By Category**          | The tree structure is rather logical than physical. <br/>Rule tables are organized into categories based on the **Category** table property or, if the property is not defined, based on the Excel table sheet names. <br/>This view is **simple.** An example of a module tree sorted by the category parameter is as follows: <br/>![](webstudio_guide_images/78d69ca2ae827a178758b1467ea7486d.png) <br/>*Module tree sorted by category* |
-| **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, for example, **Test \> Auto** category is displayed in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
+| **By Category <br/>Detailed** | The **By Category Detailed** view displays modules sorted by the first value of the **Category** property. <br/>In the following example, the same module tree is sorted by **Category Detailed** and, for example, **Test \> Auto** category is displayed <br/>in the **Test** node and **Auto** sub-node: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e.png) <br/>*Module tree sorted by Category Detailed*            |
 | **By Category <br/>Inversed** | The following example provides the module tree sorted by **Category Inversed** where the modules are sorted by the second value of the **Category** property: <br/>![](webstudio_guide_images/9a4b2559c1ec48c2382df67587772134.png) <br/>*Module tree sorted by Category Inversed*                                                                                                                                                |
 
 **Note:** If the scope in a **Properties** table is defined as **Module**, in the **By Category** view, this table is displayed in the **Module Properties** sub-node as in the last example. If the scope is defined as **Category**, the table is displayed in the Category **Properties** sub-node.
@@ -337,7 +337,7 @@ The following table describes repository editor organization:
 
 | Pane        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Left pane` | Contains a tree of projects stored in Design repository and user's workspace. <br/>Unlike Rules Editor, repository editor displays physical project contents in terms of files and folders.                                                                                                                                                                                                                                                                                                                                                           |
+| Left pane | Contains a tree of projects stored in Design repository and user's workspace. <br/>Unlike Rules Editor, repository editor displays physical project contents in terms of files and folders.                                                                                                                                                                                                                                                                                                                                                           |
 | Middle pane | Displays content for the element selected in the tree. For each project, the following actions are available: <br/>- copying a project ![](webstudio_guide_images/61ca4838d9e3263452ff757b0421d25f.png) <br/>- archiving a project ![](webstudio_guide_images/fc8772103632ad8c83d7bf22f4c3d3e5.png) <br/>- closing a project ![](webstudio_guide_images/b60ca00f25e0c6804341401a988d282a.png) <br/>- opening a project ![](webstudio_guide_images/c0c29a6dfc7c28d78c77413e4f606f1b.png) <br/>- deploying a project ![](webstudio_guide_images/f083800966546f77abdadf220acf81ab.png) |
 
 A user can switch to Rules Editor by clicking the **Rules Editor** control.
@@ -384,7 +384,7 @@ Rules Editor allows a user to work with one project at a time. To select a proje
 
 *A project page in Rules Editor*
 
-If a particular project is not available, it must be opened as described in [Opening a Project](#_Opening_a_Project_1).
+If a particular project is not available, it must be opened as described in [Opening a Project](#opening-a-project).
 
 ### Viewing a Module
 
@@ -426,7 +426,7 @@ This section explains the following tasks that can be performed on projects in R
 -   [Updating and Exporting a Project](#updating-and-exporting-a-project)
 -   [Copying a Project](#copying-a-project)
 -   [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module)
--   [Comparing and Reverting Module Changes] (#comparing-and-reverting-module-changes)
+-   [Comparing and Reverting Module Changes](#comparing-and-reverting-module-changes)
 -   [Copying a Module](#copying-a-module)
 
 #### Editing and Saving a Project
@@ -441,7 +441,7 @@ A project can be opened for editing and saved directly in Rules Editor.
 
 | Project details                                                                                                                               | Available actions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General project information and configuration, such as OpenL version compatibility, description, project name, and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). Project name can be edited only for projects in a non-flat Git repository. The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. For more information on properties pattern for the file name, see the **Properties Defined in the File Name** section of [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). |
+| General project information and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see the **Properties Defined in the File Name** section of [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). |
 | Project sources                                                                                                                               | Put the mouse cursor over the **Sources** label and click **Manage Sources** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Modules configuration                                                                                                                         | Put the mouse cursor over the **Modules** label or a particular module name and click **Add Module** ![](webstudio_guide_images/b1bc8af33d20e0e52b2bbdd4ad1a7ea3.png) or **Edit Module** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) or **Remove Module** ![](webstudio_guide_images/bc579ab11b13186a7e43f09904b47ccc.png).                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Project dependencies                                                                                                                          | Manage dependencies as described in [Defining Project Dependencies](#defining-project-dependencies).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -463,9 +463,9 @@ It is important that the structure of `rules.xml` and `rules-deploy.xml` is chan
 To update or export a project, proceed as follows:
 
 1.  To update a project directly in Rules Editor, in the top line menu, click **Update** and make the necessary changes.
-
-The **Update** button is available for projects in the **In Editing** status.
-
+    
+    The **Update** button is available for projects in the **In Editing** status.
+    
 1.  To export the project to the user’s local machine, for a project, in the top line menu, click **Export** and select a project revision.
 
 The default project version for export is the one that a user has currently open in Rules Editor. If it contains unsaved changes, it is marked as **In Editing,** otherwise, it is called **Viewing.**
@@ -498,19 +498,19 @@ A user can export, update, or edit a module directly in Rules Editor. Proceed as
 
 1.  To upload a changed module file, for a module, in the top line menu, click **Upload**.
 2.  To export the module to the user’s local machine, for a module, in the top line menu, click **Export** and select a module revision.
-
-The default module version for export is the one that a user has currently open in Rules Editor. If it contains unsaved changes, it is marked as **In Editing,** otherwise, it is called **Viewing**.
-
+    
+    The default module version for export is the one that a user has currently open in Rules Editor. If it contains unsaved changes, it is marked as **In Editing,** otherwise, it is called **Viewing**.
+    
 1.  To modify module configuration, such as module name, path, and included or excluded methods, in the **Module** page place the mouse cursor over the module name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png).
-
-![](webstudio_guide_images/10843000fe9311158adc8206237ae958.png)
-
-*Initiating module editing*
-
-![](webstudio_guide_images/97bcd40ba7866874989f723a25f51534.png)
-
-*Editing module information*
-
+    
+    ![](webstudio_guide_images/10843000fe9311158adc8206237ae958.png)
+    
+    *Initiating module editing*
+    
+    ![](webstudio_guide_images/97bcd40ba7866874989f723a25f51534.png)
+    
+    *Editing module information*
+    
 1.  To save the changes, click **Save** ![](webstudio_guide_images/065a365a7725869b00c56a0709886a2e.png).
 
 #### Comparing and Reverting Module Changes
@@ -521,42 +521,42 @@ To compare module versions, proceed as follows:
 
 1.  In the **Projects** tree, select the module.
 2.  In the top line menu, select **More** **\>** **Local** **Changes**.
-
-The **Local** **Changes** page appears displaying all module versions, with the latest versions on the top.
-
-![](webstudio_guide_images/1a554098a1f584fa7f6d0b6922d05b8b.jpeg)
-
-*Displaying the Changes window*
-
-When a project is modified, upon clicking the **Save** icon ![](webstudio_guide_images/7cb3dcd35c8672b10e5c931de331b408.png), a temporary version of the module is created, and it appears in the list of local changes. When project update is complete, clicking **Save** removes all temporary versions from Local Changes, and a new version is added to the list of revisions.
-
-![](webstudio_guide_images/be93798eadb10fd4553148886ad8012d.jpeg)
-
-*Clicking Save to complete project update and save changes as a revision version*
-
-1.  To compare the changes, select check boxes for two required versions and click **Compare**.
-
-![](webstudio_guide_images/6e36755fc51d6b93b3a7d9632c5a36dc.jpeg)
-
-*Comparing module versions*
-
-The system displays the module in a separate browser window where changed tables are marked as displayed in the following example.
-
-![](webstudio_guide_images/9140048a2c374acb80aa5246c9f03de6.jpeg)
-
-*Tables with changes*
-
-1.  To view the changes, click the required table.
-
-The result of the comparison is displayed in the bottom of the window.
-
-![](webstudio_guide_images/3356efaccc4fc27518b62adbd2f70379.jpeg)
-
-*The result of the module version comparison*
-
+    
+    The **Local** **Changes** page appears displaying all module versions, with the latest versions on the top.
+    
+    ![](webstudio_guide_images/1a554098a1f584fa7f6d0b6922d05b8b.jpeg)
+    
+    *Displaying the Changes window*
+    
+    When a project is modified, upon clicking the **Save** icon ![](webstudio_guide_images/7cb3dcd35c8672b10e5c931de331b408.png), a temporary version of the module is created, and it appears in the list of local changes. When project update is complete, clicking **Save** removes all temporary versions from Local Changes, and a new version is added to the list of revisions.
+        
+    ![](webstudio_guide_images/be93798eadb10fd4553148886ad8012d.jpeg)
+    
+    *Clicking Save to complete project update and save changes as a revision version*
+    
+    1.  To compare the changes, select check boxes for two required versions and click **Compare**.
+    
+    ![](webstudio_guide_images/6e36755fc51d6b93b3a7d9632c5a36dc.jpeg)
+    
+    *Comparing module versions*
+    
+    The system displays the module in a separate browser window where changed tables are marked as displayed in the following example.
+    
+    ![](webstudio_guide_images/9140048a2c374acb80aa5246c9f03de6.jpeg)
+    
+    *Tables with changes*
+    
+    1.  To view the changes, click the required table.
+    
+    The result of the comparison is displayed in the bottom of the window.
+    
+    ![](webstudio_guide_images/3356efaccc4fc27518b62adbd2f70379.jpeg)
+    
+    *The result of the module version comparison*
+    
 1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
-
-When **Restore** is clicked, the corresponding changes are restored but this action is not added to the history as a change.
+    
+    When **Restore** is clicked, the corresponding changes are restored but this action is not added to the history as a change.
 
 #### Copying a Module
 
