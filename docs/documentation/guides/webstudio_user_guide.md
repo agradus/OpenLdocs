@@ -665,67 +665,67 @@ To view contents of a particular table, in the module tree, select the table. Th
 OpenL Tablets WebStudio provides embedded tools for modifying table data directly in a web browser. To modify a table, proceed as follows:
 
 1.  In the module tree, select the required table.
-
-The selected table is displayed in the middle pane in read mode.
-
-![](webstudio_guide_images/58be1b760b04808e8744445b19341d1e.png)
-
-*Table opened in OpenL Tablets WebStudio*
-
+    
+    The selected table is displayed in the middle pane in read mode.
+    
+    ![](webstudio_guide_images/58be1b760b04808e8744445b19341d1e.png)
+    
+    *Table opened in OpenL Tablets WebStudio*
+    
 1.  To switch between simple and extended view, in **User settings**, select or clear the **Show Header** and **Show Formula** options as required.
 2.  To switch the table to the edit mode, perform one of the following steps:
--   Above the table, click **Edit**.
--   Right-click anywhere in the table and click **Edit**.
--   Double click the cell to edit.
-
-Alternatively, the file can be edited in Excel. In the local mode, the rule file is opened in Excel, and changes become available in OpenL Tablets WebStudio upon Excel file saving. In the remote mode or if a demo-policy file exists, clicking the **Open** button initiates file download. After editing the file locally, it can be uploaded back to the project in Rules Editor as described in [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module) or via the repository.
-
-The following table is switched to the edit mode:
-
-![](webstudio_guide_images/23b8fc70e8af17b2a2e789750dd31557.png)
-
-*Table in the edit mode*
-
-The edit mode provides the following functional buttons:
-
-| Button                                                           | Description                                             |
-|------------------------------------------------------------------|---------------------------------------------------------|
-| ![](webstudio_guide_images/d8c95f4dcb60bd3fb575f1b12ecace96.png) | Saves changes in table.                                 |
-| ![](webstudio_guide_images/04ac7759c44374e90e413dc2fd217f5b.png) | Reverses last changes.                                  |
-| ![](webstudio_guide_images/225b46e5d5a80065fcc332f22e1e5140.png) | Reapplies reversed changes.                             |
-| ![](webstudio_guide_images/2b0484ad327df2659d21f31e5b7ab595.png) | Inserts a row.                                          |
-| ![](webstudio_guide_images/848196d133a9067249f07a16602a64c4.png) | Deletes a row.                                          |
-| ![](webstudio_guide_images/b060076776efca7ffd3020a7ceb07b37.png) | Inserts a column.                                       |
-| ![](webstudio_guide_images/d2e889488d2236d03b9f4b7d8de3d38e.png) | Deletes a column.                                       |
-| ![](webstudio_guide_images/e417a6a5c7848ad41cb079683eef7332.png) | Aligns text in currently selected cell with left edge.  |
-| ![](webstudio_guide_images/b0373d015cd2a67cca7bf335c5429a48.png) | Centers text in currently selected cell.                |
-| ![](webstudio_guide_images/960cc5b05fb167ba3ad1351de5cb7530.png) | Aligns text in currently selected cell with right edge. |
-| ![](webstudio_guide_images/b08d515ccfe8607bc5e5e61704f2c7ae.png) | Make the text font **bold**.                            |
-| ![](webstudio_guide_images/3431a1b839f979aecc47dc528ac78cf8.png) | Applies *italics* to the cell text.                     |
-| ![](webstudio_guide_images/33b8ec973f2a791d1adff82bc943b72d.png) | Underlines the cell text.                               |
-| ![](webstudio_guide_images/fbe95646e37bb452bdf33c83d016b7ce.png) | Sets the fill color.                                    |
-| ![](webstudio_guide_images/069066ebe2c7e5132e9e4d3807e8d3ac.png) | Sets the font color.                                    |
-| ![](webstudio_guide_images/a42383f84cfac3f73c1a13be01afae72.png) | Decreases indent.                                       |
-| ![](webstudio_guide_images/4ab19634e2840ef5dc3487e13a935ef3.png) | Increases indent.                                       |
-
+    -   Above the table, click **Edit**.
+    -   Right-click anywhere in the table and click **Edit**.
+    -   Double click the cell to edit.
+    
+    Alternatively, the file can be edited in Excel. In the local mode, the rule file is opened in Excel, and changes become available in OpenL Tablets WebStudio upon Excel file saving. In the remote mode or if a demo-policy file exists, clicking the **Open** button initiates file download. After editing the file locally, it can be uploaded back to the project in Rules Editor as described in [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module) or via the repository.
+    
+    The following table is switched to the edit mode:
+    
+    ![](webstudio_guide_images/23b8fc70e8af17b2a2e789750dd31557.png)
+    
+    *Table in the edit mode*
+    
+    The edit mode provides the following functional buttons:
+    
+    | Button                                                           | Description                                             |
+    |------------------------------------------------------------------|---------------------------------------------------------|
+    | ![](webstudio_guide_images/d8c95f4dcb60bd3fb575f1b12ecace96.png) | Saves changes in table.                                 |
+    | ![](webstudio_guide_images/04ac7759c44374e90e413dc2fd217f5b.png) | Reverses last changes.                                  |
+    | ![](webstudio_guide_images/225b46e5d5a80065fcc332f22e1e5140.png) | Reapplies reversed changes.                             |
+    | ![](webstudio_guide_images/2b0484ad327df2659d21f31e5b7ab595.png) | Inserts a row.                                          |
+    | ![](webstudio_guide_images/848196d133a9067249f07a16602a64c4.png) | Deletes a row.                                          |
+    | ![](webstudio_guide_images/b060076776efca7ffd3020a7ceb07b37.png) | Inserts a column.                                       |
+    | ![](webstudio_guide_images/d2e889488d2236d03b9f4b7d8de3d38e.png) | Deletes a column.                                       |
+    | ![](webstudio_guide_images/e417a6a5c7848ad41cb079683eef7332.png) | Aligns text in currently selected cell with left edge.  |
+    | ![](webstudio_guide_images/b0373d015cd2a67cca7bf335c5429a48.png) | Centers text in currently selected cell.                |
+    | ![](webstudio_guide_images/960cc5b05fb167ba3ad1351de5cb7530.png) | Aligns text in currently selected cell with right edge. |
+    | ![](webstudio_guide_images/b08d515ccfe8607bc5e5e61704f2c7ae.png) | Make the text font **bold**.                            |
+    | ![](webstudio_guide_images/3431a1b839f979aecc47dc528ac78cf8.png) | Applies *italics* to the cell text.                     |
+    | ![](webstudio_guide_images/33b8ec973f2a791d1adff82bc943b72d.png) | Underlines the cell text.                               |
+    | ![](webstudio_guide_images/fbe95646e37bb452bdf33c83d016b7ce.png) | Sets the fill color.                                    |
+    | ![](webstudio_guide_images/069066ebe2c7e5132e9e4d3807e8d3ac.png) | Sets the font color.                                    |
+    | ![](webstudio_guide_images/a42383f84cfac3f73c1a13be01afae72.png) | Decreases indent.                                       |
+    | ![](webstudio_guide_images/4ab19634e2840ef5dc3487e13a935ef3.png) | Increases indent.                                       |
+    
 1.  To modify a cell value, double click it or press **Enter** while the cell is selected.
 2.  To enter a formula in the cell, double click it, perform a right click, and select **Formula Editor.**
-
-Now a user can enter formulas in the selected cell.
-
+    
+    Now a user can enter formulas in the selected cell.
+    
 1.  To save changes, click **Save** ![](webstudio_guide_images/d8c95f4dcb60bd3fb575f1b12ecace96.png).
-
-If a table contains an error, the appropriate message is displayed.
-
-![](webstudio_guide_images/2f31884fc61a15b01c31a3a6a48b10a0.png)
-
-*Example of an error in a table*
-
-The arrow under the message allows viewing all stack trace for this error.
-
-![](webstudio_guide_images/4ae30d4d267b3669a0db34507004d66a.png)
-
-*Error stack trace example*
+    
+    If a table contains an error, the appropriate message is displayed.
+    
+    ![](webstudio_guide_images/2f31884fc61a15b01c31a3a6a48b10a0.png)
+    
+    *Example of an error in a table*
+    
+    The arrow under the message allows viewing all stack trace for this error.
+    
+    ![](webstudio_guide_images/4ae30d4d267b3669a0db34507004d66a.png)
+    
+    *Error stack trace example*
 
 ### Referring to Tables
 
@@ -792,43 +792,43 @@ The following controls are available in Range Editor:
 To create a range, proceed as follows:
 
 1.  Double click the cell to be edited.
-
-For example, edit the cell containing 18-21. The table is extended by the pop-up window with a set of controls for editing the range.
-
-![](webstudio_guide_images/98662bef33f0aeeae129dc052be8b6b5.png)
-
-*Creating a range in Range Editor*
-
+    
+    For example, edit the cell containing 18-21. The table is extended by the pop-up window with a set of controls for editing the range.
+    
+    ![](webstudio_guide_images/98662bef33f0aeeae129dc052be8b6b5.png)
+    
+    *Creating a range in Range Editor*
+    
 1.  In the **From** field, enter the left border of the range, which is 22 for the example described in this section.
 2.  In the **To** field, enter the right border of the range.
-
-In this example, the **To** value must be 24, but an erroneous value 23 is entered for further editing of this border.
-
+    
+    In this example, the **To** value must be 24, but an erroneous value 23 is entered for further editing of this border.
+    
 1.  Clear the **Include** check box.
 2.  Click **Done** to complete.
-
-The last cell in the **Hour** column is filled as follows:
-
-![](webstudio_guide_images/ebc70e182e94de0d5ff4b5cb7ad638fc.png)
-
-*New range created in Range Editor*
-
+    
+    The last cell in the **Hour** column is filled as follows:
+    
+    ![](webstudio_guide_images/ebc70e182e94de0d5ff4b5cb7ad638fc.png)
+    
+    *New range created in Range Editor*
+    
 1.  To modify the range in Range Editor, double click the cell with the [22-23) range.
-
-The table resembles the following:
-
-![](webstudio_guide_images/aac1251fcc154839730f9c216b011783.png)
-
-*Editing a range in Range Editor*
-
+    
+    The table resembles the following:
+    
+    ![](webstudio_guide_images/aac1251fcc154839730f9c216b011783.png)
+    
+    *Editing a range in Range Editor*
+    
 1.  Select the **To** field, set the right border to 24, and select **Include**.
 2.  Click **Done** to save the work.
-
-The range resembles the following:
-
-![](webstudio_guide_images/e67b81800fa38f0c47f6955fb4649d90.png)
-
-*The range edited in Range Editor*
+    
+    The range resembles the following:
+    
+    ![](webstudio_guide_images/e67b81800fa38f0c47f6955fb4649d90.png)
+    
+    *The range edited in Range Editor*
 
 A range can also be modified using ‘\>’, ‘\<’ and ‘=’ controls as described in the beginning of this section.
 
@@ -846,13 +846,12 @@ To create a table as a copy of the existing table, proceed as follows:
 
 1.  In the module list, select a table to copy.
 2.  Click the **Copy Table** icon ![](webstudio_guide_images/42a58d83f10d78964b87c3a1efadd92b.png).
-
-The system displays the **Copy Table** form with **New Table** selected by default.
-
-![](webstudio_guide_images/c325ec08c39fe56d3c8df7a33ff7ac63.png)
-
-*Copying the existing table*
-
+    The system displays the **Copy Table** form with **New Table** selected by default.
+    
+    ![](webstudio_guide_images/c325ec08c39fe56d3c8df7a33ff7ac63.png)
+    
+    *Copying the existing table*
+    
 1.  If necessary, modify the **Name** field value.
 2.  To change the workbook and worksheet where the copy must be saved, click the link in the **Save To** area and in the corresponding drop-down list, select the required module and category.
 3.  To save the copied table in a new category, use the **New** option.
