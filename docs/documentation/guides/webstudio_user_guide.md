@@ -520,7 +520,6 @@ To compare module versions, proceed as follows:
 
 1.  In the **Projects** tree, select the module.
 2.  In the top line menu, select **More** **\>** **Local** **Changes**.
-    
     The **Local** **Changes** page appears displaying all module versions, with the latest versions on the top.
     
     ![](webstudio_guide_images/1a554098a1f584fa7f6d0b6922d05b8b.jpeg)
@@ -528,7 +527,7 @@ To compare module versions, proceed as follows:
     *Displaying the Changes window*
     
     When a project is modified, upon clicking the **Save** icon ![](webstudio_guide_images/7cb3dcd35c8672b10e5c931de331b408.png), a temporary version of the module is created, and it appears in the list of local changes. When project update is complete, clicking **Save** removes all temporary versions from Local Changes, and a new version is added to the list of revisions.
-        
+    
     ![](webstudio_guide_images/be93798eadb10fd4553148886ad8012d.jpeg)
     
     *Clicking Save to complete project update and save changes as a revision version*
@@ -536,11 +535,11 @@ To compare module versions, proceed as follows:
     1. To compare the changes, select check boxes for two required versions and click **Compare**.
     
     ![](webstudio_guide_images/6e36755fc51d6b93b3a7d9632c5a36dc.jpeg)
-        
-    *Comparing module versions*
-        
-    The system displays the module in a separate browser window where changed tables are marked as displayed in the following example.
     
+    *Comparing module versions*
+    
+    The system displays the module in a separate browser window where changed tables are marked as displayed in the following example.
+     
     ![](webstudio_guide_images/9140048a2c374acb80aa5246c9f03de6.jpeg)
     
     *Tables with changes*
@@ -552,7 +551,7 @@ To compare module versions, proceed as follows:
     ![](webstudio_guide_images/3356efaccc4fc27518b62adbd2f70379.jpeg)
     
     *The result of the module version comparison*
-     
+    
     1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
     
     When **Restore** is clicked, the corresponding changes are restored but this action is not added to the history as a change.
