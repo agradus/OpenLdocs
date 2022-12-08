@@ -532,7 +532,7 @@ To compare module versions, proceed as follows:
     
     *Clicking Save to complete project update and save changes as a revision version*
     
-    1. To compare the changes, select check boxes for two required versions and click **Compare**.
+1. To compare the changes, select check boxes for two required versions and click **Compare**.
     
     ![](webstudio_guide_images/6e36755fc51d6b93b3a7d9632c5a36dc.jpeg)
     
@@ -544,7 +544,7 @@ To compare module versions, proceed as follows:
     
     *Tables with changes*
     
-    1. To view the changes, click the required table.
+1. To view the changes, click the required table.
     
     The result of the comparison is displayed in the bottom of the window.
     
@@ -552,7 +552,7 @@ To compare module versions, proceed as follows:
     
     *The result of the module version comparison*
     
-    1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
+1.  To revert module changes, for the required module version, click the **Restore** link and confirm the changes.
     
     When **Restore** is clicked, the corresponding changes are restored but this action is not added to the history as a change.
 
@@ -568,22 +568,22 @@ OpenL Tablets WebStudio allows creating a copy of the existing module, in Editor
 To create a copy of a module, proceed as follows:
 
 1.  Do one of the following:
--   To create a copy of a module using the **Project** page, in the project tree, select a project which module must be copied, in the modules list, put the mouse cursor over the selected module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
--   To create a copy of a module using the **Module** page, in the project tree, select a module to be copied, put the mouse cursor over the module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
+    -   To create a copy of a module using the **Project** page, in the project tree, select a project which module must be copied, in the modules list, put the mouse cursor over the selected module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
+    -   To create a copy of a module using the **Module** page, in the project tree, select a module to be copied, put the mouse cursor over the module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
 1.  In the window that appears, enter the new module name.
-
-When the new module name is entered, the **Copy** button becomes enabled.
-
+    
+    When the new module name is entered, the **Copy** button becomes enabled.
+    
 1.  Optionally, edit the **New File Name** field value.
-
-The file name can differ from the module name.
-
+    
+    The file name can differ from the module name.
+    
 1.  Optionally, to copy the module to the specific folder, in the **New File Name** field, enter the file name and its location.
-
-The original path cannot be modified other than by entering the specific path in the **New File Name** field. For example, if the original module is located in `folder1`, the new module will be copied to `folder1`. `Folder1` cannot be changed, but a user can define a new file name, such as `folder2/Bank Rating ver2.xlsx,` and then the new module will be created in `folder1/folder2/Bank Rating ver2.xlsx`.
-
+    
+    The original path cannot be modified other than by entering the specific path in the **New File Name** field. For example, if the original module is located in `folder1`, the new module will be copied to `folder1`. `Folder1` cannot be changed, but a user can define a new file name, such as `folder2/Bank Rating ver2.xlsx,` and then the new module will be created in `folder1/folder2/Bank Rating ver2.xlsx`.
+    
 1.  Click **Copy**.
-
+    
 A new simple module is displayed in the modules list.
 
 ![](webstudio_guide_images/d037bbf438749fbad9509e1f977335ee.png)
@@ -595,8 +595,8 @@ A new simple module is displayed in the modules list.
 If the module is defined using **File Path Pattern**, to copy such module, proceed as follows:
 
 1.  Do one of the following:
--   To create a copy of a module using the **Project** page, put the mouse cursor over multiple modules, click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png), in the window that appears, click **Select module,** and in the **File Path** drop-down list, select the name of the module to copy.
--   To create a copy of a module using the **Module** page, in the project tree, select a module to copy, put the mouse cursor over the module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
+    -   To create a copy of a module using the **Project** page, put the mouse cursor over multiple modules, click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png), in the window that appears, click **Select module,** and in the **File Path** drop-down list, select the name of the module to copy.
+    -   To create a copy of a module using the **Module** page, in the project tree, select a module to copy, put the mouse cursor over the module name, and click **Copy Module** ![](webstudio_guide_images/01c68072b080e6fc98abdeaf4d55020c.png).
 1.  Click **Select module** and in the **File Path** drop-down list, select the name of the module to copy.
 2.  Enter the new module name.
 3.  Click **Copy**.
