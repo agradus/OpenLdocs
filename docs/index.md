@@ -8,4 +8,4 @@ User guides for this version are available via the left navigation
 
 [v5.24](https://openldocs.readthedocs.io/en/v5.24/)
 
-[v5.23](https://openldocs.readthedocs.io/en/v5.25/)
+[v5.23](https://openldocs.readthedocs.io/en/v5.23/)
