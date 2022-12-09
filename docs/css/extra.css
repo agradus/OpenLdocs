@@ -6,10 +6,9 @@
 
 /* set vertical spacing in left nav */
 
-.wy-menu-vertical header, .wy-menu-vertical {
-    margin-top: -20px;
-    margin-bottom: -20px;
-}
+li {
+  margin-top: -2px;
+  }
 
 /* icon sizing in the left menu */
 .icon-home {
