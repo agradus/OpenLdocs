@@ -16,8 +16,10 @@ li p.caption{
   margin-bottom: -15px;
   height: 15px;
   line-height: 15px;
-  padding: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
+
 
 /* icon sizing in the left menu */
 .icon-home {
