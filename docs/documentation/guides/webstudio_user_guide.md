@@ -994,6 +994,7 @@ The datatype table is created and becomes available in OpenL Tablets WebStudio.
 #### Creating a Data Table
 
 Creating a data table resembles creating a datatype table described in [Creating a Datatype Table](#creating-a-datatype-table). Proceed as follows:
+
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  Select the **Data Table** item and click **Next**.
     
@@ -1029,12 +1030,14 @@ OpenL Tablets supports array value definition in data tables as described in the
 #### Creating a Test Table and Defining the ID Column for Test Cases
 
 This section describes how to create a test table and define the ID column for test cases and includes the following topics:
+
 -   [Creating a Test Table](#creating-a-test-table)
 -   [Defining the ID Column for Test Cases](#defining-the-id-column-for-test-cases)
 
 ##### Creating a Test Table
 
 To create a test table, proceed as follows:
+
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  Select **Test Table** and click **Next**.
     
@@ -1126,8 +1129,8 @@ This section describes how to create a new simple rules table in OpenL Tablets W
     | Action                                                   | Description                                                                                                                                                                                                                      |
     |----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Add Property**                                         | Appears after selecting a property in the drop-down list and indicating its value.                                                                                                                                               |
-    | **Add Rule**                                             | Allows entering data. An example is as follows: ![](webstudio_guide_images/d507cf888bc177a035f2f9d0df48418c.png) *Entering table data* This action can be repeated as many times as required.                                    |
-    | **Insert Condition Before** / **Insert Condition After** | Adds a condition column to the specified position. An example of the added **DriverOccupation** condition column is as follows: ![](webstudio_guide_images/30a25a53f40dd15c0a98cb861ede558e.png) *Adding a condition column* |
+    | **Add Rule**                                             | Allows entering data. An example is as follows: <br/>![](webstudio_guide_images/d507cf888bc177a035f2f9d0df48418c.png) <br/>*Entering table data* <br/>This action can be repeated as many times as required.                                    |
+    | **Insert Condition Before** <br/>/ **Insert Condition After** | Adds a condition column to the specified position. An example of the added **DriverOccupation** condition column is as follows: <br/>![](webstudio_guide_images/30a25a53f40dd15c0a98cb861ede558e.png) <br/>*Adding a condition column* |
     | **Delete Condition** / **Delete Rule**                   | Removes a condition or rule.                                                                                                                                                                                                 |
     
 1.  When finished, click **Next**.
@@ -1143,28 +1146,28 @@ The new simple rules table is created and appears in the project.
 OpenL Tablets WebStudio supports comparing contents of Excel files displaying tables and Excel elements that are modified. To compare two Excel files, proceed as follows:
 
 1.  In OpenL Tablets WebStudio Rules Editor, in the top line menu, select **More \> Compare Excel Files.**
-
-![](webstudio_guide_images/f4dc285d2cfd850149ee33a4146b5a35.png)
-
-*Initiating Excel comparison functionality*
-
+    
+    ![](webstudio_guide_images/f4dc285d2cfd850149ee33a4146b5a35.png)
+    
+    *Initiating Excel comparison functionality*
+    
 1.  In the window that appears, click **Add** and select two Excel files to compare.
 2.  Click **Upload** and wait until file status is changed to **Done.**
-
-![](webstudio_guide_images/c6ddede80c436a2da27bc49ecaa1ab38.png)
-
-*Excel files ready for comparison*
-
+    
+    ![](webstudio_guide_images/c6ddede80c436a2da27bc49ecaa1ab38.png)
+    
+    *Excel files ready for comparison*
+    
 1.  To display tables and other Excel file elements that differ in the selected Excel files, click **Compare.**
-
-The list of tables and Excel elements is displayed, grouped by Excel sheets. Clicking on the table or element in the list displays the changes in the section below.
-
-![](webstudio_guide_images/a5a113dd2485add8924c817988fd9ed4.jpeg)
-
-*Excel file comparison results*
-
-Elements and tables that changed the location or contents are marked with the asterisk icon ![](webstudio_guide_images/2fa6082304b71636adcd5d0aeb872641.png). Added elements are marked with the plus sign icon ![](webstudio_guide_images/bd04610a773ff9db7e14dd8d2151dea2.png). Removed elements or tables are marked with the deletion icon ![](webstudio_guide_images/e0e42e29e021404ff525b226ed35c59b.png).
-
+    
+    The list of tables and Excel elements is displayed, grouped by Excel sheets. Clicking on the table or element in the list displays the changes in the section below.
+    
+    ![](webstudio_guide_images/a5a113dd2485add8924c817988fd9ed4.jpeg)
+    
+    *Excel file comparison results*
+    
+    Elements and tables that changed the location or contents are marked with the asterisk icon ![](webstudio_guide_images/2fa6082304b71636adcd5d0aeb872641.png). Added elements are marked with the plus sign icon ![](webstudio_guide_images/bd04610a773ff9db7e14dd8d2151dea2.png). Removed elements or tables are marked with the deletion icon ![](webstudio_guide_images/e0e42e29e021404ff525b226ed35c59b.png).
+    
 1.  To view or hide equal rows in the table, select or clear the **Show equal rows** check box.
 2.  To display all equal tables and Excel file elements in the selected Excel files, select **Show equal elements** check box and click **Compare.**
 
@@ -1186,9 +1189,9 @@ It contains the following information:
 
 | Field          | Description                                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Last Import At | Date of the last upload of the OpenAPI file. The OpenAPI file can be replaced in the Repository tab or generated or regenerated from rules tables and datatype tables.                                                                                                                                                                                                                        |
+| Last Import At | Date of the last upload of the OpenAPI file. <br/>The OpenAPI file can be replaced in the Repository tab or generated or regenerated from rules tables and datatype tables.                                                                                                                                                                                                                        |
 | OpenAPI File   | Location and name of the OpenAPI file, such as openAPI.json and files/example.json.                                                                                                                                                                                                                                                                                                           |
-| Mode           | Last operation performed with this OpenAPI project. **- Tables generation** mode means that the last performed operation is generation or regeneration of the project based on the OpenAPI file. For the **Tables generation** option, project reconciliation is done, too. **- Reconciliation** mode is set to validate the project against the newly uploaded OpenAPI file with a new name. |
+| Mode           | Last operation performed with this OpenAPI project. <br/>**- Tables generation** mode means that the last performed operation is generation or regeneration of the project <br/>based on the OpenAPI file. <br/>For the **Tables generation** option, project reconciliation is done, too. <br/>**- Reconciliation** mode is set to validate the project against the newly uploaded OpenAPI file with a new name. |
 | Rules Module   | Name of the module that contains rules.                                                                                                                                                                                                                                                                                                                                                       |
 | Data Module    | Name of the module that contains data types.                                                                                                                                                                                                                                                                                                                                                  |
 
