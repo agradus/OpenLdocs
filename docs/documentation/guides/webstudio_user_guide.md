@@ -883,7 +883,6 @@ OpenL Tablets WebStudio provides search functionality to look through all module
 #### Performing a Simple Search
 
 In the **simple search** mode, the system looks for a particular word or phrase in all tables within the given module.
-
 To perform a simple search, in the **Search** field, enter a word or phrase and press **Enter**.
 
 ![](webstudio_guide_images/7fa01db8589e92f2ef054e15a86be21c.png)
@@ -903,31 +902,31 @@ To search for any cell contents, right click the cell and in the context menu, s
 Advanced search allows specifying criteria to narrow the search through tables. To limit the search, specify the table type, text from the table header, and table properties as described further in this section.
 
 1.  To launch an advanced search, click the arrow to the right of the search window.
-
-![](webstudio_guide_images/614dc76daa751a30bd43a633a830e3cc.png)
-
-*Initiating the advanced search*
-
+    
+    ![](webstudio_guide_images/614dc76daa751a30bd43a633a830e3cc.png)
+    
+    *Initiating the advanced search*
+    
 1.  In the **Search** field on the top, select whether search must be performed within the current module, or within the project, or within the current project and its dependent projects.
-
-![](webstudio_guide_images/ad19dceb5bf472f91f290e5afb6883de.png)
-
-*Specifying search area*
-
+    
+    ![](webstudio_guide_images/ad19dceb5bf472f91f290e5afb6883de.png)
+    
+    *Specifying search area*
+    
 1.  In the filter form, click the **Table Types** field and select the required table type or select **Select All** to search in all table types.
 2.  In the **Header contains** field, enter the word or phrase to search for.
 3.  Expand the **Table Properties** list, select the required table property, and then click the **Add** button on the right.
-
-The text field for entering the property name appears.
-
+    
+    The text field for entering the property name appears.
+    
 1.  Enter the property name.
 2.  In the similar way, add as many table properties as required.
 3.  To remove a property, click the cross icon to the right of the property.
-
-![](webstudio_guide_images/bba2ff05d014679939d8b822b0fcaa39.png)
-
-*A filled form for advanced search*
-
+    
+    ![](webstudio_guide_images/bba2ff05d014679939d8b822b0fcaa39.png)
+    
+    *A filled form for advanced search*
+    
 1.  Click **Search** to run the search.
 
 As a result, the system displays the tables matching the search criteria along with links to the relevant Excel files and the **Edit Table** links leading to the table editing page.
@@ -939,7 +938,6 @@ As a result, the system displays the tables matching the search criteria along w
 ### Creating Tables
 
 OpenL Tablets WebStudio allows creating tables of the following types:
-
 -   datatype table
 -   vocabulary table
 -   data table
@@ -962,74 +960,68 @@ To create a datatype table, proceed as follows:
 
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  In the list of table types, select **Datatype Table** and click **Next**.
-
-![](webstudio_guide_images/9ca72d99ad66b8bb821f8238d444cef9.png)
-
-*Creating a datatype table*
-
-1.  Enter the data type name and if necessary, select the existing data type as a parent.
-
-If a parent data type value is specified, the newly created data type will have access to all fields defined in the parent data type as described in the **Inheritance in Data types** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
-
-This option is unavailable if no custom data types are created in the module.
-
-![](webstudio_guide_images/a7dc6f519d39b98e1c58470ba125806b.png)
-
-*Specifying the data type name and parent type*
-
+    
+    ![](webstudio_guide_images/9ca72d99ad66b8bb821f8238d444cef9.png)
+    
+    *Creating a datatype table*
+    
+1.  Enter the data type name and if necessary, select the existing data type as a parent.  
+    If a parent data type value is specified, the newly created data type will have access to all fields defined in the parent data type as described in the **Inheritance in Data types** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+    
+    This option is unavailable if no custom data types are created in the module.
+    
+    ![](webstudio_guide_images/a7dc6f519d39b98e1c58470ba125806b.png)
+    
+    *Specifying the data type name and parent type*
+    
 1.  To define data type fields, click **Add parameter**, specify values as required, and then click **Next**.
-
-![](webstudio_guide_images/caca6cab092c8498fea98e1896d13408.png)
-
-*Defining data type fields*
-
+    
+    ![](webstudio_guide_images/caca6cab092c8498fea98e1896d13408.png)
+    
+    *Defining data type fields*
+    
 1.  To indicate the new datatype table location, in the **Select destination** window, select an existing sheet, or in the **New** field, enter the new sheet name.
-
-The **Module** value cannot be changed. All created tables go to the current module.
-
-![](webstudio_guide_images/961137f64696a6b67a41c59a5b4678b9.png)
-
-*Specifying table location*
-
+    
+    The **Module** value cannot be changed. All created tables go to the current module.
+    
+    ![](webstudio_guide_images/961137f64696a6b67a41c59a5b4678b9.png)
+    
+    *Specifying table location*
+    
 1.  Click **Save** to complete table creation.
-
 The datatype table is created and becomes available in OpenL Tablets WebStudio.
 
 #### Creating a Data Table
 
 Creating a data table resembles creating a datatype table described in [Creating a Datatype Table](#creating-a-datatype-table). Proceed as follows:
-
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  Select the **Data Table** item and click **Next**.
-
-![](webstudio_guide_images/3dba085b0981250107ed82677e8f485a.png)
-
-*Initiating data table creation*
-
+    
+    ![](webstudio_guide_images/3dba085b0981250107ed82677e8f485a.png)
+    
+    *Initiating data table creation*
+    
 1.  Select the table type, enter the table name, and click **Next**.
-
-![](webstudio_guide_images/540b45c84fba045b2ff255ddb7be274b.png)
-
-*Defining table type and name*
-
+    
+    ![](webstudio_guide_images/540b45c84fba045b2ff255ddb7be274b.png)
+    
+    *Defining table type and name*
+    
 1.  Define the table columns configuration.
-
-For the **Loss1** type selected in the previous window, column configuration resembles the following:
-
-![](webstudio_guide_images/5d6090603e9b5d711dba74616dcb2f2e.png)
-
-*Defining column configuration*
-
+    For the **Loss1** type selected in the previous window, column configuration resembles the following:
+    
+    ![](webstudio_guide_images/5d6090603e9b5d711dba74616dcb2f2e.png)
+    
+    *Defining column configuration*
+    
 1.  To indicate new data table location, in the **Select destination** window, select an existing sheet, or in the **New** field, enter the new sheet name.
-
-The **Module** value cannot be changed. All created tables go to the current module.
-
-![](webstudio_guide_images/eef90b784fd45397c68a302adc74fd30.png)
-
-*Specifying table location*
-
+    The **Module** value cannot be changed. All created tables go to the current module.
+    
+    ![](webstudio_guide_images/eef90b784fd45397c68a302adc74fd30.png)
+    
+    *Specifying table location*
+    
 1.  Click **Save** to complete table creation.
-
 The new data table is created and can be modified as needed.
 
 OpenL Tablets supports array value definition in data tables as described in the **Defining Array Values in Test and Data Tables** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
@@ -1037,45 +1029,41 @@ OpenL Tablets supports array value definition in data tables as described in the
 #### Creating a Test Table and Defining the ID Column for Test Cases
 
 This section describes how to create a test table and define the ID column for test cases and includes the following topics:
-
 -   [Creating a Test Table](#creating-a-test-table)
 -   [Defining the ID Column for Test Cases](#defining-the-id-column-for-test-cases)
 
 ##### Creating a Test Table
 
 To create a test table, proceed as follows:
-
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  Select **Test Table** and click **Next**.
-
-![](webstudio_guide_images/969e2826ecb4728150476fe6f5c40eb5.png)
-
-*Creating a test table*
-
+    
+    ![](webstudio_guide_images/969e2826ecb4728150476fe6f5c40eb5.png)
+    
+    *Creating a test table*
+    
 1.  In the **Select table** window, select the rule table and click **Next**.
-
-![](webstudio_guide_images/8206cc985b31891b6cdbe9cf5842a0f1.png)
-
-*Selecting a rule table to create a test table for*
-
-**Note:** If there is no rule table available in this module, a test table cannot be created, and an error message is displayed.
-
+    
+    ![](webstudio_guide_images/8206cc985b31891b6cdbe9cf5842a0f1.png)
+    
+    *Selecting a rule table to create a test table for*
+    
+    **Note:** If there is no rule table available in this module, a test table cannot be created, and an error message is displayed.
+    
 1.  In the **Input name** window, if necessary, modify the generated test table name and click **Next**.
-
-![](webstudio_guide_images/c1ee4957624b94f72f8cdde69a3d91fe.png)
-
-*Reviewing the test table name*
-
+    
+    ![](webstudio_guide_images/c1ee4957624b94f72f8cdde69a3d91fe.png)
+    
+    *Reviewing the test table name*
+    
 1.  To define the test table location, in the **Select destination** window, select an existing sheet, or in the **New** field, enter the new sheet name.
-
-The **Module** value cannot be changed. All created tables go to the current module.
-
-![](webstudio_guide_images/5be60ad6f55676120ba0114712f827dd.png)
-
-*Specifying table location*
-
+    The **Module** value cannot be changed. All created tables go to the current module.
+    
+    ![](webstudio_guide_images/5be60ad6f55676120ba0114712f827dd.png)
+    
+    *Specifying table location*
+    
 1.  To complete table creation, click **Save**.
-
 The test table is created and becomes available in OpenL Tablets WebStudio.
 
 OpenL Tablets supports array value definition in test tables as described in the **Defining Array Values in Test and Data Tables** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
@@ -1089,7 +1077,6 @@ The ID column is not mandatory in a test table. A user can define the ID column 
 *A test table with the ID column defined*
 
 If the ID column is not defined for the test table, default numeric values are displayed beside each test case.
-
 When running a test table, to run the test cases, expand the additional settings for the **Run** button and select the required cases.
 
 ![](webstudio_guide_images/80cce53b8b6655496217bca8bfc164de.png)
@@ -1108,48 +1095,47 @@ This section describes how to create a new simple rules table in OpenL Tablets W
 
 1.  In OpenL Tablets WebStudio, click **Create Table**.
 2.  Select **Simple Rules Table** and click **Next**.
-
-![](webstudio_guide_images/e44390622ef2d348d05b9763480569d0.png)
-
-*Initiating table creation*
-
+    
+    ![](webstudio_guide_images/e44390622ef2d348d05b9763480569d0.png)
+    
+    *Initiating table creation*
+    
 1.  Enter table name and select the required data type to return.
 2.  Click **Add Input Parameters** and specify values as required.
-
-![](webstudio_guide_images/8ff257223a07802fed34b30e0c83ec0f.png)
-
-*Specifying table parameters*
-
+    
+    ![](webstudio_guide_images/8ff257223a07802fed34b30e0c83ec0f.png)
+    
+    *Specifying table parameters*
+    
 1.  When finished, click **Next**.
-
-In the **Construct a table** window that appears, a blank simple rules table with the header constructed based on the previously entered values appears.
-
-![](webstudio_guide_images/dd77d39d70eb8d48dd2b32a980c135c4.png)
-
-*Adding data to a table*
-
-Now the table can be filled with data.
-
-![](webstudio_guide_images/65462d7abdd264cfdaf7e00c9ab2e202.png)
-
-*Selecting an action from the context menu*
-
+    
+    In the **Construct a table** window that appears, a blank simple rules table with the header constructed based on the previously entered values appears.
+    
+    ![](webstudio_guide_images/dd77d39d70eb8d48dd2b32a980c135c4.png)
+    
+    *Adding data to a table*
+    
+    Now the table can be filled with data.
+    
+    ![](webstudio_guide_images/65462d7abdd264cfdaf7e00c9ab2e202.png)
+    
+    *Selecting an action from the context menu*
+    
 1.  Right click any cell and select one of the following actions:
-
-| Action                                                   | Description                                                                                                                                                                                                                  |
-|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Property**                                         | Appears after selecting a property in the drop-down list and indicating its value.                                                                                                                                           |
-| **Add Rule**                                             | Allows entering data. An example is as follows: ![](webstudio_guide_images/d507cf888bc177a035f2f9d0df48418c.png) *Entering table data* This action can be repeated as many times as required.                                |
-| **Insert Condition Before** / **Insert Condition After** | Adds a condition column to the specified position. An example of the added **DriverOccupation** condition column is as follows: ![](webstudio_guide_images/30a25a53f40dd15c0a98cb861ede558e.png) *Adding a condition column* |
-| **Delete Condition** / **Delete Rule**                   | Removes a condition or rule.                                                                                                                                                                                                 |
-
+    
+    | Action                                                   | Description                                                                                                                                                                                                                      |
+    |----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Add Property**                                         | Appears after selecting a property in the drop-down list and indicating its value.                                                                                                                                               |
+    | **Add Rule**                                             | Allows entering data. An example is as follows: ![](webstudio_guide_images/d507cf888bc177a035f2f9d0df48418c.png) *Entering table data* This action can be repeated as many times as required.                                    |
+    | **Insert Condition Before** / **Insert Condition After** | Adds a condition column to the specified position. An example of the added **DriverOccupation** condition column is as follows: ![](webstudio_guide_images/30a25a53f40dd15c0a98cb861ede558e.png) *Adding a condition column* |
+    | **Delete Condition** / **Delete Rule**                   | Removes a condition or rule.                                                                                                                                                                                                 |
+    
 1.  When finished, click **Next**.
 2.  To indicate new table location, in the **Select destination** window, select an existing sheet, or in the **New** field, enter the new sheet name.
-
-The **Module** value cannot be changed. All created tables go to the current module.
-
+    
+    The **Module** value cannot be changed. All created tables go to the current module.
+    
 1.  Click **Save** to save the changes.
-
 The new simple rules table is created and appears in the project.
 
 ### Comparing Excel Files
