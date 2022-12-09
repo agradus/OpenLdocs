@@ -4,9 +4,9 @@
   order: 0;
 }
 
-/* set line height of left nav */
-li {
-  line-height: 0.5;
+/* set vertical spacing in left nav */
+li{
+  margin: 0;
 }
 
 
