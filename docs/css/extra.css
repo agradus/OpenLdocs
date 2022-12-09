@@ -7,7 +7,8 @@
 /* set vertical spacing in left nav */
 
 .wy-menu-vertical header, .wy-menu-vertical {
-    margin: 20px 0 0;
+    margin-top: -20px;
+    margin-bottom: -20px;
 }
 
 /* icon sizing in the left menu */
