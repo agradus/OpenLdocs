@@ -2310,7 +2310,7 @@ This section describes tasks related to deploying rule projects to deployment re
 The following topics are included in this section:
 
 -   [Creating a Deploy Configuration](#creating-a-deploy-configuration)
--   [Defining Projects to Deploy](#cefining-projects-to-deploy)
+-   [Defining Projects to Deploy](#defining-projects-to-deploy)
 -   [Deploying a Deploy Configuration](#deploying-a-deploy-configuration)
 -   [Opening Deployed Configurations](#opening-deployed-configurations)
 -   [Redeploying Projects](#redeploying-projects)
@@ -2327,9 +2327,9 @@ To create a deploy configuration, proceed as follows:
 
 1.  Click **Create Deploy Configuration** in the top line menu.
 2.  In the **New Deploy Configuration** window, enter the deploy configuration name and click **Create**.
-
-The new deploy configuration appears in the **Deploy Configuration** tree.
-
+    
+    The new deploy configuration appears in the **Deploy Configuration** tree.
+    
 1.  Define deploy configuration projects as described in [Defining Projects to Deploy](#defining-projects-to-deploy).
 
 #### Defining Projects to Deploy
@@ -2339,19 +2339,19 @@ A Project to Deploy is a reference to one specific revision of a rule project to
 To add a new project to deploy to the deploy configuration, proceed as follows:
 
 1.  In the **Deploy Configurations** tree, select the deploy configuration and, in the right pane, select the **Projects to Deploy** tab.
-
-![](webstudio_guide_images/8c27bc98646284c2e73349402468d445.png)
-
-*Deploy configuration with projects to deploy*
-
-The **Projects to Deploy** tab displays existing projects to deploy of the selected deploy configuration.
-
+    
+    ![](webstudio_guide_images/8c27bc98646284c2e73349402468d445.png)
+    
+    *Deploy configuration with projects to deploy*
+    
+    The **Projects to Deploy** tab displays existing projects to deploy of the selected deploy configuration.
+    
 1.  To add a new project to deploy, click **Add** and specify the repository, project name, branch, and revision to be included in the deploy configuration.
-
-![](webstudio_guide_images/70ed8c6681d4577de2c20b772582d2cd.jpeg)
-
-*Adding a project to deploy*
-
+    
+    ![](webstudio_guide_images/70ed8c6681d4577de2c20b772582d2cd.jpeg)
+    
+    *Adding a project to deploy*
+    
 1.  Repeat this procedure to add as many projects as required.
 
 #### Deploying a Deploy Configuration
@@ -2393,22 +2393,22 @@ To update related deploy configurations and redeploy a rule project, proceed as 
 
 1.  In the Projects tree, select the modified rule project.
 2.  In the right pane, click **Deploy**.
-
+    
     **Note:** The **Deploy** button is disabled if the selected project has the Local status or if it is edited.
-
-The **Auto Deploy** window appears listing all existing deploy configurations which’s latest revision contains a reference to the selected rule project. Deploy configurations marked for deletion are not displayed.
-
-![](webstudio_guide_images/568c1427aaa0589680b223a5234bae17.png)
-
-*Deploying a project*
-
-The **Message** column displays the current status of displayed deploy configurations. If a particular deploy configuration cannot be deployed, the check box is gray. Possible reasons for a deploy configuration to be disabled are the following:
-
--   The deploy configuration is saved.
--   The deploy configuration is locked by another user and cannot be updated.
-
-If the selected rule project is not referenced by any existing deploy configuration, the system offers to create a new deploy configuration containing only the rule project with an identical name.
-
+    
+    The **Auto Deploy** window appears listing all existing deploy configurations which’s latest revision contains a reference to the selected rule project. Deploy configurations marked for deletion are not displayed.
+    
+    ![](webstudio_guide_images/568c1427aaa0589680b223a5234bae17.png)
+    
+    *Deploying a project*
+    
+    The **Message** column displays the current status of displayed deploy configurations. If a particular deploy configuration cannot be deployed, the check box is gray.     Possible reasons for a deploy configuration to be disabled are the following:
+    
+    -   The deploy configuration is saved.
+    -   The deploy configuration is locked by another user and cannot be updated.
+    
+    If the selected rule project is not referenced by any existing deploy configuration, the system offers to create a new deploy configuration containing only the rule project with an identical name.
+    
 1.  Select check boxes for the deploy configurations that must be updated and deployed.
 2.  Click **Deploy**.
 
@@ -2429,39 +2429,39 @@ Proceed as follows:
 1.  In the top line menu, click **Rules Deploy Configuration**.
 2.  Click **Create rules deploy configuration**.
 3.  In the window that appears, enter the following information about the rules:
--   Provide runtime context.
--   Use the Rule Service runtime context.
--   Define variations.
--   Create services specifying the versions of web services to support, which is either the RESTful service, or RMI, or both of them.
--   Enter the service name.
-
-    The service name is displayed for a deployed project only in the embedded mode.
-
--   Define the service class.
--   Define an RMI service class.
--   Define the service version.
-
-    For more information on service version definition, see [Defining Rule Service Version](#defining-rule-service-version).
-
--   Enter URL of the service.
--   In the **Template class** field, define **Annotation template class**.
-
-    **Note:** In OpenL Tablets versions prior to 5.24.1, separate fields for **Intercepting template class** and **Annotation template class** are supported. Since **Annotation template class** completely covers **Intercepting template class** and have a higher priority, from 5.24.1, only **Annotation template class** is displayed in the **Template class** field. If the existing configuration have both **Annotation template class** and **Intercepting template class**, only **Annotation template class** is displayed on UI and saved in the file after editing.
-
-    **Exception:** For projects with **OpenL version compatibility** and version prior to 5.16, only the **Intercepting template class:** field is displayed instead of **Template class**.
-
--   Define comma separated service groups.
--   Add configuration description to the XML file.
-
-For more information on the **Rules Deploy Configuration** tab settings configuration, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide), section **OpenL Tablets Rule Services Customization** **\> Service Configurer**.
-
+    -   Provide runtime context.
+    -   Use the Rule Service runtime context.
+    -   Define variations.
+    -   Create services specifying the versions of web services to support, which is either the RESTful service, or RMI, or both of them.
+    -   Enter the service name.
+    
+        The service name is displayed for a deployed project only in the embedded mode.
+    
+    -   Define the service class.
+    -   Define an RMI service class.
+    -   Define the service version.
+    
+        For more information on service version definition, see [Defining Rule Service Version](#defining-rule-service-version).
+    
+    -   Enter URL of the service.
+    -   In the **Template class** field, define **Annotation template class**.
+    
+        **Note:** In OpenL Tablets versions prior to 5.24.1, separate fields for **Intercepting template class** and **Annotation template class** are supported. Since **Annotation template class** completely covers **Intercepting template class** and have a higher priority, from 5.24.1, only **Annotation template class** is displayed in the **Template class** field. If the existing configuration have both **Annotation template class** and **Intercepting template class**, only **Annotation template class** is displayed on UI and saved in the file after editing.
+        
+        **Exception:** For projects with **OpenL version compatibility** and version prior to 5.16, only the **Intercepting template class:** field is displayed instead of **Template class**.
+        
+    -   Define comma separated service groups.
+    -   Add configuration description to the XML file.
+        
+        For more information on the **Rules Deploy Configuration** tab settings configuration, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide), section **OpenL Tablets Rule Services Customization** **\> Service Configurer**.
+    
 1.  Click **Save Configuration**.
-
-The selected rules are displayed in the **Rules Deploy Configuration** tab.
-
-![](webstudio_guide_images/cb56c11b5d220dbe316410763acd311d.png)
-
-*Defining rules deploy configuration settings*
+    
+    The selected rules are displayed in the **Rules Deploy Configuration** tab.
+    
+    ![](webstudio_guide_images/cb56c11b5d220dbe316410763acd311d.png)
+    
+    *Defining rules deploy configuration settings*
 
 #### Defining Rule Service Version
 
@@ -2478,18 +2478,18 @@ To define the rule service version, proceed as follows:
 1.  In the **Projects** tree, select a project.
 2.  In the top line menu, click **Rules Deploy Configuration**.
 3.  In the window that appears, click the **Version** field.
-
-By default, the **Major 0, Minor 0** scroll list appears.
-
+    
+    By default, the **Major 0, Minor 0** scroll list appears.
+    
 1.  For more information on how to configure deployment configuration settings, see [Configuring Additional Rules Deploy Configuration Settings](#configuring-additional-rules-deploy-configuration-settings).
 2.  In the scroll list, select the services version.
-
-For example, to create the services version 1.0, Major = 1 and Minor = 0 must be selected.
-
-![](webstudio_guide_images/051ff8dd63dc3613e9d8ba08404bcfba.png)
-
-*Defining services versioning*
-
+    
+    For example, to create the services version 1.0, Major = 1 and Minor = 0 must be selected.
+    
+    ![](webstudio_guide_images/051ff8dd63dc3613e9d8ba08404bcfba.png)
+    
+    *Defining services versioning*
+    
 1.  Click **Save Configuration**.
 
 The selected services version is displayed in **Rules Deploy Configuration** for the selected project. For the example displayed in this section, the project version is 1.0.
@@ -2502,13 +2502,13 @@ To compare contents of the currently opened project revision with any other revi
 
 1.  In the project tree, select the project.
 2.  In the right pane, click **Compare**.
+    
+        A window appears listing contents of the currently opened project version on the left side and contents of another project revision on the right side.
 
-A window appears listing contents of the currently opened project version on the left side and contents of another project revision on the right side.
-
-![](webstudio_guide_images/a06d3841680295798c7a25bfdb6af501.png)
-
-*Comparing the current project revision from user workspace to the second project revision*
-
+    ![](webstudio_guide_images/a06d3841680295798c7a25bfdb6af501.png)
+    
+    *Comparing the current project revision from user workspace to the second project revision*
+    
 1.  To view or hide equal rows in the table, select or clear the **Show equal rows** check box.
 2.  To compare the current project revision with a different revision, select the branch and revision.
 
@@ -2542,8 +2542,8 @@ OpenL Tablets WebStudio provides a function for a user to unlock a project which
 To unlock a project, proceed as follows:
 
 1.  Perform one of the following steps as required:
--   In the **Projects** tree, select the project and, in the right pane, click **Unlock**.
--   Click **Projects** in Navigator to get a list of projects, navigate to the project that needs to be removed and click the corresponding **Unlock** item ![](webstudio_guide_images/db81abb8713c03cc7413fc20bf951cbb.png) on the right.
+    -   In the **Projects** tree, select the project and, in the right pane, click **Unlock**.
+    -   Click **Projects** in Navigator to get a list of projects, navigate to the project that needs to be removed and click the corresponding **Unlock** item ![](webstudio_guide_images/db81abb8713c03cc7413fc20bf951cbb.png) on the right.
 1.  In the confirmation window, click **OK**.
 
 It is recommended to grant permission to the “Unlock” functionality only for administrators.
@@ -2556,9 +2556,9 @@ To browse a deployment repository, proceed as follows:
 
 1.  Switch from the **Design repository** view to the **Deployment repositories** view by clicking **Deployment** in the top of the left pane.
 2.  In the project tree, select the deployment repository to be browsed (repositories are marked by ![](webstudio_guide_images/55814fc7139e046c446b4c3e39762201.png) icon).
-
-The list of project deployments or deployed configurations – deploy configurations which consist of rule projects and specific project revisions and deployed to the selected deployment repository – are displayed in the middle pane.
-
+    
+    The list of project deployments or deployed configurations – deploy configurations which consist of rule projects and specific project revisions and deployed to the selected deployment repository – are displayed in the middle pane.
+    
 1.  If needed, expand the repository tree and browse project deployments.
 
 OpenL Tablets WebStudio displays only the latest revisions of each deployed configuration in the deployment repository.
