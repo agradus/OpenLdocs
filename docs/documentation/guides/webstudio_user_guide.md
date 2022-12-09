@@ -1792,7 +1792,7 @@ The following topics are included in this chapter:
 -   [Copying a Project](#copying-a-project)
 -   [Removing a Project](#removing-a-project)
 -   [Deploying Projects](#deploying-projects)
--   [Comparing Project Versions](#comparing-project-versions)
+-   [Comparing Project Revisions](#comparing-project-revisions)
 -   [Exporting a Project or a File](#exporting-a-project-or-a-file)
 -   [Unlocking a Project](#unlocking-a-project)
 -   [Browsing the Deployment Repository](#browsing-the-deployment-repository)
@@ -1805,7 +1805,7 @@ Repository editor displays all projects in user's workspace and Design repositor
 | Category                  | Description                                                                                                                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Projects**              | Contains OpenL Tablets rule projects.                                                                                                                                               |
-| **Deploy Configurations** | Contains deploy configurations for deploying rule projects to deployment repository. For information on using deploy configurations, see [Deploying Projects](#deploying-projects). |
+| **Deploy Configurations** | Contains deploy configurations for deploying rule projects to deployment repository. <br/>For information on using deploy configurations, see [Deploying Projects](#deploying-projects). |
 
 Projects from all repositories are displayed in a common list that is sorted alphabetically.
 
@@ -1814,12 +1814,12 @@ The status of each project in the tree is identified by a specific icon. The fol
 | Icon                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![](webstudio_guide_images/8e2af296adafbac75872d0fab66dda6b.png) | Project is closed. It is available only in Design repository and must be opened to copy it to user's workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ![](webstudio_guide_images/cf865a109e2be06a20865e2e72d28c8b.png) | Project is opened for viewing. It is copied to user's workspace and can be modified. If the product is restored from the previous revision, its status is set to **Viewing Revision,** otherwise its status is set to **No Changes.**                                                                                                                                                                                                                                                                                                                                                                 |
-| ![](webstudio_guide_images/2612691cc1108289c7fafbdefb85bdb9.png) | Project is edited by the current user. It is copied to user's workspace and is modified. Other users cannot edit the project. To save changes, the project must be saved.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ![](webstudio_guide_images/cf865a109e2be06a20865e2e72d28c8b.png) | Project is opened for viewing. It is copied to user's workspace and can be modified. <br/>If the product is restored from the previous revision, its status is set to **Viewing Revision,** otherwise its status is set to **No Changes.**                                                                                                                                                                                                                                                                                                                                                                 |
+| ![](webstudio_guide_images/2612691cc1108289c7fafbdefb85bdb9.png) | Project is edited by the current user. It is copied to user's workspace and is modified. Other users cannot edit the project. <br/>To save changes, the project must be saved.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ![](webstudio_guide_images/92724abe4cfd4fd2ef78a6586a595ba0.png) | Project is closed by the current user but edited by another user (Closed – Locked). Current user cannot edit the project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ![](webstudio_guide_images/0911850e55e28478fb5a39990c19ba03.png) | Project is opened for viewing by the current user but edited by another user (Viewing Revision - Locked). Current user cannot edit the project but can browse the project in Rules Editor.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ![](webstudio_guide_images/2c331509e4c7655949ad8055eb387d98.png) | Project exists only in user's workspace but not in Design repository (Local). Other users do not see this project. User can delete the project or import it into Design repository as described in the [Creating Projects in Design Repository](#creating-projects-in-design-repository).                                                                                                                                                                                                                                                                                                             |
-| ![](webstudio_guide_images/4d37af564602b82442d8138a551c3229.png) | Project is marked for deletion. In OpenL Tablets WebStudio, deletion of a project takes place in the following phases: - Deleting a project: Project is removed from user's workspace and marked for deletion. In this phase, the project can be restored using the undelete function. For information on deleting a project, see [Deleting a Project](#deleting-a-project). - Erasing a project: Deleted project is permanently removed from Design repository. After this phase, the project cannot be restored. For information on erasing a project, see [Erasing a Project](#erasing-a-project). |
+| ![](webstudio_guide_images/0911850e55e28478fb5a39990c19ba03.png) | Project is opened for viewing by the current user but edited by another user (Viewing Revision - Locked). <br/>Current user cannot edit the project but can browse the project in Rules Editor.                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ![](webstudio_guide_images/2c331509e4c7655949ad8055eb387d98.png) | Project exists only in user's workspace but not in Design repository (Local). Other users do not see this project. <Br/>User can delete the project or import it into Design repository as described in the [Creating Projects in Design Repository](#creating-projects-in-design-repository).                                                                                                                                                                                                                                                                                                             |
+| ![](webstudio_guide_images/4d37af564602b82442d8138a551c3229.png) | Project is marked for deletion. In OpenL Tablets WebStudio, deletion of a project takes place in the following phases: <br/>- Deleting a project: Project is removed from user's workspace and marked for deletion. <br/>In this phase, the project can be restored using the undelete function. <br/>For information on deleting a project, see [Deleting a Project](#deleting-a-project). <br/><br/>- Erasing a project: Deleted project is permanently removed from Design repository. <Br/>After this phase, the project cannot be restored. <br/>For information on erasing a project, see [Erasing a Project](#erasing-a-project). |
 
 ### Filtering the Project Tree
 
@@ -1846,7 +1846,7 @@ OpenL Tablets WebStudio allows users to create new rule projects in the Design r
 | Create a rule project from a template      | [Creating a Project from Template](#creating-a-project)                     |
 | Create a rule project from Excel files     | [Creating a Project from Excel Files](#creating-a-project-from-excel-files)   |
 | Create a rule project from an OpenAPI file | [Creating a Project from OpenAPI file](#creating-a-project-from-openapi-file) |
-| Create a rule project from a zip archive   | Creating a Project from ZIP Archive                                           |
+| Create a rule project from a zip archive   | [Creating a Project from ZIP Archive](#creating-a-project-from-zip-archive) |
 | Import a rule project from workspace       | [Importing a Project from Workspace](#importing-a-project-from-workspace)                   |
 | Create a rule project from repository      | [Creating a Project from a Repository](#creating-a-project-from-a-repository) |
 
@@ -1869,7 +1869,7 @@ While creating a project from template, use the following template types:
 
 | Template type        | Description                                                                                                                                                                                                                                        |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Simple Templates** | Include the following: **- Sample Project** is a very simple project consisting of one rule table and hence, one Excel file. **- Empty Project** allows creating a project with an empty Excel file. Open the project and create tables as needed. |
+| **Simple Templates** | Include the following: <br/>**- Sample Project** is a very simple project consisting of one rule table and hence, one Excel file. <br/>**- Empty Project** allows creating a project with an empty Excel file. <br/>Open the project and create tables as needed. |
 | **Examples**         | Provide several simple projects demonstrating how OpenL Tablets can be used in various business domains.                                                                                                                                           |
 | **Tutorials**        | Represents projects designed to familiarize users with OpenL Tablets step-by-step, from simple features and concepts to more complex ones.                                                                                                         |
 
@@ -1878,39 +1878,38 @@ Projects represented as Examples and Tutorials can be used not only to learn how
 To create a new project from template, proceed as follows:
 
 1.  In the top line menu, click **Create Project**.
-
-The **Create Project from** window appears.
-
+    
+    The **Create Project from** window appears.
+    
 1.  Clicks the **Template** tab.
-
+    
     **Note:** This tab is normally selected by default.
-
-All project templates are organized into three areas: Simple Templates, Examples and Tutorials described above in this topic.
-
+    
+    All project templates are organized into three areas: Simple Templates, Examples and Tutorials described above in this topic.
+    
 1.  Navigate to the desired template and click its name.
-
-The name appears in the **Project Name** field. The following example demonstrates creating a project based on the example.
-
-![](webstudio_guide_images/378491ed832403ed3b92dbde1f8ee639.jpeg)
-
-*Creating a simple project from a template*
-
+    
+    The name appears in the **Project Name** field. The following example demonstrates creating a project based on the example.
+    
+    ![](webstudio_guide_images/378491ed832403ed3b92dbde1f8ee639.jpeg)
+    
+    *Creating a simple project from a template*
+    
 1.  Select a repository.
-
-If there is only one repository, it is selected by default. Otherwise, a list of repositories is displayed.
-
-If a Git repository with non-flat structure is selected, the **Path** field with the / default value is displayed and can be modified as required. The path is defined inside the repository and can start with or without /.
-
+    
+    If there is only one repository, it is selected by default. Otherwise, a list of repositories is displayed.
+    If a Git repository with non-flat structure is selected, the **Path** field with the / default value is displayed and can be modified as required. The path is defined inside the repository and can start with or without /.
+    
 1.  Click **Create**.
-
-If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window by clicking on the required tag field and replacing its value. Otherwise, predefined tag values must be used.
-
-![](webstudio_guide_images/f760348e2e6acd823dd72a04b9841f40.jpeg)
-
-*Selecting project tags*
-
-A new project is created in Design repository. Initially, project structure corresponds to the selected project template but can be constructed manually.
-
+    
+    If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window by clicking on the required tag field and replacing its value. Otherwise, predefined tag values must be used.
+    
+    ![](webstudio_guide_images/f760348e2e6acd823dd72a04b9841f40.jpeg)
+    
+    *Selecting project tags*
+    
+    A new project is created in Design repository. Initially, project structure corresponds to the selected project template but can be constructed manually.
+    
 1.  To construct the project structure, add folders and upload files as described in [Modifying Project Contents](#modifying-project-contents).
 
 ##### Creating a Project Using a Custom Template
@@ -1918,22 +1917,22 @@ A new project is created in Design repository. Initially, project structure corr
 A custom project template can be created and then used during new projects definition. To create a new custom project template, proceed as follows:
 
 1.  If the OpenL Tablets WebStudio home directory `\<OPENL_HOME>,` create the following directory:
-
-```
-\<OPENL_HOME>\project-templates
-```
-
+    
+    ```
+    \<OPENL_HOME>\project-templates
+    ```
+    
 1.  Create a subfolder with a template category name.
-
-An example is `\<OPENL_HOME>\project-templates\My Custom Templates`.
-
+    
+    An example is `\<OPENL_HOME>\project-templates\My Custom Templates`.
+    
 1.  For project templates that store files with project rules, create subfolders.
-
-For example, `\<OPENL_HOME>\project-templates\My Custom Templates\MyRule1\rating.xlsx` will be presented as the **MyRule1** template project in the `My Custom Templates` category containing the `rating.xlsx` file.
-
-![](webstudio_guide_images/2dad049ecf5a852d113b0f8c9410636b.jpeg)
-
-*Creating a custom project template*
+    
+    For example, `\<OPENL_HOME>\project-templates\My Custom Templates\MyRule1\rating.xlsx` will be presented as the **MyRule1** template project in the `My Custom Templates` category containing the `rating.xlsx` file.
+    
+    ![](webstudio_guide_images/2dad049ecf5a852d113b0f8c9410636b.jpeg)
+    
+    *Creating a custom project template*
 
 #### Creating a Project from Excel Files
 
@@ -1945,20 +1944,20 @@ Proceed as follows:
 2.  In the **Create Project from** dialog, click the **Excel Files** tab.
 3.  Click the **Add** button, locate the desired Excel file in a file system and click **Open**.
 4.  If required, repeat the previous step to add more files for the project.
-
-All files are listed in the **File** area.
-
-![](webstudio_guide_images/1ee3493194983039dc558e5868ccdf91.jpeg)
-
-*Creating a project from Excel files*
-
-A file can be removed from the list by clicking the corresponding **Clear** link. To delete all files, click **Clear All**.
-
+    
+    All files are listed in the **File** area.
+    
+    ![](webstudio_guide_images/1ee3493194983039dc558e5868ccdf91.jpeg)
+    
+    *Creating a project from Excel files*
+    
+    A file can be removed from the list by clicking the corresponding **Clear** link. To delete all files, click **Clear All**.
+    
 1.  In the **Project Name** field, enter the name by which the project must be represented in Design repository.
 2.  Select a repository.
-
-For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
-
+    
+    For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
+    
 1.  Click **Create** to complete.
 
 If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window. Otherwise, predefined tag values must be used.
@@ -1979,17 +1978,17 @@ To create a project from the OpenAPI file, proceed as follows:
 2.  In the **Create Project from** window, click the **OpenAPI** tab.
 3.  Click **Add**, select the required OpenAPI file in a file system, and double click it or click **Open**.
 4.  To remove an uploaded file, click **Clear**.
-
-![](webstudio_guide_images/a95a35530e08fe3a9c233f5bfa430bdc.png)
-
-*Creating a project from an OpenAPI file*
-
+    
+    ![](webstudio_guide_images/a95a35530e08fe3a9c233f5bfa430bdc.png)
+    
+    *Creating a project from an OpenAPI file*
+    
 1.  In the **Project Name** field, enter the name by which the project must be presented in the Design repository.
 2.  If necessary, modify the file location and generated modules name.
 3.  Select a repository.
-
-For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
-
+    
+    For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
+    
 1.  Click **Create**.
 
 If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window. Otherwise, predefined tag values must be used.
@@ -2003,21 +2002,21 @@ A project can only be created from a `zip` archive. The .`rar` or `.7zip` archiv
 1.  Click **Create Project** in the top line menu.
 2.  In the **Create Project from** dialog, click the **Zip Archive** tab.
 3.  Click the **Add** button, locate the desired zip archive and click **Open**.
-
-![](webstudio_guide_images/f0f5790682bf45cfc5361e3d73dec561.jpeg)
-
-*Creating a project from ZIP file*
-
-**Project Name** text box is automatically populated with the project name defined in `rules.xml,` if the uploaded ZIP file contains `rules.xml,` or with the file name.
-
+    
+    ![](webstudio_guide_images/f0f5790682bf45cfc5361e3d73dec561.jpeg)
+    
+    *Creating a project from ZIP file*
+    
+    **Project Name** text box is automatically populated with the project name defined in `rules.xml,` if the uploaded ZIP file contains `rules.xml,` or with the file name.
+    
 1.  If necessary, modify the project name.
-
-It will be updated in `rules.xml` accordingly.
-
+    
+    It will be updated in `rules.xml` accordingly.
+    
 1.  Select a repository.
-
-For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
-
+    
+    For more information on available repositories, see [Creating a Project from Template](#creating-a-project-from-template).
+    
 1.  Click **Create** to complete.
 
 If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window. Otherwise, predefined tag values must be used.
@@ -2028,16 +2027,16 @@ A new project can be created in Design repository by loading a project with the 
 
 1.  Click **Create Project** in the top line menu.
 2.  In the **Create Project from** dialog, click the **Workspace** tab.
-
-The system displays rule projects available in the workspace:
-
-![](webstudio_guide_images/1669f8514ccf7c91f556df66ef3272f7.jpeg)
-
-*Creating a project from Workspace*
-
+    
+    The system displays rule projects available in the workspace:
+    
+    ![](webstudio_guide_images/1669f8514ccf7c91f556df66ef3272f7.jpeg)
+    
+    *Creating a project from Workspace*
+    
 1.  Select check boxes for projects to be uploaded.
 2.  To complete creation, click **Create**.
-
+    
 If the tag types are defined as described in [Managing Tags](#managing-tags), the tag pop-up window appears for selecting a project tag. If the tag type is defined as optional, a project can be left with the tag **None**. If the tag type is defined as extensible, new tags can be created in the pop-up window. Otherwise, predefined tag values must be used.
 
 #### Creating a Project from a Repository
@@ -2076,11 +2075,11 @@ To open a project revision using the **Open Revision** button, proceed as follow
 
 1.  Click the **Open Revision** button.
 2.  In the **Project Revisions** field, select the required revision.
-
-![](webstudio_guide_images/1d03e5defebfa102b32e946799ba24f0.png)
-
-*Opening a project revision using the Open Revision button*
-
+    
+    ![](webstudio_guide_images/1d03e5defebfa102b32e946799ba24f0.png)
+    
+    *Opening a project revision using the Open Revision button*
+    
 1.  Click **Open**.
 
 #### Opening a Project Revision Using the Revisions Tab
@@ -2089,13 +2088,13 @@ To open a project revision using the **Revisions** tab, proceed as follows:
 
 1.  In the **Projects** tree, select a project.
 2.  Click the **Revisions** tab.
-
-A list of revisions appears.
-
-![](webstudio_guide_images/900b1b5325f41510b5214427d81320f5.jpeg)
-
-*List of project revisions*
-
+    
+    A list of revisions appears.
+    
+    ![](webstudio_guide_images/900b1b5325f41510b5214427d81320f5.jpeg)
+    
+    *List of project revisions*
+    
 1.  Navigate to the revision that needs to be opened and click the corresponding magnifier icon in the **Action** column.
 2.  In the information message, click **OK**.
 
@@ -2118,15 +2117,15 @@ A modified project is saved and copied from the user's workspace to Design repos
 To save a project, proceed as follows:
 
 1.  In the project tree, select the project, and, in the right pane, click **Save**.
-
-The **Save changes** window appears:
-
-![](webstudio_guide_images/a0454a137ca0961bb3048aabafcdc453.jpeg)
-
-*Save changes in a project*
-
-The number of a revision is updated automatically and is specified in the **Next Revision** field.
-
+    
+    The **Save changes** window appears:
+    
+    ![](webstudio_guide_images/a0454a137ca0961bb3048aabafcdc453.jpeg)
+    
+    *Save changes in a project*
+    
+    The number of a revision is updated automatically and is specified in the **Next Revision** field.
+    
 1.  Enter comments if needed and click **Save**.
 
 An editable project can be saved and closed directly from Rules Editor as described in [Editing and Saving a Project](#editing-and-saving-a-project).
@@ -2158,9 +2157,9 @@ This section describes modifying the physical structure of the project and inclu
 To create a new folder in the project structure, proceed as follows:
 
 1.  In the project tree, select the parent folder in which the new folder must be created.
-
-To create a root level folder, the project name must be selected in the project tree.
-
+    
+    To create a root level folder, the project name must be selected in the project tree.
+    
 1.  In the right pane, click **Add Folder**.
 2.  In the **Add Folder** window, enter the folder name and click **Add**.
 
@@ -2169,17 +2168,17 @@ To create a root level folder, the project name must be selected in the project 
 To upload a file to a project folder, proceed as follows:
 
 1.  In the project tree, select the folder where the file should be uploaded.
-
-To upload a file to the root level, the project name must be selected in the project tree.
-
+    
+    To upload a file to the root level, the project name must be selected in the project tree.
+    
 1.  In the right pane, click **Upload File**.
-
-The **Upload File** window appears:
-
-![](webstudio_guide_images/11c044d881e270ea6f5b83f7171a6bca.png)
-
-*Uploading a file*
-
+    
+    The **Upload File** window appears:
+    
+    ![](webstudio_guide_images/11c044d881e270ea6f5b83f7171a6bca.png)
+    
+    *Uploading a file*
+    
 1.  Click **Add** in the **File** area and select the file to be uploaded.
 2.  Click the upper **Upload** button (with a green arrow).
 3.  In the **File name** field, enter or modify the name of the file to be used in Design repository.
@@ -2199,18 +2198,18 @@ To update a file of a project via repository editor, proceed as follows:
 To delete a folder or a file in the project structure, proceed as follows:
 
 1.  Perform one of the following steps as required:
--   Expand the project tree, select the folder or file to be deleted and, in the right pane, click **Delete**.
-
-![](webstudio_guide_images/6362ea02fd15e637fa016cc13ea4fa9f.png)
-
-*Deleting a project element*
-
--   To delete an element inside the parent folder, select that folder, click **Elements** to expand the folder and then click **Delete** ![](webstudio_guide_images/b3283d9b02e8eafc5dfac475347f0c88.png)at the right of the item to be deleted.
-
-![](webstudio_guide_images/fbc10c0636ac762909f8bf7c611af605.png)
-
-*Deleting project elements from the* **Elements** *tab*
-
+    -   Expand the project tree, select the folder or file to be deleted and, in the right pane, click **Delete**.
+    
+    ![](webstudio_guide_images/6362ea02fd15e637fa016cc13ea4fa9f.png)
+    
+    *Deleting a project element*
+    
+    -   To delete an element inside the parent folder, select that folder, click **Elements** to expand the folder and then click **Delete** ![](webstudio_guide_images/b3283d9b02e8eafc5dfac475347f0c88.png)at the right of the item to be deleted.
+    
+    ![](webstudio_guide_images/fbc10c0636ac762909f8bf7c611af605.png)
+    
+    *Deleting project elements from the* **Elements** *tab*
+    
 1.  In the confirmation window, click **OK**.
 
 #### Copying a File
@@ -2222,11 +2221,11 @@ A user can create a copy of a file using the repository editor. The current revi
 3.  In the window that appears, select the **Current Revision** or clear it and in the **File Revision** field, select a value.
 4.  Optionally, enter the **New File Path** property value.
 5.  In the **New File Name** field, enter the file name.
-
-![](webstudio_guide_images/5f5774680d54bc0b7b9f1a626f1beb5e.png)
-
-*Copying a file in repository editor*
-
+    
+    ![](webstudio_guide_images/5f5774680d54bc0b7b9f1a626f1beb5e.png)
+    
+    *Copying a file in repository editor*
+    
 1.  Click **Copy**.
 
 The newly created file appears in the file tree.
@@ -2238,18 +2237,18 @@ Copying a project creates a new project with identical contents and a different 
 To copy a project, proceed as follows:
 
 1.  Perform one of the following steps as required:
--   In the **Projects** tree, select the desired project and, in the right pane, click the **Copy** button.
--   Click **Projects** in Navigator to get a list of projects, navigate to the project you want to copy and click the corresponding **Copy** item **![](webstudio_guide_images/d2a06016b3a5f28c837d524b8f20f8fa.png)** on the right.
+    -   In the **Projects** tree, select the desired project and, in the right pane, click the **Copy** button.
+    -   Click **Projects** in Navigator to get a list of projects, navigate to the project you want to copy and click the corresponding **Copy** item **![](webstudio_guide_images/d2a06016b3a5f28c837d524b8f20f8fa.png)** on the right.
 1.  In the **Copy Project** window, enter the new project name.
 2.  Select whether a new project must be linked to the origin project.
-
-In case of linked projects, a new project branch is created. For more information on branches, see [Working with Project Branches](#working-with-project-branches). For unlinked projects, if there are mandatory tag types, tags must be defined for a new project.
-
+    
+    In case of linked projects, a new project branch is created. For more information on branches, see [Working with Project Branches](#working-with-project-branches). For unlinked projects, if there are mandatory tag types, tags must be defined for a new project.
+    
 1.  Specify whether old revisions must be copied to the newly created project.
 2.  If necessary, select a repository and specify the path to the destination project.
-
-A project can be copied to another repository with the same or a new name.
-
+    
+    A project can be copied to another repository with the same or a new name.
+    
 1.  Optionally, provide comments.
 2.  Click **Copy**.
 
@@ -2271,16 +2270,16 @@ A deleted project is removed from user's workspace and marked as deleted in Desi
 To delete a project, proceed as follows:
 
 1.  Perform one of the following steps as required:
--   In the **Projects** tree, select the project and, in the right pane, click **Delete**.
--   Click **Projects** in Navigator to get a list of projects, navigate to the project you want to remove and click the corresponding **Delete** item **![](webstudio_guide_images/b3283d9b02e8eafc5dfac475347f0c88.png)** on the right.
+    -   In the **Projects** tree, select the project and, in the right pane, click **Delete**.
+    -   Click **Projects** in Navigator to get a list of projects, navigate to the project you want to remove and click the corresponding **Delete** item **![](webstudio_guide_images/b3283d9b02e8eafc5dfac475347f0c88.png)** on the right.
 1.  In the confirmation window, click **Delete** or **OK**.
-
-Deleted projects, except for those in the **Local** status, can be restored by using the **Undelete** button.
-
-To make deleted projects visible, uncheck the **Hide deleted projects** checkbox in the filter pop-up window, which appears after clicking the **Filter** button above the **Projects** tree, and click **Apply**.
-
-To restore a deleted project, proceed as follows:
-
+    
+    Deleted projects, except for those in the **Local** status, can be restored by using the **Undelete** button.
+    
+    To make deleted projects visible, uncheck the **Hide deleted projects** checkbox in the filter pop-up window, which appears after clicking the **Filter** button above the **Projects** tree, and click **Apply**.
+    
+    To restore a deleted project, proceed as follows:
+    
 1.  Navigate to the deleted project in the **Projects** tree.
 2.  Click the **Undelete** button in the right pane.
 3.  Click **Undelete** in the confirmation window.
@@ -2297,11 +2296,11 @@ To erase a project, proceed as follows:
 2.  Ensure that the **Hide deleted projects** option is cleared.
 3.  In the **Projects** tree, select the project and, in the right pane, click **Erase**.
 4.  If the project is erased from the non-flat Git repository, to delete a project from the repository project tree but keep it in the Git repository, ensure that the **Also erase it from repository** check box is cleared.
-
-In this case, it can later be imported into the repository as described in [Creating a Project from a Repository](#creating-a-project-from-a-repository).
-
-If this check box is selected, the project is erased from both repository project tree and Git repository and becomes no longer available for import.
-
+    
+    In this case, it can later be imported into the repository as described in [Creating a Project from a Repository](#creating-a-project-from-a-repository).
+    
+    If this check box is selected, the project is erased from both repository project tree and Git repository and becomes no longer available for import.
+    
 1.  In the confirmation window, click **Erase**.
 
 ### Deploying Projects
