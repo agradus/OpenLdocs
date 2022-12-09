@@ -4,6 +4,12 @@
   order: 0;
 }
 
+/* set line height of left nav */
+p.caption {
+  line-height: 1.0;
+}
+
+
 /* icon sizing in the left menu */
 .icon-home {
     width: 100px;
