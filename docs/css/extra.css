@@ -11,7 +11,7 @@ p.caption {
   margin-bottom: -8px;
 }
 
-li:not(:last-child) {
+ul > li:not(:last-child)::after{
     margin-bottom: -8px;
 }
 
