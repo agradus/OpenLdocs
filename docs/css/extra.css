@@ -9,6 +9,18 @@ li{
   margin: 0;
 }
 
+li.toctree11{
+  margin: 0;
+}
+
+p.caption{
+  margin: 0;
+}
+
+a.reference.internal{
+  margin: 0;
+}
+
 
 /* icon sizing in the left menu */
 .icon-home {
