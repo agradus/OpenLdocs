@@ -2,12 +2,12 @@ site_name: OpenL Tablets
 site_url: https://openl.readthedocs.io/en/latest/
 edit_uri: edit/main/docs/
 nav:
-      - Installation Guide: 
-        - HTML: documentation/guides/installation_guide.md
-        - PDF: documentation/guides/installation_guide.pdf
-      - Demo Package Guide:
-        - HTML: documentation/guides/demo_package_guide.md
-        - PDF: documentation/guides/demo_package_guide.pdf
+    - Installation Guide: 
+      - HTML: documentation/guides/installation_guide.md
+      - PDF: documentation/guides/installation_guide.pdf
+    - Demo Package Guide:
+      - HTML: documentation/guides/demo_package_guide.md
+      - PDF: documentation/guides/demo_package_guide.pdf
     - For Business Users: 
       - Reference Guide: 
         - HTML: documentation/guides/reference_guide.md
