@@ -1191,7 +1191,7 @@ It contains the following information:
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Last Import At | Date of the last upload of the OpenAPI file. <br/>The OpenAPI file can be replaced in the Repository tab or generated or regenerated from rules tables and datatype tables.                                                                                                                                                                                                                        |
 | OpenAPI File   | Location and name of the OpenAPI file, such as openAPI.json and files/example.json.                                                                                                                                                                                                                                                                                                           |
-| Mode           | Last operation performed with this OpenAPI project. <br/>**- Tables generation** mode means that the last performed operation is generation or regeneration of the project <br/>based on the OpenAPI file. <br/>For the **Tables generation** option, project reconciliation is done, too. <br/>**- Reconciliation** mode is set to validate the project against the newly uploaded OpenAPI file with a new name. |
+| Mode           | Last operation performed with this OpenAPI project. <br/>**- Tables generation** mode means that the last performed operation is generation or regeneration of the project based on the OpenAPI file. <br/>For the **Tables generation** option, project reconciliation is done, too. <br/>**- Reconciliation** mode is set to validate the project against the newly uploaded OpenAPI file with a new name. |
 | Rules Module   | Name of the module that contains rules.                                                                                                                                                                                                                                                                                                                                                       |
 | Data Module    | Name of the module that contains data types.                                                                                                                                                                                                                                                                                                                                                  |
 
@@ -1208,19 +1208,19 @@ If a project is not generated from an OpenAPI file and it is necessary to add th
 
 1.  In Rules Editor, open the project overview page.
 2.  Click the **OpenAPI** section.
-
-![](webstudio_guide_images/21df39652489e7898bc8c21ccf2c7d3b.png)
-
-*Initiating OpenAPI file generation*
-
+    
+    ![](webstudio_guide_images/21df39652489e7898bc8c21ccf2c7d3b.png)
+    
+    *Initiating OpenAPI file generation*
+    
 1.  If an OpenAPI file does not exist, ensure that the **Generate from Rules and Datatype tables** and **Reconciliation** options are selected.
-
-![](webstudio_guide_images/3f8ac8f625297a57ead86355d96a8c1f.jpeg)
-
-*Reviewing settings for the OpenAPI file generation*
-
-If the OpenAPI file already exists, the **Uploaded in the Repository** option is selected by default and the file name is displayed in the field. If the file must be regenerated according to the current project tables, the **Generate from Rules and Datatype tables** and **Reconciliation** options must be selected.
-
+    
+    ![](webstudio_guide_images/3f8ac8f625297a57ead86355d96a8c1f.jpeg)
+    
+    *Reviewing settings for the OpenAPI file generation*
+    
+    If the OpenAPI file already exists, the **Uploaded in the Repository** option is selected by default and the file name is displayed in the field. If the file must be regenerated according to the current project tables, the **Generate from Rules and Datatype tables** and **Reconciliation** options must be selected.
+    
 1.  Click **Import.**
 
 The file creation confirmation message is displayed. The OpenAPI file is added to the project and appears in the OpenAPI section.
@@ -1237,31 +1237,31 @@ If a project is not generated from the OpenAPI file, but it is required to add t
 
 1.  Ensure that the OpenAPI file is uploaded to the project via the **Repository** tab.
 2.  In Rules Editor, click **Click to Import OpenAPI File.**
-
-![](webstudio_guide_images/530e59c521ce7cb1f6747ee861eaf447.png)
-
-*Initiating OpenAPI file import*
-
+    
+    ![](webstudio_guide_images/530e59c521ce7cb1f6747ee861eaf447.png)
+    
+    *Initiating OpenAPI file import*
+    
 1.  Enter the name of the OpenAPI imported file, such as example.json.
 2.  Select the **Tables generation** mode.
-
-![](webstudio_guide_images/8b169ca659da3c159634211cd9434453.png)
-
-*Selecting the generation mode*
-
+    
+    ![](webstudio_guide_images/8b169ca659da3c159634211cd9434453.png)
+    
+    *Selecting the generation mode*
+    
 1.  If necessary, modify the default values for the rules and data modules and click **Import**.
 2.  If no module with the entered name is found, set up the path to the generated file and click **Import.**
-
-![](webstudio_guide_images/8ddc985b1b122f47b307ee4f8df90507.png)
-
-*Module settings window, both modules are new*
-
-If a module already exists, it will be overwritten, and the corresponding warning message is displayed. In this case, there is no option to define a file name.
-
-![](webstudio_guide_images/ff3b997c2baca85a51cbbce28fddc2e6.png)
-
-*Module settings window, one of modules already exists*
-
+    
+    ![](webstudio_guide_images/8ddc985b1b122f47b307ee4f8df90507.png)
+    
+    *Module settings window, both modules are new*
+    
+    If a module already exists, it will be overwritten, and the corresponding warning message is displayed. In this case, there is no option to define a file name.
+    
+    ![](webstudio_guide_images/ff3b997c2baca85a51cbbce28fddc2e6.png)
+    
+    *Module settings window, one of modules already exists*
+    
 1.  Click on the **Import and overwrite**.
 
 The rules and model modules are created or updated. The OpenAPI data is updated.
@@ -1278,16 +1278,16 @@ To reconcile a project using an OpenAPI file with a different name, proceed as f
 
 1.  Ensure that the OpenAPI file is uploaded to the project via the **Repository** tab.
 2.  In Rules Editor, click **OpenAPI Import icon ![](webstudio_guide_images/2e0ac2477a2ef46417855fcfad305c36.png).**
-
-![](webstudio_guide_images/5ecf6f1a839b5fba461ce1f14e9ee2cf.jpeg)
-
-*Initiating OpenAPI import*
-
+    
+    ![](webstudio_guide_images/5ecf6f1a839b5fba461ce1f14e9ee2cf.jpeg)
+    
+    *Initiating OpenAPI import*
+    
 1.  In the Import OpenAPI File window, enter the OpenAPI file location, select **Reconciliation,** and click **Import**.
-
-![](webstudio_guide_images/7d0efb8da20e3bea5f75f2e0154813f3.png)
-
-*Selecting an OpenAPI file for reconciliation*
+    
+    ![](webstudio_guide_images/7d0efb8da20e3bea5f75f2e0154813f3.png)
+    
+    *Selecting an OpenAPI file for reconciliation*
 
 The project is validated using the newly imported file.
 
