@@ -11,6 +11,14 @@ li p.caption{
   margin-bottom: -15px;
 }
 
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+  margin-top: -15px;
+  margin-left: -15px;
+  height: 15px;
+  line-height: 15px;
+  padding: 0px;
+}
+
 /* icon sizing in the left menu */
 .icon-home {
     width: 100px;
