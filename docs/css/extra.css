@@ -6,15 +6,9 @@
 
 /* set vertical spacing in left nav */
 
-.wy-menu-vertical header, .wy-menu-vertical p.caption {
-  margin: 0;
-  height: 20px;
-  line-height: 20px;
-  padding: 0px;
-}
-
 li{
-  margin: 0;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 li.toctree-11{
