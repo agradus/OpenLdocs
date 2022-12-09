@@ -1364,19 +1364,19 @@ Default properties can be overridden at the table level; in other words, they ca
 
 1.  In the **Properties** section, click the default property to be changed.
 
-lnstead of the property value, a checkbox appears:
-
-![](webstudio_guide_images/cfcde99ab5ae4220f6b91c74e4a8312d.png)
-
-*Updating a default property*
-
+    lnstead of the property value, a checkbox appears:
+    
+    ![](webstudio_guide_images/cfcde99ab5ae4220f6b91c74e4a8312d.png)
+    
+    *Updating a default property*
+    
 1.  Select or deselect the checkbox as needed and click the **Save** button.
-
-The property appears in the table with its new value:
-
-![](webstudio_guide_images/d7b756039557c7c9ff475ba03f228160.png)
-
-*Default property was updated by a user*
+    
+    The property appears in the table with its new value.
+    
+    ![](webstudio_guide_images/d7b756039557c7c9ff475ba03f228160.png)
+    
+    *Default property was updated by a user*
 
 #### Editing Inherited Table Properties
 
@@ -1390,16 +1390,16 @@ To change an inherited property, perform the following steps:
 
 1.  In the **Properties** section, click the inherited property to be changed.
 2.  Enter or select the desired values from the drop-down list and click **Save**.
-
-![](webstudio_guide_images/ebe8ec082f691ee926106c7860ad3bbf.png)
-
-*Updating an inherited property*
-
-The system displays the property in the table:
-
-![](webstudio_guide_images/055046080ee77372ba1f2abfa3b95128.png)
-
-*Inherited category-level property updated by a user*
+    
+    ![](webstudio_guide_images/ebe8ec082f691ee926106c7860ad3bbf.png)
+    
+    *Updating an inherited property*
+    
+    The system displays the property in the table.
+    
+    ![](webstudio_guide_images/055046080ee77372ba1f2abfa3b95128.png)
+    
+    *Inherited category-level property updated by a user*
 
 The following topics are included in this section:
 
@@ -1443,24 +1443,24 @@ When performing the “Copy” action, properties unsuitable for the current tab
 To add a new property for the selected table, perform the following steps:
 
 1.  In the **Properties** pane, click the **Add Property** link.
-
-![](webstudio_guide_images/72d8242db522fc25e7d3f1f9dc58cd22.png)
-
-*Add new property for the current table*
-
+    
+    ![](webstudio_guide_images/72d8242db522fc25e7d3f1f9dc58cd22.png)
+    
+    *Add new property for the current table*
+    
 1.  Enter the desired property or select it from the drop-down list and click the **Add** button.
-
-![](webstudio_guide_images/e816a2ffd53ae797f34135570cd969c0.png)
-
-*Selected table property to be added*
-
+    
+    ![](webstudio_guide_images/e816a2ffd53ae797f34135570cd969c0.png)
+    
+    *Selected table property to be added*
+    
 1.  Specify the property value and then click the **Save** button to complete.
-
-All steps are collected in the following figure:
-
-![](webstudio_guide_images/cfafcaae7241a9d74ca73bbf0db5b050.png)
-
-*Saving a new property for the current table*
+    
+    All steps are collected in the following figure:
+    
+    ![](webstudio_guide_images/cfafcaae7241a9d74ca73bbf0db5b050.png)
+    
+    *Saving a new property for the current table*
 
 ### Using Table Versioning
 
@@ -1530,25 +1530,25 @@ Test results display resembles the following sample:
 *Results of running all project tests*
 
 1.  To run all module tests, click the **Run Tests** ![](webstudio_guide_images/42c7256cbf9e0ced9e6836ade0829752.png) icon in the top line menu of Rules Editor.
-
-Failed test cases are represented by ![](webstudio_guide_images/7d3a09402ac2ddd589e071aba605b783.png) mark. Passed tests are represented by ![](webstudio_guide_images/977a81673300afe381b347598a8fa0a0.png) mark.
-
-By default, all tests are run in multi-module mode, and the system executes all tests of the project, including project dependencies.
-
+    
+    Failed test cases are represented by ![](webstudio_guide_images/7d3a09402ac2ddd589e071aba605b783.png) mark. Passed tests are represented by ![](webstudio_guide_images/977a81673300afe381b347598a8fa0a0.png) mark.
+    
+    By default, all tests are run in multi-module mode, and the system executes all tests of the project, including project dependencies.
+    
 1.  To run the tests in the current module and its dependent modules only, select the **Within Current Module Only** check box in the button menu or test results page.
-
-![](webstudio_guide_images/f659c1d873924595bf00e5df4d48b093.jpeg)
-
-*Defining test settings*
-
-In the example above, test results are displayed with five test tables, unit tests, per page. This setting is configured for each user individually in User Profile as **Tests per page** setting.
-
+    
+    ![](webstudio_guide_images/f659c1d873924595bf00e5df4d48b093.jpeg)
+    
+    *Defining test settings*
+    
+    In the example above, test results are displayed with five test tables, unit tests, per page. This setting is configured for each user individually in User Profile as **Tests per page** setting.
+    
 1.  To change the setting for a particular test run without updating user settings, click the arrow to the right of the **Run Tests** ![](webstudio_guide_images/1fda688cf7edb55ee01a776710a0a963.png) and choose a desired number of **Tests per page**. There is an alternative way: the same setting options are displayed on the top of the window after executing all tests. The following picture provides an illustration:
-
-![](webstudio_guide_images/4c10e6d6a1af29043ec453401b6b7ac5.png)
-
-*Number of tests per page setting*
-
+    
+    ![](webstudio_guide_images/4c10e6d6a1af29043ec453401b6b7ac5.png)
+    
+    *Number of tests per page setting*
+    
 1.  To export test results into an Excel file, in the **Run** or **Test** drop-down menu, select **Run into File** or **Test into File.** The generated file contains both results and input parameters.
 
 ##### Executing Tests for a Single Table
@@ -1556,50 +1556,50 @@ In the example above, test results are displayed with five test tables, unit tes
 This section describes test execution. Proceed as follows:
 
 1.  To execute all test runs for a particular rule table, select the rule table in the module tree and, in the upper part of the middle pane, click **Test** ![](webstudio_guide_images/66cdab2778d729bd78a72e2060ab528e.png).
-
-Test results resemble the following:
-
-![](webstudio_guide_images/5d2835fa189ce1fa0e19545ff0ae8112.png)
-
-*Results of executing all test runs for one rule table*
-
-If the table contains Value types, such as IntValue, the results are clickable and enable a user to view the calculation history.
-
+    
+    Test results resemble the following:
+    
+    ![](webstudio_guide_images/5d2835fa189ce1fa0e19545ff0ae8112.png)
+    
+    *Results of executing all test runs for one rule table*
+    
+    If the table contains Value types, such as IntValue, the results are clickable and enable a user to view the calculation history.
+    
 1.  To test a rule table even if no tests have been created for the given table yet, proceed as follows:
 2.  In the module tree, select the required rule table and click the green **Run** arrow ![](webstudio_guide_images/7bbe049774a101a9d551e03ccebd3ddd.png) above the table.
-
+    
     The form for entering required values to test rule table appears.
-
-![](webstudio_guide_images/feca677101408f36991f69ff8ce333e4.jpeg)
-
-*Testing a rule table without tests*
-
+    
+    ![](webstudio_guide_images/feca677101408f36991f69ff8ce333e4.jpeg)
+    
+    *Testing a rule table without tests*
+    
 1.  To run a test for the currently opened module and its dependent modules only, ensure that the **Within Current Module Only** option is selected.
 2.  In the pop-up window, click **Run**.
-
-    The results of the testing are displayed.
-
-![](webstudio_guide_images/ac207057869a550a0ea5e9cc73fc9927.png)
-
-*Result of running virtual test*
-
+    
+        The results of the testing are displayed.
+    
+    ![](webstudio_guide_images/ac207057869a550a0ea5e9cc73fc9927.png)
+    
+    *Result of running virtual test*
+    
 1.  For test tables, to select test cases to be executed, proceed as follows:
 2.  Navigate to the **Run** button above the Test table and click the small black arrow ![](webstudio_guide_images/f9978044735bb2192678a9976f66d684.png).
 3.  In the pop-up window that appears, select or clear the check boxes for the appropriate IDs, and to run several particular test cases, define them in the **Use the Range** field.
-
-![](webstudio_guide_images/244cccd452a3d680c5e253d391a8d3a0.jpeg)
-
-*Select test cases via Range field to be executed*
-
+    
+    ![](webstudio_guide_images/244cccd452a3d680c5e253d391a8d3a0.jpeg)
+    
+    *Select test cases via Range field to be executed*
+    
 1.  If necessary, specify whether the test must be run in the current module only.
 2.  In the pop-up window, click **Run**.
-
+    
     Only the selected test cases are executed.
-
-![](webstudio_guide_images/2236a87d31e627a31ff6c0c30d926ed8.jpeg)
-
-*Result of selective testing*
-
+    
+    ![](webstudio_guide_images/2236a87d31e627a31ff6c0c30d926ed8.jpeg)
+    
+    *Result of selective testing*
+    
 1.  To export test results into an Excel file, click **Test** and select **Test into File.**
 
 ##### Displaying Failures Only
@@ -1653,9 +1653,9 @@ When an executable table, such as Decision, Method, Spreadsheet, ColumnMatch, or
 Proceed as follows:
 
 1.  To create a Test table for the current table, click the **Create Test** button.
-
-OpenL Tablets WebStudio runs a two-step wizard for creating an appropriate Test table.
-
+    
+    OpenL Tablets WebStudio runs a two-step wizard for creating an appropriate Test table.
+    
 1.  Enter test input values and expected result values to complete the Test table.
 
 ### Tracing Rules
@@ -1675,43 +1675,43 @@ When using the tracing functionality, users can check the result of each step of
 1.  In Rules editor, open a rule table to be traced and click **Trace** ![](webstudio_guide_images/4f1355ecf8f3a23dd8c83bbb743a4dfa.png) in the middle pane.
 2.  Enter parameters to be traced in the pop-up window.
 3.  If necessary, specify whether tracing must be applied to the rules of the current module and its dependent modules only.
-
-![](webstudio_guide_images/c5d3fb129d049af47938bcc1e61775ca.jpeg)
-
-*Tracing a rule for a rule table*
-
+    
+    ![](webstudio_guide_images/c5d3fb129d049af47938bcc1e61775ca.jpeg)
+    
+    *Tracing a rule for a rule table*
+    
 1.  To use JSON data and prefill fields with data extracted from log or provided by developers, select **JSON.**
-
-![](webstudio_guide_images/7999365ed9da863b06fa2a2f43c390b2.jpeg)
-
-*Selecting the JSON option for tracing*
-
-The same functionality is available for running rules. Settings defined in rule deploy configuration are applied to the JSON input as well. For example, if Provide runtime context is set to true, in JSON, context must be defined. Thus, the same JSON request can be used in OpenL Tablets Rule Services and OpenL Tablets WebStudio.
-
+    
+    ![](webstudio_guide_images/7999365ed9da863b06fa2a2f43c390b2.jpeg)
+    
+    *Selecting the JSON option for tracing*
+    
+    The same functionality is available for running rules. Settings defined in rule deploy configuration are applied to the JSON input as well. For example, if Provide runtime context is set to true, in JSON, context must be defined. Thus, the same JSON request can be used in OpenL Tablets Rule Services and OpenL Tablets WebStudio.
+    
 1.  Click the **Trace** button.
-
-If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
-
+    
+    If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
+    
 1.  Open the desired Test table and hover the mouse pointer over the **Trace** button.
 2.  To open a pop-up with test cases to be traced, click the small right-hand black arrow.
-
-![](webstudio_guide_images/381cd6e166b944931ed7ed23c96ea060.jpeg)
-
-*Tracing of a Test table*
-
+    
+    ![](webstudio_guide_images/381cd6e166b944931ed7ed23c96ea060.jpeg)
+    
+    *Tracing of a Test table*
+    
 1.  In the pop-up, select or deselect the test cases as needed.
-
-All test cases can be checked or unchecked by using the checkbox on the left of **Test Parameter(s)**.
-
+    
+    All test cases can be checked or unchecked by using the checkbox on the left of **Test Parameter(s)**.
+    
 1.  If necessary, specify whether tracing must be limited to the current module only.
 2.  Click **Trace** to start the process.
-
-The system displays the tracing results in a separate browser window as illustrated in the following example:
-
-![](webstudio_guide_images/241febcf400e1d06d0ec61ccae4c8b95.jpeg)
-
-*Tracing results*
-
+    
+    The system displays the tracing results in a separate browser window as illustrated in the following example:
+    
+    ![](webstudio_guide_images/241febcf400e1d06d0ec61ccae4c8b95.jpeg)
+    
+    *Tracing results*
+    
 The left side displays a tree consisting of rule tables as tree nodes and fired rule rows as tree leaves. Selected **Detailed trace tree** option enables to view all rule calls.
 
 -   If that option is cleared, only successful calls will be displayed.
@@ -1723,10 +1723,9 @@ The left side displays a tree consisting of rule tables as tree nodes and fired 
     The fired rule rows are highlighted using the specified color. The highlight color and transparency level can be configured by clicking the ![](webstudio_guide_images/67ea00aa5bc0bf63e1064d62a9b31875.png) buttons above the rule table. Note that the gray button is selected by default.
 
 In addition, the right pane displays the actual parameters used in the particular rule call and the returned result.
+The example above demonstrates the results of tracing a decision table. For other rule tables, the picture slightly differs but the meaning is essentially the same.
 
-The example above demonstrates the results of tracing Decision table. For other rule tables, the picture slightly differs but the meaning is essentially the same.
-
-For a decision table, the tracing results are shown as follows:
+For a decision table, the tracing results are displayed as follows:
 
 -   The rules that were traced are not highlighted and appear as white rows.
 -   Successfully completed or returned rules are boxed with green lines.
@@ -1747,9 +1746,9 @@ For a test table, select the test cases as follows:
 1.  Open the required test table.
 2.  Navigate to the **Benchmark** button above the test table and click the small right-hand black arrow to open a pop-up with test cases as needed.
 3.  Select or deselect the test cases as needed.
-
-By default, all cases are selected. All test cases can be also checked or unchecked by using the checkbox on the left of **Test Parameter(s)**.
-
+    
+    By default, all cases are selected. All test cases can be also checked or unchecked by using the checkbox on the left of **Test Parameter(s)**.
+    
 1.  Click the **Benchmark** button within the pop-up.
 
 Clicking the benchmarking icon runs the corresponding method or set of methods and displays the results in a table.
@@ -1769,9 +1768,7 @@ Benchmark is displayed using the following parameters:
 | Runs/sec       | Number of such rule sets that can be executed per second.                               |
 
 OpenL Tablets WebStudio remembers all benchmarking runs executed within one session. Every time a new benchmark is run, a new row is added to the results table.
-
 Benchmarking results can be compared to identify the most time consuming methods. Select the required check boxes and click **Compare** to compare results in the results table.
-
 Comparison results are displayed below the benchmarking table.
 
 ![](webstudio_guide_images/447403d61d692675b78067b42db27200.png)
