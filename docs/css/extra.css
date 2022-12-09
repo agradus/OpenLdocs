@@ -6,14 +6,14 @@
 
 /* set vertical spacing in left nav */
 
-ul {
-  margin-top: -5px;
-  margin-bottom: -5px;
+p.caption {
+  margin-top: -2px;
+  margin-bottom: -8px;
 }
 
 li {
-  margin-top: -5px;
-  margin-bottom: -5px;
+  margin-top: -2px;
+  margin-bottom: -8px;
 }
 
 /* icon sizing in the left menu */
