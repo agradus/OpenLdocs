@@ -5,7 +5,7 @@
 }
 
 /* set line height of left nav */
-p.caption {
+li {
   line-height: 0.5;
 }
 
