@@ -4,6 +4,28 @@
   order: 0;
 }
 
+/* set vertical spacing in left nav */
+
+li {
+  margin-top: -5px;
+  margin-bottom: -7px;
+  padding: 0px;
+  }
+
+p.caption {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding: 0px;
+  }
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 2px 0 2px;
+    display: block;
+}
+
 /* icon sizing in the left menu */
 .icon-home {
     width: 100px;
