@@ -12,6 +12,13 @@ li {
   padding: 0px;
   }
 
+p.caption {
+  margin-top: -5px;
+  margin-bottom: -5px;
+  padding: 0px;
+  }
+
+
 /* icon sizing in the left menu */
 .icon-home {
     width: 100px;
