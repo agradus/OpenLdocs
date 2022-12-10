@@ -18,11 +18,12 @@ p.caption {
   padding: 0px;
   }
 
-.wy-menu-vertical header, .wy-menu-vertical {
+/* below are two descendent selectors */
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
     height: 32px;
     line-height: 32px;
     padding: 0 1.618em;
-    margin: 2px 0 2px;
+    margin: 0px 0 2px;
     display: block;
 }
 
