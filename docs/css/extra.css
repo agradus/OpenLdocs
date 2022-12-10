@@ -18,7 +18,7 @@ p.caption {
   padding: 0px;
   }
 
-.wy-menu-vertical header, .wy-menu-vertical p.caption {
+.wy-menu-vertical header, .wy-menu-vertical {
     height: 32px;
     line-height: 32px;
     padding: 0 1.618em;
