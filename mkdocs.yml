@@ -16,6 +16,7 @@ nav:
         - HTML: documentation/guides/webstudio_user_guide.md
         - PDF: documentation/guides/webstudio_user_guide.pdf     
     - For Developers:
+      - Maven Plugin Guide: documentation/guides/maven_plugin_guide.md
       - Rule Services Usage and Customization Guide: 
         - HTML: documentation/guides/rule_services_usage_and_customization_guide.md
         - PDF: documentation/guides/rule_services_usage_and_customization_guide.pdf
@@ -25,7 +26,6 @@ nav:
       - Activiti Integration Guide: 
         - HTML: documentation/guides/activiti_integration_guide.md
         - PDF: documentation/guides/activiti_integration_guide.pdf
-      - Maven Plugin Guide: documentation/guides/maven_plugin_guide.md
     - THE OPENL PROJECT:
       - About OpenL: about.md
   
