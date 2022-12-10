@@ -2497,7 +2497,6 @@ The selected services version is displayed in **Rules Deploy Configuration** for
 ### Comparing Project Revisions
 
 OpenL Tablets WebStudio provides a function for comparing files and sheets in Excel files between two project revisions.
-
 To compare contents of the currently opened project revision with any other revision, proceed as follows:
 
 1.  In the project tree, select the project.
@@ -2613,62 +2612,62 @@ The newly created project branch is displayed as an active branch and ready for 
 This section describes how to view existing branches, switch between them in the editor and repository, enable and disable branches, and delete branches. Proceed as follows:
 
 1.  To display a current project branch, in OpenL Tablets WebStudio, in the editor or repository, open a project.
-
-The current project branch is displayed.
-
+    
+    The current project branch is displayed.
+    
 1.  To switch between branches in the editor, click the last link in the address bar identifying the branch name and in the list that appears, select the required branch.
-
-![](webstudio_guide_images/f0fdac03d8f8fe22ae1cfe39b1ae4914.jpeg)
-
-*Switching between branches in the editor*
-
+    
+    ![](webstudio_guide_images/f0fdac03d8f8fe22ae1cfe39b1ae4914.jpeg)
+    
+    *Switching between branches in the editor*
+    
 1.  To switch between branches in the repository, for a project, in the **Branch** field, select the required branch.
 2.  To disable or enable a branch for a project, in the repository, click the dots next to the branch name field and in the window that appears, clear or select the appropriate branch check box.
-
-This list also contains branches created outside of OpenL Tablets WebStudio.
-
-![](webstudio_guide_images/9c9973d12ee0870605d1b93f9954cf38.jpeg)
-
-*Enabling and disabling branches for a project*
-
+    
+    This list also contains branches created outside of OpenL Tablets WebStudio.
+    
+    ![](webstudio_guide_images/9c9973d12ee0870605d1b93f9954cf38.jpeg)
+    
+    *Enabling and disabling branches for a project*
+    
 1.  To delete a non-default branch, switch to this branch in the project properties and click **Delete Branch.**
-
-The non-default branch is deleted completely, it cannot be later restored, and it does not appear in the **Manage branches** list. The project in the branch is erased. If the non-default branch contains commits not merged to the default branch, a warning message is displayed upon deletion attempt.
-
-![](webstudio_guide_images/1b96e48ec5e042ca8db911d775c1e358.jpeg)
-
-*Deleting a non-default branch with unmerged commits*
-
+    
+    The non-default branch is deleted completely, it cannot be later restored, and it does not appear in the **Manage branches** list. The project in the branch is erased. If the non-default branch contains commits not merged to the default branch, a warning message is displayed upon deletion attempt.
+    
+    ![](webstudio_guide_images/1b96e48ec5e042ca8db911d775c1e358.jpeg)
+    
+    *Deleting a non-default branch with unmerged commits*
+    
 1.  To delete a default branch, in the repository, select the required project branch and click **Delete.**
-
-The project is archived and disappears from the list of active projects.
-
+    
+    The project is archived and disappears from the list of active projects.
+    
 1.  To completely delete the default branch or restore the archived project, proceed as follows:
 2.  Click the filter icon and clear the **Hide deleted projects** check box.
 3.  In the branch drop-down list, select an archived branch.
 4.  To restore an archived project, select it in the list of projects and click **Undelete.**
 5.  To completely remove the project and the branch, click **Erase.**
 6.  To merge two branches, click **Sync** and select one of the following options:
-
-| Option                | Description                                                                   |
-|-----------------------|-------------------------------------------------------------------------------|
-| Receive their updates | Changes from a selected branch are copied to the currently active branch.     |
-| Send your updates     | Changes from the currently active branch are uploaded to the selected branch. |
-
-If upon saving there is a conflict due to updates in the same modules, the **Resolve conflicts** window appears.
-
-![](webstudio_guide_images/a5098c1701a77c2f799853d857d0abd4.png)
-
-*Resolving conflicts on merging branches*
-
-Conflicts can be resolved by selecting one of the following options:
-
-| Option             | Description                                                                                                                  |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Use yours          | Changes in the currently active branch are applied on merge. The changes applied by another user are lost.                   |
-| Use theirs         | Changes in the selected branch are applied on merge. The changes made by you are lost.                                       |
-| Upload merged file | Depending on the selected merging options, changes in the manually updated and uploaded file override changes in the branch. |
-
+    
+    | Option                | Description                                                                   |
+    |-----------------------|-------------------------------------------------------------------------------|
+    | Receive their updates | Changes from a selected branch are copied to the currently active branch.     |
+    | Send your updates     | Changes from the currently active branch are uploaded to the selected branch. |
+    
+    If upon saving there is a conflict due to updates in the same modules, the **Resolve conflicts** window appears.
+    
+    ![](webstudio_guide_images/a5098c1701a77c2f799853d857d0abd4.png)
+    
+    *Resolving conflicts on merging branches*
+    
+    Conflicts can be resolved by selecting one of the following options:
+    
+    | Option             | Description                                                                                                                  |
+    |--------------------|------------------------------------------------------------------------------------------------------------------------------|
+    | Use yours          | Changes in the currently active branch are applied on merge. The changes applied by another user are lost.                   |
+    | Use theirs         | Changes in the selected branch are applied on merge. The changes made by you are lost.                                       |
+    | Upload merged file | Depending on the selected merging options, changes in the manually updated and uploaded file override changes in the branch. |
+    
 1.  To view the changes made by another user, compare them to your changes, or view the base version of the file, select a corresponding option in the **Compare** column.
 
 ### Resolving Conflicts
@@ -2746,9 +2745,9 @@ The **User Workspace** section is used to define the workspaces directory where 
 To manage history settings, proceed as follows:
 
 1.  In **The maximum count of saved changes for each project per user** field, enter the required number.
-
-By default, this field value is set to 100. If no value is provided, the number of records in history is unlimited.
-
+    
+    By default, this field value is set to 100. If no value is provided, the number of records in history is unlimited.
+    
 1.  To clean all history files for the project, click the **Clear all history** button and confirm deletion.
 
 #### Managing Other OpenL Tablets WebStudio Settings
@@ -2757,7 +2756,7 @@ The following table describes other general OpenL Tablets WebStudio settings:
 
 | Option                      | Description                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Tablets WebStudio UI. If this option is cleared, information about the time of table creation and modification and changes authors, such as **Created By/On**, **Modified By/On**, is not added to the table properties. |
+| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Tablets WebStudio UI. <br/>If this option is cleared, information about the time of table creation and modification and changes authors, <br/>such as **Created By/On**, **Modified By/On**, is not added to the table properties. |
 | **Date Format**             | Enables changing the date format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
 | **Time Format**             | Enables changing the time format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
 
@@ -2774,57 +2773,57 @@ The **Repository** section contains connection settings of design and deployment
 
 1.  In the **Name** field, enter the repository name to be displayed in repository editor.
 2.  Select the connection type and enter corresponding location of the repository to be used as a data source as described in the following table.
-
-| Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Git**      | The repository can be configured on the local or remote machine.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Database** | The repository is located in a local or remote database. **Repository URL** field displays URL for access to the database. A user can create connection to different databases, such as MySQL, MS SQL, Oracle etc. For more information on supported versions, see <https://openl-tablets.org/supported-platforms>.                                                                                                                                                                                                                                                                                   |
-| **AWS S3**   | The repository is located in Amazon Simple Storage Service (AWS S3). A “bucket” is a logical unit of storage in AWS S3 and it is globally unique. Choose a region for storage to reduce latency, costs, etc. An Access key and a Secret key are needed to access storage. If empty, the system retrieves it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). The Listener period is the interval in which to check repository changes, in seconds. |
-
-For more information on repository settings, see the **Data Source Configuration** section in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide).
-
+    
+    | Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Git**      | The repository can be configured on the local or remote machine.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+    | **Database** | The repository is located in a local or remote database. **Repository URL** field displays URL for access to the database. <br/>A user can create connection to different databases, such as MySQL, MS SQL, Oracle etc. <br/>For more information on supported versions, see <https://openl-tablets.org/supported-platforms>.                                                                                                                                                                                                                                                                                   |
+    | **AWS S3**   | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and it is globally unique. <br/>Choose a region for storage to reduce latency, costs, and so on. An Access key and a Secret key are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The Listener period is the interval in which to check repository changes, in seconds. |
+    
+    For more information on repository settings, see the **Data Source Configuration** section in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide).
+    
 1.  Provide the URL value.
-
-The following table provides examples of deployment repository URL values for different databases.
-
-| Database           | URL value sample                                                                                               |
-|--------------------|----------------------------------------------------------------------------------------------------------------|
-| **MySQL, MariaDB** | jdbc:mysql://localhost:3306/prodRepository, jdbc:mariadb://localhost:3306/ prodRepository (for MariaDB driver) |
-| **PostgreSQL**     | jdbc:postgresql://localhost:5432/ prodRepository                                                               |
-| **MS SQL**         | jdbc:sqlserver://localhost:1433;databaseName=prodRepository;integratedSecurity=false                           |
-| **Oracle**         | jdbc:oracle:thin:@localhost:1521:prodRepository                                                                |
-
+    
+    The following table provides examples of deployment repository URL values for different databases.
+    
+    | Database           | URL value sample                                                                                               |
+    |--------------------|----------------------------------------------------------------------------------------------------------------|
+    | **MySQL, MariaDB** | jdbc:mysql://localhost:3306/prodRepository, jdbc:mariadb://localhost:3306/ prodRepository (for MariaDB driver) |
+    | **PostgreSQL**     | jdbc:postgresql://localhost:5432/ prodRepository                                                               |
+    | **MS SQL**         | jdbc:sqlserver://localhost:1433;databaseName=prodRepository;integratedSecurity=false                           |
+    | **Oracle**         | jdbc:oracle:thin:@localhost:1521:prodRepository                                                                |
+    
 1.  To set up a secure connection for connecting to remote or database-located repositories, select the **Secure connection** check box and fill in the login and password fields.
-
-For more information on repository security, see the **Configuring Private Key for Repository Security** section in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/).
-
-![](webstudio_guide_images/05b0bc614e21e2e705d0e76d7518be08.jpeg)
-
-*Configuring deployment repository settings*
-
-Connection to a local deployment repository is configured by default.
-
+    
+    For more information on repository security, see the **Configuring Private Key for Repository Security** section in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/).
+    
+    ![](webstudio_guide_images/05b0bc614e21e2e705d0e76d7518be08.jpeg)
+    
+    *Configuring deployment repository settings*
+    
+    Connection to a local deployment repository is configured by default.
+    
 1.  To store deploy configurations in the Design repository, in the **Repository \> Deploy configuration** tab, select the **Use Design Repository** check box and provide required parameter values.
 2.  To add design or deployment repositories, click **Add** **Repository** and enter required information.
-
-![](webstudio_guide_images/522f9b767a9ec8f404d460bf60bcf6ef.jpeg)
-
-*Using another repository for deployment configurations*
-
+    
+    ![](webstudio_guide_images/522f9b767a9ec8f404d460bf60bcf6ef.jpeg)
+    
+    *Using another repository for deployment configurations*
+    
 1.  When finished, click **Apply All and Restart** to save the changes and refresh the page.
-
-To enable storing large files in a Git repository, Git Large File Support (LFS) can be used.
-
--   To enable the Git repository use LFS before it is cloned by OpenL Tablets WebStudio, perform the necessary configuration as described in <https://git-lfs.github.com/>.
--   If the Git repository is already cloned by OpenL Tablets WebStudio, to enable using Git LFS, proceed as follows:
+    
+    To enable storing large files in a Git repository, Git Large File Support (LFS) can be used.
+    
+    -   To enable the Git repository use LFS before it is cloned by OpenL Tablets WebStudio, perform the necessary configuration as described in <https://git-lfs.github.com/>.
+    -   If the Git repository is already cloned by OpenL Tablets WebStudio, to enable using Git LFS, proceed as follows:
 1.  Close all projects in the workspace.
 2.  Delete all deployment configuration settings.
 3.  Stop OpenL Tablets WebStudio.
 4.  Drop the local folder with the Git repository to the OpenL Tablets WebStudio home directory.
 5.  Start OpenL Tablets WebStudio.
-
+    
     OpenL Tablets WebStudio will re-clone the directory.
-
+    
 6.  Recreate the required deployment configuration settings that were deleted previously.
 
 #### Managing Git Repository Settings
@@ -2846,22 +2845,22 @@ In the **ADMIN** tab, in the **Repository** section, define values for the follo
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                             | Repository name. This value cannot be modified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Type                             | Type of the repository. The value must be set to **Git.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Remote repository                | Identifier of whether a Git repository is stored remotely. For more information on remote repository settings, see [Setting Up a Connection to a Remote Git Repository Account](#setting-up-a-connection-to-a-remote-git-repository-account).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Remote repository                | Identifier of whether a Git repository is stored remotely. <br/>For more information on remote repository settings, see [Setting Up a Connection to a Remote Git Repository Account](#setting-up-a-connection-to-a-remote-git-repository-account).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Local path                       | Folder where a Git repository local copy is stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Protected branches               | Branches that can be set as protected from any modifications. For more information on protected branches, see [Using Protected Branches](#using-protected-branches).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Protected branches               | Branches that can be set as protected from any modifications. <br/>For more information on protected branches, see [Using Protected Branches](#using-protected-branches).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Default branch name              | Pattern for a default branch name. The default value is WebStudio/{project-name}/{username}/{current-date}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Branch name pattern              | Additional regular expression to be used for validation of the new branch name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Invalid branch name message hint | Error message displayed when trying to create a branch with a name that does not match the additional regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Customize comments               | Custom comment message template for Git commits. Comments can be customized using the following placeholders: **- {user-message}** represents a user defined commit message. It is also used as a commit message in OpenL Tablets WebStudio. **- {commit-type}** is used by commits to recognize the commit type of the message. **- {project-name}** is replaced by the current project in the message and used for user message templates for **Create project**, **Save project**, **Archive project**, **Restore project**, **Erase project**, and **Copy project**. **- {revision}** represents a project revision used for commit. By default, all commits are submitted to Git with a message in the following format: `{user-message} Type: {commit-type}` The following placeholders can be used for the **Restore from old version** user message templates: **- {revision}** is replaced by the old revision number. **- {author}** is replaced by the author of the old project version. **- {datetime}** is replaced by the date of the old project version. An additional validation rule can be set up for user message templates in the **User message pattern** field, in the form of a regular expression. If the validation according to the pattern fails, an error text set in the **Invalid user message hint** field is displayed to a user. |
-| Flat folder structure            | Flag that denotes repository structure. For a flat structure, all projects are stored in the directory specified in the **Path in repository** property, each project in its own folder. Otherwise, if the parameter is set to false, the repository is considered as a Git repository with non-flat structure, and projects can reside in folders and subfolders defined by a user upon project creation or copying, with each project having its own level of nesting. Project index is stored in \<openl-home\>/repositories/settings/\<repo-id\>/openl-projects.yaml and is updated automatically. Branches information is stored in \<openl-home\>/repositories/settings/\<repo-id\>/branches.yaml. Folder name limitations are the same as those applied to folder names by the used OS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Customize comments               | Custom comment message template for Git commits. <br/>Comments can be customized using the following placeholders: <br/>**- {user-message}** represents a user defined commit message. It is also used as a commit message in OpenL Tablets WebStudio. <br/>**- {commit-type}** is used by commits to recognize the commit type of the message. <br/>**- {project-name}** is replaced by the current project in the message and used for user message templates <br/>for **Create project**, **Save project**, **Archive project**, **Restore project**, **Erase project**, and **Copy project**. <br/>**- {revision}** represents a project revision used for commit. <br/>By default, all commits are submitted to Git with a message in the following format: <br/>`{user-message} Type: {commit-type}` <br/>The following placeholders can be used for the **Restore from old version** user message templates: <br/>**- {revision}** is replaced by the old revision number. <br/>**- {author}** is replaced by the author of the old project version. <br/>**- {datetime}** is replaced by the date of the old project version. <br/>An additional validation rule can be set up for user message templates in the **User message pattern** field, in the form of a regular expression. <br/>If the validation according to the pattern fails, an error text set in the **Invalid user message hint** field is displayed to a user. |
+| Flat folder structure            | Flag that denotes repository structure. <br/>For a flat structure, all projects are stored in the directory specified in the **Path in repository** property, each project in its own folder. <br/>Otherwise, if the parameter is set to false, the repository is considered as a Git repository with non-flat structure, <br/>and projects can reside in folders and subfolders defined by a user upon project creation or copying, with each project having its own level of nesting. <br/>Project index is stored in \<openl-home\>/repositories/settings/\<repo-id\>/openl-projects.yaml and is updated automatically. <br/>Branches information is stored in \<openl-home\>/repositories/settings/\<repo-id\>/branches.yaml. <br/>Folder name limitations are the same as those applied to folder names by the used OS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Path                             | Directory where all flat repository structure projects are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 If the password is changed on the server side, by default, OpenL Tablets WebStudio makes three attempts to log into the remote Git server, and then the **Problem communicating with "Design" Git server, will retry automatically in 5 minutes.** error is displayed. After that, OpenL Tablets WebStudio stops login attempts to prevent a user account from blocking, and the **Problem communicating with 'Design' Git server, please contact admin.** error is displayed. Define the following properties in the properties file to configure this behavior:
 
 | Property                               | Description                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| repo-git.failed-authentication-seconds | Time to wait after a failed authentication attempt before the next attempt. It is used to prevent a user account from blocking. The default value is 300 seconds.                                                                                                                                                         |
-| repo-git.max-authentication-attempts   | Maximum number of authentication attempts. After that, a user can be authorized only after resetting the settings or restarting OpenL Tablets WebStudio. No value means unlimited number of attempts. If the value is set to 1, after the first unsuccessful authentication attempt, all subsequent attempts are blocked. |
+| repo-git.failed-authentication-seconds | Time to wait after a failed authentication attempt before the next attempt. <br/>It is used to prevent a user account from blocking. The default value is 300 seconds.                                                                                                                                                         |
+| repo-git.max-authentication-attempts   | Maximum number of authentication attempts. <br/>After that, a user can be authorized only after resetting the settings or restarting OpenL Tablets WebStudio. <br/>No value means unlimited number of attempts. <br/>If the value is set to 1, after the first unsuccessful authentication attempt, all subsequent attempts are blocked. |
 
 ##### Setting Up a Connection to a Remote Git Repository Account
 
