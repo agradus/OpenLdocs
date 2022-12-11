@@ -18,12 +18,17 @@ p.caption {
   padding: 0px;
   }
 
-
-.wy-side-nav-search
- {
-    padding: 0 0.8em 0.2em 0.8m;
-    margin-bottom: 0em;
+.wy-side-nav-search {
+    padding-top: 0;
+    padding-right: .809em;
+    padding-bottom: 0;
+    padding-left: .809em;
+    margin-top: 0;
+    margin-bottom: .809em;
 }
+
+
+
 
 /* below are two descendent selectors */
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
