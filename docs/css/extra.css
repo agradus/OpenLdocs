@@ -27,7 +27,13 @@ p.caption {
     margin-bottom: 5px;
 }
 
-
+.wy-side-nav-search .wy-dropdown>a, .wy-side-nav-search>a {
+    color: red;
+    font-size: 80%;
+    font-weight: 700;
+    padding: 4px 6px;
+    margin-bottom: 0em;
+}
 
 
 /* below are two descendent selectors */
