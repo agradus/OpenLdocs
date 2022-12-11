@@ -12,7 +12,13 @@ p  {
   font-family: roboto;
   }
 
-
+h2  {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 0px;
+  font-size: 22px;
+  font-family: roboto;
+  }
 
 /* set vertical spacing in left nav */
 
