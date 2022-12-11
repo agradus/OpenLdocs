@@ -2756,7 +2756,7 @@ The following table describes other general OpenL Tablets WebStudio settings:
 
 | Option                      | Description                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Tablets WebStudio UI. <br/>If this option is cleared, information about the time of table creation and modification and changes authors, <br/>such as **Created By/On**, **Modified By/On**, is not added to the table properties. |
+| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Tablets WebStudio UI. <br/>If this option is cleared, information about the time of table creation and modification and changes authors, such as **Created By/On**, **Modified By/On**, <br/>is not added to the table properties. |
 | **Date Format**             | Enables changing the date format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
 | **Time Format**             | Enables changing the time format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
 
@@ -2850,7 +2850,7 @@ In the **ADMIN** tab, in the **Repository** section, define values for the follo
 | Protected branches               | Branches that can be set as protected from any modifications. <br/>For more information on protected branches, see [Using Protected Branches](#using-protected-branches).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Default branch name              | Pattern for a default branch name. The default value is WebStudio/{project-name}/{username}/{current-date}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Branch name pattern              | Additional regular expression to be used for validation of the new branch name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Invalid branch name message hint | Error message displayed when trying to create a branch with a name that does not match the additional regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Invalid branch name <br/>message hint | Error message displayed when trying to create a branch with a name that does not match the additional regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Customize comments               | Custom comment message template for Git commits. <br/>Comments can be customized using the following placeholders: <br/>**- {user-message}** represents a user defined commit message. It is also used as a commit message in OpenL Tablets WebStudio. <br/>**- {commit-type}** is used by commits to recognize the commit type of the message. <br/>**- {project-name}** is replaced by the current project in the message and used for user message templates <br/>for **Create project**, **Save project**, **Archive project**, **Restore project**, **Erase project**, and **Copy project**. <br/>**- {revision}** represents a project revision used for commit. <br/>By default, all commits are submitted to Git with a message in the following format: <br/>`{user-message} Type: {commit-type}` <br/>The following placeholders can be used for the **Restore from old version** user message templates: <br/>**- {revision}** is replaced by the old revision number. <br/>**- {author}** is replaced by the author of the old project version. <br/>**- {datetime}** is replaced by the date of the old project version. <br/>An additional validation rule can be set up for user message templates in the **User message pattern** field, in the form of a regular expression. <br/>If the validation according to the pattern fails, an error text set in the **Invalid user message hint** field is displayed to a user. |
 | Flat folder structure            | Flag that denotes repository structure. <br/>For a flat structure, all projects are stored in the directory specified in the **Path in repository** property, each project in its own folder. <br/>Otherwise, if the parameter is set to false, the repository is considered as a Git repository with non-flat structure, <br/>and projects can reside in folders and subfolders defined by a user upon project creation or copying, with each project having its own level of nesting. <br/>Project index is stored in \<openl-home\>/repositories/settings/\<repo-id\>/openl-projects.yaml and is updated automatically. <br/>Branches information is stored in \<openl-home\>/repositories/settings/\<repo-id\>/branches.yaml. <br/>Folder name limitations are the same as those applied to folder names by the used OS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Path                             | Directory where all flat repository structure projects are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -2877,14 +2877,14 @@ To set up a connection to a remote Git repository account, in the **ADMIN** tab,
 
 ### Managing System Settings
 
-**The System tab enables modifying core, project, and testing options and includes the following topics:**
+The System tab enables modifying core, project, and testing options and includes the following topics:
 
 | Section | Property                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |---------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Core    | **Dispatching Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. By default, the **dispatching.validation** value is set to **true** in OpenL Tablets WebStudio. For information on dispatching validation, see the **Table Dispatching Validation Mode** section in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide). |
-|         | **Verify on Edit**               | Allows turning on/off checking of rules consistency and validity on each edit in Rules Editor. By default, the check box is selected. Automatic checks are executed after each edit. If this option is cleared, the verification process does not launch automatically when the **Save** button is clicked. Instead, a **Verify** button appears in Rules Editor, and the user must verify manually by clicking this button.                                                                                                                  |
-| Testing | **Thread number for tests**      | **Indicates the number of test cases executed simultaneously.** **By default, four threads are set.** It means that after running a test table or all tests, up to four test cases will be in progress at the same time. When they are calculated, the next four test cases will be executed.                                                                                                                                                                                                                                                 |
-|         | **Restore Defaults and Restart** | **Restores all settings to default values. All user defined values, such as repository settings, will be lost.**                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Core    | **Dispatching Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. <br/>By default, the **dispatching.validation** value is set to **true** in OpenL Tablets WebStudio. <br/>For information on dispatching validation, see the **Table Dispatching Validation Mode** section in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide). |
+|         | **Verify on Edit**               | Allows turning on/off checking of rules consistency and validity on each edit in Rules Editor. <br/>By default, the check box is selected. Automatic checks are executed after each edit. <br/>If this option is cleared, the verification process does not launch automatically when the **Save** button is clicked. <br/>Instead, a **Verify** button appears in Rules Editor, and the user must verify manually by clicking this button.                                                                                                                  |
+| Testing | **Thread number for tests**      | Indicates the number of test cases executed simultaneously.By default, four threads are set. It means that after running a test table or all tests, up to four test cases will be in progress at the same time. <br/>When they are calculated, the next four test cases will be executed.                                                                                                                                                                                                                                                 |
+|         | **Restore Defaults and Restart** | Restores all settings to default values. All user defined values, such as repository settings, will be lost.                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Managing User Information
 
@@ -2914,13 +2914,13 @@ The following topics are included in this section:
 To view a list of groups, proceed as follows:
 
 1.  In the **ADMIN** tab, click **Groups & Privileges**.
-
-The system displays a list of groups similar to the following one:
-
-![](webstudio_guide_images/57a30f5b0d7de4ae821098ab307a52e0.jpeg)
-
-*User groups in the* **Groups & Privileges** *tab*
-
+    
+    The system displays a list of groups similar to the following one:
+    
+    ![](webstudio_guide_images/57a30f5b0d7de4ae821098ab307a52e0.jpeg)
+    
+    *User groups in the* **Groups & Privileges** *tab*
+    
 1.  To create a new group, proceed as described in [Adding a Group](#adding-a-group).
 2.  To edit a group, proceed as described in [Editing a Group](#editing-a-group).
 3.  To delete an existing group, proceed as described in [Deleting a Group](#deleting-a-group).
@@ -2930,19 +2930,19 @@ The system displays a list of groups similar to the following one:
 To add a new group, proceed as follows:
 
 1.  Click the **Add New Group** link.
-
-The **Add New Group** form appears.
-
+    
+    The **Add New Group** form appears.
+    
 1.  Enter the group name in the **Name** field.
 2.  Optionally, provide group description in the **Description** text box.
 3.  In the **Privilege** area, define the privileges as needed.
-
-To assign a set of privileges for a group, click the group name above the list of privileges, such as Developers, Testers, or Administrators. The **Authenticated** default group with the **Viewer** privilege is created if the **All authenticated users have View access** check box is selected in the installation wizard. The group is displayed in the user table if no other groups are assigned to this user.
-
-![](webstudio_guide_images/b3f34ff98d6e111209332e0252ed93fb.png)
-
-*Adding a user group with required set of privileges*
-
+    
+    To assign a set of privileges for a group, click the group name above the list of privileges, such as Developers, Testers, or Administrators. The **Authenticated** default group with the **Viewer** privilege is created if the **All authenticated users have View access** check box is selected in the installation wizard. The group is displayed in the user table if no other groups are assigned to this user.
+    
+    ![](webstudio_guide_images/b3f34ff98d6e111209332e0252ed93fb.png)
+    
+    *Adding a user group with required set of privileges*
+    
 1.  Click **Save**.
 
 ##### Editing a Group
@@ -2967,24 +2967,24 @@ If OpenL Tablets WebStudio is installed with the option to sign in via a third p
 When a user from the third-party server logs into OpenL Tablets WebStudio, external user groups are pulled from the external server and displayed in the OpenL Tablets WebStudio user table.
 
 -   If an external group cannot be matched with the OpenL Tablets WebStudio group, that is, no group with such name exists in OpenL Tablets WebStudio, the group is displayed as a collapsed number, for example, +1, and when the value is expanded, the group is highlighted grey.
-
-![](webstudio_guide_images/ee4a2bedc13ee312f08f2b364d1c3af3.png)
-
-*Groups non-existing in OpenL Tablets WebStudio displayed as collapsed numbers*
-
-Groups highlighted blue are internal OpenL Tablets WebStudio groups.
-
+    
+    ![](webstudio_guide_images/ee4a2bedc13ee312f08f2b364d1c3af3.png)
+    
+    *Groups non-existing in OpenL Tablets WebStudio displayed as collapsed numbers*
+    
+    Groups highlighted blue are internal OpenL Tablets WebStudio groups.
+    
 -   If an external group is matched with the OpenL Tablets WebStudio group but it does not have the Administrator privilege assigned, the group is highlighted green.
-
-![](webstudio_guide_images/baeffab9dc6ae249ccc19093751707a5.png)
-
-*Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
-
+    
+    ![](webstudio_guide_images/baeffab9dc6ae249ccc19093751707a5.png)
+    
+    *Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
+    
 -   If a group has the Administrator privilege, the group is highlighted red in the user table.
-
-![](webstudio_guide_images/6d6a6bca6559eacb1c0e413629e717cf.png)
-
-*Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
+    
+    ![](webstudio_guide_images/6d6a6bca6559eacb1c0e413629e717cf.png)
+    
+    *Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
 
 After each user login, OpenL Tablets WebStudio updates external groups as follows:
 
@@ -3027,9 +3027,9 @@ The following topics are included in this section:
 To view a list of users, proceed as follows:
 
 1.  In the **ADMIN** tab, click **Users** on the left.
-
-The system displays a list of OpenL Tablets WebStudio users.
-
+    
+    The system displays a list of OpenL Tablets WebStudio users.
+    
 1.  In the **Users** tab, perform either of the following:
 -   To create a user, proceed as described in [Creating a User](#creating-a-user).
 -   To edit a user, proceed as described in [Editing a User](#editing-a-user).
@@ -3040,36 +3040,36 @@ The system displays a list of OpenL Tablets WebStudio users.
 While creating a user, make sure to include the user in at least one group. Proceed as follows:
 
 1.  Click the **Add New User** link.
-
-The system displays the **Add New User** form.
-
-![](webstudio_guide_images/2a82416bdc26b5badb9f4f0257104a6d.png)
-
-*Creating a user*
-
+    
+    The system displays the **Add New User** form.
+    
+    ![](webstudio_guide_images/2a82416bdc26b5badb9f4f0257104a6d.png)
+    
+    *Creating a user*
+    
 1.  To create a user locally, ensure that the **Local user** check box is selected.
-
-This option is selected by default. For local users, password information is stored in OpenL Tablets Web Studio and third party system user data is not used. This check box is available only if the Active Directory user mode and internal user management option are selected.
-
+    
+    This option is selected by default. For local users, password information is stored in OpenL Tablets Web Studio and third party system user data is not used. This check box is available only if the Active Directory user mode and internal user management option are selected.
+    
 1.  Specify the user’s login name in the **Username** field.
 2.  Optionally, enter the user email.
-
-The email value is mandatory for committing to the Git repository.
-
+    
+    The email value is mandatory for committing to the Git repository.
+    
 1.  In the **Password** field, enter user password value.
-
-This field is unavailable for external users.
-
+    
+    This field is unavailable for external users.
+    
 1.  Optionally, enter the user’s first and last name.
-
-By default, the **Display name** value is automatically generated as “First name”+space+”Last name”.
-
-The display name is mandatory for committing to the Git repository.
-
+    
+    By default, the **Display name** value is automatically generated as “First name”+space+”Last name”.
+    
+    The display name is mandatory for committing to the Git repository.
+    
 1.  To change the **Display name** pattern, in the appropriate field, select either **First Last**, or **Last First**.
-
-If the **Other** option is selected, the field becomes editable and any display name can be entered.
-
+    
+    If the **Other** option is selected, the field becomes editable and any display name can be entered.
+    
 1.  Select one or more groups to assign the user to.
 2.  Click **Save** to complete.
 
@@ -3085,11 +3085,10 @@ To edit a user, proceed as follows:
 
 1.  In the **Users** list, locate a user that needs to be modified and click the username.
 2.  In the **Edit User** form, modify user data as required.
-
-The username and administrator’s privilege set up in the `security.administrators` property cannot be changed.
-
-For external users synchronized with Active Directory or SSO, only fields that are not received from the third party are editable.
-
+    
+    The username and administrator’s privilege set up in the `security.administrators` property cannot be changed.
+    For external users synchronized with Active Directory or SSO, only fields that are not received from the third party are editable.
+    
 1.  Click **Save** to save the changes.
 
 ##### Deleting a User
@@ -3148,29 +3147,29 @@ For extensible tag types, any user can create new tag values. For other tag type
 To create project tags, proceed as follows:
 
 1.  In the **ADMIN** tab, click **Tags** on the left.
-
-![](webstudio_guide_images/d2f7222f460ee0e300160cd30bc2e2d2.jpeg)
-
-*Selecting tags*
-
+    
+    ![](webstudio_guide_images/d2f7222f460ee0e300160cd30bc2e2d2.jpeg)
+    
+    *Selecting tags*
+    
 1.  To add a tag type, in the **New Tag Type** field, enter the tag type name and press **Enter** or Tab.
-
-When at least one tag type is added, a field for adding tag values appears.
-
-![](webstudio_guide_images/42641ef9498fcf79828ccd5e3d40d751.jpeg)
-
-*Adding tag values*
-
+    
+    When at least one tag type is added, a field for adding tag values appears.
+    
+    ![](webstudio_guide_images/42641ef9498fcf79828ccd5e3d40d751.jpeg)
+    
+    *Adding tag values*
+    
 1.  To edit a tag type, click the tag type name field and make the necessary changes.
 2.  To delete a tag type, click the red cross icon for the appropriate tag.
 3.  To add a tag value, in the **New Tag** field, enter the tag name and press **Enter.**
 4.  To edit a tag, click the menu icon ![](webstudio_guide_images/f2996d868400e9a96780f9111861cfa7.png), select **Edit,** modify the tag, and press **Enter** or click outside the field.
 5.  To delete a tag, click the menu icon ![](webstudio_guide_images/f2996d868400e9a96780f9111861cfa7.png)and select **Delete.**
-
-All created tag types and values are saved automatically. These values are now available for selection when assigning tags to projects as described in [Creating Projects in Design Repository](#creating-projects-in-design-repository).
-
-Tag values can be derived from project names. Proceed as follows:
-
+    
+    All created tag types and values are saved automatically. These values are now available for selection when assigning tags to projects as described in [Creating Projects in Design Repository](#creating-projects-in-design-repository).
+    
+    Tag values can be derived from project names. Proceed as follows:
+    
 1.  To define project name templates to be used for deriving tags, in the **Tags from a Project Name** section, enter the template value.
 2.  To save project name templates, click **Save Templates** or simply click outside the field.
 3.  To assign tags according to these project name templates to the projects that do not have tags defined yet, click **Fill tags for projects.**
@@ -3187,8 +3186,8 @@ In this window, tags are marked with colors as follows:
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | White     | A tag exists in the list of tags and will be assigned to a project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Green     | A tag does not exist in the list of tags, but the tag type is defined as extensible, so the tag will be created and assigned to the project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Red       | A tag does not exist in the list of tags, and the tag type is not defined as extensible, so the tag will not be created, neither it will be assigned to the project. The tag for a project will remain **None.**                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Grey      | A tag is already assigned to the project. The project still appears on the list because it has other tag types with the **None** values. If the tag is already assigned, but a different tag value is derived from the project name according to the template, the existing value will be replaced with the derived value. The replacement is identified with the arrow. The derived value can be created if the tag type is extensible. In this case, a new value will be marked green. If the derived tag value does not exist and the tag type is not extensible, no replacement happens, and the old value appears in grey with no arrow. |
+| Red       | A tag does not exist in the list of tags, and the tag type is not defined as extensible, so the tag will not be created, <br/>neither it will be assigned to the project. The tag for a project will remain **None.**                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Grey      | A tag is already assigned to the project. The project still appears on the list because it has other tag types with the **None** values. <br/>If the tag is already assigned, but a different tag value is derived from the project name according to the template, the existing value will be replaced with the derived value. <br/>The replacement is identified with the arrow. The derived value can be created if the tag type is extensible. <br/>In this case, a new value will be marked green. If the derived tag value does not exist and the tag type is not extensible, no replacement happens, <br/>and the old value appears in grey with no arrow. |
 
 This logic is explained in the tooltips for each tag color type.
 
