@@ -1,29 +1,29 @@
 <img src="img/OpenLHome.png" width="700">
 
-## v5.26 User Guides
-User guides for this version are available via the left navigation.
+<h2 style="indexpage">v5.26 User Guides</h2>
+<p style="indexpage">User guides for this version are available via the left navigation.</p>
 
-HTML guides have links to the GitHub source repository, via which visitors can easily propose documentation updates.
+<p style="indexpage">HTML guides have links to the GitHub source repository, via which visitors can easily propose documentation updates.</p>
 
-## Previous User Guides
-[v5.25](https://openldocs.readthedocs.io/en/v5.25/)
+<h2 style="indexpage">Previous User Guides</h2>
+<p style="indexpage">[v5.25](https://openldocs.readthedocs.io/en/v5.25/)</p>
 
-[v5.24](https://openldocs.readthedocs.io/en/v5.24/)
+<p style="indexpage">[v5.24](https://openldocs.readthedocs.io/en/v5.24/)</p>
 
-[v5.23](https://openldocs.readthedocs.io/en/v5.23/)
+<p style="indexpage">[v5.23](https://openldocs.readthedocs.io/en/v5.23/)</p>
 
-[v5.22](https://openldocs.readthedocs.io/en/v5.22/)
+<p style="indexpage">[v5.22](https://openldocs.readthedocs.io/en/v5.22/)</p>
 
-[v5.21](https://openldocs.readthedocs.io/en/v5.21/)
+<p style="indexpage">[v5.21](https://openldocs.readthedocs.io/en/v5.21/)</p>
 
-[v5.20](https://openldocs.readthedocs.io/en/v5.20/)
+<p style="indexpage">[v5.20](https://openldocs.readthedocs.io/en/v5.20/)</p>
 
-[v5.19](https://openldocs.readthedocs.io/en/v5.19/)
+<p style="indexpage">[v5.19](https://openldocs.readthedocs.io/en/v5.19/)</p>
 
-[v5.18](https://openldocs.readthedocs.io/en/v5.18/)
+<p style="indexpage">[v5.18](https://openldocs.readthedocs.io/en/v5.18/)</p>
 
-[v5.17](https://openldocs.readthedocs.io/en/v5.17/)
+<p style="indexpage">[v5.17](https://openldocs.readthedocs.io/en/v5.17/)</p>
 
-[v5.16](https://openldocs.readthedocs.io/en/v5.16/)
+<p style="indexpage">[v5.16](https://openldocs.readthedocs.io/en/v5.16/)</p>
 
-[v5.15](https://openldocs.readthedocs.io/en/v5.15/)
+<p style="indexpage">[v5.15](https://openldocs.readthedocs.io/en/v5.15/)</p>
