@@ -20,10 +20,10 @@ p.caption {
 
 /* below are two descendent selectors */
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
-    height: 32px;
-    line-height: 32px;
+    height: 25px;
+    line-height: 25px;
     padding: 0 1.618em;
-    margin: 0px 0 2px;
+    margin: 1px 0 1px;
     display: block;
 }
 
