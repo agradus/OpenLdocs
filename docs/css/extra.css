@@ -48,8 +48,8 @@ h2.indexpage  {
 }
 
 
-/* below are two descendent selectors */
-.wy-menu-vertical header, .wy-menu-vertical p.caption {
+/* below is a descendent selector */
+.wy-menu-vertical header {
     height: 25px;
     line-height: 30px;
     padding: 0 1.618em;
@@ -59,9 +59,15 @@ h2.indexpage  {
 
 /* only affects p.caption inside navigation */
 .wy-menu-vertical p.caption {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 0px;
+    height: 25px;
+    line-height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    display: block;
 }
 
 /* icon sizing in the left menu */
