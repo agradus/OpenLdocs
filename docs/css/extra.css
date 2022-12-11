@@ -18,6 +18,13 @@ p.caption {
   padding: 0px;
   }
 
+
+.wy-side-nav-search
+ {
+    padding: 0 0.8em 0.2em 0.8m;
+    margin-bottom: 0em;
+}
+
 /* below are two descendent selectors */
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
     height: 25px;
