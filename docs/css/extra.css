@@ -4,7 +4,7 @@
   order: 0;
 }
 
-p  {
+p.indexpage  {
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 0px;
@@ -12,7 +12,7 @@ p  {
   font-family: roboto;
   }
 
-h2  {
+h2.indexpage  {
   margin-top: 20px;
   margin-bottom: 0px;
   padding: 0px;
@@ -24,20 +24,10 @@ h2  {
     margin-bottom: 5px;
   }
 
-
-
-
-/* set vertical spacing in left nav */
-
-li {
+/* only affects lists inside navigation */
+.wy-menu-vertical li {
   margin-top: -5px;
   margin-bottom: -7px;
-  padding: 0px;
-  }
-
-p.caption {
-  margin-top: -10px;
-  margin-bottom: -10px;
   padding: 0px;
   }
 
@@ -65,6 +55,13 @@ p.caption {
     padding: 0 1.618em;
     margin: 2px 0 3px;
     display: block;
+}
+
+/* only affects p.caption inside navigation */
+.wy-menu-vertical p.caption {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding: 0px;
 }
 
 /* icon sizing in the left menu */
