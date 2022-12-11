@@ -21,7 +21,7 @@ p.caption {
 /* below are two descendent selectors */
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
     height: 25px;
-    line-height: 25px;
+    line-height: 30px;
     padding: 0 1.618em;
     margin: 2px 0 1px;
     display: block;
