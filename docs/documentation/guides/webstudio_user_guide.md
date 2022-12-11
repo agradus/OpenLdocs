@@ -3187,7 +3187,7 @@ In this window, tags are marked with colors as follows:
 | White     | A tag exists in the list of tags and will be assigned to a project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Green     | A tag does not exist in the list of tags, but the tag type is defined as extensible, so the tag will be created and assigned to the project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Red       | A tag does not exist in the list of tags, and the tag type is not defined as extensible, so the tag will not be created, <br/>neither it will be assigned to the project. The tag for a project will remain **None.**                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Grey      | A tag is already assigned to the project. The project still appears on the list because it has other tag types with the **None** values. <br/>If the tag is already assigned, but a different tag value is derived from the project name according to the template, the existing value will be replaced with the derived value. <br/>The replacement is identified with the arrow. The derived value can be created if the tag type is extensible. <br/>In this case, a new value will be marked green. If the derived tag value does not exist and the tag type is not extensible, no replacement happens, <br/>and the old value appears in grey with no arrow. |
+| Grey      | A tag is already assigned to the project. The project still appears on the list because it has other tag types with the **None** values. <br/>If the tag is already assigned, but a different tag value is derived from the project name according to the template, the existing value will be replaced <br/>with the derived value. The replacement is identified with the arrow. The derived value can be created if the tag type is extensible. <br/>In this case, a new value will be marked green. If the derived tag value does not exist and the tag type is not extensible, no replacement happens, <br/>and the old value appears in grey with no arrow. |
 
 This logic is explained in the tooltips for each tag color type.
 
@@ -3201,19 +3201,19 @@ To manage email server configuration, proceed as follows:
 2.  Ensure that the **Enable email address verification** check box is selected.
 3.  Specify the sender’s URL, username, and password for dispatching verification emails through this email server.
 4.  Click **Apply All and Restart.**
-
-When a sender is defined for the specific server, it can be used to send emails for verification of the non-verified mailboxes manually defined by a user.
-
-![](webstudio_guide_images/0fb7500bee79ff665441b5e318d69fb1.png)
-
-*Defining verification emails sender*
-
-If the user email is not verified, a red exclamation mark is displayed next to this user email in the user list.
-
-![](webstudio_guide_images/f2cadb07631751bf665a582465aa0486.png)
-
-*A user with unverified email*
-
+    
+    When a sender is defined for the specific server, it can be used to send emails for verification of the non-verified mailboxes manually defined by a user.
+    
+    ![](webstudio_guide_images/0fb7500bee79ff665441b5e318d69fb1.png)
+    
+    *Defining verification emails sender*
+    
+    If the user email is not verified, a red exclamation mark is displayed next to this user email in the user list.
+    
+    ![](webstudio_guide_images/f2cadb07631751bf665a582465aa0486.png)
+    
+    *A user with unverified email*
+    
 1.  If the verification email is not received for some reason, to resend it, in the **Users** tab, open the user record and click **Resend**.
 
 ![](webstudio_guide_images/32efcc3b25c8c305afeb092129199861.png)
@@ -3376,32 +3376,32 @@ The following topics are included in this section:
 An OpenL Tablets project can be generated from any OpenAPI file. It is also possible to upload the OpenAPI schema generated by the OpenL Tablets Rule Services and thus upload the project with the following features:
 
 -   project with enabled RuntimeContext
-
-If any path in the OpenAPI document has an input parameter with a link to DefaultRulesRuntimeContext as \#/components/schemas/DefaultRulesRuntimeContext, the generated project will contain the corresponding setting and RuntimeContext will be enabled.
-
-![](webstudio_guide_images/3e4b2b936c9baa8d9fcf97fc72534861.png)
-
-*The enabled option for providing runtime context*
-
-The DefaultRulesRuntimeContext input parameter is extracted from input parameters for generated spreadsheets. If any path contains RuntimeContext as a parameter, the generated project will have enabled runtime context. If there is any path without runtime context, the generated spreadsheet will be marked as non-OpenL Tablets rule, not included in the included methods regexp, and available only in the generated service AnnotationTemplate class.
-
-An example of a schema with partially provided runtime context is as follows.
-
-![](webstudio_guide_images/9fa467ceff42e098546f38009bcac342.png)
-
-*Example of partially provided runtime context*
-
-Based on this schema, the examplePathWithRC path with the **POST** operation is included in the exposed methods, but pathWithoutRC/{a} path is not included.
-
+    
+    If any path in the OpenAPI document has an input parameter with a link to DefaultRulesRuntimeContext as \#/components/schemas/DefaultRulesRuntimeContext, the generated project will contain the corresponding setting and RuntimeContext will be enabled.
+    
+    ![](webstudio_guide_images/3e4b2b936c9baa8d9fcf97fc72534861.png)
+    
+    *The enabled option for providing runtime context*
+    
+    The DefaultRulesRuntimeContext input parameter is extracted from input parameters for generated spreadsheets. If any path contains RuntimeContext as a parameter, the generated project will have enabled runtime context. If there is any path without runtime context, the generated spreadsheet will be marked as non-OpenL Tablets rule, not included in the included methods regexp, and available only in the generated service AnnotationTemplate class.
+    
+    An example of a schema with partially provided runtime context is as follows.
+    
+    ![](webstudio_guide_images/9fa467ceff42e098546f38009bcac342.png)
+    
+    *Example of partially provided runtime context*
+    
+    Based on this schema, the examplePathWithRC path with the **POST** operation is included in the exposed methods, but pathWithoutRC/{a} path is not included.
+    
 -   project with allowed variations
-
-If the OpenAPI schema contains all schemas named Variation, NoVariation, VariationsPack, ArgumentReplacementVariation, ComplexVariation, DeepCloningVariation, JXPathVariation, and VariationResult, it is considered that the OpenAPI file is generated from the project with variations support enabled.
-
-![](webstudio_guide_images/dec09f25687684ebc31fd9b5a9f30294.png)
-
-*The enabled option for providing variations*
-
-All paths which contain variations will be ignored and a generated project will also have enabled variations.
+    
+    If the OpenAPI schema contains all schemas named Variation, NoVariation, VariationsPack, ArgumentReplacementVariation, ComplexVariation, DeepCloningVariation, JXPathVariation, and VariationResult, it is considered that the OpenAPI file is generated from the project with variations support enabled.
+    
+    ![](webstudio_guide_images/dec09f25687684ebc31fd9b5a9f30294.png)
+    
+    *The enabled option for providing variations*
+    
+    All paths which contain variations will be ignored and a generated project will also have enabled variations.
 
 #### Data Table
 
@@ -3445,20 +3445,20 @@ If a path response returns a primitive schema type or a schema participating in 
 Spreadsheet tables and spreadsheet result table steps are presented by fields of the schema returned in the Response section of the OpenAPI path.
 
 -   If a step is a primitive type, the default value for a corresponding type is set as a value of the step.
-
-Default values are retrieved from the OpenAPI schema. If a default value is not present, the following values are set:
-
-| Type    | Default value in a cell |
-|---------|-------------------------|
-| Integer | = 0                     |
-| Long    | = 0L                    |
-| Double  | = 0.0                   |
-| Float   | = 0.0f                  |
-| Boolean | = false                 |
-| String  | = “” (empty string)     |
-| Date    | = new Date()            |
-| Object  | = new Object()          |
-
+    
+    Default values are retrieved from the OpenAPI schema. If a default value is not present, the following values are set:
+    
+    | Type    | Default value in a cell |
+    |---------|-------------------------|
+    | Integer | = 0                     |
+    | Long    | = 0L                    |
+    | Double  | = 0.0                   |
+    | Float   | = 0.0f                  |
+    | Boolean | = false                 |
+    | String  | = “” (empty string)     |
+    | Date    | = new Date()            |
+    | Object  | = new Object()          |
+    
 -   If a step is an OpenL Tablets datatype, a new instance creation is called.
 -   If a step is an OpenL spreadsheet call, it is called with default input parameters.
 
