@@ -278,7 +278,7 @@ A **decision table** contains a set of rules describing decision situations wher
 | Excluded, Non-Driver                                                           |                          |             | = NonDriverPremiumByAge ( driverType, age ) |
 |                                                                                |                          |             | = \$600 + additionalCharge                  |
 
-![](ref_guide_images/decisionTableExample.jpeg)
+![](ref_guide_images/decisionTableExample.png)
 
 *Decision table example*
 
