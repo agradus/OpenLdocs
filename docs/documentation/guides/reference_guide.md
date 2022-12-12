@@ -108,7 +108,7 @@ There can be situations where OpenL Tablets projects are used in the development
 ### System Overview
 
 The following diagram displays how OpenL Tablets is used by different types of users.
-
+![](ref_guide_images/OpenLTabletsOverview.png)
 *OpenL Tablets overview*
 
 A typical lifecycle of an OpenL Tablets project is as follows:
