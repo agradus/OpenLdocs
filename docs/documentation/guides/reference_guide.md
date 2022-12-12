@@ -792,9 +792,9 @@ OpenL Tablets automatically detects transposed tables and is able to process the
 The following sections describe how to present some values – list or range of numbers, dates, logical values – in OpenL table cells. The following topics are included in this section:
 
 -   [Representing Arrays](#representing-arrays)
--   [Representing Date Values](#representingdatevalues)
--   [Representing Boolean Values](#representingbooleanvalues)
--   [Representing Range Types](#representingrangetypes)
+-   [Representing Date Values](#representing-date-values)
+-   [Representing Boolean Values](#representing-boolean-values)
+-   [Representing Range Types](#representing-range-types)
 
 ###### Representing Arrays
 
@@ -853,17 +853,13 @@ Two-dimensional arrays can be used in rules tables, where mixing values and expr
 ###### Representing Date Values
 
 To represent date values in table cells, either Excel format or the following format must be used for the text:
-
-`'<month>/<date>/<year>`
+'<month>/<date>/<year>`
 
 The value must always be preceded with an apostrophe to indicate that it is text. Excel treats these values as plain text and does not convert to any specific date format.
 
 The following are valid date value examples:
-
 `'5/7/1981`
-
 `'10/20/2002`
-
 `'10/20/02`
 
 OpenL Tablets recognizes all Excel date formats.
@@ -913,17 +909,17 @@ Calculations use regular Java syntax, similar to the one used in conditions and 
 To address an attribute of an object in a rule, use the following syntaxes:
 
 -   \<object name\>.\<attribute name\>
-
-![](ref_guide_images/8b56fda447e327f51bfd27c2696bb926.jpeg)
-
-*Defining an object attribute*
-
+    
+    ![](ref_guide_images/8b56fda447e327f51bfd27c2696bb926.jpeg)
+    
+    *Defining an object attribute*
+    
 -   \<attribute name\> (\<object name\>)
-
-![](ref_guide_images/52665537d9ae19b6daaa066ce1001b65.jpeg)
-
-*Defining an object attribute*
-
+    
+    ![](ref_guide_images/52665537d9ae19b6daaa066ce1001b65.jpeg)
+    
+    *Defining an object attribute*
+    
 The following rules apply:
 
 -   When a complex object is used as an input parameter in a rule, it is recommended to use a simplified reference without the input parameter name to address the direct attributes of this object.
@@ -1025,7 +1021,7 @@ In the following rule example, the second rule row is executed, and rule ID \#2 
 
 This section describes datatype tables and includes the following topics:
 
--   [Introducing Datatype Tables](#_Introducing_Datatype_Tables)
+-   [Introducing Datatype Tables](#introducing-datatype-tables)
 -   [Inheritance in Data Types](#inheritance-in-data-types)
 -   [Vocabulary Data Types](#vocabulary-data-types)
 
@@ -1045,11 +1041,11 @@ A Datatype table has the following structure:
 
 1.  The first row is the header containing the **Datatype** keyword followed by the name of the data type.
 2.  Every row, starting with the second one, represents one attribute of the data type.
-
-The first column contains attribute types, and the second column contains corresponding attribute names.
-
-**Note:** While there are no special restrictions, usually an attribute type starts with a capital letter and attribute name starts with a small letter.
-
+    
+    The first column contains attribute types, and the second column contains corresponding attribute names.
+    
+    **Note:** While there are no special restrictions, usually an attribute type starts with a capital letter and attribute name starts with a small letter.
+    
 1.  The third column is optional and defines default values for fields.
 
 Consider the case when a hierarchical logical data structure must be created. The following example of a Datatype table defines a custom data type called **Person**. The table represents a structure of the **Person** data object and combines **Person’s** data elements, such as name, social security number, date of birth, gender, and address.
@@ -1125,12 +1121,12 @@ To specify inheritance, the following header format is used in the Datatype tabl
 The vocabulary data type is created as follows:
 
 1.  The first row is the header.
-
-It starts with the **Datatype** keyword, followed by the vocabulary data type name. The predefined data type is in angle brackets based on which the vocabulary data type is created at the end.
-
+    
+    It starts with the **Datatype** keyword, followed by the vocabulary data type name. The predefined data type is in angle brackets based on which the vocabulary data type is created at the end.
+    
 1.  The second and following rows list values of the vocabulary data type.
-
-The values can be of the indicated predefined data type only.
+    
+    The values can be of the indicated predefined data type only.
 
 In the example described in [Introducing Datatype Tables](#_Introducing_Datatype_Tables), the data type **Person** has an attribute **gender** of the **Gender** data type which is the following vocabulary data type.
 
@@ -1153,9 +1149,9 @@ Data tables can contain data types supported by OpenL Tablets or types loaded in
 The following topics are included in this section:
 
 -   [Using Simple Data Tables](#using-simple-data-tables)
--   [Using Advanced Data Tables](#_Using_Advanced_Data)
+-   [Using Advanced Data Tables](#using-advanced-data-tables)
 -   [Specifying Data in Data Tables with List and Map Fields](#specifying-data-in-data-tables-with-list-and-map-fields)
--   [Specifying Data for Aggregated Objects](#_Specifying_Data_for_1)
+-   [Specifying Data for Aggregated Objects](#specifying-data-for-aggregated-objects)
 -   [Ensuring Data Integrity](#ensuring-data-integrity)
 
 ##### Using Simple Data Tables
@@ -1163,11 +1159,11 @@ The following topics are included in this section:
 Simple data tables define a list of values of data types that have a simple structure.
 
 1.  The first row is the header of the following format:
-
+    
     `Data <data type> <data table name>`
-
-where data type is a type of data the table contains, it can be any predefined or vocabulary data type. For more information on predefined and vocabulary data types, refer to [Working with Data Types](#working-with-data-types) and [Datatype Table](#datatype-table).
-
+    
+    where data type is a type of data the table contains, it can be any predefined or vocabulary data type. For more information on predefined and vocabulary data types, refer to [Working with Data Types](#working-with-data-types) and [Datatype Table](#datatype-table).
+    
 1.  The second row is a keyword **this**.
 2.  The third row is a descriptive table name intended for business users.
 3.  In the fourth and following rows, values of data are provided.
@@ -1183,13 +1179,13 @@ An example of a data table containing an array of numbers is as follows.
 Advanced data tables are used for storing information of a complex structure, such as custom data types and arrays. For more information on data types, see [Datatype Table](#_Datatype_Table).
 
 1.  The first row of an advanced data table contains text in the following format:
-
-`Data <data type> <data table name>`
-
+    
+    `Data <data type> <data table name>`
+   
 1.  Each cell in the second row contains an attribute name of the data type.
-
-For an array of objects, the [i] syntax can be used to define an array of simple datatypes, and [i]. \<attributeName\> to define an array of custom datatypes.
-
+   
+   For an array of objects, the [i] syntax can be used to define an array of simple datatypes, and [i]. \<attributeName\> to define an array of custom datatypes.
+   
 1.  The third row contains attribute display names.
 2.  Each row starting from the fourth one contains values for specific data rows.
 
