@@ -36,7 +36,7 @@ The following styles and conventions are used in this guide:
 
 | Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. Represents a term the first time it is defined. |
+| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
 | `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
 | Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
 | *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
@@ -50,11 +50,11 @@ This chapter introduces OpenL Tablets and describes its main concepts.
 
 The following topics are included in this section:
 
--   [What Is OpenL Tablets?](#_What_Is_OpenL_)
--   [Basic Concepts](#_Basic_Concepts)
--   [System Overview](#_System_Overview)
--   [Installing OpenL Tablets](#_Installing_OpenL_Tablets)
--   [Tutorials and Examples](#_Tutorials_and_Examples)
+-   [What Is OpenL Tablets?](#what-is-openl-tablets)
+-   [Basic Concepts](#basic-concepts)
+-   [System Overview](#system-overview)
+-   [Installing OpenL Tablets](#installing-openl-tablets)
+-   [Tutorials and Examples](#tutorials-and-examples)
 
 ### What Is OpenL Tablets?
 
@@ -101,7 +101,7 @@ Different types of tables serve different purposes. For more information on tabl
 
 #### Projects
 
-An **OpenL Tablets project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files, which are called **modules** of the project, and optionally Java code, library dependencies, and other components. For more information on projects, see [Working with Projects](#_Chapter_4:_Working).
+An **OpenL Tablets project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files, which are called **modules** of the project, and optionally Java code, library dependencies, and other components. For more information on projects, see [Working with Projects](#working-with-projects).
 
 There can be situations where OpenL Tablets projects are used in the development environment but not in production, depending on the technical aspects of a solution.
 
@@ -120,9 +120,9 @@ A typical lifecycle of an OpenL Tablets project is as follows:
 Typically, this task is performed through Excel or OpenL Tablets WebStudio in a web browser.
 
 1.  Business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
-
-As a result, fully working rules are created and ready to be used.
-
+    
+    As a result, fully working rules are created and ready to be used.
+    
 1.  Development team creates other parts of the solution and employs business rules directly through the OpenL Tablets engine or remotely through web services.
 2.  Whenever required, a business user updates or adds new rules to project tables.
 
@@ -130,7 +130,7 @@ OpenL Tablets business rules management applications, such as OpenL Tablets WebS
 
 ### Installing OpenL Tablets
 
-OpenL Tablets installation instructions are provided in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/).
+OpenL Tablets installation instructions are provided in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio).
 The development environment is required only for creating OpenL Tablets projects and launching OpenL Tablets WebStudio or OpenL Tablets Rule Services. If OpenL Tablets projects are accessed through OpenL Tablets WebStudio or web services, no specific software needs to be installed.
 
 ### Tutorials and Examples
@@ -152,13 +152,13 @@ To create a tutorial project, proceed as follows:
 2.  Click the **Create Project** button ![](ref_guide_images/22ea40949420dc3bdd150c652a5e91a7.png).
 3.  In the **Create Project from** window, click the required tutorial name.
 4.  Click **Create** to complete.
-
-The project appears in the **Projects** list of Repository Editor.
-
-![](ref_guide_images/1d796f4911707c50e63e853581e010e6.png)
-
-*Creating tutorial projects*
-
+    
+    The project appears in the **Projects** list of Repository Editor.
+    
+    ![](ref_guide_images/1d796f4911707c50e63e853581e010e6.png)
+   
+    *Creating tutorial projects*
+    
 1.  In the top line menu, click **Rules Editor**.
 
 The project is displayed in the **Projects** list and available for usage. It is highly recommended to start from reading Excel files for examples and tutorials which provide clear explanations for every step involved.
