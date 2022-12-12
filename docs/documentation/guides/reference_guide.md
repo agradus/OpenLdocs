@@ -858,6 +858,7 @@ To represent date values in table cells, either Excel format or the following fo
 The value must always be preceded with an apostrophe to indicate that it is text. Excel treats these values as plain text and does not convert to any specific date format.
 
 The following are valid date value examples:
+	
 `'5/7/1981`
 `'10/20/2002`
 `'10/20/02`
@@ -1183,9 +1184,9 @@ Advanced data tables are used for storing information of a complex structure, su
     `Data <data type> <data table name>`
    
 1.  Each cell in the second row contains an attribute name of the data type.
-   
-   For an array of objects, the [i] syntax can be used to define an array of simple datatypes, and [i]. \<attributeName\> to define an array of custom datatypes.
-   
+    
+    For an array of objects, the [i] syntax can be used to define an array of simple datatypes, and [i]. \<attributeName\> to define an array of custom datatypes.
+    
 1.  The third row contains attribute display names.
 2.  Each row starting from the fourth one contains values for specific data rows.
 
@@ -1219,15 +1220,14 @@ A user can call any value from a data table using the following syntax:
 ##### Specifying Data in Data Tables with List and Map Fields
 
 A **list** represents an ordered sequence of objects. Unlike array, a list can contain elements of any type.
-
 A **map** is a collection of key-value pairs. Each element of the map always has two values, a key and a value.
 
 To define data table for lists and maps, use the following syntax:
 
 -   for lists, [i]:\<element datatype\>
-
-[i] is order number
-
+    
+    [i] is order number
+    
 -   for maps, [“key”]:\<element datatype\>
 
 If a datatype table field is a list or a map, use the following syntax:
@@ -1319,12 +1319,12 @@ The following rules and limitations apply:
     A primary key column can be defined, for example, `policy.vehicles._PK_,` if data columns cannot be used for this purpose. Thus, the primary key cannot be left empty.
 
 -   In non-keys columns where only one value is expected to be entered, the value is retrieved from the first line of the test case and all other lines are ignored.
-
-Even if these following lines are filled with values, no equality verification is performed.
-
+    
+    Even if these following lines are filled with values, no equality verification is performed.
+    
 -   Primary key columns must be put right before the corresponding object data.
-
-In particular, all primary keys cannot be defined in the very beginning of the table.
+    
+    In particular, all primary keys cannot be defined in the very beginning of the table.
 
 **Note:** All mentioned formats of specifying data for aggregated objects are applicable to the input values or expected result values definition in the Test and Run tables.
 
@@ -1393,18 +1393,16 @@ For example, in the following diagram, the table on the left is a decision table
 A test table has the following structure:
 
 1.  The first row is the table header, which has the following format:
-
-```
-Test <rule table name> <test table name>
-```
-
-**Test** is a keyword that identifies a test table. The second parameter is the name of the rule table to be tested. The third parameter is the name of the test table and is optional.
-
+    
+    `Test <rule table name> <test table name>`
+    
+    **Test** is a keyword that identifies a test table. The second parameter is the name of the rule table to be tested. The third parameter is the name of the test table and is optional.
+   
 1.  The second row provides a separate cell for each input parameter of the rule table followed by the **\_res\_** column, which typically contains the expected test result values.
 2.  The third row contains display values intended for business users.
 3.  Starting with the fourth row, each row is an individual test case.
 
-For more information on how to specify values of input parameters and expected test results of complex constructions, see [Specifying Data for Aggregated Objects](#_Specifying_Data_for_1) and [Ensuring Data Integrity](#ensuring-data-integrity).
+For more information on how to specify values of input parameters and expected test results of complex constructions, see [Specifying Data for Aggregated Objects](#specifying-data-for-aggregated-objects) and [Ensuring Data Integrity](#ensuring-data-integrity).
 
 If a test table field is a list or a map, it can be used to create a data table or test table in the same way as for data tables as described in [Specifying Data in Data Tables with List and Map Fields](#specifying-data-in-data-tables-with-list-and-map-fields).
 
@@ -1420,9 +1418,9 @@ Application runtime context values are defined in the runtime environment. Test 
 
 *An example of a test table with a context value*
 
-For a full list of runtime context variables available, their description, and related Business Dimension versioning properties, see [Context Variables Available in Test Tables](#_Context_Variables_Available).
+For a full list of runtime context variables available, their description, and related Business Dimension versioning properties, see [Context Variables Available in Test Tables](#context-variables-available-in-test-tables).
 
-Tests are numbered automatically. In addition to that, ID (*id*) can be assigned to the test table thus enabling a user to use it for running specific test tables by their IDs as described in the **Defining the ID Column for Test Cases** section in [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+Tests are numbered automatically. In addition to that, ID (*id*) can be assigned to the test table thus enabling a user to use it for running specific test tables by their IDs as described in [OpenL Tablets WebStudio Guide > Defining the ID Column for Test Cases](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#defining-the-id-column-for-test-cases).
 
 The **\_description\_** column can be used for entering useful information.
 
@@ -1438,9 +1436,9 @@ If OpenL Tablets projects are accessed and modified through OpenL Tablets WebStu
 
 The following runtime context variables are used in OpenL Tablets and their values can be specified in OpenL test tables using syntax \_`context_.<context name> `in a column header:
 
-| Context          | Context name used in rule tables | Type     | Related versioning properties | Property names used in rule tables | Description                                                           |
+| Context          | Context name used <br/>in rule tables | Type     | Related versioning properties | Property names used in <br/>rule tables | Description                                                           |
 |------------------|----------------------------------|----------|-------------------------------|------------------------------------|-----------------------------------------------------------------------|
-| Current Date     | `currentDate`                    | `Date`   | Effective / Expiration dates  | `effectiveDate, expirationDate`    | Date on which the rule is performed. It is not equal to today’s date. |
+| Current Date     | `currentDate`                    | `Date`   | Effective / Expiration dates  | `effectiveDate, expirationDate`    | Date on which the rule is performed. <br/>It is not equal to today’s date. |
 | Request Date     | `requestDate`                    | `Date`   | Start / End Request dates     | `startRequestDate, endRequestDate` | Date when the rule is applied.                                        |
 | Line of Business | `lob`                            | `String` | LOB (Line of Business)        | `lob`                              | Line of business for which the rule is applied.                       |
 | US State         | `usState`                        | `Enum`   | US States                     | `state`                            | US state where the rule is applied.                                   |
