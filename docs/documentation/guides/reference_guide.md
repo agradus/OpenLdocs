@@ -1436,7 +1436,7 @@ If OpenL Tablets projects are accessed and modified through OpenL Tablets WebStu
 
 The following runtime context variables are used in OpenL Tablets and their values can be specified in OpenL test tables using syntax \_`context_.<context name> `in a column header:
 
-| Context          | Context name <br/>in rule tables | Type     | Related versioning <br/>properties | Property names in <br/>rule tables | Description                                                           |
+| Context          | Context name <br/>in rule tables | Type     | Related versioning <br/>properties | Property names <br/>in rule tables | Description                                                           |
 |------------------|----------------------------------|----------|-------------------------------|------------------------------------|-----------------------------------------------------------------------|
 | Current Date     | `currentDate`                    | `Date`   | Effective / Expiration dates  | `effectiveDate, expirationDate`    | Date on which the rule is performed. <br/>It is not equal to today’s date. |
 | Request Date     | `requestDate`                    | `Date`   | Start / End Request dates     | `startRequestDate, endRequestDate` | Date when the rule is applied.                                        |
@@ -1449,7 +1449,7 @@ The following runtime context variables are used in OpenL Tablets and their valu
 | Region           | `region`                         | `Enum`   | Region                        | `region`                           | Economic region where the rule is applied.                            |
 | Canada Province  | caProvince                       | `Enum`   | Canada Province               | caProvinces                        | Canada province of operation where the rule is applied.               |
 | Canada Region    | caRegion                         | `Enum`   | Canada Region                 | caRegions                          | Canada region of operation where the rule is applied.                 |
-| Nature           | nature                           | `String` | Nature                        | nature                             | User-defined business meaning value to which the rule is applied.     |
+| Nature           | nature                           | `String` | Nature                        | nature                             | User-defined business meaning value a rule is applied to.     |
 
 For more information on how property values relate to runtime context values and what rule table is executed, see [Business Dimension Properties](#business-dimension-properties) and [Rules Runtime Context](#rules-runtime-context).
 
