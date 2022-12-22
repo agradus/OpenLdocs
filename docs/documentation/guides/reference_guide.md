@@ -2354,7 +2354,7 @@ The following Business Dimension properties are intended for versioning business
 | Property            | Description                                                                                                                                                                                                                                                                                      |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Effective Date**  | Date as of which a business rule comes into effect and produces required and expected results.                                                                                                                                                                                                   |
-| **Expiration Date** | Date after which the rule is no longer applicable. If **Expiration Date** is not defined, the rule works at any time on or after the effective date. If **Expiration Date** is not defined and several versions of a rule satisfy the context, a rule with the newest effective date is applied. |
+| **Expiration Date** | Date after which the rule is no longer applicable. If **Expiration Date** is not defined, the rule works at any time on or after the effective date. <br/>If **Expiration Date** is not defined and several versions of a rule satisfy the context, a rule with the newest effective date is applied. |
 
 The date *for which* the rule is to be performed must fall into the effective and expiration date time interval.
 
@@ -2376,7 +2376,7 @@ The rule names and their structure are the same but with the factor values diffe
 
 To create the rule for the year 2012, proceed as follows:
 
-1.  To copy the rule table, use the **Copy as New Business Dimension** feature in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide), **Copying Tables** section.
+1.  To copy the rule table, use the **Copy as New Business Dimension** feature in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide, Creating Tables by Copying section]https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#creating-tables-by-copying).
 2.  Change effective and expiration dates to 1/1/2012 and 12/31/2012 appropriately.
 3.  Replace the factors as appropriate for the year 2012.
 
@@ -2412,17 +2412,17 @@ The date when the rule is applied must be within the **Start Request Date** and 
 Users can have multiple rules with different start and end request dates, where dates must intersect. In such cases, priority rules are applied as follows:
 
 1.  The system selects the rule with the latest **Start Request** date.
-
-![](ref_guide_images/91f0467e1d986856804c10b87a872979.png)
-
-*Example of the priority rule applied to rules with intersected Start Request date*
-
+    
+    ![](ref_guide_images/91f0467e1d986856804c10b87a872979.png)
+    
+    *Example of the priority rule applied to rules with intersected Start Request date*
+    
 1.  If there are rules with the same **Start Request** date, OpenL Tablets selects the rule with the earliest **End Request** date.
-
-![](ref_guide_images/3320df371350210821846fb0bd42fe9b.png)
-
-*Example of the priority rule applied to the rules with End Request date*
-
+    
+    ![](ref_guide_images/3320df371350210821846fb0bd42fe9b.png)
+    
+    *Example of the priority rule applied to the rules with End Request date*
+    
 If the start and end request dates coincide completely, the system displays an error message saying that such table already exists.
 
 **Note:** A rule table version with exactly the same **Start Request Date** or **End Request Date** cannot be created because it causes an error message.
@@ -2538,13 +2538,13 @@ Consider provided vehicle insurance and a premium calculation rule defined for i
 
 For different US states, there are different bonus calculation policies. In a simple way, for all states there must be different calculations:
 
-`PREMIUM_1 = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_1, for state #1`
-
-`PREMIUM_2 = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_2, for state #2`
-
-`...`
-
-`PREMIUM_N = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_N, for state #N`
+```
+PREMIUM_1 = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_1, for state #1
+PREMIUM_2 = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_2, for state #2
+...
+PREMIUM_N = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_N, for state #N
+														     
+```
 
 OpenL Tablets provides a more elegant solution for this case:
 
