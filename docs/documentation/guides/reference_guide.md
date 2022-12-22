@@ -3249,7 +3249,7 @@ The following table lists math functions used in OpenL Tablets:
 | **sum**     | Adds all numbers in the provided array and returns the result as a number. `sum(number1, number2, …)` `sum(array[])`                                                                                                                                                                                                                          |
 | **avg**     | Returns the arithmetic average of array elements. The function result is a floating value. avg(number1, number2, …) avg(array[])                                                                                                                                                                                                              |
 | **product** | Multiplies numbers from the provided array and returns the product as a number. product(number1, number2, …) product(array[])                                                                                                                                                                                                                 |
-| **mod**     | Returns the remainder after a number is divided by a divisor. The result is a numeric value and has the same sign as the devisor. <br/>`mod(number, divisor)` <br/>`number `is a numeric value which’s remainder must be found. <br/>`divisor` is the number used to divide the `number`. <br/>If the divisor is **0**, the **mod** function returns an error.      |
+| **mod**     | Returns the remainder after a number is divided by a divisor. The result is a numeric value and has the same sign as the devisor. <br/>`mod(number, divisor)` <br/>- `number `is a numeric value which’s remainder must be found. <br/>- `divisor` is the number used to divide the `number`. <br/>If the divisor is **0**, the **mod** function returns an error.      |
 | **sort**    | Returns values from the provided array in ascending sort. The result is an array. sort(array[])                                                                                                                                                                                                                                               |
 | **round**   | Rounds a value to a specified number of digits. For more information on the ROUND function, see [Round Function](#round-function).                                                                                                                                                                                                            |
 
@@ -3344,7 +3344,7 @@ The following table contains a list of the constants and their descriptions:
 | 3        | FLOOR       | Rounding mode to round towards negative infinity.                                                                                          |
 | 4        | HALF_UP     | Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round up.                         |
 | 5        | HALF_DOWN   | Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round down.                       |
-| 6        | HALF_EVEN   | Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case, round towards the even neighbor. |
+| 6        | HALF_EVEN   | Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case, <br/>round towards the even neighbor. |
 | 7        | UNNECESSARY | Rounding mode to assert that the requested operation has an exact result, hence no rounding is necessary.                                  |
 
 For more information on the constants representing rounding modes, see [https://docs.oracle.com/en/java/javase/11/docs/api/constant-values.html\#java.math.BigDecimal.ROUND_HALF_DOWN](https://docs.oracle.com/en/java/javase/11/docs/api/constant-values.html#java.math.BigDecimal.ROUND_HALF_DOWN).
@@ -3356,6 +3356,7 @@ The following example demonstrates how the rounding works with the DOWN constant
 ![](ref_guide_images/5143bd39c918a379a1eb15eb20d23f9c.png)
 
 *Usage of the round(number,int,int/String) format with the DOWN rounding mode*
+	
 
 ###### round(number,int,String)
 
@@ -3385,17 +3386,17 @@ OpenL Tablets supports a wide range of date functions that can be applied in the
 
 | Function        | Description                                                                                                                                                                                         |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **absMonth**    | Returns the number of months since AD. `absMonth(Date)`                                                                                                                                             |
-| **absQuarter**  | Returns the number of quarters since AD as an integer value. `absQuarter(Date)`                                                                                                                     |
-| **dayOfWeek**   | Takes a date as input and returns the day of the week on which that date falls. <br/>Days in a week are numbered from 1 to 7 as follows: 1=Sunday, 2=Monday, 3 = Tuesday, and so on. `dayOfWeek(Date d)` |
-| **dayOfMonth**  | Takes a date as input and returns the day of the month on which that date falls. Days in a month are numbered from 1 to 31. `dayOfMonth(Date d)`                                                    |
-| **dayOfYear**   | Takes a date as input and returns the day of the year on which that date falls. Days in a year are numbered from 1 to 365. `dayOfYear(Date d)`                                                      |
-| **weekOfMonth** | Takes a date as input and returns the week of the month within which that date is. Weeks in a month are numbered from 1 to 5. `weekOfMonth(Date d)`                                                 |
-| **weekOfYear**  | Takes a date as input and returns the week of the year on which that date falls. Weeks in a year are numbered from 1 to 54. `weekOfYear(Date d)`                                                    |
-| **second**      | Returns a second (0 to 59) for an input date. `second(Date d)`                                                                                                                                      |
-| **minute**      | Returns a minute (0 to 59) for an input date. `minute(Date d)`                                                                                                                                      |
-| **hour**        | Returns the hour of the day in 12 hour format for an input date. `hour(Date d)`                                                                                                                     |
-| **hourOfDay**   | Returns the hour of the day in 24 hour format for an input date. `hourOfDay(Date d)`                                                                                                                |
+| **absMonth**    | Returns the number of months since AD. <br/>`absMonth(Date)`                                                                                                                                             |
+| **absQuarter**  | Returns the number of quarters since AD as an integer value. <br/>`absQuarter(Date)`                                                                                                                     |
+| **dayOfWeek**   | Takes a date as input and returns the day of the week on which that date falls. <br/>Days in a week are numbered from 1 to 7 as follows: 1=Sunday, 2=Monday, 3 = Tuesday, and so on. <br/>`dayOfWeek(Date d)` |
+| **dayOfMonth**  | Takes a date as input and returns the day of the month on which that date falls. Days in a month are numbered from 1 to 31. <br/>`dayOfMonth(Date d)`                                                    |
+| **dayOfYear**   | Takes a date as input and returns the day of the year on which that date falls. Days in a year are numbered from 1 to 365. <br/>`dayOfYear(Date d)`                                                      |
+| **weekOfMonth** | Takes a date as input and returns the week of the month within which that date is. Weeks in a month are numbered from 1 to 5. <br/>`weekOfMonth(Date d)`                                                 |
+| **weekOfYear**  | Takes a date as input and returns the week of the year on which that date falls. Weeks in a year are numbered from 1 to 54. <br/>`weekOfYear(Date d)`                                                    |
+| **second**      | Returns a second (0 to 59) for an input date. <br/>`second(Date d)`                                                                                                                                      |
+| **minute**      | Returns a minute (0 to 59) for an input date. <br/>`minute(Date d)`                                                                                                                                      |
+| **hour**        | Returns the hour of the day in 12 hour format for an input date. <br/>`hour(Date d)`                                                                                                                     |
+| **hourOfDay**   | Returns the hour of the day in 24 hour format for an input date. <br/>`hourOfDay(Date d)`                                                                                                                |
 
 The following date function returns a String data type:
 
@@ -3423,7 +3424,7 @@ The following topics are included in this section:
 
 -   [Error Function](#error-function)
 -   [Ternary Operator](#ternary-operator)
--   [Performing Operations via Formula](#_SeveralPerforming_Operations_in)
+-   [Performing Operations via Formula](#performing-operations-via-formula)
 -   [Pattern-Matching Function](#pattern-matching-function)
 
 ##### Error Function
@@ -3468,7 +3469,7 @@ In practice, it is widely used when a user needs to store calculated values in t
 
 `‘= field = value`
 
-`or `
+or
 
 `‘= field1 = value1; field2 = value2 …; ResultedExpression`
 
@@ -3482,9 +3483,7 @@ In the following example, the **Age** step calculates the age and stores the res
 
 A **pattern-matching function** allows verifying whether a string value matches the predefined pattern. For example, for emails, phone numbers, and zip codes the following function can be used:
 
-```
-like (String str, String pattern)
-```
+`like (String str, String pattern)`
 
 The result is a Boolean value indicating whether the string equals the pattern.
 
@@ -3550,7 +3549,7 @@ The following topics are included in this chapter:
 
 -   [Project Structure](#project-structure)
 -   [Rules Runtime Context Management from Rules](#rules-runtime-context-management-from-rules)
--   [Project and Module Dependencies](#_Project_and_Module)
+-   [Project and Module Dependencies](#project-and-module-dependencies)
 
 ### Project Structure
 
@@ -3562,8 +3561,8 @@ Additionally, a project can contain `rules.xml`, Java classes, JAR files, Groovy
 
 Thereby, the structure can be adjusted according to the developer’s preferences, for example, to comply with the Maven structure.
 
-**Note for experienced users:** The `rules.xml `project file is a rules project descriptor that contains project and configuration details. For instance, a user may redefine a module name there that is the same as a name of the corresponding Excel file by default. When updating project details via OpenL Tablets WebStudio, the `rules.xml `file is automatically created or updated accordingly.  
-For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide), *Rules Project Descriptor* section.
+**Note for experienced users:** The `rules.xml `project file is a rules project descriptor that contains project and configuration details. For instance, a user may redefine a module name there that is the same as a name of the correspoturns a copy of the current runtime context.nding Excel file by default. When updating project details via OpenL Tablets WebStudio, the `rules.xml `file is automatically created or updated accordingly.  
+For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide, Rules Project Descriptor section](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
 The following topics are included in this section:
 
@@ -3605,11 +3604,11 @@ The following additional internal methods for modification, retrieving, and rest
 
 | Method                                                   | Description                                                                                                                                                                                                                                                                                                                                                                           |
 |----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| getContext()                                             | Returns a copy of the current runtime context. ![](ref_guide_images/cb7b2ebdf5cd9a6c21ff98d007ac5965.png) *Using the getContext function in a method*                                                                                                                                                                                                                                 |
+| getContext()                                             | Returns a copy of the current runtime context. <br/>![](ref_guide_images/cb7b2ebdf5cd9a6c21ff98d007ac5965.png) <br/>*Using the getContext function in a method*                                                                                                                                                                                                                                 |
 | emptyContext()                                           | Returns new empty runtime context.                                                                                                                                                                                                                                                                                                                                                    |
 | setContext(IRulesRuntimeContext context)                 | Replaces the current runtime context with the specified one.                                                                                                                                                                                                                                                                                                                          |
-| modifyContext(String propertyName, Object propertyValue) | Modifies the current context by one property: adds a new one or replaces by specified if property with such a name already exists in the current context. ![](ref_guide_images/345b56e88fcf98c98591398d58985aa0.png) *Using modifyContext in a rules table* **Note:** All properties from the current context remain available after modification, so it is only one property update. |
-| restoreContext()                                         | Discharges the last changes in runtime context. The context is rolled back to the state before the last **setContext** or **modifyContext**. ![](ref_guide_images/4810ac1a3ef87622504d98f919edc81a.png) *Using restoreContext in a method table*                                                                                                                                      |
+| modifyContext(String propertyName, Object propertyValue) | Modifies the current context by one property: adds a new one or replaces by specified <br/>if property with such a name already exists in the current context. <br/>![](ref_guide_images/345b56e88fcf98c98591398d58985aa0.png) <br/>*Using modifyContext in a rules table* <br/>**Note:** All properties from the current context remain available after modification, <br/>so it is only one property update. |
+| restoreContext()                                         | Discharges the last changes in runtime context. <br/>The context is rolled back to the state before the last **setContext** or **modifyContext**. <br/>![](ref_guide_images/4810ac1a3ef87622504d98f919edc81a.png) <br/>*Using restoreContext in a method table*                                                                                                                                      |
 
 **ATTENTION:** All changes and rollbacks must be controlled manually: all changes applied to runtime context will remain after rule execution. Make sure that the changed context is restored after the rule is executed to prevent unexpected behavior of rules caused by unrestored context.
 
@@ -3640,21 +3639,29 @@ The following topics are included in this section:
 The **module dependency** feature allows making a hierarchy of modules when rules of one module depend on rules of another module. As mentioned before, all modules of one project have mutual access to each other's tables. Therefore, module dependencies are intended to order them in the project if it is required for compilation purposes. Module dependencies are commonly established among modules of the same project. An exception is as follows.
 
 The following diagram illustrates a project in which the content of **Module_1** and **Module_2** depends on the content of **Module_3**, where thin black arrows are module dependencies:
-
+	
+![](ref_guide_images/example1.png)
+	
 *Example of a project with modules hierarchy*
 
 In addition, **project dependency** enables accessing modules of other projects from the current one:
 
+![](ref_guide_images/example2.png)
+	
 *Example of a project dependency with all modules*
 
 The previous diagram displays that any module of **Project1** can execute any table of any module of **Project2**: thick gray arrow with the **All Modules** label is a project dependency with all dependency project modules included. This is equivalent to the following schema when each module of **Project1** has implicit dependency declaration to each module of **Project2**:
 
+![](ref_guide_images/example3.png)
+	
 *Interpretation of a project dependency (with all modules)*
 
 The project dependency with the **All Modules** setting switched on provides access to any module of a dependency project from the current root project.
 
 Users may combine module and project dependencies if only a particular module of another project must be used. An example is as follows:
 
+![](ref_guide_images/example4.png)
+	
 *Example of a project and module dependencies combined*
 
 In the example, for defined external **Project2**, only the content of **Module2_2** is accessible from **Project1**: thick gray arrow without label is a project dependency which defines other projects where dependency module can be located.
@@ -3685,22 +3692,22 @@ This syntax is useful when there is a dependency on a project and the **All Modu
 This section describes dependencies configuration.
 
 1.  To add a dependency to a module, add the instruction to a configuration table as described in [Configuration Table](#configuration-table) using the **dependency** command and the name of the module to be added.
-
-A module can contain any number of dependencies. Dependency modules can also have dependencies. Avoid using cyclic dependencies.
-
-![](ref_guide_images/d9de1dad095e2fc163cd190215bfa65c.jpeg)
-
-*Example of configuring module dependencies*
-
+    
+    A module can contain any number of dependencies. Dependency modules can also have dependencies. Avoid using cyclic dependencies.
+    
+    ![](ref_guide_images/d9de1dad095e2fc163cd190215bfa65c.jpeg)
+    
+    *Example of configuring module dependencies*
+     
 1.  To configure a project dependency, in a rules project descriptor, in the `rules.xml` file created in the project root folder, in the **Dependency** section, for the **name** tag used for defining the dependency project name, set the **autoIncluded** tag to **true** or **false**.
+    
+    ![](ref_guide_images/db874ee7c5c4d96ed011451f7547c3a2.png)
+    
+    *Example of configuring project dependencies – fragment of rules.xml*
 
-![](ref_guide_images/db874ee7c5c4d96ed011451f7547c3a2.png)
+For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide, Rules Project Descriptor section](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
-*Example of configuring project dependencies – fragment of rules.xml*
-
-For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide), **Rules Project Descriptor** section.
-
-By a business user, project dependencies are easily set and updated in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide), *Defining Project Dependencies* section.
+By a business user, project dependencies are easily set and updated in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide, Defining Project Dependencies section](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide#defining-project-dependencies).
 
 A project can contain any number of dependencies. Dependency projects may also have dependencies. Avoid cyclic dependencies.
 
