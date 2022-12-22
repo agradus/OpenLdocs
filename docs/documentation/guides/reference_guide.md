@@ -2548,15 +2548,13 @@ PREMIUM_N = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS_N, for state
 
 OpenL Tablets provides a more elegant solution for this case:
 
-`PREMIUM = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS*, where`
-
-`BONUS* = BONUS_1, for state #1`
-
-`BONUS* = BONUS_2, for state #2`
-
-`...`
-
-`BONUS* = BONUS_N, for state #N`
+```
+PREMIUM = RISK_PREMIUM + VEHICLE_PREMIUM + DRIVER_PREMIUM - BONUS*, where
+BONUS* = BONUS_1, for state #1
+BONUS* = BONUS_2, for state #2
+...
+BONUS* = BONUS_N, for state #N
+```
 
 So a user has one common premium calculation rule and several different rules for bonus calculation. When running premium calculation rule, provide the current state as an additional input for OpenL Tablets to choose the appropriate rule. Using this information OpenL Tablets makes decision which bonus method must be invoked. This kind of information is called **runtime data** and must be set into runtime context before running the calculations.
 
@@ -2581,9 +2579,9 @@ To simplify runtime context definition, declare it in the Datatype table fields.
 Use one of the following formats for runtime context properties:
 
 -   `<attributeName> : context`
-
-`It is used when a model datatype name equals the context variable name.`
-
+    
+    It is used when a model datatype name equals the context variable name.
+    
 -   `<attributeName> : context.<contextVariable>`
 
     It is used when a model datatype field name is not equal to the corresponding context variable name.
@@ -2632,11 +2630,11 @@ The **Info** group includes properties that provide useful information. This gro
 
 The following table provides a list of **Info** properties along with their brief description:
 
-| Property    | Name to be used in rule tables | Level at which property can be defined and overridden | Type     | Description                                                                                                                                                                                                                                                                                   |
+| Property    | Name to use <br/>in rule tables | Level at which <br/>property can be <br/>defined and overridden | Type     | Description                                                                                                                                                                                                                                                                                   |
 |-------------|--------------------------------|-------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Category    | category                       | Category, Table                                       | String   | Category of the table. By default, it is equal to the name of the Excel sheet where the table is located. If the property level is specified as **Table**, it defines a category for the current table. It must be specified if scope is defined as **Category** in the **Properties** table. |
-| Description | description                    | Table                                                 | String   | Description of a table that clarifies use of the table. An example is *Car price for a particular Location/Model*.                                                                                                                                                                            |
-| Tags        | tags                           | Table                                                 | String[] | Tag that can be used for search. The value can consist of any number of comma-separated tags.                                                                                                                                                                                                 |
+| Category    | category                       | Category, Table                                       | String   | Category of the table. <br/>By default, it is equal to the name of the Excel sheet where the table is located. <br/>If the property level is specified as **Table**, it defines a category for the current table. <br/>It must be specified if scope is defined as **Category** in the **Properties** table. |
+| Description | description                    | Table                                                 | String   | Description of a table that clarifies use of the table. <br/>An example is *Car price for a particular Location/Model*.                                                                                                                                                                            |
+| Tags        | tags                           | Table                                                 | String[] | Tag that can be used for search. <br/>The value can consist of any number of comma-separated tags.                                                                                                                                                                                                 |
 | Created By  | createdBy                      | Table                                                 | String   | Name of a user who created the table in OpenL Tablets WebStudio.                                                                                                                                                                                                                              |
 | Created On  | createdOn                      | Table                                                 | Date     | Date of table creation in OpenL Tablets WebStudio.                                                                                                                                                                                                                                            |
 | Modified By | modifiedBy                     | Table                                                 | String   | Name of a user who last modified the table in OpenL Tablets WebStudio.                                                                                                                                                                                                                        |
@@ -2655,14 +2653,14 @@ For example, the **Scope** property defines whether properties are applicable to
 The following topics are included in this section:
 
 -   [Dev Properties List](#dev-properties-list)
--   [Variation Related Properties](#_Variation_Related_Properties)
--   [Using the Precision Property in Testing](#_Precision_Property_Usage)
+-   [Variation Related Properties](#variation-related-properties)
+-   [Using the Precision Property in Testing](#precision-property-usage)
 
 ##### Dev Properties List
 
 The **Dev** group properties are listed in the following table:
 
-| Property                | Name to be used in rule tables | Type    | Table type             | Level at which property can be defined | Description                                                                                                                                                                                                                                                                                          |
+| Property                | Name to be used in <br/>rule tables | Type    | Table type             | Level at which property <br/>can be defined | Description                                                                                                                                                                                                                                                                                          |
 |-------------------------|--------------------------------|---------|------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                      | id                             | Table   | All                    | Table                                  | Unique ID to be used for calling a particular table in a set of overloaded tables without using business dimension properties. **Note:** Constraints for the ID value are the same as for any OpenL function.                                                                                        |
 | Build Phase             | buildPhase                     | String  | All                    | Module, Category, Table                | Property used to manage dependencies between build phases. **Note:** Reserved for future use.                                                                                                                                                                                                        |
@@ -2673,7 +2671,7 @@ The **Dev** group properties are listed in the following table:
 | Recalculate             | recalculate                    | Enum    |                        | Module, Category, Table                | Way of a table recalculation for a variation. Possible values are **Always**, **Never**, and **Analyze**.                                                                                                                                                                                            |
 | Cacheable               | cacheable                      | Boolean |                        | Module, Category, Table                | Identifier of whether to use cache while recalculating the table, depending on the rule input.                                                                                                                                                                                                       |
 | Precision               | precision                      | Integer | Test Table             | Module, Category, Table                | Precision of comparing the returned results with the expected ones while launching test tables.                                                                                                                                                                                                      |
-| Auto Type Discovery     | autoType                       | Boolean | Properties Spreadsheet | Module, Category, Table                | Auto detection of data type for a value of the **Spreadsheet** cell with formula. The default value is `true`. If the value is `true`, the type can be left undefined.                                                                                                                               |
+| Auto Type Discovery     | autoType                       | Boolean | Properties <br/>Spreadsheet | Module, Category, Table                | Auto detection of data type for a value of the **Spreadsheet** cell with formula. The default value is `true`. If the value is `true`, the type can be left undefined.                                                                                                                               |
 | Concurrent Execution    | parallel                       | Boolean |                        | Module, Category, Table                | Controls whether to parallel the execution of a rule when the rule is called for an array instead of a single value as input parameter. Default is `false`.                                                                                                                                          |
 | Calculate All Cells     | calculateAllCells              | Boolean | Spreadsheet            | Module, Category, Table                | Returns a particular type. Default is true when calculation is started from the beginning of the spreadsheet. If this property is set to false, calculation is started from the last line of the spreadsheet.                                                                                        |
 | Empty Result Processing | emptyResultProcessing          | String  | Decision table         | Module, Category, Table                | Identifier of whether to process blank parameter value cells and return an empty result if found, or ignore and find the first non-empty result value.                                                                                                                                               |
