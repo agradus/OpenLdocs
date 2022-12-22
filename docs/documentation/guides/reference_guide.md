@@ -1969,7 +1969,7 @@ It is possible to test cells of the resulting spreadsheet which contain values o
 -   custom data type with several attributes
 -   other spreadsheets nested in the current one
 
-For this purpose, the same syntax described in [Specifying Data for Aggregated Objects](#_Specifying_Data_for_1) can be used. It also includes simplified options.
+For this purpose, the same syntax described in [Specifying Data for Aggregated Objects](#specifying-data-for-aggregated-objects) can be used. It also includes simplified options.
 
 ```
 _res_.$<column name>$<row name>[i]
@@ -2144,9 +2144,9 @@ In this example, users can create names for some values and use those in rule ce
 The format of the constants table is as follows:
 
 1.  The first row is a table header, which has the following format:
-
-Constants \<optional table name\>
-
+    
+    Constants \<optional table name\>
+    
 1.  The second row contains cells with a type, name, and value of the constant.
 
 An expression can be used for a constant, for example, 1/3. To define an empty string, use the \_DEFAULT\_ value.
@@ -2222,17 +2222,17 @@ The following topics are included in this section:
 -   [System Properties](#system-properties)
 -   [Properties for a Particular Table Type](#properties-for-a-particular-table-type)
 -   [Rule Versioning](#rule-versioning)
--   [Info Properties](#_Info_Properties)
+-   [Info Properties](#info-properties)
 -   [Dev Properties](#dev-properties)
--   [Properties Defined in the File Name](#_Properties_from_File)
+-   [Properties Defined in the File Name](#properties-defined-in-the-file-name)
 -   [Properties Defined in the Folder Name](#properties-defined-in-the-folder-name)
--   [Keywords Usage in a File Name](#_Keywords_Usage_in)
+-   [Keywords Usage in a File Name](#keywords-usage-in-a-file-name)
 
 #### Category and Module Level Properties
 
 Table properties can be defined not only for each table separately, but for all tables in a specific category or a whole module. A separate [Properties Table](#properties-table) is designed to define this kind of properties. Only properties allowed to be inherited from the category or module level can be defined in this table. Some properties, such as description, can only be defined for a table.
 
-Besides the **Properties** table, the module level properties can also be defined in a name of the Excel file corresponding to the module. For more information on defining properties in the Excel file name, see [Properties Defined in the File Name](#_Properties_from_File).
+Besides the **Properties** table, the module level properties can also be defined in a name of the Excel file corresponding to the module. For more information on defining properties in the Excel file name, see [Properties Defined in the File Name](#properties-defined-in-the-file-name).
 
 Properties defined at the category or module level can be overridden in tables. The priority of property values is as follows:
 
@@ -2262,7 +2262,7 @@ For more information on system properties, see [OpenL Tablets WebStudio Guide](h
 
 #### Properties for a Particular Table Type
 
-Some properties are used just for particular types of tables. It means that they make sense just for tables of a special type and can be defined only for those tables. Almost all properties can be defined for [Decision Tables](#decision-table), except for the **Datatype Package** property intended for [Datatype Tables](#datatype-table), the **Scope** property used in [Properties Tables](#properties-table), the [**Auto Type Discovery**](#_Auto_Type_Discovery) property used in [Spreadsheet Tables](#spreadsheet-table), and the **Precision** property designed for [Test Tables](#_Test_Table).
+Some properties are used just for particular types of tables. It means that they make sense just for tables of a special type and can be defined only for those tables. Almost all properties can be defined for [Decision Tables](#decision-table), except for the **Datatype Package** property intended for [Datatype Tables](#datatype-table), the **Scope** property used in [Properties Tables](#properties-table), the [**Auto Type Discovery**](#auto-type-discovery-usage) property used in [Spreadsheet Tables](#spreadsheet-table), and the **Precision** property designed for [Test Tables](#test-tables).
 
 OpenL Tablets checks applicability of properties and produces an error if the property value is defined for table not intended to contain the property.
 
@@ -2272,7 +2272,7 @@ Applications using OpenL Tablets rules can utilize properties for different purp
 |--------------------|-----------------------------------------------------------------|
 | Business dimension | [Business Dimension Properties](#business-dimension-properties) |
 | Version            | [Rule Versioning](#rule-versioning)                             |
-| Info               | [Info Properties](#_Info_Properties)                            |
+| Info               | [Info Properties](#info-properties)                            |
 | Dev                | [Dev Properties](#dev-properties)                               |
 
 Properties of the **Business Dimension** and **Rule Versioning** groups are used for rule versioning. They are described in detail further on in this guide.
@@ -2283,8 +2283,8 @@ In OpenL Tablets, business rules can be versioned in different ways using proper
 
 | Property                                                        | Description                                                                                                                                                                     |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Business Dimension Properties](#business-dimension-properties) | Targets advanced rules usage when several rule sets are used simultaneously. This versioning mechanism is more extendable and flexible.                                         |
-| [Active Table](#_Active_Table_1)                                | Is more suitable for “what-if” analysis. It allows storing the previous versions of rule tables in an inactive status in a project to track changes or for any other reference. |
+| [Business Dimension Properties](#business-dimension-properties) | Targets advanced rules usage when several rule sets are used simultaneously. <br/>This versioning mechanism is more extendable and flexible.                                         |
+| [Active Table](#active-table)                                | Is more suitable for “what-if” analysis. <br/>It allows storing the previous versions of rule tables in an inactive status in a project to track changes or for any other reference. |
 
 ##### Business Dimension Properties
 
@@ -2293,8 +2293,8 @@ This section introduces the **Business Dimension** group properties and includes
 -   [Introducing Business Dimension Properties](#introducing-business-dimension-properties)
 -   [Using Effective and Expiration Date](#using-effective-and-expiration-date)
 -   [Using a Request Date](#using-a-request-date)
--   [Using an Origin Property](#_Using_an_Origin)
--   [Overlapping of Properties Values for Versioned Rule Tables](#_Overlapping_of_Properties)
+-   [Using an Origin Property](#using-an-origin-property)
+-   [Overlapping of Properties Values for Versioned Rule Tables](#overlapping-of-properties-values-for-versioned-rule-tables)
 -   [Rules Runtime Context](#rules-runtime-context)
 -   [Runtime Context Properties in Datatype Tables](#runtime-context-properties-in-datatype-tables)
 
@@ -2310,14 +2310,14 @@ The following table types support versioning by Business Dimension properties:
 -   Method
 -   ColumnMatch
 
-    **Note:** Test, Datatype, and Data table types cannot be versioned.
+**Note:** Test, Datatype, and Data table types cannot be versioned.
 
 When dealing with almost equal rules of the same structure but with slight differences, for example, with changes in any specific date or state, there is a very simple way to version rule tables by Business Dimension properties. Proceed as follows:
 
 1.  Take the original rule table and set Business Dimension properties that indicate by which property the rules must be versioned.
-
-Multiple Business Dimension properties can be set.
-
+    
+    Multiple Business Dimension properties can be set.
+    
 1.  Copy the original rule table, set new dimension properties for this table, and make changes in the table data as appropriate.
 2.  Repeat steps 1 and 2 if more rule versions are required.
 
@@ -2325,10 +2325,10 @@ Now the rule can be called by its name from any place in the project or applicat
 
 The following table contains a list of **Business Dimension** properties used in OpenL Tablets:
 
-| Property                     | Name to be used in rule tables  | Name to be used in context | Level at which a property can be defined | Type     | Description                                                                                                                                                                                                                                                      |
+| Property                     | Name to be used <br/>in rule tables  | Name to be <br/>used in context | Level at which a property <br/>can be defined | Type     | Description                                                                                                                                                                                                                                                      |
 |------------------------------|---------------------------------|----------------------------|------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Effective / Expiration dates | effectiveDate expirationDate    | currentDate                | Module Category Table                    | Date     | Time interval within which a rule table is active. The table becomes active on the effective date and inactive after the expiration date. Multiple instances of the same table can exist in the same module with different effective and expiration date ranges. |
-| Start / End Request dates    | startRequestDate endRequestDate | requestDate                | Module Category Table                    | Date     | Time interval within which a rule table is introduced in the system and is available for usage.                                                                                                                                                                  |
+| Effective / Expiration dates | - effectiveDate <br/>- expirationDate    | currentDate                | Module Category Table                    | Date     | Time interval within which a rule table is active. <br/>The table becomes active on the effective date and inactive after the expiration date. <br/>Multiple instances of the same table can exist in the same module with different effective and expiration date ranges. |
+| Start / End Request dates    | - startRequestDate <br/>- endRequestDate | requestDate                | Module Category Table                    | Date     | Time interval within which a rule table is introduced in the system and is available for usage.                                                                                                                                                                  |
 | LOB (Line of Business)       | lob                             | lob                        | Module Category Table                    | String[] | LOB for a rule table, that is, business area for which the given rule works and must be used.                                                                                                                                                                    |
 | US Region                    | usregion                        | usRegion                   | Module Category Table                    | Enum[]   | US regions for which the table works and must be used.                                                                                                                                                                                                           |
 | Countries                    | country                         | country                    | Module Category Table                    | Enum[]   | Countries for which the table works and must be used.                                                                                                                                                                                                            |
