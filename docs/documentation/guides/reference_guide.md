@@ -1496,18 +1496,18 @@ This example assumes there is a rule `append` defined with two input parameters,
 A run table has the following structure:
 
 1.  The first row is a table header, which has the following format:
-
-```
-Run <name of rule table to call> <run table name>
-```
-
-The run table name is optional.
-
+    
+    ```
+    Run <name of rule table to call> <run table name>
+    ```
+    
+    The run table name is optional.
+    
 1.  The second row contains cells with rule input parameter names.
 2.  The third row contains display values intended for business users.
 3.  Starting with the fourth row, each row is a set of input parameters to be passed to the called rule table.
 
-For more information on how to specify values of input parameters which have complex constructions, see [Specifying Data for Aggregated Objects](#_Specifying_Data_for_1) and [Ensuring Data Integrity](#ensuring-data-integrity).
+For more information on how to specify values of input parameters which have complex constructions, see [Specifying Data for Aggregated Objects](#specifying-data-for-aggregated-objects) and [Ensuring Data Integrity](#ensuring-data-integrity).
 
 #### Method Table
 
@@ -1546,7 +1546,7 @@ The following commands are supported in configuration tables:
 
 | Command      | Description                                                                                                                                                                                                                                                                                                                                       |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `dependency` | Adds a dependency module by its name. All data from that module becomes accessible in the current module. A dependency module can be located in the current project or its dependency projects. In simple words, this is how modules, often represented by Excel files, ‘communicate’ with each other if tables are split into different modules. |
+| `dependency` | Adds a dependency module by its name. All data from that module becomes accessible in the current module. <br/>A dependency module can be located in the current project or its dependency projects. In simple words, this is how modules, <br/>often represented by Excel files, ‘communicate’ with each other if tables are split into different modules. |
 | `import`     | Imports the specified Java package, class, or library so that its objects and methods can be used in tables.                                                                                                                                                                                                                                      |
 | `language`   | Provides language import functionality.                                                                                                                                                                                                                                                                                                           |
 | `extension`  | Expands OpenL Tablets capabilities with external set of rules. After adding, external rules are complied with OpenL Tablets rules and work jointly.                                                                                                                                                                                               |
@@ -1616,8 +1616,8 @@ A **properties** table is used to define the module and category level propertie
 
 | Element    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Properties | Reserved word that defines the type of the table. It can be followed by a Java identifier. In this case, the properties table value becomes accessible in rules as a field of such name and of the **TableProperties** type.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| scope      | Identifies levels on which the property inheritance is defined. Available values are as follows: - Module Identifies properties defined for the whole module and inherited by all tables in it. There can be only one table with the **Module** scope in one module. ![](ref_guide_images/6f09eade1c609cbb687e29239953d129.png) *A properties table with the Module level scope* - Category Identifies properties applied to all tables where the category name equals the name specified in the **category** element. By default, a category name equals to the worksheet name. ![](ref_guide_images/eecb98fda809923974b4e1024a75b559.png) *A properties table with the Category level scope* |
+| Properties | Reserved word that defines the type of the table. It can be followed by a Java identifier. In this case, the properties table value <br/>becomes accessible in rules as a field of such name and of the **TableProperties** type.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| scope      | Identifies levels on which the property inheritance is defined. Available values are as follows: <br/>- Module <br/>Identifies properties defined for the whole module and inherited by all tables in it. <br/>There can be only one table with the **Module** scope in one module. <br/>![](ref_guide_images/6f09eade1c609cbb687e29239953d129.png) <br/>*A properties table with the Module level scope* <br/><br/>- Category <br/>Identifies properties applied to all tables where the category name equals the name specified in the **category** element. <br/>By default, a category name equals to the worksheet name. <br/>![](ref_guide_images/eecb98fda809923974b4e1024a75b559.png) <br/>*A properties table with the Category level scope* |
 | category   | Defines the category if the **scope** element is set to **Category**. If no value is specified, the category name is retrieved from the sheet name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Module     | Identifies whether properties can be overridden and inherited on the module level.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
@@ -1643,7 +1643,7 @@ The following table describes the spreadsheet table header syntax:
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Spreadsheet          | Reserved word that defines the type of the table.                                                                                                                                                                                             |
 | SpreadsheetResult    | Type of the return value. SpreadsheetResult returns the calculated content of the whole table.                                                                                                                                                |
-| \<return type\>      | Data type of the returned value. If only a single value is required, its type must be defined here as a return data type and calculated in the row or column named RETURN, or in the last row or column if the RETURN keyword is not defined. |
+| \<return type\>      | Data type of the returned value. If only a single value is required, its type must be defined here as a return data type and calculated <br/>in the row or column named RETURN, or in the last row or column if the RETURN keyword is not defined. |
 | \<table name\>       | Valid name of the table as for any executable table.                                                                                                                                                                                          |
 | \<input parameters\> | Input parameters as for any executable table.                                                                                                                                                                                                 |
 
@@ -1690,7 +1690,7 @@ In OpenL Tablets Rule Services, spreadsheet output can be customized by adding o
 The following topics are included in this section:
 
 -   [Parsing a Spreadsheet Table](#parsing-a-spreadsheet-table)
--   [Accessing Spreadsheet Result Cells](#_Accessing_Spreadsheet_Result)
+-   [Accessing Spreadsheet Result Cells](#accessing_spreadsheet_result_cells)
 -   [Using Ranges in Spreadsheet Table](#using-ranges-in-spreadsheet-table)
 -   [Auto Type Discovery Usage](#auto-type-discovery-usage)
 -   [Custom Spreadsheet Result](#custom-spreadsheet-result)
