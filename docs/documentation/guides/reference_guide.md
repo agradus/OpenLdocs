@@ -1617,7 +1617,7 @@ A **properties** table is used to define the module and category level propertie
 | Element    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Properties | Reserved word that defines the type of the table. It can be followed by a Java identifier. In this case, the properties table value <br/>becomes accessible in rules as a field of such name and of the **TableProperties** type.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| scope      | Identifies levels on which the property inheritance is defined. Available values are as follows: <br/>- Module <br/>Identifies properties defined for the whole module and inherited by all tables in it. <br/>There can be only one table with the **Module** scope in one module. <br/>![](ref_guide_images/6f09eade1c609cbb687e29239953d129.png) <br/>*A properties table with the Module level scope* <br/><br/>- Category <br/>Identifies properties applied to all tables where the category name equals the name specified in the **category** element. <br/>By default, a category name equals to the worksheet name. <br/>![](ref_guide_images/eecb98fda809923974b4e1024a75b559.png) <br/>*A properties table with the Category level scope* |
+| scope      | Identifies levels on which the property inheritance is defined. Available values are as follows: <br/>- **Module** <br/>Identifies properties defined for the whole module and inherited by all tables in it. <br/>There can be only one table with the **Module** scope in one module. <br/>![](ref_guide_images/6f09eade1c609cbb687e29239953d129.png) <br/>*A properties table with the Module level scope* <br/><br/>- **Category** <br/>Identifies properties applied to all tables where the category name equals the name specified in the **category** element. <br/>By default, a category name equals to the worksheet name. <br/>![](ref_guide_images/eecb98fda809923974b4e1024a75b559.png) <br/>*A properties table with the Category level scope* |
 | category   | Defines the category if the **scope** element is set to **Category**. If no value is specified, the category name is retrieved from the sheet name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Module     | Identifies whether properties can be overridden and inherited on the module level.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
@@ -1690,7 +1690,7 @@ In OpenL Tablets Rule Services, spreadsheet output can be customized by adding o
 The following topics are included in this section:
 
 -   [Parsing a Spreadsheet Table](#parsing-a-spreadsheet-table)
--   [Accessing Spreadsheet Result Cells](#accessing_spreadsheet_result_cells)
+-   [Accessing Spreadsheet Result Cells](#accessing-spreadsheet-result-cells)
 -   [Using Ranges in Spreadsheet Table](#using-ranges-in-spreadsheet-table)
 -   [Auto Type Discovery Usage](#auto-type-discovery-usage)
 -   [Custom Spreadsheet Result](#custom-spreadsheet-result)
@@ -1783,25 +1783,25 @@ This logic also works when a user explicitly defines the type of the value as co
 However, there are several limitations of auto type discovering when the system cannot possibly determine the cell data type:
 
 -   Type identification algorithm is not able to properly identify the cell type when a cell refers to another cell with the same name because of occurred circular dependencies.
-
-![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d.jpeg)
-
-*Limitation for referring to another cell with the same name*
-
+   
+    ![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d.jpeg)
+    
+    *Limitation for referring to another cell with the same name*
+    
 -   A user explicitly defines the return type of other Rules tables, such as Decision tables, as common SpreadsheetResult as follows:
-
-![](ref_guide_images/2faa6c76b2b4654436c6b537b890774d.png)
-
-*Explicitly defining the return type of other rules tables*
-
-The type of undefined cells must be explicitly defined as a custom spreadsheet result type or any other suitable type to avoid uncertain Object typing.
-
+    
+    ![](ref_guide_images/2faa6c76b2b4654436c6b537b890774d.png)
+    
+    *Explicitly defining the return type of other rules tables*
+    
+    The type of undefined cells must be explicitly defined as a custom spreadsheet result type or any other suitable type to avoid uncertain Object typing.
+    
 -   There is a circular dependency in a spreadsheet table calling the same spreadsheet rule itself in a cell. This cell type must be explicitly defined to allow correct auto type discovering of the whole spreadsheet table as follows:
-
-![](ref_guide_images/12ff48c76e91fa56fc1a4144fffdf0ea.png)
-
-*Defining a cell type explicitly*
-
+    
+    ![](ref_guide_images/12ff48c76e91fa56fc1a4144fffdf0ea.png)
+    
+    *Defining a cell type explicitly*
+    
 ##### Custom Spreadsheet Result
 
 Usage of spreadsheet tables that return the SpreadsheetResult type is improved by having a separate type for each such spreadsheet table, that is, custom SpreadsheetResult data type, which is determined as follows:
@@ -1813,12 +1813,12 @@ SpreadsheetResult<Spreadsheet table name>
 Custom SpreadsheetResult data type is automatically generated by a system and substitutes common SpreadsheetResult type. This provides the following advantages:
 
 -   The system understands the structure of the spreadsheet result, that is, knows names of columns and rows, and data types of cell values.
-
-In other words, there is no need to indicate a data type when accessing the cell.
-
+    
+    In other words, there is no need to indicate a data type when accessing the cell.
+    
 -   Test spreadsheet cell can be of any complex type.
-
-For more information on test spreadsheet result, see [Testing Spreadsheet Result](#testing-spreadsheet-result).
+    
+    For more information on test spreadsheet result, see [Testing Spreadsheet Result](#testing-spreadsheet-result).
 
 To understand how this works, consider the following spreadsheet.
 
@@ -1850,9 +1850,9 @@ The combined SpreadsheetResult type is used when the rules table returns differe
 
 -   A rule returns SpreadsheetResult.
 -   Different spreadsheets are called in a ternary operation.
-
-For more information on ternary operations, see [Ternary Operator](#ternary-operator).
-
+    
+    For more information on ternary operations, see [Ternary Operator](#ternary-operator).
+    
 -   The array of SpreadsheetResult is created by united spreadsheet cells (\$Step1:\$Step10).
 
 ![](ref_guide_images/b24251315339ac7bb9995f1082a6cffa.png)
@@ -2067,8 +2067,8 @@ Each algorithm has the following mandatory columns:
 
 | Column     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Names      | Names refer to the table or method arguments and bind an argument to a particular row. The same argument can be referred in multiple rows. Arguments are referenced by their short names. For example, if an argument in a table is a Java bean with the **some** property, it is enough to specify **some** in the names column.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Operations | The **operations** column defines how to match or check arguments to values in a table. The following operations are available: - **match** Checks for equality or belonging to a range. The argument value must be equal to or within a range of check values. - **min** Checks for minimally required value. The argument must not be less than the check value. - **max** Checks for a maximally allowed value. The argument must not be greater than the check value. The **min** and **max** operations work with numeric and date types only. The **min** and **max** operations can be replaced with the **match** operation and ranges. This approach adds more flexibility because it enables verifying all cases within one row. |
+| Names      | Names refer to the table or method arguments and bind an argument to a particular row. <br/>The same argument can be referred in multiple rows. Arguments are referenced by their short names. <br/>For example, if an argument in a table is a Java bean with the **some** property, it is enough to specify **some** in the names column.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Operations | The **operations** column defines how to match or check arguments to values in a table. <br/>The following operations are available: <br/>- **match** <br/>Checks for equality or belonging to a range. The argument value must be equal to or within a range of check values. <br/><br/>- **min** <br/>Checks for minimally required value. The argument must not be less than the check value. <br/><br/>- **max** <br/>Checks for a maximally allowed value. The argument must not be greater than the check value. <br/>The **min** and **max** operations work with numeric and date types only. The **min** and **max** operations can be replaced <br/>with the **match** operation and ranges. This approach adds more flexibility because it enables verifying all cases within one row. |
 | Values     | The **values** column typically has multiple sub columns containing table values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 The following topics are included in this section:
