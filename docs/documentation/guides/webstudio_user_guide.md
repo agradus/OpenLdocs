@@ -7,12 +7,10 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 
 ## Preface
 
-```
 This preface is an introduction to the OpenL Tablets WebStudio User Guide. The following topics are included in this preface:
-```
 
 -   [Audience](#audience)
--   [Related Information](#_Related_Information)
+-   [Related Information](#related-information)
 -   [Typographic Conventions](#typographic-conventions)
 
 ### Audience
@@ -441,7 +439,7 @@ A project can be opened for editing and saved directly in Rules Editor.
 
 | Project details                                                                                                                               | Available actions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General project information <br/>and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see the **Properties Defined in the File Name** section of [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). |
+| General project information <br/>and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, <br/>see [OpenL Tablets Reference Guide > Properties Defined in the File Name](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#properties-defined-in-the-file-name). |
 | Project sources                                                                                                                               | Put the mouse cursor over the **Sources** label and click **Manage Sources** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Modules configuration                                                                                                                         | Put the mouse cursor over the **Modules** label or a particular module name and click **Add Module** ![](webstudio_guide_images/b1bc8af33d20e0e52b2bbdd4ad1a7ea3.png) or **Edit Module** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) or **Remove Module** ![](webstudio_guide_images/bc579ab11b13186a7e43f09904b47ccc.png).                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Project dependencies                                                                                                                          | Manage dependencies as described in [Defining Project Dependencies](#defining-project-dependencies).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -761,7 +759,7 @@ OpenL Tablets WebStudio provides a special tool, **Range Editor**, for adding an
 
 This section briefly introduces Range Editor and provides examples of its functionality.
 
-The main Range Editor goal is to move to a single range format in OpenL rules, namely, the ‘..’ format. For more information on ranges on OpenL Tablets, see the **Range types in OpenL** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+The main Range Editor goal is to move to a single range format in OpenL rules, namely, the ‘..’ format. For more information on ranges on OpenL Tablets, see [OpenL Tablets Reference Guide > Representing Range Types](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#representing-range-types).
 
 Consider the following principles while working with Range Editor:
 
@@ -945,7 +943,7 @@ OpenL Tablets WebStudio allows creating tables of the following types:
 -   properties table
 -   simple rules table
 
-Tables are created via the wizard initiated by clicking the **Create Table** button ![](webstudio_guide_images/6e2e80e87665feea8c2d3249748e299e.png). The wizard creates a table for the current module. The table is available for all included modules and modules linked by dependencies. For more information on dependencies, see the **Project and Module dependencies** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+Tables are created via the wizard initiated by clicking the **Create Table** button ![](webstudio_guide_images/6e2e80e87665feea8c2d3249748e299e.png). The wizard creates a table for the current module. The table is available for all included modules and modules linked by dependencies. For more information on dependencies, see [OpenL Tablets Reference Guide > Project and Module Dependencies](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#project-and-module-dependencies).
 
 The following topics are included in this section:
 
@@ -966,7 +964,7 @@ To create a datatype table, proceed as follows:
     *Creating a datatype table*
     
 1.  Enter the data type name and if necessary, select the existing data type as a parent.  
-    If a parent data type value is specified, the newly created data type will have access to all fields defined in the parent data type as described in the **Inheritance in Data types** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+    If a parent data type value is specified, the newly created data type will have access to all fields defined in the parent data type as described in [OpenL Tablets Reference Guide > Inheritance in Data Types](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#inheritance-in-data-types).
     
     This option is unavailable if no custom data types are created in the module.
     
@@ -1025,7 +1023,7 @@ Creating a data table resembles creating a datatype table described in [Creating
 1.  Click **Save** to complete table creation.
 The new data table is created and can be modified as needed.
 
-OpenL Tablets supports array value definition in data tables as described in the **Defining Array Values in Test and Data Tables** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+OpenL Tablets supports array value definition in data tables as described in [OpenL Tablets Reference Guide > Representing Arrays](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#representing-arrays).
 
 #### Creating a Test Table and Defining the ID Column for Test Cases
 
@@ -1069,7 +1067,7 @@ To create a test table, proceed as follows:
 1.  To complete table creation, click **Save**.
 The test table is created and becomes available in OpenL Tablets WebStudio.
 
-OpenL Tablets supports array value definition in test tables as described in the **Defining Array Values in Test and Data Tables** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+OpenL Tablets supports array value definition in test tables as described in [OpenL Tablets Reference Guide > Representing Arrays](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#representing-arrays).
 
 ##### Defining the ID Column for Test Cases
 
@@ -1352,7 +1350,7 @@ OpenL Tablets WebStudio allows editing comma separated arrays of values. A multi
 
 #### Editing Default Table Properties
 
-This section describes table properties available in OpenL Tablets WebStudio. For more information on table properties, see the **Table Properties** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+This section describes table properties available in OpenL Tablets WebStudio. For more information on table properties, see [OpenL Tablets Reference Guide > Table Properties](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/table-properties).
 
 If default property values are defined for a table, they appear only in the right hand **Properties** section, but not in the table. In the following example, there are **Active = true** and **Fail On Miss = false** default properties.
 
@@ -1380,7 +1378,7 @@ Default properties can be overridden at the table level; in other words, they ca
 
 #### Editing Inherited Table Properties
 
-Module or category level properties are those inherited from a **Properties** table as described in the **Properties Table** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/). In the **Properties** section of the given table, inherited properties appear in a different color and are accompanied with a link to the **Properties** table where they are defined. The values of the inherited properties are not stored in the table, they are displayed in the **Properties** section, since they are inherited and applied to this table. Inherited properties can be overridden at a Table level, i.e. they can be changed.
+Module or category level properties are those inherited from a **Properties** table as described in [OpenL Tablets Reference Guide > Properties Table](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/properties-table). In the **Properties** section of the given table, inherited properties appear in a different color and are accompanied with a link to the **Properties** table where they are defined. The values of the inherited properties are not stored in the table, they are displayed in the **Properties** section, since they are inherited and applied to this table. Inherited properties can be overridden at a Table level, i.e. they can be changed.
 
 ![](webstudio_guide_images/3c557f07018fc55be76903c7d5b8b14c.png)
 
@@ -2453,7 +2451,7 @@ Proceed as follows:
     -   Define comma separated service groups.
     -   Add configuration description to the XML file.
         
-        For more information on the **Rules Deploy Configuration** tab settings configuration, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide), section **OpenL Tablets Rule Services Customization** **\> Service Configurer**.
+        For more information on the **Rules Deploy Configuration** tab settings configuration, see [OpenL Tablets Rule Services Usage and Customization Guide > Service Configurer](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#service-configurer).
     
 1.  Click **Save Configuration**.
     
@@ -2780,7 +2778,7 @@ The **Repository** section contains connection settings of design and deployment
     | **Database** | The repository is located in a local or remote database. **Repository URL** field displays URL for access to the database. <br/>A user can create connection to different databases, such as MySQL, MS SQL, Oracle etc. <br/>For more information on supported versions, see <https://openl-tablets.org/supported-platforms>.                                                                                                                                                                                                                                                                                   |
     | **AWS S3**   | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and it is globally unique. <br/>Choose a region for storage to reduce latency, costs, and so on. An Access key and a Secret key are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The Listener period is the interval in which to check repository changes, in seconds. |
     
-    For more information on repository settings, see the **Data Source Configuration** section in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide).
+    For more information on repository settings, see [OpenL Tablets Rule Services Usage and Customization Guide > Configuring a Data Source](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#configuring-a-data-source).
     
 1.  Provide the URL value.
     
@@ -2795,7 +2793,7 @@ The **Repository** section contains connection settings of design and deployment
     
 1.  To set up a secure connection for connecting to remote or database-located repositories, select the **Secure connection** check box and fill in the login and password fields.
     
-    For more information on repository security, see the **Configuring Private Key for Repository Security** section in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/).
+    For more information on repository security, see [OpenL Tablets Installation Guide > Configuring Private Key for Repository Security](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#configuring-private-key-for-repository-security).
     
     ![](webstudio_guide_images/05b0bc614e21e2e705d0e76d7518be08.jpeg)
     
@@ -2881,7 +2879,7 @@ The System tab enables modifying core, project, and testing options and includes
 
 | Section | Property                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |---------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Core    | **Dispatching <br/>Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. <br/>By default, the **dispatching.validation** value is set to **true** in OpenL Tablets WebStudio. <br/>For information on dispatching validation, see the **Table Dispatching Validation Mode** section <br/>in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide). |
+| Core    | **Dispatching <br/>Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. <br/>By default, the **dispatching.validation** value is set to **true** in OpenL Tablets WebStudio. <br/>For information on dispatching validation, see [OpenL Tablets Rule Services Usage and Customization Guide> Table Dispatching Validation Mode](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#table-dispatching-validation-mode). |
 |         | **Verify on Edit**               | Allows turning on/off checking of rules consistency and validity on each edit in Rules Editor. <br/>By default, the check box is selected. Automatic checks are executed after each edit. <br/>If this option is cleared, the verification process does not launch automatically when the **Save** button is clicked. <br/>Instead, a **Verify** button appears in Rules Editor, and the user must verify manually by clicking this button.                                                                                                                  |
 | Testing | **Thread number <br/>for tests**      | Indicates the number of test cases executed simultaneously.By default, four threads are set. <br/>It means that after running a test table or all tests, up to four test cases will be in progress at the same time. <br/>When they are calculated, the next four test cases will be executed.                                                                                                                                                                                                                                                 |
 |         | **Restore Defaults <br/>and Restart** | Restores all settings to default values. All user defined values, such as repository settings, will be lost.                                                                                                                                                                                                                                                                                                                                                                                                                              |
