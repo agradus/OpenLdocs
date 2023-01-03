@@ -7,9 +7,7 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 
 ## Preface
 
-```
 This preface is an introduction to the OpenL Tablets Reference Guide. The following topics are included in this preface:
-```
 
 -   [Audience](#audience)
 -   [Related Information](#related-information)
@@ -3558,7 +3556,7 @@ Additionally, a project can contain `rules.xml`, Java classes, JAR files, Groovy
 Thereby, the structure can be adjusted according to the developer’s preferences, for example, to comply with the Maven structure.
 
 **Note for experienced users:** The `rules.xml `project file is a rules project descriptor that contains project and configuration details. For instance, a user may redefine a module name there that is the same as a name of the correspoturns a copy of the current runtime context.nding Excel file by default. When updating project details via OpenL Tablets WebStudio, the `rules.xml `file is automatically created or updated accordingly.  
-For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide, Rules Project Descriptor section](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
+For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide > Rules Project Descriptor](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
 The following topics are included in this section:
 
@@ -3701,9 +3699,9 @@ This section describes dependencies configuration.
     
     *Example of configuring project dependencies – fragment of rules.xml*
 
-For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide, Rules Project Descriptor section](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
+For more information on configuring rules.xml, see [OpenL Tablets Developers Guide > Rules Project Descriptor](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
-By a business user, project dependencies are easily set and updated in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide, Defining Project Dependencies section](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide#defining-project-dependencies).
+By a business user, project dependencies are easily set and updated in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide > Defining Project Dependencies](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide#defining-project-dependencies).
 
 A project can contain any number of dependencies. Dependency projects may also have dependencies. Avoid cyclic dependencies.
 
