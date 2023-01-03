@@ -630,7 +630,7 @@ If the **All Modules** option is cleared or the single module mode is selected, 
 
 **Note:** Dependency projects must be available in Rules Editor to make dependency work.
 
-For more information on project and module dependencies, see the **Project and Module dependencies** section in [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+For more information on project and module dependencies, see the [OpenL Tablets Reference Guide > Project and Module Dependencies](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#project-and-module-dependencies).
 
 ### Viewing Tables
 
