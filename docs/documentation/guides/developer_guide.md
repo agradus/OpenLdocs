@@ -39,7 +39,7 @@ The following styles and conventions are used in this guide:
 | *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
 | < >                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
 | Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
-| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                              |
+
 
 ## Introducing OpenL Tablets
 This chapter introduces OpenL Tablets and describes its main concepts.
@@ -87,10 +87,10 @@ In OpenL Tablets, a **rule** is a logical statement consisting of conditions and
 Instead of executing actions, rules can also return data values to the calling program.
 
 #### Tables
-Basic information OpenL Tablets deals with, such as rules and data, is presented in **tables**. Different types of tables serve different purposes. For more information on table types, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/), the *Table Types* section.
+Basic information OpenL Tablets deals with, such as rules and data, is presented in **tables**. Different types of tables serve different purposes. For more information on table types, see [OpenL Tablets Reference Guide > Table Types](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#table-types).
 
 #### Projects
-An OpenL Tablets **project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files and Java code. For more information on projects, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/), chapter *Working with Projects*.
+An OpenL Tablets **project** is a container of all resources required for processing rule related information. Usually, a project contains Excel files and Java code. For more information on projects, see [OpenL Tablets Reference Guide > Working with Projects](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#working-with-projects).
 
 There can be situations where OpenL Tablets projects are used in the development environment but not in production, depending on the technical aspects of a solution.
 
@@ -528,8 +528,7 @@ TestUnitsResults res = (TestUnitsResults) testMethod.invoke(engine, new Object[0
 ##### Generating Java Classes from Datatype Tables
 Some rules require complex data models as input parameters. Developers have to generate classes for each datatype defined in an Excel file for using them in a static interface as method arguments. The static interface can be used in engine factory. For more information on how to create and use a wrapper, see [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code).
 
-**Note:** Datatype is an OpenL table of the Datatype type created by a business user. It defines a custom data type. Using these data types inside the OpenL Tablets rules is recommended as the best practice. For more information on datatypes, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide), the **Datatype Table** section.
-
+**Note:** Datatype is an OpenL table of the Datatype type created by a business user. It defines a custom data type. Using these data types inside the OpenL Tablets rules is recommended as the best practice. For more information on datatypes, see [OpenL Tablets Reference Guide > Datatype Table](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#datatype-table).
 To generate datatype classes, proceed as follows:
 
 1.  For Maven, configure the OpenL Maven plugin as described in [Configuring the OpenL Maven Plugin](#configuring-the-openl-maven-plugin) and run the Maven script.
