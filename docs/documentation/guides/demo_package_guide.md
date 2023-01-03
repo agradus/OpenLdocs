@@ -31,7 +31,6 @@ The following styles and conventions are used in this guide:
 | *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
 | \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
 | Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
-| **[name of guide]**        | Reference to another guide that contains additional information on a specific feature.                                                                                                                                                                                                                                              |
 
 ## OpenL Tablets Demo Package
 
@@ -88,7 +87,7 @@ The following topics are included:
 
 #### Rules Editor
 
-Several examples and tutorials are already in the **No Changes** status, therefore available in **Rules Editor** by default. For more information on how to manage rules in Rules Editor, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Using Rules Editor.*
+Several examples and tutorials are already in the **No Changes** status, therefore available in **Rules Editor** by default. For more information on how to manage rules in Rules Editor, see [OpenL Tablets WebStudio Guide > Using Rules Editor](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide/#using-rules-editor).
 
 ![](demo_guide_images/3d9e3c989ff6649c2a9c99be85d8452b.png)
 
@@ -96,7 +95,7 @@ Several examples and tutorials are already in the **No Changes** status, therefo
 
 #### Repository Editor
 
-Users can work with projects loaded in Repository in the Demo package and create their own new projects. For more information on how to manage projects in Repository, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Using Repository Editor*.
+Users can work with projects loaded in Repository in the Demo package and create their own new projects. For more information on how to manage projects in Repository, see [OpenL Tablets WebStudio Guide > Using Repository Editor](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide/#using-repository-editor).
 
 The “Example 3 – Auto Policy Calculation” project is already deployed using the deploy configuration “Example 3 – Auto Policy Calculation” and can be used via OpenL Tablets Rule Services as described in [OpenL Tablets Rule Services in a Demo Project](#openl-tablets-rule-services-in-a-demo-project) in OpenL Tablets Web Services Demo Client as described in [OpenL Tablets Rule Services Demo Client in a Demo Package](#openl-tablets-rule-services-demo-client-in-a-demo-package).
 
@@ -108,7 +107,7 @@ As OpenL Tablets WebStudio is preconfigured in a single user mode, and all proje
 
 #### Administration
 
-By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\apache-tomcat-8.5.23\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#webstudio-user-guide-guide), *Managing System Settings*.
+By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\apache-tomcat-8.5.23\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see [OpenL Tablets WebStudio Guide > Managing System Settings](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-system-settings).
 
 ![](demo_guide_images/d4e08c04cc55071f60b74c3508b1e274.png)
 
@@ -134,7 +133,7 @@ To use this project as an example of project deployments as described in [OpenL 
 
 The demo does not restrict any deployments of other projects nor has any other limitations so the users can deploy their own projects in Demo setup. If a user deploys anything else, a full list of deployed projects appears on this page including user’s projects.
 
-**Swagger** is a third party tool used for testing services. For more information on Swagger and its usage in OpenL, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#rule-services-usage-and-customization-guide), *Appendix D: OpenAPI Support*.
+**Swagger** is a third party tool used for testing services. For more information on Swagger and its usage in OpenL, see [OpenL Tablets Rule Services Usage and Customization Guide > Appendix D: OpenAPI Support](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#appendix-d-openapi-support).
 
 ### OpenL Tablets Rule Services Demo Client in a Demo Package
 
