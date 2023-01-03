@@ -35,7 +35,7 @@ This section includes the following topics:
 | [Deploy OpenL Tablets Rule Services<br/> under Apache Tomcat](#deploy-openl-tablets-rule-services-under-apache-tomcat)                                                                           | Designed for rule developers who need to use business rules as separate web services.                        |
 | [Install OpenL Tablets WebStudio and OpenL <br/>Tablets Rule Services on JBoss Application Server](#install-openl-tablets-webstudio-and-openl-tablets-rule-services-on-jboss-application-server) | Explains how to install OpenL Tablets WebStudio and OpenL Tablets Rule Services on JBoss Application Server. |
 | [OpenL Tablets WebStudio and <br/>Rule Services Integration](#openl-tablets-webstudio-and-rule-services-integration)                                                               | Explains how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services as an integrated environment. |
-| [Troubleshooting Notes](#troubleshooting-notes) <br/>[Frequently Asked Questions](#frequently-asked-questions)                                                                                  | Provide useful information related to OpenL Tablets installation.                                           |
+| - [Troubleshooting Notes](#troubleshooting) <br/>- [Frequently Asked Questions](#frequently-asked-questions)                                                                                  | Provide useful information related to OpenL Tablets installation.                                           |
 
 ### Audience
 
@@ -87,10 +87,9 @@ The following table covers system requirements for installing and running OpenL 
 
 **Hardware requirements:** RAM 4 GB minimum. 6 GB is recommended. 1 GHz or faster 32-bit (x86) or 64-bit (x64) processor.
 
-**User rights requirements:** Administrative permissions are required to install the software under Microsoft Windows or UNIX system.
+**User rights  requirements:** Administrative permissions are required to install the software under Microsoft Windows or UNIX system.
 
-!!! note
-	It is highly recommended to avoid using spaces and special characters in paths.
+**Note:** It is highly recommended to avoid using spaces and special characters in paths.
 
 ### Common Information about OpenL Tablets WebStudio Instances
 
@@ -177,8 +176,8 @@ Perform the following steps:
 -   [Deploying OpenL Tablets WebStudio](#deploying-openl-tablets-webstudio)
 -   [Configuring External User Database](#configuring-external-user-database)
 -   [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard)
--   [Integration with External Identify Providers](#integrationwithexternalidentityproviders)
--   [OpenL Tablets WebStudio Customization](#_OpenL_Tablets_WebStudio_1)
+-   [Integration with External Identify Providers](#integration-with-external-identity-providers)
+-   [OpenL Tablets WebStudio Customization](#openl-tablets-webstudio-customization)
 
 ### Installing JDK
 
@@ -235,14 +234,14 @@ To install JDK, perform the following steps:
 Apache Tomcat can be installed from a ZIP file or using Windows Service Installer. The following topics are included in this section:
 
 -   [Installing Apache Tomcat on Windows](#installing-apache-tomcat-on-windows)
--   [Installing Apache Tomcat on UNIX / Linux Machine](#installing-apache-tomcat-on-unix--linux-machine)
+-   [Installing Apache Tomcat on UNIX / Linux Machine](#installing-apache-tomcat-on-unix-linux-machine)
 
 #### Installing Apache Tomcat on Windows
 
 This section describes how to install Apache Tomcat on Windows and includes the following topics:
 
 -   [Installing Apache Tomcat from Zip File](#installing-apache-tomcat-from-zip-file)
--   [Installing Apache Tomcat Using Windows Service Installer](#_How_to_Installing)
+-   [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer)
 
 ##### Installing Apache Tomcat from Zip File
 
@@ -269,7 +268,7 @@ To install Apache Tomcat 7.0.x or later, proceed as follows:
 This section describes how to install Apache Tomcat using Windows Service Installer.
 
 !!! note
-	It is not recommended to select this type of installation if planning to edit rule tables in Excel files from OpenL Tablets WebStudio as described in **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**]**, the **Modifying Tables** section. This type of installation requires additional setup. To solve this issue, contact your OpenL Tablets administrator.
+	It is not recommended to select this type of installation if planning to edit rule tables in Excel files from OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio User Guide > Modifying Tables](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#modifying-tables) section. This type of installation requires additional setup. To solve this issue, contact your OpenL Tablets administrator.
 
 !!! note
 	For OpenL Tablets administrator: to enable editing rule tables in Excel files from OpenL Tablets WebStudio, enable the **Allow** service to interact with desktop Tomcat service option using MMC or from the command line.
@@ -311,8 +310,7 @@ Proceed as follows:
 	-XX:MaxPermSize=512m
 	```
 
-	!!! note
-	Every option must be manually entered in a separate row.
+	**Note:** Every option must be manually entered in a separate row.
 
 1.  Click **Apply** and then click **OK**.
 2.  To restart Tomcat, in **Notification Area**, right click the Tomcat icon and select **Stop service**.
