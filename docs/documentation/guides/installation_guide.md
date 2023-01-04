@@ -17,7 +17,7 @@ All installation and configuration can be done in the `application.properties` f
 
 ![](installation_guide_images/1ff42f8d9b8012a5f4307404f564d115.png)
 
-*Figure: Accessing the application.properties file example*
+*Accessing the application.properties file example*
 
 This section includes the following topics:
 
@@ -147,7 +147,7 @@ To start OpenL Tablets WebStudio in the cluster mode, the `openl.home.shared` or
 
 <img src="../installation_guide_images/a9b21678a299178dbf55c69e15dc64db.jpeg" width="500">
 
-*Figure: Multiple OpenL Tablets WebStudio instances sharing the same drive*
+*Multiple OpenL Tablets WebStudio instances sharing the same drive*
 
 #### Sharing webstudio.properties
 
@@ -328,8 +328,8 @@ From this point, OpenL Tablets WebStudio can be run as described in [Deploying O
 This section describes how to install Apache Tomcat on the UNIX or Linux machine and includes the following topics:
 
 -   [Installing Apache Tomcat from Repository](#installing-apache-tomcat-from-repository)
--   [Installing Apache Tomcat from ZIP File](#installing-apache-tomcat-from-zip-file-1)
--   [Configuring JVM Options for Tomcat on UNIX / Linux Machine](#configuring-jvm-options-for-tomcat-on-unix--linux-machine)
+-   [Installing Apache Tomcat from ZIP File](#installing-apache-tomcat-from-zip-file_1)
+-   [Configuring JVM Options for Tomcat on UNIX / Linux Machine](#configuring-jvm-options-for-tomcat-on-unix-linux-machine)
 
 ##### Installing Apache Tomcat from Repository
 
@@ -409,7 +409,7 @@ Proceed as follows:
 
 	![](installation_guide_images/315b31b0d9c0137373b2d81b29551174.png)
 
-	*Figure: OpenL Tablets package is added*
+	*OpenL Tablets package is added*
 
 1.  If some `sh` files are not executable, enter the following command:
 
@@ -451,7 +451,7 @@ This section describes how to deploy and run OpenL Tablets WebStudio under Tomca
 
 The following topics are included:
 
--   [Deploying OpenL Tablets WebStudio on a Windows Machine](#_Deploying_OpenL_Tablets)
+-   [Deploying OpenL Tablets WebStudio on a Windows Machine](#deploying-openl-tablets-webstudio-on-a-windows-machine)
 -   [Deploying OpenL Tablets WebStudio on a Linux Machine and Mac](#deploying-openl-tablets-webstudio-on-a-linux-machine-and-mac)
 
 #### Deploying OpenL Tablets WebStudio on a Windows Machine
@@ -472,7 +472,7 @@ Proceed as follows:
 
 	Tomcat unpacks the WAR file into the `<TOMCAT_HOME>\webapps\<war file name>` folder. For example, for 5.9.4 version the target folder can be `<TOMCAT_HOME>\webapps\openl-tablets-webstudio-5.9.4`. For convenience, the folder can be renamed as needed but remember that this name is used to launch OpenL Tablets WebStudio under Tomcat.
 
-	From this point on, run OpenL Tablets WebStudio with default settings or make additional customizations by changing the user mode and configuring an external user database as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**.
+	From this point on, run OpenL Tablets WebStudio with default settings or make additional customizations by changing the user mode and configuring an external user database as described in [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/).
 
 1.  To run OpenL Tablets WebStudio, in the browser, enter the following URL:
 
@@ -533,7 +533,7 @@ To install OpenL Tablets WebStudio under Linux and Mac OS, perform the following
 
 ### Configuring External User Database
 
-This step is only required if a user is planning to work in multi-user application modes such as Multi-user, Active Directory, SSO: CAS, SSO: SAML, or SSO:OAuth2. For more information, see [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1) and use an external database such as MySQL for managing users in OpenL Tablets WebStudio.
+This step is only required if a user is planning to work in multi-user application modes such as Multi-user, Active Directory, SSO: CAS, SSO: SAML, or SSO:OAuth2. For more information, see [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard) and use an external database such as MySQL for managing users in OpenL Tablets WebStudio.
 
 By default, OpenL Tablets WebStudio can run using an internal user database based on the H2 database engine. It is a good idea to use the internal user database for demonstration purposes because it is provided by default and requires no additional setup. But in this case, all user management changes will be lost after server restart.
 
@@ -543,7 +543,7 @@ In a production environment, it is strongly recommended to use an external datab
 
 The following topics are included:
 
--   [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and)
+-   [Adding Drivers and Installing and Configuring the Database](#adding-drivers-and-installing-and-configuring-the-database)
 -   [Configuring MySQL Database as External User Storage](#configuring-mysql-database-as-external-user-storage)
 -   [Configuring MariaDB Database as External User Storage](#configuring-mariadb-database-as-external-user-storage)
 -   [Configuring Oracle Database as External User Storage](#configuring-oracle-database-as-external-user-storage)
@@ -575,7 +575,7 @@ Before configuration, perform the following steps:
 
 	![](installation_guide_images/6b1f61c6269e4c3be6d13a97f4228f2a.png)
 
-	*Figure: Creating a connection to the Oracle database in the installation wizard*
+	*Creating a connection to the Oracle database in the installation wizard*
 
 1.  Click **Finish** to close the wizard when the installation is complete.
 2.  Log in with credentials of an administrative user defined in the third step of the installation wizard, in the **Configure initial users** section.
@@ -584,7 +584,7 @@ Before configuration, perform the following steps:
 
 	![](installation_guide_images/74d10c2b2686c171b48f6656b88d1629.png)
 
-	*Figure: Managing users in the User Management section of OpenL Tablets WebStudio*
+	*Managing users in the User Management section of OpenL Tablets WebStudio*
 
 	Right after applying changes in OpenL Tablets WebStudio, the updates are applied to the database. A user can log in and work under a newly created account in OpenL Tablets WebStudio.
 
@@ -655,7 +655,7 @@ This section explains how to set up an MariaDB database. Proceed as follows:
 
 	![](installation_guide_images/374a4090e431b3fb9109f4cd4f92f3b2.png)
 
-	*Figure: Setting properties for the MariaDB database*
+	*Setting properties for the MariaDB database*
 
 1.  Click **Finish** to close the wizard when the installation is complete.
 2.  Start HeidiSQL application.
@@ -664,7 +664,7 @@ This section explains how to set up an MariaDB database. Proceed as follows:
 
 	![](installation_guide_images/CreatingConnectionMariaDB.png)
 
-	*Figure: Creating a connection to the MariaDB database*
+	*Creating a connection to the MariaDB database*
 
 1.  Click **Open** and save the changes.
 
@@ -687,7 +687,7 @@ This section explains how to set up an Oracle database. Proceed as follows:
 
 	![](installation_guide_images/bcef7557ea9819f858e80d2338e3f516.png)
 
-	*Figure: Creating a connection to the Oracle database*
+	*Creating a connection to the Oracle database*
 
 1.  Enter username and password values defined when installing the database.
 
@@ -715,7 +715,7 @@ Proceed as follows:
 	|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 	| **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 	| **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
-	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system will retrieve it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
+	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
 	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**                                                                                |
 
 	If deploy configuration must be stored in a separate repository, not in Design repository, the **Use Design Repository** check box must be cleared and required parameter values must be provided.
@@ -736,7 +736,7 @@ Proceed as follows:
 	-   [Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service](#configuring-openl-tablets-webstudio-via-amazon-simple-storage-service)
 	-   [Connecting to OpenL Tablets WebStudio via Proxy](#connecting-to-openl-tablets-webstudio-via-proxy)
 
-	For more information on repository security, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** the **Repository Settings** section.
+	For more information on repository security, see [OpenL Tablets WebStudio User Guide > Managing Repository Setting](#managing-repository-settings).
 
 1.  Click **Next**.
 2.  Select a user mode as described in the following table:
@@ -744,27 +744,27 @@ Proceed as follows:
 	| Mode                      | Description                                                                                                                                                                                                                                                                                                 |
 	|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 	| Demo                      | This is a multi-user mode with the list of users predefined in the default database. <br/>The database does not require additional setup. <br/>All changes in the database will be lost after the application restart.                                                                                                |
-	| Single-user               | Only the user currently logged on to the computer can work with the OpenL Tablets WebStudio. <br/>For more information on the single user mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].** |
-	| Multi-user (recommended)  | Multiple users can run OpenL Tablets WebStudio with their unique names. <br/>WebStudio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
+	| Single-user               | Only the user currently logged on to the computer can work with the OpenL Tablets WebStudio. <br/>For more information on the single user mode, see [OpenL Tablets WebStudio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/). |
+	| Multi-user <br/>(recommended)  | Multiple users can run OpenL Tablets WebStudio with their unique names. <br/>WebStudio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
 	| Active Directory          | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>Active Directory will be used to authenticate and manage user credentials.                                                                                                                                                    |
 	| SSO: CAS                  | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials.                                                                                                                         |
 	| SSO: SAML                 | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials.                                                                                       |
 	| SSO:OAuth2                | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>User projects will be located in the './openl-demo/user-workspace/USERNAME' folder. <br/>OAuth2 supporting the identity provider server will be used to authenticate and manage user credentials.                                  |
 
-	For **Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2,** user modes proceed as described in [Integration with External Identity Providers](#_Integration_with_External).
+	For **Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2,** user modes proceed as described in [Integration with External Identity Providers](#integration-with-external-identity-providers).
 
 1.  If **Multi-user**, **Active Directory**, **SSO: CAS**, **SSO: SAML**, or **SSO:OAuth2** mode is selected, in the **Configure database** area that appears, modify the database parameters as follows:
 
 	| Parameter         | Description                                                                                                                               |
 	|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 	| Database URL      | Enter the URL for the selected database.                                                                                                  |
-	| Login / Password  | Username and password specified for the database <br/>as defined in [Configuring External User Database](#configuring-external-user-database). |
+	| Login / Password  | Username and password specified for the database as defined in [Configuring External User Database](#configuring-external-user-database). |
 
 1.  Click **Finish** to complete setup.
 
     As a result, for the **Demo, Multi-user, Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2** modes, the login screen appears for entering user’s credentials to start working with OpenL Tablets WebStudio. If the **openl.home** registry variable is defined, upon OpenL Tablets WebStudio update, after replacing the war file, re-running installation wizard is not required as the fact of configuration is recorded in the system registry. However, if there are multiple instances of OpenL Tablets WebStudio installed on the same computer, OpenL Tablets WebStudio must be run via system properties.
 
-    For a list of users predefined in the **Demo** application mode, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**],** *User Management \> Manage Users.*
+    For a list of users predefined in the **Demo** application mode, see [OpenL Tablets WebStudio User Guide > Managing Users](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-users).
 
 #### Configuring OpenL Tablets WebStudio via JDBC Connection
 
@@ -775,7 +775,7 @@ Configure design and deployment repositories settings on the second step of Open
 
 ![](installation_guide_images/0c03bf32b2a043f41ab7ef85658f0c4a.png)
 
-*Figure: Setting up a JDBC connection using the installation wizard*
+*Setting up a JDBC connection using the installation wizard*
 
 #### Configuring OpenL Tablets WebStudio via JNDI Connection
 
@@ -842,7 +842,7 @@ Configure design and deployment repositories settings on the second step of Open
 
 	![](installation_guide_images/ca12844a99b8378804060adafd3e18c5.png)
 
-	*Figure: Setting up JNDI connection with installation wizard*
+	*Setting up JNDI connection with installation wizard*
 
 #### Configuring OpenL Tablets WebStudio via Amazon Simple Storage Service
 
@@ -866,7 +866,7 @@ The following diagram illustrates how to connect to OpenL Tablets WebStudio via 
 
 ![](installation_guide_images/3e3121758c148ab1c34f085210b39ee2.jpeg)
 
-*Figure: Connecting to OpenL Tablets WebStudio via proxy*
+*Connecting to OpenL Tablets WebStudio via proxy*
 
 ### Integration with External Identity Providers
 
@@ -875,7 +875,7 @@ To enhance sign in options for users, a third-party authentication can be establ
 The following topics are included in this section:
 
 -   [User Management](#user-management)
--   [Configuring Authentication via Active Directory](#_Configuring_Authentication_via)
+-   [Configuring Authentication via Active Directory](#configuring-authentication-via-active-directory)
 -   [Configuring Single Sign On via CAS](#configuring-single-sign-on-via-cas)
 -   [Configuring Single Sign On via SAML Server](#configuring-single-sign-on-via-saml-server)
 -   [Configuring Single Sign On via OAuth2](#configuring-single-sign-on-via-oauth2)
@@ -889,7 +889,7 @@ OpenL Tablets WebStudio allows selecting where user permissions are managed in t
 
     ![](installation_guide_images/d00e1e24ed69010d2edabcfa8b742a4b.png)
 
-	*Figure: Configuring initial users*
+	*Configuring initial users*
 
 #### Configuring Authentication via Active Directory
 
@@ -900,7 +900,7 @@ This section explains how to set up authentication via Active Directory. Proceed
 
 	*![](installation_guide_images/b0af66e4a4c7fd05a595fbaed7d3da7c.png)*
 
-	*Figure: Configuring authentication via Active Directory*
+	*Configuring authentication via Active Directory*
 
 #### Configuring Single Sign On via CAS
 
@@ -923,7 +923,7 @@ Define the following parameters:
 
 *![](installation_guide_images/7f89597173892c2fccf1676b7d6db8de.png)*
 
-*Figure: Configuring CAS*
+*Configuring CAS*
 
 #### Configuring Single Sign On via SAML Server
 
@@ -952,7 +952,7 @@ Define the following parameters:
 
 ![](installation_guide_images/e1bc1d72cfd7f7e2cf44ad34b7279a77.png)
 
-*Figure: Configuring SAML*
+*Configuring SAML*
 
 ##### Configuring SAML on Azure Kubernetes
 
@@ -997,7 +997,7 @@ This section explains how to set up authentication via the OAuth2 server using t
 
 ![](installation_guide_images/9cdb3316b12b230a6ad1f8cc0c38fc06.jpeg)
 
-*Figure: Configuring single sign on via OAuth2*
+*Configuring single sign on via OAuth2*
 
 An example of how to configure single sign on via OAuth2 using properties is as follows:
 
@@ -1340,7 +1340,7 @@ To set up a JNDI connection settings for OpenL Tablets WebStudio, proceed as fol
 
 	![](installation_guide_images/b126142f46ae04166e7bb40b25a718a3.png)
 
-	*Figure: Configuring a JNDI connection*
+	*Configuring a JNDI connection*
 
 1.  In the **Create Datasource** window, select a data source and click **Next.**
 1.  Enter the data source name and JNDI name and click **Next.**
@@ -1348,7 +1348,7 @@ To set up a JNDI connection settings for OpenL Tablets WebStudio, proceed as fol
 
 	![](installation_guide_images/8e8e680140b9e8160fba58d2222e2047.png)
 
-	*Figure: JDBC driver collection*
+	*JDBC driver collection*
 
 1.  Select a JDBC driver and click **Next.**
 1.  Specify database connection settings and click **Next.**
@@ -1381,7 +1381,7 @@ After integration any changes can be made in user’s rule in OpenL Tablets WebS
 
 	![](installation_guide_images/7d47ea73c919e3bfe300c8906cd7f750.png)
 
-	*Figure: OpenL Tablets WebStudio and OpenL Tablets Rule Services deployment*
+	*OpenL Tablets WebStudio and OpenL Tablets Rule Services deployment*
 
 ### Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository
 
