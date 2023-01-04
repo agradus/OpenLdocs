@@ -715,8 +715,8 @@ Proceed as follows:
 	|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 	| **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 	| **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
-	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
-	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see **[**[**OpenL Tablets WebStudio User Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20WebStudio%20User%20Guide.pdf)**].**                                                                                |
+	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in <br/> [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
+	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see [OpenL Tablets WebStudio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/).                                                                              |
 
 	If deploy configuration must be stored in a separate repository, not in Design repository, the **Use Design Repository** check box must be cleared and required parameter values must be provided.
 
@@ -930,7 +930,7 @@ Define the following parameters:
 This section describes single sign on configuration via the SAML server and includes the following topics:
 
 -   [Configuring SAML via the Installation Wizard](#configuring-saml-via-the-installation-wizard)
--   [Configuring SAML on Azure Kubernetes](#_Configuring_Microsoft_Excel)
+-   [Configuring SAML on Azure Kubernetes](#configuring-saml-on-azure-kubernetes)
 
 ##### Configuring SAML via the Installation Wizard
 
@@ -940,7 +940,7 @@ Define the following parameters:
 
 | Parameter                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Entity ID**                           | Entity identifier. Alternatively, its value can be set for the security.saml.entity-id property, in the webstudio.properties file.<br/>An administrator must add the same entity ID to the clients list on the server which serves as an identity provider instance before setting it up in OpenL Tablets WebStudio.<br/>Adding the Entity ID parameter allows using several OpenL Tablets WebStudio instances on the same server with one Keycloak server. |
+| **Entity ID**                           | Entity identifier. Alternatively, its value can be set for the security.saml.entity-id property, in the webstudio.properties file.<br/>An administrator must add the same entity ID to the clients list on the server which serves as an identity provider instance <br/>before setting it up in OpenL Tablets WebStudio.<br/>Adding the Entity ID parameter allows using several OpenL Tablets WebStudio instances on the same server with one Keycloak server. |
 | **SAML server metadata URL**            | URL of the metadata XML file of the Identity Provider.                                                                                                                                                                                                                                                                                                                                                                                              |
 | **SAML remote server X509 certificate** | PEM Base-64 encoded string, which contains a public key for SAML IDP Server. <br/>The begin and end tags are not required.                                                                                                                                                                                                                                                                                                                               |
 | **Attribute for Username**              | SAML attribute for a username. <br/>Keep it blank if SAML server does not return this attribute, or if default algorithm for username retrieval must be used.                                                                                                                                                                                                                                                                                            |
@@ -969,9 +969,9 @@ SAML configuration on Azure Kubernetes includes the following steps:
 URLs must be accessible by Azure.
 
 -   To specify the Azure metadata URL in the OpenL Tablets WebStudio, search for **App Federation Metadata URL** in the Azure SAML Signing certificate.
-
-Username, first name, last name, group, and other attributes can also be retrieved from App Federation Metadata XML.
-
+    
+    Username, first name, last name, group, and other attributes can also be retrieved from App Federation Metadata XML.
+    
 -   Build the image with the required JDBC driver.
 
 OpenL Tablets WebStudio stores information about users and their groups in the database, so there must be a remote database server when OpenL Tablets WebStudio is used in Kubernetes.
@@ -1030,7 +1030,7 @@ db.password = myPassword
 
 #### Configuring User Mode
 
-Normally, user mode in OpenL Tablets WebStudio is set to **multi-user** by using OpenL Tablets WebStudio Installation Wizard as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#_Setting_Up_OpenL_1).
+Normally, user mode in OpenL Tablets WebStudio is set to **multi-user** by using OpenL Tablets WebStudio Installation Wizard as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
 
 User mode can also be changed as a JVM option for Tomcat. For that, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer), and in the **Java Options** text box, add the following line:
 
@@ -1042,7 +1042,7 @@ User mode can also be changed as a JVM option for Tomcat. For that, open the **A
 
 #### Configuring Google Analytics
 
-Google Analytics is a service offered by [Google](https://en.wikipedia.org/wiki/Google) that generates detailed [statistics](https://en.wikipedia.org/wiki/Statistics) about [website](https://en.wikipedia.org/wiki/Website) traffic and traffic sources. To configure Google Analytics for OpenL, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer) and in the **Java Options** text box, add the following lines:
+Google Analytics is a service offered by Google that generates detailed statistics about website traffic and traffic sources. To configure Google Analytics for OpenL, open the **Apache Tomcat Properties** dialog as described in [Installing Apache Tomcat Using Windows Service Installer](#installing-apache-tomcat-using-windows-service-installer) and in the **Java Options** text box, add the following lines:
 
 ```
 webstudio.analytics=number 
@@ -1069,7 +1069,7 @@ The private key must be specified without spaces.
 
 This chapter is designed for rule developers who need to use business rules as separate web services.
 
-For more information on how to configure OpenL Tablets Rule Services, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**].**
+For more information on how to configure OpenL Tablets Rule Services, see [OpenL Tablets Rule Services Usage and Customization Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/).
 
 Before deploying OpenL Tablets Rule Services under Apache Tomcat, ensure the following tasks are performed:
 
@@ -1082,7 +1082,7 @@ The folder where Tomcat is installed is referred to as `<TOMCAT_HOME>.`
 
 -   [Downloading Preconfigured OpenL Tablets Rule Services](#downloading-preconfigured-openl-tablets-rule-services)
 -   [Configuring OpenL Tablets Rule Services for a Local Data Source](#configuring-openl-tablets-rule-services-for-a-local-data-source)
--   [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Attention!_For_proper)
+-   [Configuring OpenL Tablets Rule Services for a Database Data Source](#configuring-openl-tablets-rule-services-for-a-database-data-source)
 -   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
 -   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
 
@@ -1128,7 +1128,7 @@ To deploy OpenL Tablets Rule Services, configure a local file system as a data s
 To ensure the deployment is successful, try loading the appropriate CXF page with web services.  
 An example is <http://localhost:8080/openl-tablets-ws-X.X.X>`.`
 
-Users can also pack their rule projects in a `jar` file and use this file as a data source as described in **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**],** **JAR File Data Source** section.
+Users can also pack their rule projects in a `jar` file and use this file as a data source as described in [OpenL Tablets Rule Services Usage and Customization Guide > Classpath JAR](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#classpath-jar).
 
 #### Configuring OpenL Tablets Rule Services via Local ZIP Archives
 
@@ -1177,14 +1177,14 @@ Alternatively, zip archives with deployments or rule projects can be saved to `\
 This section describes how to configure settings to connect to a database for storing deployed projects there. Such configuration requires that the appropriate database exists and is launched. The following topics are included:
 
 -   [Configuring OpenL Tablets Rule Services via JDBC Connection](#configuring-openl-tablets-rule-services-via-jdbc-connection)
--   Configuring OpenL Tablets Rule Services via JNDI Connection
+-   [Configuring OpenL Tablets Rule Services via JNDI Connection](#configuring-openl-tablets-rule-services-via-jndi-connection)
 -   [Configuring OpenL Tablets Rule Services via AWS S3 Connection](#configuring-openl-tablets-rule-services-via-aws-s3-connection)
 -   [Configuring OpenL Tablets Rule Services via GIT Connection](#configuring-openl-tablets-rule-services-via-git-connection)
 -   [Configuring OpenL Tablets Rule Services via Azure Blob Connection](#configuring-openl-tablets-rule-services-via-azure-blob-connection)
 
 Before configuration, add the appropriate driver library for a database in OpenL Tablets Rule Services to `\WEB-INF\lib\.`Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries. Install the database, defining a login and password and creating a new schema or service.
 
-For more information on drivers, see the **Driver name for appropriate databases** table in [Adding Drivers and Installing and Configuring the Database](#_Adding_Drivers_and).
+For more information on drivers, see the **Driver name for appropriate databases** table in [Adding Drivers and Installing and Configuring the Database](#adding-drivers-and-installing-and-configuring-the-database).
 
 #### Configuring OpenL Tablets Rule Services via JDBC Connection
 
@@ -1264,7 +1264,7 @@ The following topics are included:
 
 -   [Deploying OpenL Tablets WebStudio on JBoss Application Server](#deploying-openl-tablets-webstudio-on-jboss-application-server)
 -   [Deploying OpenL Tablets Rule Services on JBoss Application Server](#deploying-openl-tablets-rule-services-on-jboss-application-server)
--   [Setting Up a JDBC Connection](#_Setting_Up_a)
+-   [Setting Up a JDBC Connection](#setting-up-a-jdbc-connection)
 -   [Setting Up a JNDI Connection](#setting-up-a-jndi-connection)
 
 ### Deploying OpenL Tablets WebStudio on JBoss Application Server
@@ -1366,8 +1366,8 @@ To set up a JNDI connection settings for OpenL Tablets WebStudio, proceed as fol
 
 This section describes how to set up OpenL Tablets WebStudio and OpenL Tablets Rule Services integration and enable backward compatibility and includes the following topics:
 
--   [Deploying Rules to the Production Server](#_Deploying_Rules_to)
--   [Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository](#_Backward_Compatibility_of)
+-   [Deploying Rules to the Production Server](#deploying-rules-to-the-production-server)
+-   [Integrating OpenL Tablets WebStudio and OpenL Tablets Rule Services via Database Repository](#integrating-openl-tablets-webstudio-and-openl-tablets-rule-services-via-database-repository)
 
 ### Deploying Rules to the Production Server
 
@@ -1389,7 +1389,7 @@ This section describes an alternative way of how to set up an integrated environ
 
 1.  Install OpenL Tablets WebStudio and OpenL Tablets Rule Services on the same application server.
 2.  Connect OpenL Tablets WebStudio to the database to store deployed projects as described in [Setting Up OpenL Tablets WebStudio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
-3.  Configure OpenL Tablets Rule Services for a database data source as described in [Configuring OpenL Tablets Rule Services for a Database Data Source](#_Configure_Web_Services_2).
+3.  Configure OpenL Tablets Rule Services for a database data source as described in [Configuring OpenL Tablets Rule Services for a Database Data Source](#configuring-openl-tablets-rule-services-for-a-database-data-source).
 
 ## Troubleshooting
 
@@ -1435,9 +1435,9 @@ This section provides the most common questions and answers related to the OpenL
 
 | \#    | Question                                                                                                                         | Answer                                                                                                                                                                                                                                                                                                                                   |
 |-------|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1** | How can I check if Java is installed on my PC?                                                                                   | Proceed as follows: <br/>Open **Start \> Control Panel.** <br/>Perform either of the following: <br/>• For Windows XP, double click **Add or Remove Programs**. <br/>• For Windows 7/Vista, click **Programs \> Programs and Features**. <br/>Look through the list for **Java(TM)…** or **Java(TM) Update…** items. If any is present, Java is installed on your PC. |
+| **1** | How can I check if Java is installed on my PC?                                                                                   | Proceed as follows: <br/>Open **Start \> Control Panel.** <br/>Perform either of the following: <br/>• For Windows XP, double click **Add or Remove Programs**. <br/>• For Windows 7/Vista, click **Programs \> Programs and Features**. <br/>Look through the list for **Java(TM)…** or **Java(TM) Update…** items. <br/>If any is present, Java is installed on your PC. |
 | **2** | During Java installation, the page for Java registration appears. <br/>Do I have to register Java?                                    | No, it is optional. You can close the registration page.                                                                                                                                                                                                                                                                                 |
-| 3     | How can I check which version of Java is installed on my PC?                                                                     | Open the [**Verify Java Version**](http://java.com/en/download/installed.jsp) page and click the **Verify Java Version** button.  <br/>In a few seconds a new page appears where you will find the message like the following one: **Your Java version: Version 6 Update 26**.                                                                |
+| 3     | How can I check which version of Java is installed on my PC?                                                                     | Open the [**Verify Java Version**](http://java.com/en/download/installed.jsp) page and click the **Verify Java Version** button.  <br/>In a few seconds a new page appears where you will find the message like the following one: <br/>**Your Java version: Version 6 Update 26**.                                                                |
 | 4     | How can I see the error message in the Tomcat <br/>console that appears when I start Tomcat? <br/>The error screen disappears too quickly. | Proceed as follows: <br/>Click **Start \> Run**. <br/>Locate the `<TOMCAT_HOME>\bin` folder. <br/>Select `catalina.bat` and enter *run* in the command line.                                                                                                                                                                                            |
 
 ## Appendix A: Official Docker Images for OpenL Tablets
@@ -1525,4 +1525,4 @@ spec:
 
 ## Appendix C: CORS Filter Support Enablement in <br/>OpenL Tablets WebStudio
 
-**Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. For more information on how to enable CORS filter support in OpenL Tablets WebStudio, see **[**[**OpenL Tablets Rule Services Usage and Customization Guide**](https://openl-tablets.org/files/openl-tablets/latest/OpenL%20Tablets%20-%20Rule%20Services%20Usage%20and%20Customization%20Guide.pdf)**]**, the CORS Filter Support section.
+**Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. For more information on how to enable CORS filter support in OpenL Tablets WebStudio, see [OpenL Tablets Rule Services Usage and Customization Guide > CORS Filter Support](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#cors-filter-support).
