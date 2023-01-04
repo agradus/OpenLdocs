@@ -11,7 +11,7 @@ This preface is an introduction to the *OpenL Tablets Demo Package Guide*.
 
 The following topics are included in this preface:
 
--   [Audience](#_Audience)
+-   [Audience](#audience)
 -   [Typographic Conventions](#typographic-conventions)
 
 ### Audience
@@ -69,8 +69,8 @@ Use the following links to the applications available at the OpenL Tablets Demo 
 
 The following sections provide more details on Demo package work:
 
--   [OpenL Tablets WebStudio in a Demo Package](#_OpenL_Tablets_WebStudio)
--   [OpenL Tablets Rule Services in a Demo Project](#_OpenL_Tablets_Web)
+-   [OpenL Tablets WebStudio in a Demo Package](#openl-tablets-webstudio-in-a-demo-package)
+-   [OpenL Tablets Rule Services in a Demo Project](#openl-tablets-rule-services-in-a-demo-project)
 -   [OpenL Tablets Rule Services Demo Client in a Demo Package](#openl-tablets-rule-services-demo-client-in-a-demo-package)
 -   [OpenL Tablets Demo Package as Common Deployment Pattern](#openl-tablets-demo-package-as-common-deployment-pattern)
 -   [Demo Package Security Policy](#demo-package-security-policy)
