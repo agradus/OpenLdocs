@@ -2852,8 +2852,23 @@ A template for this example is as follows: `.*-%lob%-.*-%effectiveDate:ddMMyyyy%
 *Custom file name processor class*
 
 #### Properties Defined in the Folder Name
+	
+To organize a big number of files with different versions of rules, versioning by folder can be used.
+	
+A naming pattern must be added to the `rules.xml` file, same as for the file name pattern setup. The name of the folder where the files with versioned rules are stored must match the pattern.
+	
+**Examples of folder naming:**
 
-Besides file names, module level properties can be defined in folder names, for example, /rules/%lob%/%state%/Module.xlsx.
+```
+<properties-file-name-pattern>/%state%-%lob%-%startRequestDate,effectiveDate%/MainAlgo.xlsx</properties-file-name-pattern> - for versioning a specific file
+<properties-file-name-pattern>/%state%-%lob%-%startRequestDate,effectiveDate%/*.*</properties-file-name-pattern> - for versioning all files in the folder
+```
+
+Besides file names, module level properties can be defined in folder names, for example, `/rules/%lob%/%state%/Module.xlsx`.
+
+![](ref_guide_images/EPBDS10688.png)
+
+*Defining module level properties in a folder name*
 
 The following Ant and file patterns are supported:
 
