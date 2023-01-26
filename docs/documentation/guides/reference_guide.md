@@ -554,7 +554,7 @@ The following is an example of a smart lookup table with several horizontal cond
 
 *Smart lookup table with several horizontal conditions*
 
-OpenL Tablets supports titles for horizontal conditions using the following syntax:
+OpenL Tablets supports titles for horizontal conditions. A horizontal condition title is defined either together with the last vertical condition header, separated by a slash character, or as a separate column after all vertical conditions.
 
 ![](ref_guide_images/a895aa3fff8b709cb93c7ed4abb658c2.jpeg)
 
