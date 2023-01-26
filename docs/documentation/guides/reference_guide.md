@@ -2866,7 +2866,7 @@ A naming pattern must be added to the `rules.xml` file, same as for the file nam
 
 Besides file names, module level properties can be defined in folder names, for example, `/rules/%lob%/%state%/Module.xlsx`.
 
-![](ref_guide_images/EPBDS10688_3.png)
+![](ref_guide_images/EPBDS10688_4.png)
 
 *Defining module level properties in a folder name*
 
