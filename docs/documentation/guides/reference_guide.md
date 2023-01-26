@@ -992,11 +992,11 @@ For example, usually the detailed information about children is not included in 
 
 When a condition value from a cell in the Return column must be called, specify the value by using `$C<n> <variable name> `in the **Return** column.
 
-![](ref_guide_images/d2ba2c20b874ee200d334e7e819d413c.png)
+![](ref_guide_images/EPBDS11443_1.png)
 
 *A Decision table with referents inside the Return column*
 
-![](ref_guide_images/556702c38eef9b7d8feaaf9b6ed77299.png)
+![](ref_guide_images/EPBDS11443_2.png)
 
 *Tracing Decision table with referents*
 
