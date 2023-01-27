@@ -6,7 +6,9 @@ User guides for this version are available via the left navigation.
 HTML guides have links to the GitHub source repository, via which visitors can easily propose documentation updates.
 
 ## Previous User Guides
-\
+
+&nbsp;
+
 [v5.25](https://openldocs.readthedocs.io/en/v5.25/)
 
 [v5.24](https://openldocs.readthedocs.io/en/v5.24/)
