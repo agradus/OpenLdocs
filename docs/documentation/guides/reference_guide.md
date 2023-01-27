@@ -1774,7 +1774,7 @@ The SpreadsheetResult cell type is automatically determined if a user refers to 
 
 This logic also works when a user explicitly defines the type of the value as common SpreadsheetResult, for instance, in the following input parameter definition:
 
-![](ref_guide_images/218ebc707a2d2761cb4186ed757517b9.jpeg)
+![](ref_guide_images/218ebc707a2d2761cb4186ed757517b9_2.jpeg)
 
 *Defining the value type as SpreadsheetResult*
 
@@ -1782,7 +1782,7 @@ However, there are several limitations of auto type discovering when the system 
 
 -   Type identification algorithm is not able to properly identify the cell type when a cell refers to another cell with the same name because of occurred circular dependencies.
    
-    ![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d.jpeg)
+    ![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d_2.jpeg)
     
     *Limitation for referring to another cell with the same name*
     
