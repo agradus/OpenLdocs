@@ -1782,7 +1782,7 @@ However, there are several limitations of auto type discovering when the system 
 
 -   Type identification algorithm is not able to properly identify the cell type when a cell refers to another cell with the same name because of occurred circular dependencies.
    
-    ![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d_2.jpeg)
+    ![](ref_guide_images/311742fa31d56cd04b21657dd6adeb5d_2.png)
     
     *Limitation for referring to another cell with the same name*
     
