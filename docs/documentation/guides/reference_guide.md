@@ -3888,6 +3888,7 @@ When comparing elements of different types, such as an array and an element of t
 `Warning: Compared elements have different types ('java.lang.String[]', 'java.lang.String'). Comparing these types always returns true. banks.bankRatings[select all having rating == "A"]`
 	
 ![](ref_guide_images/EPBDS-12008.png)
+	
 *Comparing elements of different types*
 	
 To resolve this warning, use elements of the same type for comparison. To compare an array to an element of the array, use the `flatten` function.
