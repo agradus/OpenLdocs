@@ -1860,7 +1860,16 @@ The combined SpreadsheetResult type is used when the rules table returns differe
 A united spreadsheet result can be used as an input parameter.
 
 -   If the united spreadsheet result is generated as a result of the rule returning spreadsheet results, the input parameter has the (SpreadsheetResultClaimCost inputValueName) format.
--   If the united spreadsheet result is generated as a result of the ternary operation of by uniting spreadsheet cells, the input parameter has the (SRSpr1 & SrSpr2 a) format.
+-   If the united spreadsheet result is generated as a result of the ternary operation of by uniting spreadsheet cells, the input parameter has the (SRSpr1 & SRSpr2 a) format.
+	
+An example is as follows:
+
+```
+Rate = coverage.fundingType == "FullyInsured" ? RateCalculation ( rateBasis, $TotalVolume, $NumberOfLives, $MonthlyPremiumPreliminary) : ASORate (calculatedClass.$TotalNetClaimCost, TLR, $NumberOfLives, coverage)
+```
+
+When passing results of the Rate step to another rule, the type of the spreadsheet defined in this step is RRateCalculation & SRASORate.
+
 
 ##### Spreadsheet Result Output Customization
 
@@ -3683,12 +3692,14 @@ If the project dependency does not have the **All Modules** setting enabled, dep
 
 After adding a dependency, all its rules, data fields, and data types are accessible from the root module. The root module can call dependency rules.
 
-Dependencies can also be used to call a specific rule from another project that have a similar structure or similar approach to rules model naming, for example, datatype table naming or using rules with the same or similar signature. To add a dependency rule, uses the following syntax:
+Dependencies can also be used to call a specific rule from another project that have a similar structure or similar approach to rules model naming, for example, datatype table naming or using rules with the same or similar signature. To add a dependency rule, use the following syntax:
 
 ```
 `Project`.tableName()
 `Project/module`.tableName()
 ```
+
+`Project/module`.tableName() must be used if the table name is not unique among the modules.
 
 ![](ref_guide_images/950b982ad646f2db2bbf49c9feac05e7.jpeg)
 
