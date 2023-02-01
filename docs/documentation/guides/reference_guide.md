@@ -1868,7 +1868,7 @@ An example is as follows:
 Rate = coverage.fundingType == "FullyInsured" ? RateCalculation ( rateBasis, $TotalVolume, $NumberOfLives, $MonthlyPremiumPreliminary) : ASORate (calculatedClass.$TotalNetClaimCost, TLR, $NumberOfLives, coverage)
 ```
 
-When passing results of the Rate step to another rule, the type of the spreadsheet defined in this step is RRateCalculation & SRASORate.
+If passing results of the Rate step to another rule, the type of the spreadsheet defined in this step is a united spreadsheet SRRateCalculation & SRASORate.
 
 
 ##### Spreadsheet Result Output Customization
@@ -3699,6 +3699,7 @@ Dependencies can also be used to call a specific rule from another project that 
 `Project/module`.tableName()
 ```
 
+`Project`.tableName() must be used if the table name is unique within the whole project.
 `Project/module`.tableName() must be used if the table name is not unique among the modules.
 
 ![](ref_guide_images/950b982ad646f2db2bbf49c9feac05e7.jpeg)
