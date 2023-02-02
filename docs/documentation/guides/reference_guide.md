@@ -1859,7 +1859,7 @@ The combined SpreadsheetResult type is used when the rules table returns differe
 
 A united spreadsheet result can be used as an input parameter.
 
--   If the united spreadsheet result is generated as a result of the rule returning spreadsheet results, the input parameter has the (SpreadsheetResultClaimCost inputValueName) format.
+-   If the united spreadsheet result is generated as a result of the rule returning spreadsheet results, the input parameter has the (SpreadsheetResultSpreadsheetName inputValueName) format. Example: SpreadsheetResultClaimCost claimCostCalc.
 -   If the united spreadsheet result is generated as a result of the ternary operation of by uniting spreadsheet cells, the input parameter has the (SRSpr1 & SRSpr2 ruleName) format.
 	
 An example is as follows:
