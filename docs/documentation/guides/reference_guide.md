@@ -3455,6 +3455,16 @@ In the following example, if the value for a coverage limit of an insurance poli
 
 *Usage of the ERROR function*
 
+Alternatively, a custom error with custom error message can be defined as arguments using the `error(String code, String message)` function. The expected REST response is as follows:
+	
+```
+{
+    "code": "cd01",
+    "message": "User message"
+}
+```
+	
+
 ##### Ternary Operator
 
 **?:** is a ternary operator that is a part of the syntax for simple conditional expressions. It is commonly referred to as the conditional operator, inline if (iif), or ternary if.
