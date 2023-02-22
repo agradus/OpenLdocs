@@ -398,6 +398,9 @@ The smart rules table header format is as follows:
 
 OpenL Tablets identifies which condition сolumns correspond to which input parameters by condition titles and parameter names. First of all, OpenL parses a parameter name and splits it into words, as it interprets a part starting with a capital letter as a separate word. Then it calculates the percentage of matching words in all columns and selects the column with the highest percentage of coincidence. If the analysis returns more than one result, OpenL throws an error and requires a more unique name for the column.
 
+**Note:** OpenL Tablets matches input parameters or its fields to the conditions columns using the score. The score is calculated based on words used in parameter naming. If the particular parameter has the highest score for the particular condition, matching occurs. If several parameters have the same score, the system displays a warning message “Ambiguous matching of column titles to DT columns. Use more appropriate titles.” To overcome this issue and improve matching, use extended names for conditions.
+
+
 In case of a custom datatype input, OpenL verifies all fields of the input object to match them separately with appropriate conditions using field names, in addition to input names, and column titles.
 
 ![](ref_guide_images/4f08cf74060a623db38210cff8541288.png)
@@ -470,7 +473,7 @@ In the example below, the rule **VehicleDiscount** determines the vehicles’s d
 
 **Note:** Return object fields are automatically filled in with input values if the return field name and input field name are matched.
 
-![](ref_guide_images/b2bdd5226b413cc20368aed777817c4e.png)
+![](ref_guide_images/b2bdd5226b413cc20368aed777817c4e_1.png)
 
 *Return object fields automatically filled in with input values*
 
