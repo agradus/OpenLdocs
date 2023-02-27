@@ -3800,8 +3800,8 @@ To enable the i18n localization, the **msg(String code, Object... params)** func
 	
 The **msg(String code, Object... params)** function reads localization message bundles in the i18n format. All localization bundles are stored in the OpenL Tablets project, the **i18n** folder. The name of the localization bundle matches the following pattern:
 	
-`message%locale%.properties. Placeholder %locale%.`
-	
+`message%locale%.properties` where %locale% is a placeholder.
+
 Examples ordered by descending priority are as follows:
 	
 -   **message_no_NO_NY.properties** – localization bundle for the Norwegian language, Norway country, Nynorsk form.
@@ -3839,7 +3839,7 @@ To enable location in the OpenL Tablets project, proceed as follows:
     inquiry = Comment allez-vous?
     ```
     
-    Note that the values on the right are translated while the keys on the left size remain the same. The keys must not be changed as they are used as referred to when rules fetch the translated text.
+    Note that the values on the right are translated while the keys on the left size remain the same. It is important to maintain the keys without alterations as they serve as references when rules retrieve the translated text.
     
 3.  Define the required locale in **IRulesRuntimeContext**, for example, by calling the **modifyContext** method as follows:
     
