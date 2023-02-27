@@ -1,7 +1,7 @@
 # OpenL Tablets BRMS Reference Guide
 
 ```
-Release 5.26
+Release 5.27
 OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
 ```
 
@@ -3229,9 +3229,9 @@ This section describes OpenL Tablets functions and provides simple usage example
 The following topics are included in this section:
 
 -   [Understanding OpenL Tablets Function Syntax](#understanding-openl-tablets-function-syntax)
--   [Math Functions](#math-functions)
--   [Date Functions](#date-functions)
--   [Special Functions and Operators](#special-functions-and-operators)
+-   [Understanding Math Functions](#understanding-math-functions)
+-   [Understanding Date Functions](#understanding-date-functions)
+-   [Understanding Special Functions and Operators](#understanding-special-functions-and-operators)
 -   [Null Elements Usage in Calculations](#null-elements-usage-in-calculations)
 
 #### Understanding OpenL Tablets Function Syntax
@@ -3250,7 +3250,7 @@ If an action is performed in a rule, use the corresponding function in the rules
 
 Subsequent sections provide description for mostly often used OpenL Tablets functions. For a full list of functions, see [Appendix B: Functions Used in OpenL Tablets](#appendix-b-functions-used-in-openl-tablets).
 
-#### Math Functions
+#### Understanding Math Functions
 
 Math functions serve for performing math operations on numeric data. These functions support all numeric data types described in [Working with Data Types](#working-with-data-types).
 
@@ -3402,7 +3402,7 @@ round(32.285, 2, DOWN)=32.28
 
 *Usage of the round(number,int,int/String) format with the DOWN rounding mode*
 
-#### Date Functions
+#### Understanding Date Functions
 
 OpenL Tablets supports a wide range of date functions that can be applied in the rule tables. The following date functions return an Integer data type:
 
@@ -3438,7 +3438,7 @@ The following decision table provides a very simple example of how the `dayOfWee
 
 *A risk factor depending on a day of the week*
 
-#### Special Functions and Operators
+#### Understanding Special Functions and Operators
 
 OpenL Tablets supports a variety of different special functions and syntax to make rules creation easier and more convenient for business users.
 
