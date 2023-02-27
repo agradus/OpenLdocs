@@ -3998,9 +3998,9 @@ To resolve this warning, use elements of the same type for comparison. To compar
 
 This chapter provides a complete list of functions available in OpenL Tablets and includes the following sections:
 
--   [Math Functions](#math-functions-1)
+-   [Math Functions](#math-functions)
 -   [Array Functions](#array-functions)
--   [Date Functions](#date-functions-1)
+-   [Date Functions](#date-functions)
 -   [String Functions](#string-functions)
 -   [Special Functions](#special-functions)
 
