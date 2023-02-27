@@ -3890,8 +3890,8 @@ The following table represents BEX keyword equivalents to Java expressions:
 
 | Java expression | BEX equivalents                      |
 |-----------------|--------------------------------------|
-| `==`            | `equals to` `same as`                |
-| `!=`            | `does not equal to` `different from` |
+| `==`            | `equals to` `is same as`                |
+| `!=`            | `does not equal to` `is different from` |
 | `a.b`           | `b of the a`                         |
 | `<`             | `is less than`                       |
 | `>`             | `is more than`                       |
