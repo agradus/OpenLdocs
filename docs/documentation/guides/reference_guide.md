@@ -3800,7 +3800,7 @@ To enable the i18n localization, the **msg(String code, Object... params)** func
 	
 The **msg(String code, Object... params)** function reads localization message bundles in the i18n format. All localization bundles are stored in the OpenL Tablets project, the **i18n** folder. The name of the localization bundle matches the following pattern:
 	
-`message%locale%.properties` where %locale% is a placeholder.
+`message%locale%.properties` where `%locale%` is a placeholder.
 
 Examples ordered by descending priority are as follows:
 	
