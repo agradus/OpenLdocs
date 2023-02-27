@@ -3811,7 +3811,7 @@ Examples ordered by descending priority are as follows:
 
 Localization bundles files are key-value plain text files where keys and values are separated with = character, for example, `greetings = Hello`.
 
-For more information on supported locales, see {JDK 11 Supported Locales}(https://www.oracle.com/java/technologies/javase/jdk11-suported-locales.html).
+For more information on supported locales, see [JDK 11 Supported Locales](https://www.oracle.com/java/technologies/javase/jdk11-suported-locales.html).
 
 To support the i18n localization, a new **locale** property of the **java.lang.Locale** type is added to IRulesRuntimeContext to support i18n localization. When the **msg(String code, Object... params)** function is invoked, the current locale is retrieved from IRulesRuntimeContext and the list of message bundles is configured based on it.
 
@@ -3823,43 +3823,41 @@ To enable location in the OpenL Tablets project, proceed as follows:
     
 2.  In this folder, create a default **message.properties** file with the following contents:
     	
-    ***
+    ```
     
     greetings = Hello, {0}.
     farewell = Goodbye, {0}.
     inquiry = How are you?
     
-    ***
+    ```
     	
     When a default message bundle is created, its messages are translated into various languages. For example, for French, the **message_fr_FR.properties** properties file is created and its contains the following lines:
 
-    ***
-    
+    ```
     greetings = Bonjour, {0}.
     farewell = Au revoir, {0}.
     inquiry = Comment allez-vous?
-    
-    ***
+    ```
     
     Note that the values on the right are translated while the keys on the left size remain the same. The keys must not be changed as they are used as referred to when rules fetch the translated text.
     
 3.  Define the required locale in **IRulesRuntimeContext**, for example, by calling the **modifyContext** method as follows:
     
-    ***
+    ```
     
     '= modifyContext("locale", toLocale("fr_FR"))
     
-    ***
+    ```
     
 3.  Define a localization message for this locale:
     
-    ***
+    ```
     
     '= msg("greetings", "John Smith") // Bonjour, John Smith
     '= msg("farewell", "John Smith") // Au revoir, John Smith
     '= msg("inquiry") // Comment allez-vous?
     
-    ***
+    ```
 
 In this case, all localization messages are retrieved from **message_fr_FR.properties**. If the locale is set up for another language, for example, **uk_UA**, but the appropriate message bundle is not created, the properties are retrieved from the default file **message.properties**.
 
