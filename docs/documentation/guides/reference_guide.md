@@ -1893,20 +1893,20 @@ For this spreadsheet, output result is as follows.
 
 ```
 {
-  “vehiclesPremium”: [
+  “VehiclesPremium”: [
     1,
     3,
     4
   ],
-  “driversPremium”: [
+  “DriversPremium”: [
     1,
     3,
     4
   ],
-  “clientDiscount”: 5,
-  “vehiclesScore”: 8,
-  “driversScore”: 8,
-  “premium”: 21
+  “ClientDiscount”: 5,
+  “VehiclesScore”: 8,
+  “DriversScore”: 8,
+  “Premium”: 21
 }  
 ```
 
@@ -1920,9 +1920,9 @@ An output for this table is as follows:
 
 ```
 {
-  “vehiclesScore”: 8,
-  “driversScore”: 8,
-  “premium”: 21
+  “VehiclesScore”: 8,
+  “DriversScore”: 8,
+  “Premium”: 21
 }
 ```
 
@@ -1936,17 +1936,17 @@ An output result for this spreadsheet is as follows.
 
 ```
 {
-  “vehiclesPremium”: [
+  “VehiclesPremium”: [
     1,
     3,
     4
   ],
-  “driversPremium”: [
+  “DriversPremium”: [
     1,
     3,
     4
   ],
-  “premium”: 21
+  “Premium”: 21
 }
 ```
 
