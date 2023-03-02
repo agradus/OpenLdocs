@@ -1108,7 +1108,7 @@ Datatype table output results can be customized the same way as spreadsheets as 
 	
 If a spreadsheet returns a data type rather than SpreadsheetResult and the attributes of this data type must be filtered, that is, included or excluded from the final output structure, attributes of this data type must be marked with ~ or *. An example is available in [Introducing Datatype Tables](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#introducing-datatype-tables).
 	
-![](ref_guide_images/EPBDS-10058_1.png)
+![](ref_guide_images/EPBDS-10058_3.png)
 
 *Filtering data type attributes for the output structure*
 
