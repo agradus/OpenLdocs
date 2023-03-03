@@ -1889,13 +1889,13 @@ To identify steps or columns to be returned in the SOAP/REST response, mark them
 
 To ensure that certain steps or columns are not included in output, mark them with the \~ tilde symbol.
 
-Consider the following spreadsheet.
+Consider the following spreadsheets.
 
 ![](ref_guide_images/EPBDS-13257_1.png)
 
-*Spreadsheet example*
+*Spreadsheets example*
 
-For this spreadsheet, output result is as follows.
+For these spreadsheets, output result is as follows.
 
 ```
 {
@@ -1943,13 +1943,13 @@ For this spreadsheet, output result is as follows.
 }
 ```
 
-In the following example, some steps are marked with the asterisk as mandatory.
+In the following example, some steps are marked with the asterisk to be included in the output.
 
 ![](ref_guide_images/EPBDS-13257_2.png)
 
-*Example of a spreadsheet with mandatory steps*
+*Example of spreadsheets with mandatory steps*
 
-An output for this table is as follows:
+An output for these tables is as follows:
 
 ```
 {
@@ -1986,9 +1986,9 @@ Within a project, different tables can contain ~ or * markings. Using one or ano
 
 ![](ref_guide_images/EPBDS-13257_3.png)
 
-*An example of a spreadsheet with steps marked to include and exclude*
+*An example of spreadsheets with steps marked to be included and excluded*
 
-An output result for this spreadsheet is as follows.
+An output result for these spreadsheets is as follows.
 
 ```
 {
