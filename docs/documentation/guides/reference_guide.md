@@ -1891,7 +1891,7 @@ To ensure that certain steps or columns are not included in output, mark them wi
 
 Consider the following spreadsheet.
 
-![](ref_guide_images/d5d13b5cfea19c54269cb8ce63c86c2b.jpeg)
+![](ref_guide_images/EPBDS-13257_1.png)
 
 *Spreadsheet example*
 
@@ -1899,26 +1899,53 @@ For this spreadsheet, output result is as follows.
 
 ```
 {
-  “VehiclesPremium”: [
-    1,
-    3,
-    4
-  ],
-  “DriversPremium”: [
-    1,
-    3,
-    4
-  ],
-  “ClientDiscount”: 5,
-  “VehiclesScore”: 8,
-  “DriversScore”: 8,
-  “Premium”: 21
-}  
+  "PremiumCalc": {
+    "PolicyID": "P1",
+    "VehiclesPremiumCalc": [
+      {
+        "VehicleID": "V1",
+        "CoverageCalculation": [
+          {
+            "CoverageType": "Bodily Injury",
+            "BaseRate": 150,
+            "VehicleYearFactor": 1.35,
+            "MileageFactor": 1.19,
+            "CoverageTotal": 240.98
+          },
+          {
+            "CoverageType": "Property Damage",
+            "BaseRate": 130,
+            "VehicleYearFactor": 1.35,
+            "MileageFactor": 1.19,
+            "CoverageTotal": 208.85
+          }
+        ],
+        "VehicleCoveragesSum": 449.83,
+        "VehicleDiscounts": 0.08,
+        "VehicleDiscountsAmount": 36,
+        "TotalVehiclePremium": 413.83
+      }
+    ],
+    "DriversPremiumCalc": [
+      {
+        "DriverID": "D1",
+        "DriverAge": 44,
+        "AgeRate": 1,
+        "RiskAdjustment": 1,
+        "ConvictedDriverFactor": 1.2,
+        "TotalDriverPremium": 1.2
+      }
+    ],
+    "PolicyPremiumSubtotal": 415.03,
+    "CustomerDiscount": 0.12,
+    "TotalPolicyPremium": 365.23
+  }
+}
 ```
 
 In the following example, some steps are marked with the asterisk as mandatory.
 
-![](ref_guide_images/afdfb708c4d5c774a49efe9319a60fe6.jpeg)
+![](ref_guide_images/EPBDS-13257_2.png)
 
 *Example of a spreadsheet with mandatory steps*
 
@@ -1926,33 +1953,71 @@ An output for this table is as follows:
 
 ```
 {
-  “VehiclesScore”: 8,
-  “DriversScore”: 8,
-  “Premium”: 21
+  "PremiumCalc": {
+    "PolicyID": "P1",
+    "VehiclesPremiumCalc": [
+      {
+        "VehicleID": "V1",
+        "CoverageCalculation": [
+          {
+            "CoverageType": "Bodily Injury",
+            "CoverageTotal": 240.98
+          },
+          {
+            "CoverageType": "Property Damage",
+            "CoverageTotal": 208.85
+          }
+        ],
+        "TotalVehiclePremium": 413.83
+      }
+    ],
+    "DriversPremiumCalc": [
+      {
+        "DriverID": "D1",
+        "TotalDriverPremium": 1.2
+      }
+    ],
+    "TotalPolicyPremium": 365.23
+  }
 }
 ```
 
-An example of the spreadsheet with steps marked not to be included in output is as follows.
+Within a project, different tables can contain ~ or * markings. Using one or another depends on whether a user needs more steps to include or exclude into the final result. An example is as follows.
 
-![](ref_guide_images/0e705b15ccc7bb1ac74bec28c3547599.jpeg)
+![](ref_guide_images/EPBDS-13257_3.png)
 
-*An example of a spreadsheet with steps marked to exclude*
+*An example of a spreadsheet with steps marked to include and exclude*
 
 An output result for this spreadsheet is as follows.
 
 ```
 {
-  “VehiclesPremium”: [
-    1,
-    3,
-    4
-  ],
-  “DriversPremium”: [
-    1,
-    3,
-    4
-  ],
-  “Premium”: 21
+  "PremiumCalc": {
+    "PolicyID": "P1",
+    "VehiclesPremiumCalc": [
+      {
+        "VehicleID": "V1",
+        "CoverageCalculation": [
+          {
+            "CoverageType": "Bodily Injury",
+            "CoverageTotal": 240.98
+          },
+          {
+            "CoverageType": "Property Damage",
+            "CoverageTotal": 208.85
+          }
+        ],
+        "TotalVehiclePremium": 413.83
+      }
+    ],
+    "DriversPremiumCalc": [
+      {
+        "DriverID": "D1",
+        "TotalDriverPremium": 1.2
+      }
+    ],
+    "TotalPolicyPremium": 365.23
+  }
 }
 ```
 
