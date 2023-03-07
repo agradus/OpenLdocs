@@ -2021,12 +2021,12 @@ An output result for these spreadsheets is as follows.
 }
 ```
 
-It is also possible to filter spreadsheet columns identifying the ones to be displayed or hidden in the output result. Use ~ or * markings depending on whether you need more columns to include or exclude into the final result. The following naming rules apply:
+It is also possible to filter spreadsheet columns identifying the ones to be displayed or hidden in the output result. Use the ~ or * markings depending on whether there are more columns to include or exclude from the final result. The following naming rules apply:
 
 - If a spreadsheet has two columns, the step name in API is **RowName**.
 - If a spreadsheet has more than two columns, the step name in API is **ColumnName_RowName.**
 
-**Note:** If there is only one spreadsheet column marked as mandatory, its name in API is just **RowName.** If there is only one spreadsheet column left after exclusion using the tilda ~ marking besides the step column, its name in API is also just **RowName.**
+**Note:** If there is only one spreadsheet column marked as mandatory, its name in API is just **RowName.** If there is only one spreadsheet column left after exclusion besides the step column, its name in API is also just **RowName.**
 An example is as follows. 
 	
 **Note:** If the Maven plugin is used for generating a spreadsheet result output model, system integration can be based on generated classes. A default Java package for generated Java beans for particular spreadsheet tables is set using the spreadsheetResultPackage table property. Nevertheless, it is recommended to avoid any integration based on generated classes.
