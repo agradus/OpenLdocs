@@ -1885,9 +1885,8 @@ If passing results of the Rate step to another rule, the type of the spreadsheet
 
 To simplify integration with OpenL rules, customize serialization output of SpreadsheetResult objects by adding or removing steps or columns from spreadsheet result output.
 
-To identify steps or columns to be returned in the SOAP/REST response, mark them using the \* asterisk symbol.
-
-To ensure that certain steps or columns are not included in output, mark them with the ~ tilde symbol.
+- To identify steps or columns to be returned in the SOAP/REST response, mark them using the \* asterisk symbol.
+- To ensure that certain steps or columns are not included in output, mark them with the ~ tilde symbol.
 
 Consider the following spreadsheets.
 
