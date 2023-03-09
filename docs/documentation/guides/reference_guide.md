@@ -2023,10 +2023,77 @@ An output result for these spreadsheets is as follows.
 It is also possible to filter spreadsheet columns identifying the ones to be displayed or hidden in the output result. Use the ~ or * markings depending on whether there are more columns to include or exclude from the final result. The following naming rules apply:
 
 - If a spreadsheet has two columns, the step name in API is **RowName**.
-- If a spreadsheet has more than two columns, the step name in API is **ColumnName_RowName.**
+- If a spreadsheet has more than two columns, the step name in API is **ColumnName_RowName**.
 
-**Note:** If there is only one spreadsheet column marked as mandatory, its name in API is just **RowName.** If there is only one spreadsheet column left after exclusion besides the step column, its name in API is also just **RowName.**
+**Note:** If there is only one spreadsheet column marked as mandatory, its name in API is just **RowName.** If there is only one spreadsheet column left after exclusion besides the step column, its name in API is also just **RowName**.
+
 An example is as follows. 
+	
+![](ref_guide_images/EPBDS-13257_4.png)
+
+*A spreadsheet table with three columns*
+
+An output result for this spreadsheet is as follows.
+
+```
+{
+  "Value_BankID": "commerz",
+  "Description_BalanceDynamicIndexCalculation": "Calculate Indices B, B1, B2, B3 accoding to Financial Data and Quality Indicators",
+  "Value_BalanceDynamicIndexCalculation": 0.94,
+  "Description_BankQualitativeIndexCalculation": "Calculate Indices B, B1, B2, B3 accoding to Financial Data and Quality Indicators",
+  "Value_BankQualitativeIndexCalculation": 0.9,
+  "Description_IsAdequateNormativeIndexCalculation": "Calculate Indices B, B1, B2, B3 accoding to Financial Data and Quality Indicators",
+  "Value_IsAdequateNormativeIndexCalculation": 1,
+  "Description_BankRating": "Bank Rating R = B x B1 x B2 x B3",
+  "Value_BankRating": 0.85,
+  "Description_BankRatingGroup": "Calculate Bank Rating Group",
+  "Value_BankRatingGroup": "R2",
+  "Description_LimitIndex": "Calculate Limit Index Kl",
+  "Value_LimitIndex": 1,
+  "Description_Limit": "Max Limit which Bank is Allowed\nL = Kl x Lmax",
+  "Value_Limit": 5000
+}	
+```
+
+Note that the step names are in the **ColumnName_RowName** format.
+
+An example of the same spreadsheet with one of the columns excluded using the tilda ~ sign is as follows.
+	
+![](ref_guide_images/EPBDS-13257_5.png)
+
+*A spreadsheet table excluded column*
+
+An output result for this spreadsheet is as follows.
+
+```
+{
+  "BankID": "commerz",
+  "BalanceDynamicIndexCalculation": 0.94,
+  "BankQualitativeIndexCalculation": 0.9,
+  "IsAdequateNormativeIndexCalculation": 1,
+  "BankRating": 0.85,
+  "BankRatingGroup": "R2",
+  "LimitIndex": 1,
+  "Limit": 5000
+}
+```
+
+Note that the step names are just **RowName** because there is only one column left besides the step column. 
+	
+Now consider the following example that illustrates simultaneous usage of asterix in columns and steps.
+	
+![](ref_guide_images/EPBDS-13257_6.png)
+
+*A spreadsheet table with filtered columns and steps*
+
+An output result for this spreadsheet is as follows.
+
+```
+{
+  "BankID": "commerz",
+  "Limit": 5000
+}
+```
 	
 **Note:** If the Maven plugin is used for generating a spreadsheet result output model, system integration can be based on generated classes. A default Java package for generated Java beans for particular spreadsheet tables is set using the spreadsheetResultPackage table property. Nevertheless, it is recommended to avoid any integration based on generated classes.
 
