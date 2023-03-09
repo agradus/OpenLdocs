@@ -2061,7 +2061,7 @@ An example of the same spreadsheet with one of the columns excluded using the ti
 	
 ![](ref_guide_images/EPBDS-13257_5.png)
 
-*A spreadsheet table excluded column*
+*A spreadsheet table with excluded column*
 
 An output result for this spreadsheet is as follows.
 
@@ -2078,7 +2078,7 @@ An output result for this spreadsheet is as follows.
 }
 ```
 
-Note that the step names are just **RowName** because there is only one column left besides the step column. 
+Note that the step names are in the **RowName** format because there is only one column left besides the **Step** column. 
 	
 Now consider the following example that illustrates simultaneous usage of asterix in columns and steps.
 	
