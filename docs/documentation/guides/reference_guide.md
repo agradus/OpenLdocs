@@ -113,6 +113,8 @@ The following diagram displays how OpenL Tablets is used by different types of u
 
 A typical lifecycle of an OpenL Tablets project is as follows:
 
+![OpenL Tablets overview](ref_guide_images/OpenLTabletsOverview.png)
+
 1.  A business analyst creates an OpenL Tablets project in OpenL Tablets WebStudio.
 2.  Optionally, development team may provide the analyst with a project in case of complex configuration.
 3.  The business analyst creates correctly structured tables in Excel files based on requirements and includes them in the project.
