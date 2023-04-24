@@ -1375,7 +1375,7 @@ In the following diagram, the **claims** data table contains values defined in t
 
 If the array is stored in the field object of the data table, array elements can be referred. An example is as follows.
 
-![](ref_guide_images/f2099f7578713e99064a0c9421210ab8.jpeg)
+![](ref_guide_images/EPBDS-11307.png)
 
 *Referring array elements in a test table*
 
