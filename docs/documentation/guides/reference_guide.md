@@ -4207,7 +4207,7 @@ This chapter provides a complete list of functions available in OpenL Tablets an
 |------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **add**(array,element)                                           | Copies the given array and adds the given element at the end of the new array.                                                       |
 | **addAll**(array1, array2)                                       | Adds all elements of the given arrays into a new array.                                                                              |
-| **addElement**(array,index, element)                             | Inserts the specified element at the specified position in the array.                                                                |
+| **addElement**(array,index, element)                             | Inserts the specified element at the specified position in the array. <br/>**Example:** addElement( states, N, state)                                                               |
 | **allFalse**(Boolean[])                                          | Returns true if all array elements are false.                                                                                        |
 | **anyFalse**(Boolean[])                                          | Returns true if any array element is false.                                                                                          |
 | **allTrue**(Boolean[])                                           | Returns true if all array elements are true.                                                                                         |
