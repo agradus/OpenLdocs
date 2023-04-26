@@ -3799,7 +3799,7 @@ The following additional internal methods for modification, retrieving, and rest
 
 ![](ref_guide_images/c2a04bfd8f5c43ddabd046e276940e66.png)
 
-### Project and Module Dependencies
+### Project, Module, and Rule Dependencies
 
 **Dependencies** provide more flexibility and convenience. They may divide rules into different modules and structure them in a project or add other related projects to the current one. For example, if a user has several projects with different modules, all user projects share the same domain model or use similar helpers rules, and to avoid rules duplication, put the common rules and data to a separate module and add this module as dependency for all required modules.
 
@@ -3871,7 +3871,7 @@ Dependencies can also be used to call a specific rule from another project that 
 
 *Example of calling a rule from another project*
 
-This syntax is applicable when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
+This syntax is useful when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
 
 #### Dependencies Configuration
 
