@@ -1559,7 +1559,7 @@ The following commands are supported in configuration tables:
 | `language`   | Provides language import functionality.                                                                                                                                                                                                                                                                                                           |
 | `extension`  | Expands OpenL Tablets capabilities with external set of rules. After adding, external rules are complied with OpenL Tablets rules and work jointly.                                                                                                                                                                                               |
 
-For more information on dependency and import configurations, see [Project and Module Dependencies](#project-and-module-dependencies).
+For more information on dependency and import configurations, see [Project, Module, and Rule Dependencies](#project-module-and-rule-dependencies).
 
 ##### Defining Dependencies between Modules in the Configuration Table
 
@@ -3731,7 +3731,7 @@ The following topics are included in this chapter:
 
 -   [Project Structure](#project-structure)
 -   [Rules Runtime Context Management from Rules](#rules-runtime-context-management-from-rules)
--   [Project and Module Dependencies](#project-and-module-dependencies)
+-   [Project, Module, and Rule Dependencies](#project-module-and-rule-dependencies)
 -   [Project Localization](#project-localization)
 
 ### Project Structure
@@ -3759,7 +3759,7 @@ Projects with several rule modules are called **multi module projects.** All mod
 
 When there are many modules, OpenL Tablets engine may start processing modules from any of them. That is why it is important to specify the root file and compilation order of modules in a project. For this purpose, **module dependencies** are used.
 
-To run a rule table from another project, connect projects by dependencies as described in [Project and Module Dependencies](#project-and-module-dependencies).
+To run a rule table from another project, connect projects by dependencies as described in [Project, Module, and Rule Dependencies](#project-module-and-rule-dependencies).
 
 #### Creating a Project
 
@@ -3871,7 +3871,7 @@ Dependencies can also be used to call a specific rule from another project that 
 
 *Example of calling a rule from another project*
 
-This syntax is useful when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
+This syntax is applicable when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
 
 #### Dependencies Configuration
 
