@@ -3871,7 +3871,7 @@ Dependencies can also be used to call a specific rule from another project that 
 
 *Example of calling a rule from another project*
 
-This syntax is useful when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
+This syntax is applicable when there is a dependency on a project and the **All Modules** option is disabled. It allows accessing a specific rule of a different project while all the other tables remain invisible.
 
 #### Dependencies Configuration
 
