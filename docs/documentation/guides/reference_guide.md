@@ -2503,8 +2503,8 @@ The table properties can be obtained using the following syntax:
 
 | Variable                     | Description                     |
 |------------------------------|---------------------------------|
-| **$properties** | Returns the object containing all properties of the current table, for example, the effective date of the rules version <br/>that OpenL determines according to the context data or effective date of the next rule set if such rule set exists. <br/>To access a particular property, use the $properties.usState syntax.    |
-| **$dispatchingProperties** | Returns an array of property objects for all tables with the same signature, that is, all tables used in the dispatching logic. <br/>**Example:** Use setTime(date,0,0,0,0) for testing endRequestDate or expirationDate as follows:<br/> =setTime($properties.endRequestDate, 0, 0,0,0)    |
+| **$properties** | Returns the object containing all properties of the current table, for example, the effective date of the rules version <br/>that OpenL determines according to the context data or effective date of the next rule set if such rule set exists. <br/>To access a particular property, use the $properties.usState syntax. <br/>**Example:** Use setTime(date,0,0,0,0) for testing endRequestDate or expirationDate as follows:<br/> =setTime($properties.endRequestDate, 0, 0,0,0)   |
+| **$dispatchingProperties** | Returns an array of property objects for all tables with the same signature, that is, all tables used in the dispatching logic.     |
 	
 **Note for experienced users:** A particular rule can be called directly regardless of its dimension properties and current runtime context in OpenL Tablets. This feature is supported by setting the ID property as described in [Dev Properties](#dev-properties), in a specific rule, and using this ID as the name of the function to call. During runtime, direct rule is executed avoiding the mechanism of dispatching between overloaded rules.
 
