@@ -2504,7 +2504,6 @@ The table properties can be obtained using the following syntax:
 | Variable                     | Description                     |
 |------------------------------|---------------------------------|
 | **$properties** | Returns the object containing all properties of the current table, for example, <br/>the effective date of the rules version that OpenL determines according to the context data or effective date of the next rule set if such rule set exists. <br/>To access a particular property, use the $properties.usState syntax.    |
-
 | **$dispatchingProperties** | Returns an array of property objects for all tables with the same signature, that is, all tables used in the dispatching logic.
 <br/>**Example:** Use setTime(date,0,0,0,0) for testing endRequestDate or expirationDate as follows:<br/>
  =setTime($properties.endRequestDate, 0, 0,0,0)    |
