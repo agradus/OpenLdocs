@@ -1,7 +1,7 @@
 # OpenL Tablets BRMS WebStudio User Guide
 
 ```
-Release 5.26
+Release 5.27
 OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
 ```
 
@@ -286,6 +286,8 @@ The following table describes the Rules Editor toolbar controls:
 
 OpenL Tablets WebStudio provides different modes for displaying rule elements. In this guide, modes are contingently divided into a **simple view** and **extended view**.
 
+To switch between views, in the top right corner, select **User settings** and use the **Show Header** and **Show Formula** options. 
+
 When a table is opened in a simple view, OpenL Tablets WebStudio hides various technical table details, such as table header and MS Excel formulas. An example of a table opened in a simple view is as follows.
 
 ![](webstudio_guide_images/bfd357191c6ac18914e61f9d4227ec69.png)
@@ -297,8 +299,6 @@ In the extended view, all table structure is displayed. An example of a table op
 ![](webstudio_guide_images/8469f327bb208ae915d03ec2c1b49196.png)
 
 *A rule table in an extended view*
-
-To switch between views, use the **Show Header** and **Show Formula** options in **User settings**.
 
 Rule tables can be organized, or sorted, and displayed in the module tree in different way depending on the selected value.
 
