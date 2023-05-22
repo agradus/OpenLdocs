@@ -302,7 +302,7 @@ In the extended view, all table structure is displayed. An example of a table op
 
 Rule tables can be organized, or sorted, and displayed in the module tree in different way depending on the selected value.
 
-![](webstudio_guide_images/3d9971f0b393c6e7a6c28ff0e6215c1c.png)
+![](webstudio_guide_images/3d9971f0b393c6e7a6c28ff0e6215c1c_1.png)
 
 *Modes for sorting tables in the module tree*
 
@@ -321,7 +321,7 @@ The two following modes display a project in a way convenient to experienced use
 | Mode        | Description                                                                                                                                                                            |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **By Type** | An example of a module tree displayed in extended view and sorted by type is as follows: <br/>![](webstudio_guide_images/987ef7f5c03cdb2fbb899f185a9b0e4e.png) <br/>*Module tree sorted by type* |
-| **By File** | The following module tree is sorted by file and by spreadsheets within the file: <br/>![](webstudio_guide_images/d1d63b677bb144d3d0ecb041c7a8f4a4.png) <br/>*Module tree sorted by file*         |
+| **By Excel Sheet** | The following tree is sorted by the order the tables are stored in the Excel file: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e_1.png) <br/>*Module tree sorted by order in the Excel file*         |
 
 ### Introducing Repository Editor
 
