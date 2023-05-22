@@ -320,7 +320,7 @@ The two following modes display a project in a way convenient to experienced use
 
 | Mode        | Description                                                                                                                                                                            |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **By Type** | An example of a module tree displayed in extended view and sorted by type is as follows: <br/>![](webstudio_guide_images/987ef7f5c03cdb2fbb899f185a9b0e4e.png) <br/>*Module tree sorted by type* |
+| **By Type** | An example of a module tree displayed in extended view and sorted by type is as follows: <br/>![](webstudio_guide_images/987ef7f5c03cdb2fbb899f185a9b0e4e_1.png) <br/>*Module tree sorted by type* |
 | **By Excel Sheet** | The following tree is sorted by the order the tables are stored in the Excel file: <br/>![](webstudio_guide_images/624bc80178d94f34f9406595e2bfe75e_2.png) <br/>*Module tree sorted by order in the Excel file*         |
 
 ### Introducing Repository Editor
