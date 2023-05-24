@@ -1688,8 +1688,7 @@ When using the tracing functionality, users can check the result of each step of
     
 1.  Click the **Trace** button.
 
-    
-    If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
+If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
     
 1.  Open the required Test table.
 2.  To open a pop-up with test cases to be traced, click the **Trace** button.
