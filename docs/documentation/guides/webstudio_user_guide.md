@@ -1690,8 +1690,8 @@ When using the tracing functionality, users can check the result of each step of
     
     If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
     
-1.  Open the desired Test table and hover the mouse pointer over the **Trace** button.
-2.  To open a pop-up with test cases to be traced, click the small right-hand black arrow.
+1.  Open the required Test table.
+2.  To open a pop-up with test cases to be traced, click the **Trace** button.
     
     ![](webstudio_guide_images/381cd6e166b944931ed7ed23c96ea060.jpeg)
     
@@ -1885,7 +1885,7 @@ To create a new project from template, proceed as follows:
     
     All project templates are organized into three areas: Simple Templates, Examples and Tutorials described above in this topic.
     
-1.  Navigate to the desired template and click its name.
+1.  Navigate to the required template and click its name.
     
     The name appears in the **Project Name** field. The following example demonstrates creating a project based on the example.
     
