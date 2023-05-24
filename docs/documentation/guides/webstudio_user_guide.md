@@ -481,7 +481,7 @@ To create a copy of a project, proceed as follows:
 1.  In the top line menu, click **Copy**.
 2.  In the window that appears, enter the new project name.
 3.  Modify **Comment** if needed.
-4.  When you need to copy a project with revisions, select the **Copy old revisions** check box and provide the desired number of revisions in the **Revisions to copy** field.
+4.  When you need to copy a project with revisions, select the **Copy old revisions** check box and provide the necessary number of revisions in the **Revisions to copy** field.
 5.  Click **Copy.**
 
 The new project appears in the project list.
@@ -1387,7 +1387,7 @@ Module or category level properties are those inherited from a **Properties** ta
 To change an inherited property, perform the following steps:
 
 1.  In the **Properties** section, click the inherited property to be changed.
-2.  Enter or select the desired values from the drop-down list and click **Save**.
+2.  Enter or select the required values from the drop-down list and click **Save**.
     
     ![](webstudio_guide_images/ebe8ec082f691ee926106c7860ad3bbf.png)
     
@@ -1446,7 +1446,7 @@ To add a new property for the selected table, perform the following steps:
     
     *Add new property for the current table*
     
-1.  Enter the desired property or select it from the drop-down list and click the **Add** button.
+1.  Enter the required property or select it from the drop-down list and click the **Add** button.
     
     ![](webstudio_guide_images/e816a2ffd53ae797f34135570cd969c0.png)
     
@@ -1541,7 +1541,7 @@ Test results display resembles the following sample:
     
     In the example above, test results are displayed with five test tables, unit tests, per page. This setting is configured for each user individually in User Profile as **Tests per page** setting.
     
-1.  To change the setting for a particular test run without updating user settings, click the arrow to the right of the **Run Tests** ![](webstudio_guide_images/1fda688cf7edb55ee01a776710a0a963.png) and choose a desired number of **Tests per page**. There is an alternative way: the same setting options are displayed on the top of the window after executing all tests. The following picture provides an illustration:
+1.  To change the setting for a particular test run without updating user settings, click the arrow to the right of the **Run Tests** ![](webstudio_guide_images/1fda688cf7edb55ee01a776710a0a963.png) and choose a required number of **Tests per page**. There is an alternative way: the same setting options are displayed on the top of the window after executing all tests. The following picture provides an illustration:
     
     ![](webstudio_guide_images/4c10e6d6a1af29043ec453401b6b7ac5.png)
     
@@ -1940,7 +1940,7 @@ Proceed as follows:
 
 1.  Click **Create Project** in the top line menu.
 2.  In the **Create Project from** dialog, click the **Excel Files** tab.
-3.  Click the **Add** button, locate the desired Excel file in a file system and click **Open**.
+3.  Click the **Add** button, locate the necessary Excel file in a file system and click **Open**.
 4.  If required, repeat the previous step to add more files for the project.
     
     All files are listed in the **File** area.
@@ -1999,7 +1999,7 @@ A project can only be created from a `zip` archive. The .`rar` or `.7zip` archiv
 
 1.  Click **Create Project** in the top line menu.
 2.  In the **Create Project from** dialog, click the **Zip Archive** tab.
-3.  Click the **Add** button, locate the desired zip archive and click **Open**.
+3.  Click the **Add** button, locate the necessary zip archive and click **Open**.
     
     ![](webstudio_guide_images/f0f5790682bf45cfc5361e3d73dec561.jpeg)
     
@@ -2235,7 +2235,7 @@ Copying a project creates a new project with identical contents and a different 
 To copy a project, proceed as follows:
 
 1.  Perform one of the following steps as required:
-    -   In the **Projects** tree, select the desired project and, in the right pane, click the **Copy** button.
+    -   In the **Projects** tree, select the required project and, in the right pane, click the **Copy** button.
     -   Click **Projects** in Navigator to get a list of projects, navigate to the project you want to copy and click the corresponding **Copy** item **![](webstudio_guide_images/d2a06016b3a5f28c837d524b8f20f8fa.png)** on the right.
 1.  In the **Copy Project** window, enter the new project name.
 2.  Select whether a new project must be linked to the origin project.
@@ -2372,7 +2372,7 @@ The specified projects are deployed to deployment repository and a deployment me
 
 #### Opening Deployed Configurations
 
-Deploy configurations provide the means for tracking the deployment history of project revisions. OpenL Tablets WebStudio provides functionality for quickly opening the deployed configuration revisions. This is especially useful when some time has passed since deployment and a review of files during specific deployments is desired.
+Deploy configurations provide the means for tracking the deployment history of project revisions. OpenL Tablets WebStudio provides functionality for quickly opening the deployed configuration revisions. This is especially useful when some time has passed since deployment and a review of files during specific deployments is required.
 
 To open the specific project revisions included in a deploy configuration, proceed as follows:
 
