@@ -1687,6 +1687,7 @@ When using the tracing functionality, users can check the result of each step of
     The same functionality is available for running rules. Settings defined in rule deploy configuration are applied to the JSON input as well. For example, if Provide runtime context is set to true, in JSON, context must be defined. Thus, the same JSON request can be used in OpenL Tablets Rule Services and OpenL Tablets WebStudio.
     
 1.  Click the **Trace** button.
+
     
     If there is a set of test cases and the result of each step of the rule and how the result was obtained need checking, trace the Test table as follows:
     
