@@ -1019,6 +1019,22 @@ In the following rule example, the second rule row is executed, and rule ID \#2 
 
 *Using \$RuleId and \$Rule in the rules table*
 
+##### Using References to Expressions
+
+References to expressions can be used in decision tables. 
+
+`$Expr.$C1` is an expression used as a condition expression for condition C1.
+
+`$Expr.$C1.param1` is an expression defined as a value in a column for the **param1** condition parameter.
+
+ If the referenced cell does not contain an expression, null is returned.
+
+ `$Expr.$C1, $Expr.$C1.param1` return the expression type that contains following attributes:
+
+- `ast` - returns AST tree for the expression
+
+- `textValue` - returns a string representing an expression
+
 #### Datatype Table
 
 This section describes datatype tables and includes the following topics:
