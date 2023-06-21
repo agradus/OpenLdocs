@@ -298,6 +298,7 @@ The following topics are included in this section:
 -   [Calling a Table from Another Table](#calling-a-table-from-another-table)
 -   [Using Referents from Return Column Cells](#using-referents-from-return-column-cells)
 -   [Using Rule Names and Rule Numbers in the Return Column](#using-rule-names-and-rule-numbers-in-the-return-column)
+-   [Using References to Expressions](#using-references-to-expressions)
 
 ##### Decision Table Structure
 
@@ -1034,6 +1035,14 @@ References to expressions can be used in decision tables.
 - `ast` - returns AST tree for the expression
 
 - `textValue` - returns a string representing an expression
+  
+An example is as follows.
+
+![](ref_guide_images/EPBDS-13857.png)
+
+*Using references to expressions*
+
+If 5 is provided as input parameter, the returned result is =hour < 8. If 15 is an input provider, hour <18.
 
 #### Datatype Table
 
