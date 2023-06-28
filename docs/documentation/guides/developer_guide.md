@@ -259,10 +259,10 @@ The module configurations are as follows:
 To open heavy projects with tests, the compileThisModuleOnly attribute must be added to the rules.xml file, <module> section as follows:
 
 ```
-modules>
+<modules>
   <module>
     <name>Tests</name>
-    <rules-root path="rules/Test*.xlsx"></rules-root>
+    <rules-root path="rules/Test*.xlsx"/>
     <webstudioConfiguration>
       <compileThisModuleOnly>true</compileThisModuleOnly>
     </webstudioConfiguration>
