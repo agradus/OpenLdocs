@@ -256,6 +256,20 @@ The module configurations are as follows:
 | method-filer | no       | Filter that defines tables to be used for interface generation. Java regular expression can be used to define a filter for multiple methods.                                                                                                        |
 | rules-root   | yes/no   | Path to the main file of a rules module. It is used together with **type**. Ant pattern can be used to define multiple modules via wildcard. <br/>For more information on Ant patterns, see [Ant patterns](https://ant.apache.org/manual/dirtasks.html). |
 
+To open heavy projects with tests, the compileThisModuleOnly attribute must be added to the rules.xml file, <module> section as follows:
+
+```
+modules>
+  <module>
+    <name>Tests</name>
+    <rules-root path="rules/Test*.xlsx/>
+    <webstudioConfiguration>
+      <compileThisModuleOnly>true</compileThisModuleOnly>
+    </webstudioConfiguration>
+  </module>
+</modules>
+```
+
 ##### Dependency Configurations
 The dependency configurations are as follows:
 
