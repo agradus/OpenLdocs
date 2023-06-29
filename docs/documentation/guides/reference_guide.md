@@ -3320,6 +3320,7 @@ This section describes predefined data types that include the following ones:
 
 -   [Simple Data Types](#simple-data-types)
 -   [Range Data Types](#range-data-types)
+-   [Void Data Type](#void-data-type)
 
 #### Simple Data Types
 
