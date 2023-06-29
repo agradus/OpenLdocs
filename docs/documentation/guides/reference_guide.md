@@ -3395,6 +3395,12 @@ The following rules apply:
 -   Numbers can be enhanced with the `$` sign as a prefix and `K`, `M`, `B` as a postfix, for example, `$1K = 1000`.
 -   For negative values, use the ‘`-`’ (minus) sign before the number, for example, `-<number>`.
 
+#### Void Data Type
+
+**Void** is a special type that represents the absence of a value or lack of a specific type. It is often used as a return type for functions that do not return a value or as a placeholder for empty parameters in function declarations. Essentially, **void** signifies that there is no data or value associated with it. 
+
+In rules, use the **void** type when a rule must be executed but no value is expected to be returned.
+
 ### Working with Functions
 
 Data types are used to represent user data in the system. Business logic in rules is implemented using **functions**. Examples of functions are the **Sum** function used to calculate a sum of values and **Min/Max** functions used to find the minimum or maximum values in a set of values.
