@@ -1,8 +1,8 @@
 site_name: OpenL Tablets
 site_url: https://openl.readthedocs.io/en/latest/
 edit_uri: edit/main/docs/
-toc_depth: 5
-navigation_depth: 5
+toc_depth: 6
+navigation_depth: 6
 nav:
     - Installation Guide: 
       - HTML: documentation/guides/installation_guide.md
