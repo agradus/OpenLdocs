@@ -2819,7 +2819,7 @@ To enable storing large files in a Git repository, Git Large File Support (LFS) 
     3.  Stop OpenL Tablets WebStudio.
     4.  Drop the local folder with the Git repository to the OpenL Tablets WebStudio home directory.
     5.  Start OpenL Tablets WebStudio.
-        OpenL Tablets WebStudio will re-clone the directory.
+    OpenL Tablets WebStudio will re-clone the directory.
     6.  Recreate the required deployment configuration settings that were deleted previously.
 
 #### Managing Git Repository Settings
