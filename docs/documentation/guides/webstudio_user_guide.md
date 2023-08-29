@@ -2810,7 +2810,7 @@ The **Repository** section contains connection settings of design and deployment
     
 1.  When finished, click **Apply All and Restart** to save the changes and refresh the page.
     
-    To enable storing large files in a Git repository, Git Large File Support (LFS) can be used.
+To enable storing large files in a Git repository, Git Large File Support (LFS) can be used.
     
     -   To enable the Git repository use LFS before it is cloned by OpenL Tablets WebStudio, perform the necessary configuration as described in <https://git-lfs.github.com/>.
     -   If the Git repository is already cloned by OpenL Tablets WebStudio, to enable using Git LFS, proceed as follows:
