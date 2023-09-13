@@ -49,7 +49,7 @@ The following table lists the sources of information related to contents of this
 
 | Title                                                                                                                                                       | Description                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| [OpenL Tablets WebStudio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/) | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
+| [OpenL Tablets WebStudio User Guide](webstudio_user_guide.md) | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
 | [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/)                                                                                                                         | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
 | <https://openl-tablets.org/>                                                                                                                                | OpenL Tablets open source project website.                                                                    |
 
