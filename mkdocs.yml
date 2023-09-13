@@ -32,7 +32,7 @@ nav:
   
 theme: 
     name: readthedocs
-    navigation_depth: 6
+    navigation_depth: 8
 
 repo_url: https://github.com/EISTW/OpenLdocs/
 
