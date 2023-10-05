@@ -577,10 +577,6 @@ The following URL can be used to retrieve a list of methods for a service:
 
 `webserver_context_path/ws_app_war_name/admin/services/{serviceName}/methods/`
 
-###### Configuring HTTP Status for Responses
-
-The system can be configured to use the HTTP 200 status for all RESTful services requests even if service execution fails. To enable this feature, set `ruleservice.jaxrs.responseStatusAlwaysOK = true `in the `application.properties` file.
-
 ###### Defining a Date Format for JSON Serialization and Deserialization
 
 REST services support the ISO-8601 standard for date type representation and accept the `yyyy-MM-dd'T'HH:mm:ss.SSS` format. Time and time zones are optional in requests. Time zones in ISO-8601 are represented as local time, with the location unspecified, as UTC, or as an offset from UTC. For more information on the ISO-8601 standard, see <https://en.wikipedia.org/wiki/ISO_8601>.
