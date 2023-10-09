@@ -562,7 +562,7 @@ OpenL Tablets supports titles for horizontal conditions. A horizontal condition 
 
 ![](ref_guide_images/a895aa3fff8b709cb93c7ed4abb658c2.jpeg)
 
-*Slash character in a red cell identifying a condition title*
+*Slash character in a red cell indicating that the cell contains condition titles for a vertical condition "Rating of Agency" and a horizontal condition "Total Assets*
 
 ![](ref_guide_images/9dab9cab2d9f8a26a6002e462488971d.jpeg)
 
