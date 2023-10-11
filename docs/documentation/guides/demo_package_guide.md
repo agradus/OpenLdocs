@@ -38,7 +38,7 @@ To make work with OpenL Tablets WebStudio more comfortable and quicker to start,
 
 The Demo package is a ZIP file that can be downloaded at <https://openl-tablets.org/downloads>, **Demo** (ZIP) link. After unzipping this file, the Demo package consists of the Eclipse Jetty web server version 10.0.17, with three web applications located in the `\jetty-home-10.0.17\webapps\` folder.
 
-**Note:** There is no need to set up `JDK`. The Demo package also works with only `JRE` installed. By noted, that **Java 11** is supported only.
+**Note:** There is no need to set up `JDK`. The Demo package also works with only `JRE` installed. Note that only **Java 11** is currently supported.
 
 These applications are as follows:
 
@@ -46,7 +46,7 @@ These applications are as follows:
 -   `webservice`
 -   `ROOT`
 
-For Windows, to start OpenL Tablets Demo package, locate the `<unzipped Demo package folder>\jetty-home-10.0.xx\start.cmd` file and run it by double-clicking or via console window commands. For Linux, run the `<unzipped Demo package folder>\jetty-home-10.0.xx\start` file. The browser is expected to be openned automatically. If it was not happened, use the following link to **OpenL Tablets Demo welcome page**:
+For Windows, to start the OpenL Tablets Demo package, locate the `<unzipped Demo package folder>\jetty-home-10.0.xx\start.cmd` file and run it by double clicking or via the console window commands. For Linux, run the `<unzipped Demo package folder>\jetty-home-10.0.xx\start` file. The browser is expected to be launched automatically; otherwise, use the following link to the **OpenL Tablets Demo welcome page**:
 
 `http://localhost:8080/`
 
@@ -108,13 +108,13 @@ As OpenL Tablets WebStudio is preconfigured in a single user mode, and all proje
 
 #### Administration
 
-By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\jetty-home-10.0.xx\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one. For more information on how to change a default directory, see [OpenL Tablets WebStudio Guide > Managing System Settings](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-system-settings).
+By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\jetty-home-10.0.xx\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one as described in [OpenL Tablets WebStudio Guide > Managing System Settings](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-system-settings).
 
 ![](demo_guide_images/d4e08c04cc55071f60b74c3508b1e274.png)
 
 *Common system settings in Administration*
 
-Deployment Repository is set to use the Databse (JDBC) connection. An appropriate URL `jdbc:h2:./openl-demo/repositories/deployment/db;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=20` is configured by default and defined in the OpenL Tablets WebStudio `webstudio.properties` file in the `<unzipped Demo package folder>\jetty-home-10.0.xx\` folder.
+Deployment Repository is set to use the Database (JDBC) connection. An appropriate URL `jdbc:h2:./openl-demo/repositories/deployment/db;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=20` is configured by default and defined in the OpenL Tablets WebStudio `webstudio.properties` file in the `<unzipped Demo package folder>\jetty-home-10.0.xx\` folder.
 
 ![](demo_guide_images/e431646eb5b545f6625b9f828f1c2dcb.png)
 
