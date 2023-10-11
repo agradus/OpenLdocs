@@ -87,7 +87,7 @@ As OpenL Tablets WebStudio is preconfigured in a single user mode, and all proje
 
 #### Administration
 
-By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\jetty-home-10.0.xx\` directory.` `This setting simplifies configuration and usage of the Demo package.` `Note that a default directory can be changed to another one as described in [OpenL Tablets WebStudio Guide > Managing System Settings](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-system-settings).
+By default, user workspace, history, and design repository are configured as local and located in the `openl-demo` folder of the `<unzipped Demo package folder>\jetty-home-10.0.xx\` directory. This setting simplifies configuration and usage of the Demo package. Note that a default directory can be changed to another one as described in [OpenL Tablets WebStudio Guide > Managing System Settings](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#managing-system-settings).
 
 ![](demo_guide_images/d4e08c04cc55071f60b74c3508b1e274.png)
 
