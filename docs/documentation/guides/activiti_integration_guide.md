@@ -1,7 +1,7 @@
 # OpenL Tablets and Activiti Integration Guide
 
 ```
-Release 5.26
+Release 5.27
 OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
 ```
 
@@ -14,7 +14,6 @@ The following topics are included in this preface:
 
 -   [Audience](#audience)
 -   [Related Information](#related-information)
--   [Typographic Conventions](#typographic-conventions)
 
 ### Audience
 
@@ -28,20 +27,6 @@ The following table lists sources of information related to contents of this gui
 |-------------------------------|--------------------------------------------|
 | <http://activiti.org/>        | Activiti official website.                 |
 | <https://openl-tablets.org/>  | OpenL Tablets open source project website. |
-
-### Typographic Conventions
-
-The following styles and conventions are used in this guide:
-
-| Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. <br/>Represents keys, such as **F9** or **CTRL+A.** Represents a term the first time it is defined. |
-| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
-| `Courier Bold`             | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
-| Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As.**                                                                                                                                                                                                                                       |
-| *Italic*                   | Represents any information to be entered in a field.  Represents documentation titles.                                                                                                                                                                                                                                              |
-| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
-| Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
 
 
 ## Maven Dependencies
