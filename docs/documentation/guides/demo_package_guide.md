@@ -9,28 +9,7 @@ OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0
 
 This preface is an introduction to the *OpenL Tablets Demo Package Guide*.
 
-The following topics are included in this preface:
-
--   [Audience](#audience)
--   [Typographic Conventions](#typographic-conventions)
-
-### Audience
-
 This guide describes a complete OpenL Tablets Demo package which contains configured and ready to demonstrate infrastructure for the OpenL Tablets product. The Demo package enables a user to develop business rules and manage business rule sets in OpenL Tablets WebStudio, and then execute these rules as web services ready to be used by solution applications.
-
-### Typographic Conventions
-
-The following styles and conventions are used in this guide:
-
-| Convention                 | Description                                                                                                                                                                                                                                                                                                                         |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bold**                   | Represents user interface items such as check boxes, command buttons, dialog boxes, drop-down list values, field names, menu commands, <br/>menus, option buttons, perspectives, tabs, tooltip labels, tree elements, views, and windows. Represents keys, such as **F9** or **CTRL+A**. <br/>Represents a term the first time it is defined. |
-| `Courier`                  | Represents file and directory names, code, system messages, and command-line commands.                                                                                                                                                                                                                                              |
-| Courier Bold               | Represents emphasized text in code.                                                                                                                                                                                                                                                                                                 |
-| Select **File \> Save As** | Represents a command to perform, such as opening the **File** menu and selecting **Save As**.                                                                                                                                                                                                                                       |
-| *Italic*                   | Represents any information to be entered in a field. Represents documentation titles.                                                                                                                                                                                                                                               |
-| \< \>                      | Represents placeholder values to be substituted with user specific values.                                                                                                                                                                                                                                                          |
-| Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
 
 ## OpenL Tablets Demo Package
 
