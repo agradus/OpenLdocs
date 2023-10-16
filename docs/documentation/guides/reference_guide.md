@@ -4015,7 +4015,6 @@ To enable location in the OpenL Tablets project, proceed as follows:
 2.  In this folder, create a default **message.properties** file with the following contents:
     	
     ```
-    
     greetings = Hello, {0}.
     farewell = Goodbye, {0}.
     inquiry = How are you?
@@ -4035,7 +4034,6 @@ To enable location in the OpenL Tablets project, proceed as follows:
 3.  Define the required locale in **IRulesRuntimeContext**, for example, by calling the **modifyContext** method as follows:
     
     ```
-    
     '= modifyContext("locale", toLocale("fr_FR"))
     
     ```
@@ -4043,7 +4041,6 @@ To enable location in the OpenL Tablets project, proceed as follows:
 3.  Define a localization message for this locale:
     
     ```
-    
     '= msg("greetings", "John Smith") // Bonjour, John Smith
     '= msg("farewell", "John Smith") // Au revoir, John Smith
     '= msg("inquiry") // Comment allez-vous?
