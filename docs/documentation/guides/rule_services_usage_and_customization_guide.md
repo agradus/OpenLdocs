@@ -476,7 +476,6 @@ Default implementation of Service Configurer uses the `rules-deploy.xml` deploym
 ```xml
 <rules-deploy>
     <isProvideRuntimeContext>true</isProvideRuntimeContext>
-    <isProvideVariations>false</isProvideVariations>
     <serviceName>myService</serviceName>
     <serviceClass>com.example.MyService </serviceClass>
     <url>com.example.MyService</url>
@@ -499,7 +498,6 @@ When deploying a project to OpenL Tablets Rule Services, if the rules-deploy.xml
 | Tag                               |  Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Required            |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | isProvideRuntimeContext           | Identifies, if set to `true`, that a project provides a runtime context.  <br/>The default value is defined in the `application.properties` file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No                  |
-| isProvideVariations               | Identifies, if set to `true`, that a project provides variations.  <br/>The default value is defined in the `application.properties` file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | No                  |
 | serviceName                       | Defines a service name. <br/>The service name defined in the file is displayed for a deployed project in the embedded mode only. <br/>Otherwise, the service name is derived from its path. <br/>A default pattern is "{deployment_configuration_name}/{project_name}".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No                  |
 | serviceClass                      | Defines a service class. If it is not defined, a generated class is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                  |
 | rmiServiceClass                   | Define a service class to be used by RMI publisher.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Yes <br/>if RMI is used |
@@ -528,7 +526,6 @@ Commonly each service is represented by rules and service interface and consists
 | Version                                | Number of the service version.                                                                                                                                                                                                                                 |
 | Rules                                  | Module or a set of modules to be combined as a single rules module.                                                                                                                                                                                            |
 | **Provide runtime context** flag       | Identifier of whether the runtime context must be added to all rule methods. <br/>If it is set to `true`, the `IRulesRuntimeContext` argument must be added to each method in the service class.                                                                  |
-| **Support variations** flag (optional) | Identifier of whether the current service supports variations. <br/>For more information on variations, see [Variations](#_Variations).                                                                                                                             |
 
 ##### Configuring the Deployment Filter
 
@@ -1145,7 +1142,6 @@ This section describes OpenL Tablets Rule Services advanced services configurati
 -   [Service Publishing Listeners](#service-publishing-listeners)
 -   [Dynamic Interface Support](#dynamic-interface-support)
 -   [Service Customization through Annotations](#service-customization-through-annotations)
--   [Variations](#variations)
 -   [Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#customization-of-log-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
 
 ### OpenL Tablets Rule Services Customization Algorithm
@@ -1408,9 +1404,9 @@ Use the org.openl.rules.ruleservice.core.interceptors.IOpenMemberAware and org.o
 
 #### Method Return Type Customization through Annotations
 
-By default, OpenL Tablets applies the org.openl.rules.ruleservice.core.interceptors.converters.SPRToPlainConverterAdvice interceptor to all spreadsheet table methods that return SpreadsheetResult and org.openl.rules.ruleservice.core.interceptors.converters.VariationResultSPRToPlainConverterAdvice interceptor to all variations methods that correspond to spreadsheet table methods that return SpreadsheetResult. These annotations transform the spreadsheet table result to the generated Java bean and return it instead of SpreadsheetResult.
+By default, OpenL Tablets applies the org.openl.rules.ruleservice.core.interceptors.converters.SPRToPlainConverterAdvice interceptor to all spreadsheet table methods that return SpreadsheetResult. These annotations transform the spreadsheet table result to the generated Java bean and return it instead of SpreadsheetResult.
 
-**Note:**  If any interceptor is used on the method, the SPRToPlainConverterAdvice or VariationResultSPRToPlainConverterAdvice interceptors must be added manually to keep default behavior**.**
+**Note:**  If any interceptor is used on the method, the SPRToPlainConverterAdvice interceptor must be added manually to keep default behavior**.**
 
 To change default behavior, define `@org.openl.rules.ruleservice.core.interceptors.annotations.ServiceCallAfterInterceptor `with an empty value on the method to return SpreadsheetResult.
 
@@ -1479,7 +1475,6 @@ Annotation customization can be used for dynamically generated interfaces. This 
     ```xml
     <rules-deploy>
         <isProvideRuntimeContext>true</isProvideRuntimeContext>
-        <isProvideVariations>false</isProvideVariations>
         <serviceName>dynamic-interface-test3</serviceName>
         <annotationTemplateClassName>org.openl.ruleservice.dynamicinterface.test.MyTemplateClass</annotationTemplateClassName>
         <url></url>
@@ -1522,84 +1517,6 @@ The `@RulesType` annotation value accepts the following:
 Use this annotation if more details are required to define a template method.
 
 **Note:** A user can also use class level annotations for a dynamically generated class. It can be useful for JAX-WS or JAX-RS interface customization.
-
-### Variations
-
-In highly loaded applications, performance of execution is a crucial point in development. There are many approaches to speed up the application. One of them is to calculate rules with variations.
-
-A **variation** stands for additional calculation of the same rule with a slight modification in its arguments. Variations are very useful when a rule must be calculated several times with similar arguments. The idea of this approach is to once calculate rules for particular arguments and then recalculate only the rules or steps that depend on the modified, by variation, fields in those arguments.
-
-The following topics are included:
-
--   [Variations Algorithm](#variations-algorithm)
--   [Predefined Variations](#predefined-variations)
--   [Variations Factory](#variations-factory)
--   [Enabling Variations Support](#enabling-variations-support)
-
-#### Variations Algorithm
-
-A rule that can be calculated with variations must have the following methods in a service class:
-
--   original method with a corresponding rule signature
--   method with injected variations
-
-The method enhanced with variations has a signature similar to the original method. Add the argument of the `org.openl.rules.variation.VariationsPack` type as the last argument. The return type must be generic `org.openl.rules.variation.VariationsResult<T>`, where `T` is the return type of the original method.   
-The` VariationsPack` class contains all required variations to be calculated. The` VariationsResult<T> `class contains results of the original calculation, without any modifications of arguments, and all calculated variations that can be retrieved by variation ID. There can be errors during calculation of a specific variation. The following methods are used to get result of a particular variation:
-
-| Method                                            | Description                                                |
-|---------------------------------------------------|------------------------------------------------------------|
-| `getResultForVariation(String variationID)`       | Returns the result of a successfully calculated variation. |
-| `getFailureErrorForVariation(String variationID)` | Returns the corresponding error message.                   |
-
-**Note:** When using a user’s own service class instead of the one generated by default, the original method must be defined for each method with variations.
-
-**Note:** The result of the original calculation can be retrieved in the same manner as for all variations, by using the special `Original calculation `ID in code as `org.openl.rules.project.instantiation.variation.NoVariation.ORIGINAL_CALCULATION`.
-
-#### Predefined Variations
-
-A variation typically has a unique ID and is responsible for modifying arguments and restoring original values. The ID is a `String` value used to retrieve the result of the calculation with this variation.
-
-By default, the variation’s abstract class `org.openl.rules.project.instantiation.variation.Variation` has two methods, `applyModification` and `revertModifications`. The first method modifies arguments; the second rolls back the changes. For this purpose, a special instance of Stack is passed to both these methods: in the `applyModification` method, the previous values must be stored; in `revertModifications,` the previous values can be retrieved from the Stack and saved into arguments.
-
-The following table describes predefined variation types in the `org.openl.rules.variation `package:
-
-| Variation type                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `NoVariation`                  | Empty variation without any modifications. <br/>It is used for the original calculation and has a predefined `Original calculation` ID.                                                                                                                                                                                                                                                                                                                                                                                        |
-| `ArgumentReplacementVariation` | Variation that replaces an entire argument. <br/>It was introduced because `JXPathVariation` cannot replace a value of a root object, or argument. <br/>The argument index, value to be set instead of the argument, and ID are required to construct this variation.                                                                                                                                                                                                                                                               |
-| `JXPathVariation`              | Variation that modifies an object field or replaces an element in the array defined by the special path. <br/>JXPath is used to analyze paths and set values to corresponding fields, therefore use JXPath-consistent path expressions. <br/>The following data is required for this variation: <br/>- index of the argument to be modified <br/>- path to the field that must be modified in the JXPath notation <br/>- value to be set instead of the original field value <br/>- ID <br/>For more information on JXPath, see <http://commons.apache.org/jxpath/>. |
-| `ComplexVariation`             | Variation that combines multiple variations as a single variation. <Br/>It is applicable when different fields or arguments must be modified.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `DeepCloningVariation`         | Variation used to avoid reverting changes of a specific variation that will be delegated to `DeepCloningVariation`. <br/>This variation clones user’s arguments and thus allows avoiding any problems caused by changes in arguments.  <br/>This variation is not recommended because of performance drawbacks: <br/>the argument cloning takes time so the variations usage can be useless.                                                                                                                                             |
-
-If predefined implementations do not satisfy user needs, implement user’s own type of variation that inherits the `org.openl.rules..variation.Variation` class. <br/>Custom implementations can be faster than the predefined variations in case they use direct access to fields instead of a reflection as in `JXPathVariation`.
-
-#### Variations Factory
-
-The` org.openl.rules.project.VariationsFactory` class is a utility class for simple creation of predefined variations. It uses the following arguments:
-
-| Argument         | Description                                                                                           |
-|------------------|-------------------------------------------------------------------------------------------------------|
-| `variationId`    | Unique ID for a variation.                                                                            |
-| `argumentIndex`  | 0-based index of an argument to be modified.                                                          |
-| `path`           | Path to the field to be modified, or just a dot `.` to modify the root object, that is, the argument. |
-| `valueToSet`     | Value to be set by path.                                                                              |
-| `cloneArguments` | Identifier of whether cloning must be used.                                                           |
-
-Usually `VariationsFactory` creates the `JXPathVariation` variation which covers most cases of variations usage. When a dot `.` is specified as a path, `ArgumentReplacementVariation` is constructed. The `cloneArguments` option says to `VariaitonsFactory` to wrap created variation by `DeepCloninigVariation`.
-
-An alternative way is to use a special `VariationDescription` bean that contains all fields described previously in this section. It is useful to transmit a variation in OpenL Tablets Rule Services and define variations in rules.
-
-#### Enabling Variations Support
-
-Default value for all deployed services is defined in the `ruleservice.isSupportVariations` property in` application.properties`. By default, it is disabled. A variation can be enabled and disabled on the project level using the `rules-deploy.xml` deployment configuration file. An example is as follows:
-
-```xml
-<rules-deploy>
-    …
-    <isProvideVariations>false</isProvideVariations>
-    …
-</rules-deploy> 
-```
 
 ### Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage
 
