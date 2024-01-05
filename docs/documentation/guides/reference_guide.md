@@ -1018,7 +1018,7 @@ In the following rule example, the second rule row is executed, and rule ID \#2 
 
 ![](ref_guide_images/ef7b4bd9e08bec2fe48e1d986f234440.png)
 
-*Using \$RuleId and \$Rule in the rules table*
+*Using $RuleId and $Rule in the rules table*
 
 ##### Using References to Expressions
 
