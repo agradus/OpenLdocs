@@ -110,7 +110,7 @@ h2.indexpage  {
 }
 
 /* Dark mode colors */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 
     /* main document page */
     .wy-nav-content {
