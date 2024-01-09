@@ -4,6 +4,10 @@
         background-color: white;
     }
 
+ul.current {
+        background-color: white;
+    }
+
 .md-sidebar--secondary {
   order: 0;
 }
