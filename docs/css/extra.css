@@ -30,7 +30,6 @@ h2.indexpage  {
   margin-top: -5px;
   margin-bottom: -7px;
   padding: 0px;
-  background-color: white;
   }
 
 .wy-side-nav-search {
@@ -91,7 +90,7 @@ h2.indexpage  {
 
 /* Artifex blue color for background elements. Official EIS light blue is #00a7e1*/
 .wy-side-nav-search, .wy-nav-top {
-    background-color: #00a7e1;
+    background-color: white;
 }
 
 /* Accessibility: ensures that the version number is readable against the background color */
