@@ -1,5 +1,9 @@
 /* test for left nav */
 
+    .wy-nav-shift {
+        background-color: white;
+    }
+
 .md-sidebar--secondary {
   order: 0;
 }
@@ -106,7 +110,7 @@ h2.indexpage  {
 }
 
 /* Dark mode colors */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
 
     /* main document page */
     .wy-nav-content {
