@@ -1,6 +1,10 @@
 /* test for left nav */
 
-    .wy-nav-side {
+li.toctree-12 {
+        background-color: white;
+    }
+
+.wy-nav-side {
         background-color: white;
     }
 
