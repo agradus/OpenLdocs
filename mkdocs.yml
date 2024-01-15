@@ -29,7 +29,7 @@ nav:
       - About OpenL: about.md
   
 theme: 
-    name: mkdocs
+    name: material
     navigation_depth: 8
 
 repo_url: https://github.com/EISTW/OpenLdocs/
