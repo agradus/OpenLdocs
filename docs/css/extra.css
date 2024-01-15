@@ -1,5 +1,7 @@
-/* test for left nav */
+/* Other stuff */
+--md-primary-fg-color: #6190e6;
 
+/* Settings for page content */
 .md-sidebar--secondary {
   order: 0;
 }
