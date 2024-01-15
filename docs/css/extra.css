@@ -1,17 +1,5 @@
 /* test for left nav */
 
-li.toctree-12 {
-        background-color: white;
-    }
-
-.wy-nav-side {
-        background-color: white;
-    }
-
-ul.current {
-        background-color: white;
-    }
-
 .md-sidebar--secondary {
   order: 0;
 }
