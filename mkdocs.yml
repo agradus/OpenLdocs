@@ -17,6 +17,7 @@ theme:
     name: material
     navigation_depth: 8
     theme_dir: site/css/theme_override
+    custom_dir: site/css/theme_override
 
 repo_url: https://github.com/EISTW/OpenLdocs/
 
