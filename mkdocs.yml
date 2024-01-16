@@ -18,7 +18,7 @@ theme:
     navigation_depth: 8
     theme_dir: site/css/theme_override
     custom_dir: site/css/theme_override
-    logo: site/css/theme_override/assets/logo.png
+    logo: assets/logo.png
 
 repo_url: https://github.com/EISTW/OpenLdocs/
 
