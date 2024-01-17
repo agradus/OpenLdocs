@@ -6,12 +6,14 @@ User guides for the latest version are available via the left navigation.
 
 At the top of each page there is a link to the corresponding markdown file in the GitHub source repository, via which visitors can easily propose documentation updates.
 
-<img src="img/edit_git.png" width="30">
+<img src="img/edit_github.png" width="30">
 
 <h3> Previous User Guides</h3>
 
 To access user guides for previous versions of the software, click the small flyout menu banner in the bottom right of the website:
-<img src="img/versions_flyout_closed.png" width="150">
+
+<img src="img/versions_flyout_closed.png" width="120">
 
 Clicking the banner opens a pane with a link to all the previous versions.
-<img src="img/versions_flyout_open.png" width="500">
+
+<img src="img/versions_flyout_open.png" width="400">
