@@ -5,6 +5,7 @@
 User guides for the latest version are available via the left navigation.
 
 At the top of each page there is a link to the corresponding markdown file in the GitHub source repository, via which visitors can easily propose documentation updates.
+<img src="img/edit_button.png" width="50">
 
 <h3> Previous User Guides</h3>
 
