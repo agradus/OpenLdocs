@@ -1,4 +1,4 @@
-User guides area also available in PDF format, as follows:
+User guides are also available in PDF format, as follows:
 
 
 ### Installation/demo Guides
