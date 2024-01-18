@@ -2,7 +2,7 @@
 
 <h3 style="margin-bottom:1.25em;">User Guides for v5.26</h3>
 
-User guides for the latest version are available via the left navigation.
+User guides are available via the left navigation.
 
 At the top of each page there is a link to the corresponding markdown file in the GitHub source repository, via which visitors can easily propose documentation updates.
 
