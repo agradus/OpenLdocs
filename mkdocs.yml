@@ -12,7 +12,7 @@ nav:
       - Developer Guide: documentation/guides/developer_guide.md
       - Activiti Integration Guide: documentation/guides/activiti_integration_guide.md
     - About OpenL: about.md
-    - Download PDFs: documentation/guides/pdfs.md
+    - Download PDFs: documentation/guides/PDFs.md
   
 theme: 
     name: material
