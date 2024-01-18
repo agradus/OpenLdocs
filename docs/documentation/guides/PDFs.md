@@ -1,4 +1,5 @@
-The following PDFs are available for this version:
+User guides area also available in PDF format, as follows:
+
 
 ### Installation/demo Guides
 
