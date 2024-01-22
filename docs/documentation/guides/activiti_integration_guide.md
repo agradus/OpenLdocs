@@ -1,11 +1,5 @@
 # OpenL Tablets and Activiti Integration Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
-```
-
-
 ## Preface
 
 This preface is an introduction to the *OpenL Tablets and Activiti Integration Guide*. This guide contains information about OpenL Tablets integration with Activiti. Starting with OpenL Tablets 5.17.0, some modules were added for Activiti integration proposes.
@@ -294,4 +288,8 @@ Build runtime context usage example is as follows:
 
 ```
 <serviceTask id="task" activiti:expression="${openLRules.execute(execution, 'openl-rules.xls', 'DriverPremium1', openLRules.buildRuntimeContext(execution), driverAge, driverMaritalStatus).asDouble().set(execution, 'resultVariable')}" />
+```
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
 ```
