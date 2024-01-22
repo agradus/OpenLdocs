@@ -1,10 +1,5 @@
 # OpenL Tablets BRMS Demo Package Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
-```
-
 ## Preface
 
 This preface is an introduction to the *OpenL Tablets Demo Package Guide*.
@@ -147,3 +142,7 @@ To avoid the situation when OpenL saves its data to inappropriate directories of
 In particular, the demo package security policy limits rules file editing. The OpenL rules Excel file cannot be modified directly by opening it. To edit the rules, save the Excel file on the local drive, make the necessary updates, and then upload it using the **Upload** functionality.
 
 Deleting the `demo-java.policy` file and restarting Tomcat disables security policy described in this section and enables direct modification of the Excel rules file.
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
+```
