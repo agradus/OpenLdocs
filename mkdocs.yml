@@ -20,6 +20,7 @@ theme:
     theme_dir: site/css/theme_override
     custom_dir: site/css/theme_override
     logo: assets/logo.svg
+    favicon: assets/logo.svg
     features:
     - content.action.edit
     - content.action.view
