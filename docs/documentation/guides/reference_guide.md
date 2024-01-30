@@ -1,10 +1,5 @@
 # OpenL Tablets BRMS Reference Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
-```
-
 ## Preface
 
 This preface is an introduction to the OpenL Tablets Reference Guide. The following topics are included in this preface:
@@ -4457,3 +4452,7 @@ This chapter provides a complete list of functions available in OpenL Tablets an
 | **new** Datatype(value of attribute1, value of attribute2) <br/>or <br/>Datatype(value of attribute1, value of attribute2) <br/>or <br/>Datatype(attribute1 = value of attribute1, <br/>attribute2 = value of attribute2) | Used to create an instance of the datatype. <br/>Values must be comma-separated and listed in the same order in which the appropriate fields are defined <br/>in the datatype. <br/>The word **new** can be omitted. Alternatively, a form with parameter enumeration can be used. <br/>Parameters can be listed in any order and it is not required to specify all the parameters. <br/>**Note:** When there is a datatype and method, DT or Spr, with the same name and number of parameters, <br/> method call and constructor call with the omitted "new" keyword have exactly the same syntax.<br/>In this case, the method call is selected. <br/>**Examples:** <br/>**`new Person("John", "Smith", 24)` `or ` `Person("John", "Smith", 24)` `or ` `Person(firstname= "John")` `or ` `Person()` |         |
 | **new** Datatype[] {}                                                                                                                                                                            | Used to create a data array. <br/>The number in the square brackets [] denotes the size of the array, for example, `new String[10]`. <br/>If no number is provided, an empty array is created, for example, `new String[].` <br/>Values in the braces {} define the values of the appropriate array elements. <br/>**Example:** `new Integer[]{1,8,12}`                                                                                                                                                                    |         
 | **toString**(value)                                                                                                                                                                              | Converts value to the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |      
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
+```

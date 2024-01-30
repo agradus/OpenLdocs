@@ -1,9 +1,5 @@
 # OpenL Tablets BRMS WebStudio User Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
-```
 
 ## Preface
 
@@ -2654,7 +2650,7 @@ This section describes how to view existing branches, switch between them in the
     | Receive their updates | Changes from a selected branch are copied to the currently active branch.     |
     | Send your updates     | Changes from the currently active branch are uploaded to the selected branch. |
     
-    If upon saving there is a conflict due to updates in the same modules, the **Resolve conflicts** window appears.
+    If upon saving there is a conflict due to updates in the same module sheet, the **Resolve conflicts** window appears.
     
     ![](webstudio_guide_images/a5098c1701a77c2f799853d857d0abd4.png)
     
@@ -3527,3 +3523,7 @@ Original path is present in the generated service interface, and this service is
 OpenL Tablets WebStudio configuration example is available at <http://localhost:8080/webstudio/web/config/application.properties>.
 
 Internal API documentation for OpenL Tablets WebStudio is available at <http://localhost:8080/webstudio/rest/api-docs>.
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
+```

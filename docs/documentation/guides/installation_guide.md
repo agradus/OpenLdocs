@@ -1,9 +1,6 @@
 # OpenL Tablets BRMS Installation Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
-```
+
 
 ## Preface
 
@@ -1526,3 +1523,7 @@ spec:
 ## Appendix C: CORS Filter Support Enablement in <br/>OpenL Tablets WebStudio
 
 **Cross-Origin Resource Sharing (CORS)** is a specification which is a standard mechanism that enables cross-origin requests. For more information on how to enable CORS filter support in OpenL Tablets WebStudio, see [OpenL Tablets Rule Services Usage and Customization Guide > CORS Filter Support](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#cors-filter-support).
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under the Creative Commons Attribution 3.0 United States License.
+```

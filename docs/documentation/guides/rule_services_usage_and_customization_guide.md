@@ -1,10 +1,5 @@
 # OpenL Tablets Rule Services Usage and Customization Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
-```
-
 ## Preface
 
 OpenL Tablets is a Business Rules Management System (BRMS) based on the tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code.
@@ -2062,4 +2057,8 @@ An example of the file contents is as follows:
     "Build-Number": "0123abcd968574142536fedc01cc",
   }
 }
+```
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
 ```

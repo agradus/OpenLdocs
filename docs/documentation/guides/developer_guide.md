@@ -1,10 +1,5 @@
 # OpenL Tablets BRMS Developers Guide
 
-```
-Release 5.27
-OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
-```
-
 ## Preface
 This preface is an introduction to the *OpenL Tablets Developer's Guide*.
 
@@ -1197,3 +1192,7 @@ If the added classes have the `valueOf(String)` or `parse(CharSequence)` methods
 *Added class example*
 
 In this example, timestamp class object values in the Batch Date column are defined as a plain text, without conversion.
+```
+Release 5.27
+OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License.
+```
