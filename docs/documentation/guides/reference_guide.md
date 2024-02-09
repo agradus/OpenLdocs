@@ -989,7 +989,7 @@ For example, usually the detailed information about children is not included in 
 
 ##### Using Referents from Return Column Cells
 
-When a condition value from a cell in the Return column must be called, specify the value by using `$C<n> <variable name> `in the **Return** column.
+When a condition value from a cell in the Return column must be called, specify the value by using `$C<n>.<variable name> `in the **Return** column.
 
 ![](ref_guide_images/EPBDS11443_1.png)
 
