@@ -1921,7 +1921,7 @@ The following table describes exception types in OpenL Tablets Rule Services:
 
 In OpenL, Swagger v3 (OpenAPI) is used. It allows directly accessing project methods, data types, and methods, and enables simple, convenient, and quick running or testing of rules deployed as services.
 
-To use Swagger, in OpenL Tablets Rule Services, click the Swagger (UI) link, select the required rule, click **Try it out,** enter input parameters, and click **Execute.**
+To use Swagger, in OpenL Tablets Rule Services, click the Swagger (UI) link, select the required rule, click **Try it out,** enter input parameters, and click **Try.**
 
 ![](ruleservices_guide_images/09a5e4fecf604849af7681cd8771ed37.png)
 
