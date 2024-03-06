@@ -850,16 +850,15 @@ Two-dimensional arrays can be used in rules tables, where mixing values and expr
 ###### Representing Date Values
 
 To represent date values in table cells, either Excel format or one of the following format must be used for the text:
-`<year>-<month>-<date>` (ISO 8601)
-`<month>/<date>/<year>` (US)
+* `<year>-<month>-<date>` (ISO 8601)
+* `<month>/<date>/<year>` (US)
 
-The value must always be preceded with an apostrophe to indicate that it is text. Excel treats these values as plain text and does not convert to any specific date format.
+Note: In Excel, inputted text can be treated as a date and converted into Excel's date format. To prevent this, it's necessary to precede the text with an apostrophe to signify that it should be treated as text. Excel recognizes these values as simple text and does not automatically convert them into a date format.
 
 The following are valid date value examples:
-
-`1980-07-12`
-`5/7/1981`
-`10/20/2002`
+* `1980-07-12`
+* `5/7/1981`
+* `10/20/2002`
 
 OpenL Tablets recognizes all Excel date formats.
 
