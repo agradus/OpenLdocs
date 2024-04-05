@@ -4129,6 +4129,7 @@ To enable location in the OpenL Tablets project, proceed as follows:
     Note that the values on the right are translated while the keys on the left size remain the same. It is important to maintain the keys without alterations as they serve as references when rules retrieve the translated text.
     
 3.  Define the required locale in **IRulesRuntimeContext**, for example, by calling the **modifyContext** method as follows:
+Note: OpenL Rule Services automatically populates the 'locale' context property with the value from the Accept-Language HTTP header from the request (RFC3282). So, it does not need to define above method for modifying 'locale' context property.
     
     ```
     '= modifyContext("locale", toLocale("fr_FR"))
