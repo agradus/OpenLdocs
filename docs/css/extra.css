@@ -1,9 +1,13 @@
 /* Font settings */
 .md-typeset h1 {
     font-size: 2.5em;
+    color: black;
+    font-weight: 400;
 }
 .md-typeset h2 {
     font-size: 2.2em;
+    color: black;
+    font-weight: 400;
 }
 .md-typeset h3 {
     font-size: 2em;
