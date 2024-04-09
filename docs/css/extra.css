@@ -3,21 +3,24 @@
     font-size: 2.5em;
     color: black;
     font-weight: 400;
+/* note h1 is gray and 300 weight by the theme */
 }
 .md-typeset h2 {
     font-size: 2.3em;
     color: black;
     font-weight: 400;
+/* note h2 is gray and 300 weight by the theme */
 }
 .md-typeset h3 {
     font-size: 2em;
 }
 .md-typeset h4 {
-    font-size: 1.75em;
+    font-size: 1.7em;
+/* note h4 is bolded by the theme */
 }
 .md-typeset h5 {
     font-size: 1.3em;
-    /* note this is capitalized by the theme */
+/* note h5 is capitalized by the theme */
 }
 .md-typeset h6 {
     font-size: 1.25em;
