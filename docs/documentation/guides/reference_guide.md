@@ -3156,7 +3156,7 @@ A naming pattern must be added to the `rules.xml` file, same as for the file nam
 <properties-file-name-pattern>/%state%-%lob%-%startRequestDate,effectiveDate%/*.*</properties-file-name-pattern> - for versioning all files in the folder
 ```
 
-Besides file names, module level properties can be defined in folder names, for example, `/rules/%lob%/%state%/Module.xlsx`.
+
 
 ![](ref_guide_images/EPBDS10688_4.png)
 
