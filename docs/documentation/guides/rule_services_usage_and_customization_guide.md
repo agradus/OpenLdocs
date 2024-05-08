@@ -1868,7 +1868,7 @@ The successfully deployed projects appear with the green check mark that can be 
 
 Projects deployed with errors are marked with the red cross mark that is clickable and displays the error message.
 
-![](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.jpg)
+![](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.png)
 
 *Viewing error message for a project*
 
@@ -2037,7 +2037,7 @@ If the project is deployed in OpenL Tablets WebStudio, the manifest file contain
 
 The manifest file is available in OpenL Tablets Rule Services, on the main page, for each deployed service.
 
-![](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.jpg)
+![](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.png)
 
 *Manifest file available for the deployed project*
 
