@@ -1578,6 +1578,7 @@ This section describes test execution. Proceed as follows:
     ![](webstudio_guide_images/ac207057869a550a0ea5e9cc73fc9927.png)
     
     *Result of running virtual test*
+3. To export the results to an Excel file, click the "Run Into File" button. This action will generate an Excel file named "test-results.xlsx," which includes two sheets: 'Result' and 'Parameters'. <br/> By default, the 'Parameters' sheet lists each attribute's name and value on separate rows. For a more compact table format, deselect the ***Flat Parameter Layout*** option. <br/>To exclude any empty input values, select the ***Skip Empty Parameters*** checkbox.
     
 1.  For test tables, to select test cases to be executed, proceed as follows:
 2.  Navigate to the **Run** button above the Test table and click the small black arrow ![](webstudio_guide_images/f9978044735bb2192678a9976f66d684.png).
