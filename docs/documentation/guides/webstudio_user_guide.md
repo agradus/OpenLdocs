@@ -1569,7 +1569,6 @@ This section describes test execution. Proceed as follows:
     ![](webstudio_guide_images/feca677101408f36991f69ff8ce333e4.jpeg)
     
     *Testing a rule table without tests*
-
 1.  To run a test for the currently opened module and its dependent modules only, ensure that the **Within Current Module Only** option is selected.
 2.  In the pop-up window, click **Run**.
     
