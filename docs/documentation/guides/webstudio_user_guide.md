@@ -1,9 +1,9 @@
-# OpenL Tablets BRMS WebStudio User Guide
+# OpenL Tablets BRMS OpenL Studio User Guide
 
 
 ## Preface
 
-This preface is an introduction to the OpenL Tablets WebStudio User Guide. The following topics are included in this preface:
+This preface is an introduction to the OpenL Studio User Guide. The following topics are included in this preface:
 
 -   [Audience](#audience)
 -   [Related Information](#related-information)
@@ -20,7 +20,7 @@ This guide is intended for the following users:
 
 ### Related Information
 
-OpenL Tablets WebStudio is a tool of the OpenL Tablets product. For information on OpenL Tablets Rules, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+OpenL Studio is a tool of the OpenL Tablets product. For information on OpenL Tablets Rules, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
 
 ### Typographic Conventions
 
@@ -36,28 +36,28 @@ The following styles and conventions are used in this guide:
 | Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
 
 
-## Introducing OpenL Tablets WebStudio
+## Introducing Studio
 
-This chapter introduces main OpenL Tablets WebStudio concepts. The following topics are included in this chapter:
+This chapter introduces main OpenL Studio concepts. The following topics are included in this chapter:
 
--   [What Is OpenL Tablets WebStudio?](#what-is-openl-tablets-webstudio)
--   [Working with Projects in OpenL Tablets WebStudio](#working-with-projects-in-openl-tablets-webstudio)
--   [OpenL Tablets WebStudio Components](#openl-tablets-webstudio-components)
+-   [What Is OpenL Studio?](#what-is-openl-tablets-webstudio)
+-   [Working with Projects in OpenL Studio](#working-with-projects-in-openl-tablets-webstudio)
+-   [OpenL Studio Components](#openl-tablets-webstudio-components)
 -   [Security Overview](#security-overview)
 
-### What Is OpenL Tablets WebStudio?
+### What Is OpenL Studio?
 
-**OpenL Tablets WebStudio** is a web application employed by business users and developers to view, edit, and manage business rules and rule projects created using OpenL Tablets technology. For more information on OpenL Tablets, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
+**OpenL Studio** is a web application employed by business users and developers to view, edit, and manage business rules and rule projects created using OpenL Tablets technology. For more information on OpenL Tablets, see [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/).
 
-By using OpenL Tablets WebStudio, users can modify rules directly in a web browser without installing additional tools. OpenL Tablets WebStudio provides an advanced functionality for creating and modifying rules, viewing errors, and executing tests.
+By using OpenL Studio, users can modify rules directly in a web browser without installing additional tools. OpenL Studio provides an advanced functionality for creating and modifying rules, viewing errors, and executing tests.
 
-### Working with Projects in OpenL Tablets WebStudio
+### Working with Projects in OpenL Studio
 
-OpenL Tablets WebStudio is intended for a multi-user environment. It provides a centralized storage of rule projects called **Design repository**. Design repository is stored on the OpenL Tablets WebStudio server and can be accessed by any user. However, users cannot modify projects directly in Design repository. Instead, to make modifications to a project, users must execute the following procedure:
+OpenL Studio is intended for a multi-user environment. It provides a centralized storage of rule projects called **Design repository**. Design repository is stored on the OpenL Studio server and can be accessed by any user. However, users cannot modify projects directly in Design repository. Instead, to make modifications to a project, users must execute the following procedure:
 
 | Step | Action            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Open a project.   | When a project is opened, its status is set to **No Changes**, and a copy of it is created in the user’s workspace, <br/>a specific location on the OpenL Tablets WebStudio server. <br/>Work copies of projects made editable by a particular user are stored there. Users can only access their personal workspaces.                                                                                                                                                                                                                |
+| 1    | Open a project.   | When a project is opened, its status is set to **No Changes**, and a copy of it is created in the user’s workspace, <br/>a specific location on the OpenL Studio server. <br/>Work copies of projects made editable by a particular user are stored there. Users can only access their personal workspaces.                                                                                                                                                                                                                |
 | 2    | Modify a project. | After any modification of a project, its status is set to **In Editing**. <br/>A project in the **In Editing** status is locked in Design repository to avoid loss of information. <br/>Other users cannot edit it until the project is saved. <br/>Other users can only open the project in read-only mode, with the **No Changes** status. <br/>Modifications to a project in the **In** **Editing** status are performed on the working copy stored in the user's workspace. <br/>Modifications do not become immediately visible to other users. |
 | 3    | Save a project.   | Saving a project copies the modified copy of the project from the user's workspace to Design repository. <br/>A new revision of the project is created in Design repository. <br/>A project can be restored to any of its previous revisions. In this case, its status is set to **Viewing Revision.** <br/>From this moment, changes are visible to other users and the project is available for editing.                                                                                                                                 |
 
@@ -75,50 +75,50 @@ Saved project revision is used to create deploy configuration. Several projects 
 
 If the project is not required any more, it can be deleted.
 
-### OpenL Tablets WebStudio Components
+### OpenL Studio Components
 
-OpenL Tablets WebStudio consists of the following main components:
+OpenL Studio consists of the following main components:
 
 | Component                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rules Editor                     | Graphic user interface running in a web browser allowing users to browse rule modules, modify table data, and run tests. <br/>Rule project configurations are browsed and updated there as well. <br/><br/>Rules Editor is the default user interface displayed when a user opens OpenL Tablets WebStudio. <br/>Rules Editor does not display all rule module files but provides a logical view of rules stored in a module. <br/>This view is convenient for users who modify business rules. <br/><br/>Rules Editor displays only modules available in projects stored in the user's workspace. <br/>To retrieve a project to the user's workspace, open the project as described in [Working with Projects in OpenL Tablets WebStudio](#working-with-projects-in-openl-tablets-webstudio). <br/>For more information on using Rules Editor, see [Using Rules Editor](#using-rules-editor). |
-| Repository editor                | Graphic user interface running in a web browser allowing users to browse and manage projects in Design repository. <br/>Unlike Rules Editor, repository editor displays physical contents of rule projects. <br/>Users can easily switch between Rules Editor and repository editor in user interface. <br/><br/>Repository editor provides the following main functions: <br/>- uploading projects from the file system to Design repository <br/>- editing, saving, opening, and closing projects <br/>- modifying project structure and properties managing project revisions <br/>- copying and deleting projects in Design repository <br/>- managing and tracing deploy configurations <br/>For more information on using repository editor, see [Using Repository Editor](#using-repository-editor).                                                                                                  |
-| Design repository                | Centralized storage of rule projects accessible by all OpenL Tablets WebStudio users. <br/><br/>Projects uploaded to Design repository are visible to other users. <br/>Design repository creates a separate project revision each time a project is saved. <Br/>Any project revision can be opened.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Deploy configurations <br/>repository | Centralized storage of final rule projects to be delivered to the production environment where solution applications use them. <Br/>Projects can be deployed to deployment repository from Design repository using deploy configurations. <br/>**Deploy configuration** is a specific OpenL Tablets WebStudio project type. <br/>It identifies rule projects and project revisions to be deployed to deployment repository. <br/>Deploy configurations are saved and versioned so that developers can identify which specific rule project revisions are deployed.                                                                                                                                                                                                                                                                                                   |
+| Rules Editor                     | Graphic user interface running in a web browser allowing users to browse rule modules, modify table data, and run tests. <br/>Rule project configurations are browsed and updated there as well. <br/><br/>Rules Editor is the default user interface displayed when a user opens OpenL Studio. <br/>Rules Editor does not display all rule module files but provides a logical view of rules stored in a module. <br/>This view is convenient for users who modify business rules. <br/><br/>Rules Editor displays only modules available in projects stored in the user's workspace. <br/>To retrieve a project to the user's workspace, open the project as described in [Working with Projects in OpenL Studio](#working-with-projects-in-openl-tablets-webstudio). <br/>For more information on using Rules Editor, see [Using Rules Editor](#using-rules-editor). |
+| Repository editor                | Graphic user interface running in a web browser allowing users to browse and manage projects in Design repository. <br/>Unlike Rules Editor, repository editor displays physical contents of rule projects. <br/>Users can easily switch between Rules Editor and repository editor in user interface. <br/><br/>Repository editor provides the following main functions: <br/>- uploading projects from the file system to Design repository <br/>- editing, saving, opening, and closing projects <br/>- modifying project structure and properties managing project revisions <br/>- copying and deleting projects in Design repository <br/>- managing and tracing deploy configurations <br/>For more information on using repository editor, see [Using Repository Editor](#using-repository-editor).                                                                                                 |
+| Design repository                | Centralized storage of rule projects accessible by all OpenL Studio users. <br/><br/>Projects uploaded to Design repository are visible to other users. <br/>Design repository creates a separate project revision each time a project is saved. <Br/>Any project revision can be opened.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Deploy configurations <br/>repository | Centralized storage of final rule projects to be delivered to the production environment where solution applications use them. <Br/>Projects can be deployed to deployment repository from Design repository using deploy configurations. <br/>**Deploy configuration** is a specific OpenL Studio project type. <br/>It identifies rule projects and project revisions to be deployed to deployment repository. <br/>Deploy configurations are saved and versioned so that developers can identify which specific rule project revisions are deployed.                                                                                                                                                                                                                                                                                                   |
 | Deployment repositories          | Production storages of deployed rule projects where solution applications use them.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | User workspace                   | Project storage on the server containing projects edited by users. Each user has a personal workspace unavailable to other users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ### Security Overview
 
-OpenL Tablets WebStudio supports the following user modes:
+OpenL Studio supports the following user modes:
 
-| Mode             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Demo mode        | This is a multi user mode with the list of users predefined in the database. All changes in the database will be lost after the application restart. <br/>The user’s projects will be located in the `user-workspace\<user name>` folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Single user mode | In this mode, only one user who is currently logged in on the computer can work in OpenL Tablets WebStudio. <br/>This mode is selected when OpenL Tablets WebStudio is installed on the local machine. <br/>All user projects are located in the root of the `user-workspace` directory. <br/>Single user mode is set by default and does not require additional settings, including logon to the system. <br/>Moreover, the system works faster in this mode but neither user management nor access control is provided.                                                                                                                                                                                                                                                                               |
-| Multi user mode  | This mode enables multiple users to work in OpenL Tablets WebStudio and supports a security mechanism restricting access <br/>to certain product functions based on user access rights. Each OpenL Tablets WebStudio user is identified by a unique name. <br/>When a user opens OpenL Tablets WebStudio in a web browser, he or she must log into the system. <br/>Users can have varied levels of access in OpenL Tablets WebStudio. For example, system administrators usually have full access<br/> to all OpenL Tablets WebStudio functions, whereas other users may only have access rights to view or modify business rules. <br/>OpenL Tablets WebStudio is used to authenticate and manage user credentials/permissions. <br/>In this mode, user’s projects are located in the `user-workspace\<user name>` directory. |
-| Active Directory | In this mode, multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>Active Directory will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be WebStudio or Active Directory.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| SSO: CAS         | In this mode, multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be OpenL Tablets WebStudio or SSO identity provider.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| SSO: SAML        | In this mode, multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be OpenL Tablets WebStudio or SSO Identity provider.                                                                                                                                                                                                                                                                                                                                                      |
-| SSO:OAuth2       | Multiple users can run OpenL Tablets WebStudio using their unique user names. <br/>User projects will be located in the `user-workspace\<user name>` directory. <br/>OAuth2 (Open Authorization) supporting the identity provider server is used to authenticate and manage user credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Mode             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Demo mode        | This is a multi user mode with the list of users predefined in the database. All changes in the database will be lost after the application restart. <br/>The user’s projects will be located in the `user-workspace\<user name>` folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Single user mode | In this mode, only one user who is currently logged in on the computer can work in OpenL Studio. <br/>This mode is selected when OpenL Studio is installed on the local machine. <br/>All user projects are located in the root of the `user-workspace` directory. <br/>Single user mode is set by default and does not require additional settings, including logon to the system. <br/>Moreover, the system works faster in this mode but neither user management nor access control is provided.                                                                                                                                                                                                                                                           |
+| Multi user mode  | This mode enables multiple users to work in OpenL Studio and supports a security mechanism restricting access <br/>to certain product functions based on user access rights. Each OpenL Studio user is identified by a unique name. <br/>When a user opens OpenL Studio in a web browser, he or she must log into the system. <br/>Users can have varied levels of access in OpenL Studio. For example, system administrators usually have full access<br/> to all OpenL Studio functions, whereas other users may only have access rights to view or modify business rules. <br/>OpenL Studio is used to authenticate and manage user credentials/permissions. <br/>In this mode, user’s projects are located in the `user-workspace\<user name>` directory. |
+| Active Directory | In this mode, multiple users can run OpenL Studio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>Active Directory will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be OpenL Studio or Active Directory.                                                                                                                                                                                                                                                                                                                                                                                                         |
+| SSO: CAS         | In this mode, multiple users can run OpenL Studio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be OpenL Studio or SSO identity provider.                                                                                                                                                                                                                                                                                                                                                                         |
+| SSO: SAML        | In this mode, multiple users can run OpenL Studio using their unique user names. <br/>The user’s projects will be located in the `user-workspace\<user name>` directory. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials. <br/>A place where user permissions will be managed can be OpenL Studio or SSO Identity provider.                                                                                                                                                                                                                                                                                                                                       |
+| SSO:OAuth2       | Multiple users can run OpenL Studio using their unique user names. <br/>User projects will be located in the `user-workspace\<user name>` directory. <br/>OAuth2 (Open Authorization) supporting the identity provider server is used to authenticate and manage user credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ## Getting Started
 
-This chapter explains logging into OpenL Tablets WebStudio and briefly introduces the user interface. The following topics are included in this chapter:
+This chapter explains logging into OpenL Studio and briefly introduces the user interface. The following topics are included in this chapter:
 
--   [Signing In to OpenL Tablets WebStudio](#signing-in-to-openl-tablets-webstudio)
+-   [Signing In to OpenL Studio](#signing-in-to-openl-tablets-webstudio)
 -   [Modifying User Profile](#modifying-user-profile)
--   [Displaying the OpenL Tablets WebStudio Help](#displaying-the-openl-tablets-webstudio-help)
--   [Signing Out of OpenL Tablets WebStudio](#signing-out-of-openl-tablets-webstudio)
+-   [Displaying the OpenL Studio Help](#displaying-the-openl-tablets-webstudio-help)
+-   [Signing Out of OpenL Studio](#signing-out-of-openl-tablets-webstudio)
 -   [Introducing Rules Editor](#introducing-rules-editor)
 -   [Introducing Repository Editor](#introducing-repository-editor)
 
-### Signing In to OpenL Tablets WebStudio
+### Signing In to OpenL Studio
 
-To sign in to OpenL Tablets WebStudio, proceed as follows:
+To sign in to OpenL Studio, proceed as follows:
 
-1.  In the web browser address bar, enter the OpenL Tablets WebStudio URL provided by the system administrator.
-    The OpenL Tablets WebStudio URL has the following pattern:
+1.  In the web browser address bar, enter the OpenL Studio URL provided by the system administrator.
+    The OpenL Studio URL has the following pattern:
     
     `http://<server>:<port>/webstudio`
     
@@ -130,11 +130,11 @@ To sign in to OpenL Tablets WebStudio, proceed as follows:
        
 1.  Enter the user name and password provided by the system administrator and click **Sign in**.
 
-For more information on OpenL Tablets WebStudio UI, see [Introducing Rules Editor](#introducing-rules-editor) and [Introducing Repository Editor](#introducing-repository-editor). For more information on the single and multi-user modes, see [Security Overview](#security-overview).
+For more information on OpenL Studio UI, see [Introducing Rules Editor](#introducing-rules-editor) and [Introducing Repository Editor](#introducing-repository-editor). For more information on the single and multi-user modes, see [Security Overview](#security-overview).
 
 ### Modifying User Profile
 
-OpenL Tablets WebStudio provides a drop-down dialog located in the top-right corner of the application, under the user name, for updating user profile information, changing the password, and editing user settings. All data is stored in the user profile and includes **User details** and **User settings** sections.
+OpenL Studio provides a drop-down dialog located in the top-right corner of the application, under the user name, for updating user profile information, changing the password, and editing user settings. All data is stored in the user profile and includes **User details** and **User settings** sections.
 
 ![](webstudio_guide_images/c38361db72030e85c7331abaff4628e2.png)
 
@@ -150,7 +150,7 @@ This section describes how to modify user profile information and includes the f
 
 To manage user details, proceed as follows:
 
-1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
+1.  In OpenL Studio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User Details**.
        
     ![](webstudio_guide_images/df45cb1defa171f24c6b94d3fca8ce9b.png)
@@ -166,7 +166,7 @@ To manage user details, proceed as follows:
 
 #### Synchronizing with a Third Party Service
 
-When users are managed by a third party service, such as Active Directory, it is necessary to regularly check that the data in the OpenL Tablets WebStudio user storage is synchronized with the data defined in the third party service. Data is compared periodically or on specific events and if necessary, must be synchronized.
+When users are managed by a third party service, such as Active Directory, it is necessary to regularly check that the data in the OpenL Studio user storage is synchronized with the data defined in the third party service. Data is compared periodically or on specific events and if necessary, must be synchronized.
 
 The following user information requires synchronization:
 
@@ -190,8 +190,8 @@ An exception is the situation when the first or last name was changed.
 
 -   If the display name was set to “first name + space + last name”, it is updated to the new “first name + space + last name”.
 -   If the display name was set to the “last name + space + first name”, it is updated to the new “last name + space + first name”.
--   If the display name is set to **Other** and its value in OpenL Tablets WebStudio is not empty, and in the third party service, it is empty, upon synchronization, the display name set locally is not changed.
--   If the display name value is empty in OpenL Tablets WebStudio and the third party service, but the first name and last name values are not empty, the display name is set to “first name + space + last name”, regardless of the pattern specified upon local user creation.
+-   If the display name is set to **Other** and its value in OpenL Studio is not empty, and in the third party service, it is empty, upon synchronization, the display name set locally is not changed.
+-   If the display name value is empty in OpenL Studio and the third party service, but the first name and last name values are not empty, the display name is set to “first name + space + last name”, regardless of the pattern specified upon local user creation.
 
 If this user was not created as a local user previously but instead, created upon the external user logon, the display name value stays empty.
 
@@ -199,7 +199,7 @@ If this user was not created as a local user previously but instead, created upo
 
 To manage user settings, proceed as follows:
 
-1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
+1.  In OpenL Studio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **User settings**.
     
     ![](webstudio_guide_images/1d1e945655986d1923f3ccf4acd684dd.jpeg)
@@ -213,15 +213,15 @@ To manage user settings, proceed as follows:
     
 1.  In the **Trace Settings,** specify whether numbers must be displayed without formatting.
 
-### Displaying the OpenL Tablets WebStudio Help
+### Displaying the OpenL Studio Help
 
-To display the OpenL Tablets WebStudio help topics, in OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username and select **Help**.
+To display the OpenL Studio help topics, in OpenL Studio, in the top-right corner of the window, click an arrow icon next to the username and select **Help**.
 
-### Signing Out of OpenL Tablets WebStudio
+### Signing Out of OpenL Studio
 
-To sign out of OpenL Tablets WebStudio, proceed as follows:
+To sign out of OpenL Studio, proceed as follows:
 
-1.  In OpenL Tablets WebStudio, in the top-right corner of the window, click an arrow icon next to the username.
+1.  In OpenL Studio, in the top-right corner of the window, click an arrow icon next to the username.
 2.  In the actions list, click **Sign out**.
 
 ### Introducing Rules Editor
@@ -239,7 +239,7 @@ For more information on tasks that can be performed in Rules Editor, see [Using 
 
 ![](webstudio_guide_images/4728ed8bcb2a421dd80ab057b84f3003.jpeg)
 
-*OpenL Tablets WebStudio Rules Editor*
+*OpenL Studio Rules Editor*
 
 Rules Editor displays one module at a time. To switch between modules, select a module in the **Projects** tree or use breadcrumb navigation for quick switching between projects or modules of the current project.
 
@@ -264,7 +264,7 @@ The following table describes the Rules Editor toolbar controls:
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![](webstudio_guide_images/b44d6031431834721d3ad26fa9661c9a.png)                                                                  | The following table describes the available options: <br/>- Revisions: displays project revisions. <br/>- Local Changes: opens a page for reverting module changes. <br/>- Table Dependencies: opens a graph displaying dependencies among tables of the module. <br/>- Compare Excel files: initiates a dialog for comparing Excel files. |
 | ![](webstudio_guide_images/5af9107db56bbb53d95b5363c086971c.png)                                                                  | Runs a simple search. For more information on performing searches, see [Performing a Search](#performing-a-search).                                                                                                                                                                                                    |
-| ![](webstudio_guide_images/0178224646b2a0fd610df78c61ae7cf4.png)                                                                  | Refreshes OpenL Tablets WebStudio with the latest changes in Excel files.                                                                                                                                                                                                                                              |
+| ![](webstudio_guide_images/0178224646b2a0fd610df78c61ae7cf4.png)                                                                  | Refreshes OpenL Studio with the latest changes in Excel files.                                                                                                                                                                                                                                              |
 | ![](webstudio_guide_images/6e2e80e87665feea8c2d3249748e299e.png)                                                                  | Initiates the table creation wizard.                                                                                                                                                                                                                                                                                   |
 | ![](webstudio_guide_images/e2fe1eb32d37936b56bb5e1878e1c948.png)                                                                  | Displays recently viewed tables instead of the module tree.                                                                                                                                                                                                                                                            |
 | ![](webstudio_guide_images/eb87615b3b0005c7bd22ba758a2bff32.png)                                                                  | Returns to the module tree view.                                                                                                                                                                                                                                                                                       |
@@ -280,11 +280,11 @@ The following table describes the Rules Editor toolbar controls:
 
 #### View Modes
 
-OpenL Tablets WebStudio provides different modes for displaying rule elements. In this guide, modes are contingently divided into a **simple view** and **extended view**.
+OpenL Studio provides different modes for displaying rule elements. In this guide, modes are contingently divided into a **simple view** and **extended view**.
 
 To switch between views, in the top right corner, select **User settings** and use the **Show Header** and **Show Formula** options. 
 
-When a table is opened in a simple view, OpenL Tablets WebStudio hides various technical table details, such as table header and MS Excel formulas. An example of a table opened in a simple view is as follows.
+When a table is opened in a simple view, OpenL Studio hides various technical table details, such as table header and MS Excel formulas. An example of a table opened in a simple view is as follows.
 
 ![](webstudio_guide_images/bfd357191c6ac18914e61f9d4227ec69.png)
 
@@ -325,7 +325,7 @@ The two following modes display a project in a way convenient to experienced use
 
 ![](webstudio_guide_images/cc47ee2be2f1348238a34b7f56292b56.jpeg)
 
-*OpenL Tablets WebStudio repository editor*
+*OpenL Studio repository editor*
 
 The following table describes repository editor organization:
 
@@ -407,7 +407,7 @@ The loading progress bar is not displayed for newly opened projects if a project
 -   A user leaves the project by switching to the main Editor or Repository page and then returns to the project without opening other projects in the meantime.
 -   A user switches between modules of the same project.
 
-If a user clicks the refresh button in OpenL Tablets WebStudio, loading restarts and progress bar appears again. While loading in process, the **Run, Trace, Test,** and **Benchmark** actions work only for currently opened module. That is why the **Within Current Module Only** check box is selected and cannot be edited in the menu of these actions while loading is in progress.
+If a user clicks the refresh button in OpenL Studio, loading restarts and progress bar appears again. While loading in process, the **Run, Trace, Test,** and **Benchmark** actions work only for currently opened module. That is why the **Within Current Module Only** check box is selected and cannot be edited in the menu of these actions while loading is in progress.
 
 When loading is completed, the **Within Current Module Only** check box is cleared and becomes editable.
 
@@ -435,7 +435,7 @@ A project can be opened for editing and saved directly in Rules Editor.
 
 | Project details                                                                                                                               | Available actions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General project information <br/>and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Tablets WebStudio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see <br/>[OpenL Tablets Reference Guide > Properties Defined in the File Name](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#properties-defined-in-the-file-name). |
+| General project information <br/>and configuration, <br/>such as OpenL version compatibility, <br/>description, project name, <br/>and custom file name processor | Put the mouse cursor over the project name and click **Edit** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) . <br/>For more information on OpenL version compatibility, see [Saving a Project for Backward Compatibility](#saving-a-project-for-backward-compatibility). <br/>Project name can be edited only for projects in a non-flat Git repository. <br/>The project name will be changed in OpenL Studio only, while the folder name remains unchanged. <br/>For more information on properties pattern for the file name, see <br/>[OpenL Tablets Reference Guide > Properties Defined in the File Name](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#properties-defined-in-the-file-name). |
 | Project sources                                                                                                                               | Put the mouse cursor over the **Sources** label and click **Manage Sources** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Modules configuration                                                                                                                         | Put the mouse cursor over the **Modules** label or a particular module name and click **Add Module** ![](webstudio_guide_images/b1bc8af33d20e0e52b2bbdd4ad1a7ea3.png) or **Edit Module** ![](webstudio_guide_images/a7e355d8941719d3c854bc573f7b5e57.png) <br/>or **Remove Module** ![](webstudio_guide_images/bc579ab11b13186a7e43f09904b47ccc.png).                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Project dependencies                                                                                                                          | Manage dependencies as described in [Defining Project Dependencies](#defining-project-dependencies).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -511,7 +511,7 @@ A user can export, update, or edit a module directly in Rules Editor. Proceed as
 
 #### Comparing and Reverting Module Changes
 
-OpenL Tablets WebStudio allows comparing module versions and rolling back module changes against the specific date.
+OpenL Studio allows comparing module versions and rolling back module changes against the specific date.
 To compare module versions, proceed as follows:
 
 1.  In the **Projects** tree, select the module.
@@ -554,7 +554,7 @@ To compare module versions, proceed as follows:
 
 #### Copying a Module
 
-OpenL Tablets WebStudio allows creating a copy of the existing module, in Editor, in either **Project** page, or in the **Module** page. The following topics are included in this section:
+OpenL Studio allows creating a copy of the existing module, in Editor, in either **Project** page, or in the **Module** page. The following topics are included in this section:
 
 -   [Copying a Simple Module](#copying-a-simple-module)
 -   [Copying a Module Defined Using the File Path Pattern](#copying-a-module-defined-using-the-file-path-pattern)
@@ -607,7 +607,7 @@ If the new module name does not match the properties pattern for the file name, 
 
 ### Defining Project Dependencies
 
-A project dependency can be defined when a particular rule project, or **root project**, depends on contents of another project, or **dependency project**. Project dependencies are checked when projects are deployed to the deployment repository. OpenL Tablets WebStudio displays warning messages when a user deploys projects with conflicting dependencies.
+A project dependency can be defined when a particular rule project, or **root project**, depends on contents of another project, or **dependency project**. Project dependencies are checked when projects are deployed to the deployment repository. OpenL Studio displays warning messages when a user deploys projects with conflicting dependencies.
 
 To define a dependency on another project, proceed as follows:
 
@@ -658,7 +658,7 @@ To view contents of a particular table, in the module tree, select the table. Th
 
 ### Modifying Tables
 
-OpenL Tablets WebStudio provides embedded tools for modifying table data directly in a web browser. To modify a table, proceed as follows:
+OpenL Studio provides embedded tools for modifying table data directly in a web browser. To modify a table, proceed as follows:
 
 1.  In the module tree, select the required table.
     
@@ -666,7 +666,7 @@ OpenL Tablets WebStudio provides embedded tools for modifying table data directl
     
     ![](webstudio_guide_images/58be1b760b04808e8744445b19341d1e.png)
     
-    *Table opened in OpenL Tablets WebStudio*
+    *Table opened in OpenL Studio*
     
 1.  To switch between simple and extended view, in **User settings**, select or clear the **Show Header** and **Show Formula** options as required.
 2.  To switch the table to the edit mode, perform one of the following steps:
@@ -674,7 +674,7 @@ OpenL Tablets WebStudio provides embedded tools for modifying table data directl
     -   Right-click anywhere in the table and click **Edit**.
     -   Double click the cell to edit.
     
-    Alternatively, the file can be edited in Excel. In the local mode, the rule file is opened in Excel, and changes become available in OpenL Tablets WebStudio upon Excel file saving. In the remote mode or if a demo-policy file exists, clicking the **Open** button initiates file download. After editing the file locally, it can be uploaded back to the project in Rules Editor as described in [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module) or via the repository.
+    Alternatively, the file can be edited in Excel. In the local mode, the rule file is opened in Excel, and changes become available in OpenL Studio upon Excel file saving. In the remote mode or if a demo-policy file exists, clicking the **Open** button initiates file download. After editing the file locally, it can be uploaded back to the project in Rules Editor as described in [Exporting, Updating, and Editing a Module](#exporting-updating-and-editing-a-module) or via the repository.
     
     The following table is switched to the edit mode:
     
@@ -725,7 +725,7 @@ OpenL Tablets WebStudio provides embedded tools for modifying table data directl
 
 ### Referring to Tables
 
-OpenL Tablets WebStudio supports references from one table to another table. A referred table can be located in the same module where the first table resides, or in the different module of the same project.
+OpenL Studio supports references from one table to another table. A referred table can be located in the same module where the first table resides, or in the different module of the same project.
 
 Links to the following tables are allowed:
 
@@ -753,7 +753,7 @@ All fields of the datatype tables are also linked and contain tooltips.
 
 ### Managing Range Data Types
 
-OpenL Tablets WebStudio provides a special tool, **Range Editor**, for adding and editing range data types, such as IntRange and DoubleRange, in rule tables and test tables.
+OpenL Studio provides a special tool, **Range Editor**, for adding and editing range data types, such as IntRange and DoubleRange, in rule tables and test tables.
 
 This section briefly introduces Range Editor and provides examples of its functionality.
 
@@ -761,7 +761,7 @@ The main Range Editor goal is to move to a single range format in OpenL rules, n
 
 Consider the following principles while working with Range Editor:
 
--   The default range format is set to ‘..’ in OpenL Tablets WebStudio.
+-   The default range format is set to ‘..’ in OpenL Studio.
 -   When a new range is created, the ‘..’ format is used.
 -   When a range format other than ‘..’ is edited, if only range values are edited, the format remains the same.
 
@@ -871,7 +871,7 @@ To create a table as a new business dimension version, proceed as follows:
 
 ### Performing a Search
 
-OpenL Tablets WebStudio provides search functionality to look through all module tables data for a particular project. The following topics describe search modes in OpenL Tablets WebStudio:
+OpenL Studio provides search functionality to look through all module tables data for a particular project. The following topics describe search modes in OpenL Studio:
 
 -   [Performing a Simple Search](#performing-a-simple-search)
 -   [Performing an Advanced Search](#performing-an-advanced-search)
@@ -885,7 +885,7 @@ To perform a simple search, in the **Search** field, enter a word or phrase and 
 
 *Starting a simple search*
 
-OpenL Tablets WebStudio displays all tables containing the entered text. Above each table, there is the **Open Table in Excel** link redirecting to the Excel file containing the entered text. The **Edit Table** link opens the table in Rules Editor in the editing mode.
+OpenL Studio displays all tables containing the entered text. Above each table, there is the **Open Table in Excel** link redirecting to the Excel file containing the entered text. The **Edit Table** link opens the table in Rules Editor in the editing mode.
 
 ![](webstudio_guide_images/5419dbed08d7b6086179295a8e07bcb2.png)
 
@@ -933,7 +933,7 @@ As a result, the system displays the tables matching the search criteria along w
 
 ### Creating Tables
 
-OpenL Tablets WebStudio allows creating tables of the following types:
+OpenL Studio allows creating tables of the following types:
 -   datatype table
 -   vocabulary table
 -   data table
@@ -954,7 +954,7 @@ The following topics are included in this section:
 
 To create a datatype table, proceed as follows:
 
-1.  In OpenL Tablets WebStudio, click **Create Table**.
+1.  In OpenL Studio, click **Create Table**.
 2.  In the list of table types, select **Datatype Table** and click **Next**.
     
     ![](webstudio_guide_images/9ca72d99ad66b8bb821f8238d444cef9.png)
@@ -985,13 +985,13 @@ To create a datatype table, proceed as follows:
     *Specifying table location*
     
 1.  Click **Save** to complete table creation.
-The datatype table is created and becomes available in OpenL Tablets WebStudio.
+The datatype table is created and becomes available in OpenL Studio.
 
 #### Creating a Data Table
 
 Creating a data table resembles creating a datatype table described in [Creating a Datatype Table](#creating-a-datatype-table). Proceed as follows:
 
-1.  In OpenL Tablets WebStudio, click **Create Table**.
+1.  In OpenL Studio, click **Create Table**.
 2.  Select the **Data Table** item and click **Next**.
     
     ![](webstudio_guide_images/3dba085b0981250107ed82677e8f485a.png)
@@ -1034,7 +1034,7 @@ This section describes how to create a test table and define the ID column for t
 
 To create a test table, proceed as follows:
 
-1.  In OpenL Tablets WebStudio, click **Create Table**.
+1.  In OpenL Studio, click **Create Table**.
 2.  Select **Test Table** and click **Next**.
     
     ![](webstudio_guide_images/969e2826ecb4728150476fe6f5c40eb5.png)
@@ -1063,7 +1063,7 @@ To create a test table, proceed as follows:
     *Specifying table location*
     
 1.  To complete table creation, click **Save**.
-The test table is created and becomes available in OpenL Tablets WebStudio.
+The test table is created and becomes available in OpenL Studio.
 
 OpenL Tablets supports array value definition in test tables as described in [OpenL Tablets Reference Guide > Representing Arrays](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/#representing-arrays).
 
@@ -1090,9 +1090,9 @@ To use ranges of IDs for executing the required cases, enable the **Use the Rang
 
 #### Creating a Simple Rules Table
 
-This section describes how to create a new simple rules table in OpenL Tablets WebStudio.
+This section describes how to create a new simple rules table in OpenL Studio.
 
-1.  In OpenL Tablets WebStudio, click **Create Table**.
+1.  In OpenL Studio, click **Create Table**.
 2.  Select **Simple Rules Table** and click **Next**.
     
     ![](webstudio_guide_images/e44390622ef2d348d05b9763480569d0.png)
@@ -1139,9 +1139,9 @@ The new simple rules table is created and appears in the project.
 
 ### Comparing Excel Files
 
-OpenL Tablets WebStudio supports comparing contents of Excel files displaying tables and Excel elements that are modified. To compare two Excel files, proceed as follows:
+OpenL Studio supports comparing contents of Excel files displaying tables and Excel elements that are modified. To compare two Excel files, proceed as follows:
 
-1.  In OpenL Tablets WebStudio Rules Editor, in the top line menu, select **More \> Compare Excel Files.**
+1.  In OpenL Studio Rules Editor, in the top line menu, select **More \> Compare Excel Files.**
     
     ![](webstudio_guide_images/f4dc285d2cfd850149ee33a4146b5a35.png)
     
@@ -1175,7 +1175,7 @@ If contents of two Excel files with different names is completely identical, the
 
 When a project is generated from the imported OpenAPI file, it becomes available in Rules Editor.
 
-The generated project contains information about the last file import date, name of the OpenAPI file, mode, and modules names in rules.xml. This information is available in OpenL Tablets WebStudio, the OpenAPI section.
+The generated project contains information about the last file import date, name of the OpenAPI file, mode, and modules names in rules.xml. This information is available in OpenL Studio, the OpenAPI section.
 
 ![](webstudio_guide_images/e74be11d559d97523688c560a9fd8ccc.png)
 
@@ -1322,7 +1322,7 @@ Reconciliation does not expect exactly the same OpenAPI generated by the project
 
 ## Editing and Testing Functionality
 
-This chapter describes advanced OpenL Tablets WebStudio functions, such as table editing, performing unit tests, rule tracing, and benchmarking. The following sections are included in this chapter:
+This chapter describes advanced OpenL Studio functions, such as table editing, performing unit tests, rule tracing, and benchmarking. The following sections are included in this chapter:
 
 -   [Editing Tables](#editing-tables)
 -   [Using Table Versioning](#using-table-versioning)
@@ -1340,7 +1340,7 @@ This section describes table editing and includes the following topics:
 
 #### Editing a Comma Separated Array of Values
 
-OpenL Tablets WebStudio allows editing comma separated arrays of values. A multi selection window displaying all values appears enabling the user to select the required values.
+OpenL Studio allows editing comma separated arrays of values. A multi selection window displaying all values appears enabling the user to select the required values.
 
 ![](webstudio_guide_images/1f24f2a7fc6c779115db5640653c4f33.png)
 
@@ -1348,7 +1348,7 @@ OpenL Tablets WebStudio allows editing comma separated arrays of values. A multi
 
 #### Editing Default Table Properties
 
-This section describes table properties available in OpenL Tablets WebStudio. For more information on table properties, see [OpenL Tablets Reference Guide > Table Properties](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/table-properties).
+This section describes table properties available in OpenL Studio. For more information on table properties, see [OpenL Tablets Reference Guide > Table Properties](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide/table-properties).
 
 If default property values are defined for a table, they appear only in the right hand **Properties** section, but not in the table. In the following example, there are **Active = true** and **Fail On Miss = false** default properties.
 
@@ -1404,15 +1404,15 @@ The following topics are included in this section:
 
 ##### Editing System Properties
 
-By default, OpenL Tablets WebStudio applies system properties to each created or edited table. For information on how to switch off this option, please refer to [Managing Common Settings](#managing-common-settings). The values of the System properties are provided in the table and in the Properties section.
+By default, OpenL Studio applies system properties to each created or edited table. For information on how to switch off this option, please refer to [Managing Common Settings](#managing-common-settings). The values of the System properties are provided in the table and in the Properties section.
 
 The **modifiedBy** property value is set using the name of the currently logged in user. The **modifiedOn** property is set according to the current date. These properties are applied upon each save.
 
-The **createdBy** property value is set using the name of the currently logged in user. The **createdOn** property is set according to the current date. These properties are applied on the first save only while creating or copying a table in OpenL Tablets WebStudio.
+The **createdBy** property value is set using the name of the currently logged in user. The **createdOn** property is set according to the current date. These properties are applied on the first save only while creating or copying a table in OpenL Studio.
 
 The **createdBy** and **modifiedBy** properties are only applied in the multi-mode as described in [Security Overview](#security-overview).
 
-System properties cannot be edited in UI. The OpenL Tablets WebStudio users can delete those properties if required.
+System properties cannot be edited in UI. The OpenL Studio users can delete those properties if required.
 
 ![](webstudio_guide_images/e5e2dc02a727c9a40a6c2729eb16ee8d.png)
 
@@ -1420,7 +1420,7 @@ System properties cannot be edited in UI. The OpenL Tablets WebStudio users can 
 
 ##### Editing Properties for a Particular Table Type
 
-Some properties are only applicable to particular types of tables. When opening a table in OpenL Tablets WebStudio, the properties section displays properties depending on the type of the table.
+Some properties are only applicable to particular types of tables. When opening a table in OpenL Studio, the properties section displays properties depending on the type of the table.
 
 For example, such property as **Validate DT** is available for Decision Tables. That means it can be selected in the drop-down list after clicking the **Add** link at the bottom of the **Properties** section. The following figure shows properties applied to a Decision Table:
 
@@ -1460,7 +1460,7 @@ To add a new property for the selected table, perform the following steps:
 
 ### Using Table Versioning
 
-The table versioning mechanism is based on copying the existing table and is initiated in OpenL Tablets WebStudio by clicking the **Copy** button. Then select **New Version** in the **Copy as** list, enter the data as needed and click **Copy** to save.
+The table versioning mechanism is based on copying the existing table and is initiated in OpenL Studio by clicking the **Copy** button. Then select **New Version** in the **Copy as** list, enter the data as needed and click **Copy** to save.
 
 A new table version has the same identity, that is, signature and dimensional properties of the previous version. When a new table version is created, the previous version becomes inactive since only one table version can be active at a time. By default, all tables are active. The following is an example of an inactive table version.
 
@@ -1490,7 +1490,7 @@ For example, in the following diagram, the table on the left is a decision table
 
 *Decision table and its test table*
 
-OpenL Tablets WebStudio supports visual controls for creating and running project tests. Test tables can be modified like all other tables in OpenL Tablets WebStudio. For information on modifying a table, see [Modifying Tables](#modifying-tables). Test results are displayed in a simple format directly in the user interface.
+OpenL Studio supports visual controls for creating and running project tests. Test tables can be modified like all other tables in OpenL Studio. For information on modifying a table, see [Modifying Tables](#modifying-tables). Test results are displayed in a simple format directly in the user interface.
 
 The following topics are included in this section:
 
@@ -1500,7 +1500,7 @@ The following topics are included in this section:
 
 #### Adding Navigation to a Table
 
-OpenL Tablets WebStudio adds a view navigation link to the appropriate test table and vice versa. See the following example:
+OpenL Studio adds a view navigation link to the appropriate test table and vice versa. See the following example:
 
 ![](webstudio_guide_images/0f960e20b86c1ceb55e02e0ab4976205.png)
 
@@ -1600,7 +1600,7 @@ This section describes test execution. Proceed as follows:
 
 ##### Displaying Failures Only
 
-There are cases when a user wants to examine results of failed test cases only. For example, the project contains a test with more than 50 test cases and a user just needs to know whether project rules are operating correctly, that is, whether all test cases are passed. If a user runs the test, a huge table of results is returned, which is difficult to review and find failures to correct the rule or case. For such situations, OpenL Tablets WebStudio provides an option to display failed test cases only.
+There are cases when a user wants to examine results of failed test cases only. For example, the project contains a test with more than 50 test cases and a user just needs to know whether project rules are operating correctly, that is, whether all test cases are passed. If a user runs the test, a huge table of results is returned, which is difficult to review and find failures to correct the rule or case. For such situations, OpenL Studio provides an option to display failed test cases only.
 
 This option is configured for each user individually in User Profile as the **Failures Only** setting. There are multiple ways to change the setting for a particular test run without updating user settings:
 
@@ -1622,7 +1622,7 @@ The result of a rule table execution can be a single value or compound value suc
 
 *Testing tables with compound result on*
 
-After running the test, OpenL Tablets WebStudio displays each test case with input values and actual results marked as passed or failed.
+After running the test, OpenL Studio displays each test case with input values and actual results marked as passed or failed.
 
 ![](webstudio_guide_images/745c4d6eec4d0bf8fe70da966c24800b.png)
 
@@ -1638,7 +1638,7 @@ This setting for a particular test run (without updating user settings) can be c
 
 #### Creating a Test
 
-OpenL Tablets WebStudio provides a convenient way to create a new test table.
+OpenL Studio provides a convenient way to create a new test table.
 
 When an executable table, such as Decision, Method, Spreadsheet, ColumnMatch, or TBasic table, is created, the **Create Test** item becomes available.
 
@@ -1650,13 +1650,13 @@ Proceed as follows:
 
 1.  To create a Test table for the current table, click the **Create Test** button.
     
-    OpenL Tablets WebStudio runs a two-step wizard for creating an appropriate Test table.
+    OpenL Studio runs a two-step wizard for creating an appropriate Test table.
     
 1.  Enter test input values and expected result values to complete the Test table.
 
 ### Tracing Rules
 
-OpenL Tablets WebStudio provides a rule tracing view for all appropriate OpenL Tablets methods. These methods include the following:
+OpenL Studio provides a rule tracing view for all appropriate OpenL Tablets methods. These methods include the following:
 
 -   All test tables
 -   All Rule tables with the possibility of specifying input parameters
@@ -1682,7 +1682,7 @@ When using the tracing functionality, users can check the result of each step of
     
     *Selecting the JSON option for tracing*
     
-    The same functionality is available for running rules. Settings defined in rule deploy configuration are applied to the JSON input as well. For example, if Provide runtime context is set to true, in JSON, context must be defined. Thus, the same JSON request can be used in OpenL Tablets Rule Services and OpenL Tablets WebStudio.
+    The same functionality is available for running rules. Settings defined in rule deploy configuration are applied to the JSON input as well. For example, if Provide runtime context is set to true, in JSON, context must be defined. Thus, the same JSON request can be used in OpenL Tablets Rule Services and OpenL Studio.
     
 1.  Click the **Trace** button.
 
@@ -1729,7 +1729,7 @@ For a decision table, the tracing results are displayed as follows:
 
 ### Using Benchmarking Tools
 
-OpenL Tablets WebStudio provides benchmarking tools for measuring execution time for all appropriate OpenL Tablets elements. In OpenL Tablets, everything that can be run can be benchmarked too. Benchmarking is useful for optimizing the rule structure and identifying critical paths in rule calculation.
+OpenL Studio provides benchmarking tools for measuring execution time for all appropriate OpenL Tablets elements. In OpenL Tablets, everything that can be run can be benchmarked too. Benchmarking is useful for optimizing the rule structure and identifying critical paths in rule calculation.
 
 The benchmarking icon is displayed above the table to be traced.
 
@@ -1763,7 +1763,7 @@ Benchmark is displayed using the following parameters:
 | Runs (ms)      | Time required for all test cases of the table, or rule set, execution, in milliseconds. |
 | Runs/sec       | Number of such rule sets that can be executed per second.                               |
 
-OpenL Tablets WebStudio remembers all benchmarking runs executed within one session. Every time a new benchmark is run, a new row is added to the results table.
+OpenL Studio remembers all benchmarking runs executed within one session. Every time a new benchmark is run, a new row is added to the results table.
 Benchmarking results can be compared to identify the most time consuming methods. Select the required check boxes and click **Compare** to compare results in the results table.
 Comparison results are displayed below the benchmarking table.
 
@@ -1815,7 +1815,7 @@ The status of each project in the tree is identified by a specific icon. The fol
 | ![](webstudio_guide_images/92724abe4cfd4fd2ef78a6586a595ba0.png) | Project is closed by the current user but edited by another user (Closed – Locked). Current user cannot edit the project.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ![](webstudio_guide_images/0911850e55e28478fb5a39990c19ba03.png) | Project is opened for viewing by the current user but edited by another user (Viewing Revision - Locked). <br/>Current user cannot edit the project but can browse the project in Rules Editor.                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ![](webstudio_guide_images/2c331509e4c7655949ad8055eb387d98.png) | Project exists only in user's workspace but not in Design repository (Local). Other users do not see this project. <Br/>User can delete the project or import it into Design repository as described in the [Creating Projects in Design Repository](#creating-projects-in-design-repository).                                                                                                                                                                                                                                                                                                             |
-| ![](webstudio_guide_images/4d37af564602b82442d8138a551c3229.png) | Project is marked for deletion. In OpenL Tablets WebStudio, deletion of a project takes place in the following phases: <br/>- Deleting a project: Project is removed from user's workspace and marked for deletion. <br/>In this phase, the project can be restored using the undelete function. <br/>For information on deleting a project, see [Deleting a Project](#deleting-a-project). <br/><br/>- Erasing a project: Deleted project is permanently removed from Design repository. <Br/>After this phase, the project cannot be restored. <br/>For information on erasing a project, see [Erasing a Project](#erasing-a-project). |
+| ![](webstudio_guide_images/4d37af564602b82442d8138a551c3229.png) | Project is marked for deletion. In OpenL Studio, deletion of a project takes place in the following phases: <br/>- Deleting a project: Project is removed from user's workspace and marked for deletion. <br/>In this phase, the project can be restored using the undelete function. <br/>For information on deleting a project, see [Deleting a Project](#deleting-a-project). <br/><br/>- Erasing a project: Deleted project is permanently removed from Design repository. <Br/>After this phase, the project cannot be restored. <br/>For information on erasing a project, see [Erasing a Project](#erasing-a-project). |
 
 ### Filtering the Project Tree
 
@@ -1835,7 +1835,7 @@ To view archived deleted projects, click the advanced filter icon ![](webstudio_
 
 ### Creating Projects in Design Repository
 
-OpenL Tablets WebStudio allows users to create new rule projects in the Design repository in one of the following ways:
+OpenL Studio allows users to create new rule projects in the Design repository in one of the following ways:
 
 | Way                                        | Section                                                                       |
 |--------------------------------------------|-------------------------------------------------------------------------------|
@@ -1912,7 +1912,7 @@ To create a new project from template, proceed as follows:
 
 A custom project template can be created and then used during new projects definition. To create a new custom project template, proceed as follows:
 
-1.  If the OpenL Tablets WebStudio home directory `\<OPENL_HOME>,` create the following directory:
+1.  If the OpenL Studio home directory `\<OPENL_HOME>,` create the following directory:
     
     ```
     \<OPENL_HOME>\project-templates
@@ -1991,7 +1991,7 @@ If the tag types are defined as described in [Managing Tags](#managing-tags), th
 
 #### Creating a Project from ZIP Archive
 
-OpenL Tablets WebStudio provides a control for loading rule projects archived in a ZIP file into Design repository. The procedure resembles creating a project from Excel files described above although there are a few differences.
+OpenL Studio provides a control for loading rule projects archived in a ZIP file into Design repository. The procedure resembles creating a project from Excel files described above although there are a few differences.
 
 A project can only be created from a `zip` archive. The .`rar` or `.7zip` archives cannot be used.
 
@@ -2037,7 +2037,7 @@ If the tag types are defined as described in [Managing Tags](#managing-tags), th
 
 #### Creating a Project from a Repository
 
-A project existing in the Git repository can be imported into OpenL Tablets WebStudio as follows:
+A project existing in the Git repository can be imported into OpenL Studio as follows:
 
 1.  Click **Create Project** in the top line menu.
 2.  In the **Create Project from** dialog, click the **Repository** tab.
@@ -2134,7 +2134,7 @@ Each rule project has a set of properties displayed in the **Properties** tab wh
 
 *Project properties*
 
-Properties, such as Name and Created At / Created By, are updated automatically by the system, and users cannot edit them in the OpenL Tablets WebStudio UI. However, a user can modify tags in this tab.
+Properties, such as Name and Created At / Created By, are updated automatically by the system, and users cannot edit them in the OpenL Studio UI. However, a user can modify tags in this tab.
 
 Note that in case of the Git repository, in the Modified By field, the user’s display name is used, not the username, and the tooltip for this field displays the user’s email.
 
@@ -2370,7 +2370,7 @@ The specified projects are deployed to deployment repository and a deployment me
 
 #### Opening Deployed Configurations
 
-Deploy configurations provide the means for tracking the deployment history of project revisions. OpenL Tablets WebStudio provides functionality for quickly opening the deployed configuration revisions. This is especially useful when some time has passed since deployment and a review of files during specific deployments is required.
+Deploy configurations provide the means for tracking the deployment history of project revisions. OpenL Studio provides functionality for quickly opening the deployed configuration revisions. This is especially useful when some time has passed since deployment and a review of files during specific deployments is required.
 
 To open the specific project revisions included in a deploy configuration, proceed as follows:
 
@@ -2383,7 +2383,7 @@ The selected project revisions are opened in repository editor.
 
 #### Redeploying Projects
 
-OpenL Tablets WebStudio provides a function that allows a simple update and redeployment of many related deploy configurations when a particular rule project is modified. This function considers the revision of the opened rule project and works correctly, even with older project revisions.
+OpenL Studio provides a function that allows a simple update and redeployment of many related deploy configurations when a particular rule project is modified. This function considers the revision of the opened rule project and works correctly, even with older project revisions.
 
 To update related deploy configurations and redeploy a rule project, proceed as follows:
 
@@ -2461,7 +2461,7 @@ Proceed as follows:
 
 #### Defining Rule Service Version
 
-OpenL Tablets WebStudio supports versioning definition for rule services. This functionality allows specifying a version for the project revision to be deployed. The required version of the deployed project can be called from deployment repository. All specified versions of the project appear on the OpenL Tablets Rule Services page with a version number defined in brackets.
+OpenL Studio supports versioning definition for rule services. This functionality allows specifying a version for the project revision to be deployed. The required version of the deployed project can be called from deployment repository. All specified versions of the project appear on the OpenL Tablets Rule Services page with a version number defined in brackets.
 
 To check the services version deployment, in OpenL Tablets Rule Services, find the name of the deployed project. Services version is set both in the services header and in the services URL.
 
@@ -2492,7 +2492,7 @@ The selected services version is displayed in **Rules Deploy Configuration** for
 
 ### Comparing Project Revisions
 
-OpenL Tablets WebStudio provides a function for comparing files and sheets in Excel files between two project revisions.
+OpenL Studio provides a function for comparing files and sheets in Excel files between two project revisions.
 To compare contents of the currently opened project revision with any other revision, proceed as follows:
 
 1.  In the project tree, select the project.
@@ -2532,7 +2532,7 @@ To export any revision of a file from Repository, proceed as follows:
 
 ### Unlocking a Project
 
-OpenL Tablets WebStudio provides a function for a user to unlock a project which is edited and, therefore, locked by another user. Be aware that after unlocking, all unsaved changes made by another user will be lost and the project will be closed. The name of the user who locked the project appears in project summary, next to the project status.
+OpenL Studio provides a function for a user to unlock a project which is edited and, therefore, locked by another user. Be aware that after unlocking, all unsaved changes made by another user will be lost and the project will be closed. The name of the user who locked the project appears in project summary, next to the project status.
 
 To unlock a project, proceed as follows:
 
@@ -2545,7 +2545,7 @@ It is recommended to grant permission to the “Unlock” functionality only for
 
 ### Browsing the Deployment Repository
 
-**The Deployment repository** contains project deployments and is also the location from where solution applications use them. OpenL Tablets WebStudio allows connecting several deployment repositories. For information on how to configure deployment repositories, refer to [Managing Repository Settings](#managing-repository-settings).
+**The Deployment repository** contains project deployments and is also the location from where solution applications use them. OpenL Studio allows connecting several deployment repositories. For information on how to configure deployment repositories, refer to [Managing Repository Settings](#managing-repository-settings).
 
 To browse a deployment repository, proceed as follows:
 
@@ -2556,7 +2556,7 @@ To browse a deployment repository, proceed as follows:
     
 1.  If needed, expand the repository tree and browse project deployments.
 
-OpenL Tablets WebStudio displays only the latest revisions of each deployed configuration in the deployment repository.
+OpenL Studio displays only the latest revisions of each deployed configuration in the deployment repository.
 
 Also, when browsing deployed configurations in the deployment repository, users can see their content, namely what rules projects are deployed.
 
@@ -2595,7 +2595,7 @@ A branch is created by copying an existing project. Both predefined and user-def
 
 Proceed as follows:
 
-1.  In OpenL Tablets WebStudio, in the editor or repository, select a project.
+1.  In OpenL Studio, in the editor or repository, select a project.
 2.  Click **Copy.**
 3.  In the **New Branch Name** field, proceed with the default value or enter a new branch name.
 
@@ -2607,7 +2607,7 @@ The newly created project branch is displayed as an active branch and ready for 
 
 This section describes how to view existing branches, switch between them in the editor and repository, enable and disable branches, and delete branches. Proceed as follows:
 
-1.  To display a current project branch, in OpenL Tablets WebStudio, in the editor or repository, open a project.
+1.  To display a current project branch, in OpenL Studio, in the editor or repository, open a project.
     
     The current project branch is displayed.
     
@@ -2620,7 +2620,7 @@ This section describes how to view existing branches, switch between them in the
 1.  To switch between branches in the repository, for a project, in the **Branch** field, select the required branch.
 2.  To disable or enable a branch for a project, in the repository, click the dots next to the branch name field and in the window that appears, clear or select the appropriate branch check box.
     
-    This list also contains branches created outside of OpenL Tablets WebStudio.
+    This list also contains branches created outside of OpenL Studio.
     
     ![](webstudio_guide_images/9c9973d12ee0870605d1b93f9954cf38.jpeg)
     
@@ -2698,11 +2698,11 @@ Wildcards can be used to specify a group of branches, such as release-\*, so all
 
 By default, branches are not protected.
 
-Branches can also be defined as protected in OpenL Tablets WebStudio administrative tab as described in [Setting Up a Connection to a Git Repository](#setting-up-a-connection-to-a-git-repository).
+Branches can also be defined as protected in OpenL Studio administrative tab as described in [Setting Up a Connection to a Git Repository](#setting-up-a-connection-to-a-git-repository).
 
 ## Using Administration Tools
 
-This section explains how to view and control OpenL Tablets WebStudio system settings and manage user information in the system.
+This section explains how to view and control OpenL Studio system settings and manage user information in the system.
 
 To perform administration tasks, in the top line menu, click **ADMIN**.
 
@@ -2710,7 +2710,7 @@ By default, the **Common** tab is displayed. The system settings are organized i
 
 ![](webstudio_guide_images/0ed3e90037fbfab31576872e5d9b58d7.jpeg)
 
-*OpenL Tablets WebStudio administration*
+*OpenL Studio administration*
 
 Normally, the default settings are recommended, but users with appropriate permissions can change them as required. After making changes, click **Apply All and Restart** and refresh the page. To restore the original settings, in the **System** tab, click the **Restore Defaults and Restart** button.
 
@@ -2726,11 +2726,11 @@ The following topics are included:
 
 ### Managing Common Settings
 
-The **Common** tab defines the following general OpenL Tablets WebStudio settings:
+The **Common** tab defines the following general OpenL Studio settings:
 
 -   [Managing User Workspace Settings](#managing-user-workspace-settings)
 -   [Managing History Settings](#managing-history-settings)
--   [Managing Other OpenL Tablets WebStudio Settings](#managing-other-openl-tablets-webstudio-settings)
+-   [Managing Other OpenL Studio Settings](#managing-other-openl-tablets-webstudio-settings)
 
 #### Managing User Workspace Settings
 
@@ -2746,15 +2746,15 @@ To manage history settings, proceed as follows:
     
 1.  To clean all history files for the project, click the **Clear all history** button and confirm deletion.
 
-#### Managing Other OpenL Tablets WebStudio Settings
+#### Managing Other OpenL Studio Settings
 
-The following table describes other general OpenL Tablets WebStudio settings:
+The following table describes other general OpenL Studio settings:
 
 | Option                      | Description                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Tablets WebStudio UI. <br/>If this option is cleared, information about the time of table creation and modification and changes authors, such as **Created By/On**, **Modified By/On**, <br/>is not added to the table properties. |
-| **Date Format**             | Enables changing the date format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
-| **Time Format**             | Enables changing the time format in the OpenL Tablets WebStudio UI.                                                                                                                                                                                                                                                             |
+| **Update table properties** | Indicates whether table properties controlled by the system must be updated and can be viewed in OpenL Studio UI. <br/>If this option is cleared, information about the time of table creation and modification and changes authors, such as **Created By/On**, **Modified By/On**, <br/>is not added to the table properties. |
+| **Date Format**             | Enables changing the date format in the OpenL Studio UI.                                                                                                                                                                                                                                                             |
+| **Time Format**             | Enables changing the time format in the OpenL Studio UI.                                                                                                                                                                                                                                                             |
 
 ### Managing Repository Settings
 
@@ -2810,14 +2810,14 @@ The **Repository** section contains connection settings of design and deployment
     
 To enable storing large files in a Git repository, Git Large File Support (LFS) can be used.
     
--   To enable the Git repository use LFS before it is cloned by OpenL Tablets WebStudio, perform the necessary configuration as described in <https://git-lfs.github.com/>.
--   If the Git repository is already cloned by OpenL Tablets WebStudio, to enable using Git LFS, proceed as follows:
+-   To enable the Git repository use LFS before it is cloned by OpenL Studio, perform the necessary configuration as described in <https://git-lfs.github.com/>.
+-   If the Git repository is already cloned by OpenL Studio, to enable using Git LFS, proceed as follows:
     1.  Close all projects in the workspace.
     2.  Delete all deployment configuration settings.
-    3.  Stop OpenL Tablets WebStudio.
-    4.  Drop the local folder with the Git repository to the OpenL Tablets WebStudio home directory.
-    5.  Start OpenL Tablets WebStudio.
-    OpenL Tablets WebStudio will re-clone the directory.
+    3.  Stop OpenL Studio.
+    4.  Drop the local folder with the Git repository to the OpenL Studio home directory.
+    5.  Start OpenL Studio.
+    OpenL Studio will re-clone the directory.
     6.  Recreate the required deployment configuration settings that were deleted previously.
 
 #### Managing Git Repository Settings
@@ -2845,16 +2845,16 @@ In the **ADMIN** tab, in the **Repository** section, define values for the follo
 | Default branch name              | Pattern for a default branch name. The default value is WebStudio/{project-name}/{username}/{current-date}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Branch name pattern              | Additional regular expression to be used for validation of the new branch name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Invalid branch name <br/>message hint | Error message displayed when trying to create a branch with a name that does not match the additional regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Customize comments               | Custom comment message template for Git commits. <br/>Comments can be customized using the following placeholders: <br/>**- {user-message}** represents a user defined commit message. It is also used as a commit message in OpenL Tablets WebStudio. <br/>**- {commit-type}** is used by commits to recognize the commit type of the message. <br/>**- {project-name}** is replaced by the current project in the message and used for user message templates for **Create project**, **Save project**, <br/>**Archive project**, **Restore project**, **Erase project**, and **Copy project**. <br/>**- {revision}** represents a project revision used for commit. <br/>By default, all commits are submitted to Git with a message in the following format: <br/>`{user-message} Type: {commit-type}` <br/>The following placeholders can be used for the **Restore from old version** user message templates: <br/>**- {revision}** is replaced by the old revision number. <br/>**- {author}** is replaced by the author of the old project version. <br/>**- {datetime}** is replaced by the date of the old project version. <br/>An additional validation rule can be set up for user message templates in the **User message pattern** field, in the form of a regular expression. <br/>If the validation according to the pattern fails, an error text set in the **Invalid user message hint** field is displayed to a user. |
+| Customize comments               | Custom comment message template for Git commits. <br/>Comments can be customized using the following placeholders: <br/>**- {user-message}** represents a user defined commit message. It is also used as a commit message in OpenL Studio. <br/>**- {commit-type}** is used by commits to recognize the commit type of the message. <br/>**- {project-name}** is replaced by the current project in the message and used for user message templates for **Create project**, **Save project**, <br/>**Archive project**, **Restore project**, **Erase project**, and **Copy project**. <br/>**- {revision}** represents a project revision used for commit. <br/>By default, all commits are submitted to Git with a message in the following format: <br/>`{user-message} Type: {commit-type}` <br/>The following placeholders can be used for the **Restore from old version** user message templates: <br/>**- {revision}** is replaced by the old revision number. <br/>**- {author}** is replaced by the author of the old project version. <br/>**- {datetime}** is replaced by the date of the old project version. <br/>An additional validation rule can be set up for user message templates in the **User message pattern** field, in the form of a regular expression. <br/>If the validation according to the pattern fails, an error text set in the **Invalid user message hint** field is displayed to a user. |
 | Flat folder structure            | Flag that denotes repository structure. <br/>For a flat structure, all projects are stored in the directory specified in the **Path in repository** property, each project in its own folder. <br/>Otherwise, if the parameter is set to false, the repository is considered as a Git repository with non-flat structure, and projects can reside <br/>in folders and subfolders defined by a user upon project creation or copying, with each project having its own level of nesting. <br/>Project index is stored in \<openl-home\>/repositories/settings/\<repo-id\>/openl-projects.yaml and is updated automatically. <br/>Branches information is stored in \<openl-home\>/repositories/settings/\<repo-id\>/branches.yaml. <br/>Folder name limitations are the same as those applied to folder names by the used OS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Path                             | Directory where all flat repository structure projects are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-If the password is changed on the server side, by default, OpenL Tablets WebStudio makes three attempts to log into the remote Git server, and then the **Problem communicating with "Design" Git server, will retry automatically in 5 minutes.** error is displayed. After that, OpenL Tablets WebStudio stops login attempts to prevent a user account from blocking, and the **Problem communicating with 'Design' Git server, please contact admin.** error is displayed. Define the following properties in the properties file to configure this behavior:
+If the password is changed on the server side, by default, OpenL Studio makes three attempts to log into the remote Git server, and then the **Problem communicating with "Design" Git server, will retry automatically in 5 minutes.** error is displayed. After that, OpenL Studio stops login attempts to prevent a user account from blocking, and the **Problem communicating with 'Design' Git server, please contact admin.** error is displayed. Define the following properties in the properties file to configure this behavior:
 
 | Property                               | Description                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | repo-git.failed-authentication-seconds | Time to wait after a failed authentication attempt before the next attempt. <br/>It is used to prevent a user account from blocking. The default value is 300 seconds.                                                                                                                                                         |
-| repo-git.max-authentication-attempts   | Maximum number of authentication attempts. <br/>After that, a user can be authorized only after resetting the settings or restarting OpenL Tablets WebStudio. <br/>No value means unlimited number of attempts. <br/>If the value is set to 1, after the first unsuccessful authentication attempt, all subsequent attempts are blocked. |
+| repo-git.max-authentication-attempts   | Maximum number of authentication attempts. <br/>After that, a user can be authorized only after resetting the settings or restarting OpenL Studio. <br/>No value means unlimited number of attempts. <br/>If the value is set to 1, after the first unsuccessful authentication attempt, all subsequent attempts are blocked. |
 
 ##### Setting Up a Connection to a Remote Git Repository Account
 
@@ -2875,16 +2875,16 @@ The System tab enables modifying core, project, and testing options and includes
 
 | Section | Property                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |---------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Core    | **Dispatching <br/>Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. <br/>By default, the **dispatching.validation** value is set to **true** in OpenL Tablets WebStudio. <br/>For more information on dispatching validation, see <br/>[OpenL Tablets Rule Services Usage and Customization Guide>Table Dispatching Validation Mode](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#table-dispatching-validation-mode). |
+| Core    | **Dispatching <br/>Validation**       | Setting turns on/off the mechanism of dispatching for a rule table where the only one version of this rule table exists. <br/>By default, the **dispatching.validation** value is set to **true** in OpenL Studio. <br/>For more information on dispatching validation, see <br/>[OpenL Tablets Rule Services Usage and Customization Guide>Table Dispatching Validation Mode](https://openldocs.readthedocs.io/en/latest/documentation/guides/rule_services_usage_and_customization_guide/#table-dispatching-validation-mode). |
 |         | **Verify on Edit**               | Allows turning on/off checking of rules consistency and validity on each edit in Rules Editor. <br/>By default, the check box is selected. Automatic checks are executed after each edit. <br/>If this option is cleared, the verification process does not launch automatically when the **Save** button is clicked. <br/>Instead, a **Verify** button appears in Rules Editor, and the user must verify manually by clicking this button.                                                                                                                  |
 | Testing | **Thread number <br/>for tests**      | Indicates the number of test cases executed simultaneously.By default, four threads are set. <br/>It means that after running a test table or all tests, up to four test cases will be in progress at the same time. <br/>When they are calculated, the next four test cases will be executed.                                                                                                                                                                                                                                                 |
 |         | **Restore Defaults <br/>and Restart** | Restores all settings to default values. All user defined values, such as repository settings, will be lost.                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Managing User Information
 
-This section describes how to control user access in the OpenL Tablets WebStudio application based on users and user groups. All privileges in the system are assigned at a group level and will be granted to a particular user after he or she is included in a particular group.
+This section describes how to control user access in the OpenL Studio application based on users and user groups. All privileges in the system are assigned at a group level and will be granted to a particular user after he or she is included in a particular group.
 
-Users and groups are managed in the **Users** and **Groups & Privileges** tabs. Only members of the **Administrators** group have rights to manage users and groups in OpenL Tablets WebStudio.
+Users and groups are managed in the **Users** and **Groups & Privileges** tabs. Only members of the **Administrators** group have rights to manage users and groups in OpenL Studio.
 
 The following topics are included in this section:
 
@@ -2956,31 +2956,31 @@ To delete a user group, proceed as follows:
 
 ##### Managing a Group in Case of Third Party Identity Provider
 
-If OpenL Tablets WebStudio is installed with the option to sign in via a third party identity provider, such as SSO or Active Directory, groups created and edited in OpenL Tablets WebStudio must have the same names as available in Active Directory or SSO groups.
+If OpenL Studio is installed with the option to sign in via a third party identity provider, such as SSO or Active Directory, groups created and edited in OpenL Studio must have the same names as available in Active Directory or SSO groups.
 
-When a user from the third-party server logs into OpenL Tablets WebStudio, external user groups are pulled from the external server and displayed in the OpenL Tablets WebStudio user table.
+When a user from the third-party server logs into OpenL Studio, external user groups are pulled from the external server and displayed in the OpenL Studio user table.
 
--   If an external group cannot be matched with the OpenL Tablets WebStudio group, that is, no group with such name exists in OpenL Tablets WebStudio, the group is displayed as a collapsed number, for example, +1, and when the value is expanded, the group is highlighted grey.
+-   If an external group cannot be matched with the OpenL Studio group, that is, no group with such name exists in OpenL Studio, the group is displayed as a collapsed number, for example, +1, and when the value is expanded, the group is highlighted grey.
     
     ![](webstudio_guide_images/ee4a2bedc13ee312f08f2b364d1c3af3.png)
     
-    *Groups non-existing in OpenL Tablets WebStudio displayed as collapsed numbers*
+    *Groups non-existing in OpenL Studio displayed as collapsed numbers*
     
-    Groups highlighted blue are internal OpenL Tablets WebStudio groups.
+    Groups highlighted blue are internal OpenL Studio groups.
     
--   If an external group is matched with the OpenL Tablets WebStudio group but it does not have the Administrator privilege assigned, the group is highlighted green.
+-   If an external group is matched with the OpenL Studio group but it does not have the Administrator privilege assigned, the group is highlighted green.
     
     ![](webstudio_guide_images/baeffab9dc6ae249ccc19093751707a5.png)
     
-    *Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
+    *Groups without the administrative privilege matched with the OpenL Studio groups*
     
 -   If a group has the Administrator privilege, the group is highlighted red in the user table.
     
     ![](webstudio_guide_images/6d6a6bca6559eacb1c0e413629e717cf.png)
     
-    *Groups without the administrative privilege matched with the OpenL Tablets WebStudio groups*
+    *Groups without the administrative privilege matched with the OpenL Studio groups*
 
-After each user login, OpenL Tablets WebStudio updates external groups as follows:
+After each user login, OpenL Studio updates external groups as follows:
 
 -   If a user got a new group, it is added to the table.
 -   If a group is revoked from this user, it is deleted from the table.
@@ -2991,9 +2991,9 @@ Administrators cannot revoke the external group.
 
 #### Managing Users
 
-Users get access to OpenL Tablets WebStudio functions by including them in particular groups.
+Users get access to OpenL Studio functions by including them in particular groups.
 
-By default, there are the following users in OpenL Tablets WebStudio predefined in Demo mode:
+By default, there are the following users in OpenL Studio predefined in Demo mode:
 
 | User name | User password | Groups               |
 |-----------|---------------|----------------------|
@@ -3006,7 +3006,7 @@ By default, there are the following users in OpenL Tablets WebStudio predefined 
 | a1        | a1            | Administrators       |
 | admin     | admin         | Administrators       |
 
-On the first start of OpenL Tablets WebStudio in the multi user mode, users with administrator permissions are defined in the installation wizard, **Configure initial users** section, **Administrators** field. Administrators password is set equal to their username and can be changed later as necessary. Administrators can then create new users or update existing users in OpenL Tablets WebStudio as needed. For information about the permissions of the groups, refer to [Managing Groups](#managing-groups).
+On the first start of OpenL Studio in the multi user mode, users with administrator permissions are defined in the installation wizard, **Configure initial users** section, **Administrators** field. Administrators password is set equal to their username and can be changed later as necessary. Administrators can then create new users or update existing users in OpenL Studio as needed. For information about the permissions of the groups, refer to [Managing Groups](#managing-groups).
 
 The following topics are included in this section:
 
@@ -3022,7 +3022,7 @@ To view a list of users, proceed as follows:
 
 1.  In the **ADMIN** tab, click **Users** on the left.
     
-    The system displays a list of OpenL Tablets WebStudio users.
+    The system displays a list of OpenL Studio users.
     
 1.  In the **Users** tab, perform either of the following:
 -   To create a user, proceed as described in [Creating a User](#creating-a-user).
@@ -3087,9 +3087,9 @@ To edit a user, proceed as follows:
 
 ##### Deleting a User
 
-The **Administrators** group in OpenL Tablets WebStudio must contain at least one administrator user. That it, the only OpenL Tablets WebStudio administrator cannot be deleted.
+The **Administrators** group in OpenL Studio must contain at least one administrator user. That it, the only OpenL Studio administrator cannot be deleted.
 
-Initial users created during OpenL Tablets WebStudio installation and the currently logged in user cannot be deleted as well.
+Initial users created during OpenL Studio installation and the currently logged in user cannot be deleted as well.
 
 To delete a user, proceed as follows:
 
@@ -3098,11 +3098,11 @@ To delete a user, proceed as follows:
 
 ##### Managing Users in Case of Third Party Identity Provider
 
-There are some differences in managing users when OpenL Tablets WebStudio is installed with an option to sign in with a third party identity provider, such as SSO or Active Directory.
+There are some differences in managing users when OpenL Studio is installed with an option to sign in with a third party identity provider, such as SSO or Active Directory.
 
-An external user is created in OpenL Tablets WebStudio upon first user logon using the credentials stored in the third party identity provider, and it is not required to create a user in OpenL Tablets WebStudio in advance. All corresponding user information, such as first name, last name, display name, and email address, is retrieved from the third party and saved to the OpenL Tablets WebStudio, locked for editing. If some part of this information is not received from the third party, the corresponding fields are available for editing in OpenL Tablets WebStudio. An exception is external user management for SSO, where user data cannot be edited in **Admin \> Users** and only part of data can be edited in the user details section.
+An external user is created in OpenL Studio upon first user logon using the credentials stored in the third party identity provider, and it is not required to create a user in OpenL Studio in advance. All corresponding user information, such as first name, last name, display name, and email address, is retrieved from the third party and saved to the OpenL Studio, locked for editing. If some part of this information is not received from the third party, the corresponding fields are available for editing in OpenL Studio. An exception is external user management for SSO, where user data cannot be edited in **Admin \> Users** and only part of data can be edited in the user details section.
 
-If a user is first created in OpenL Tablets WebStudio as internal or external, and for logon, OpenL Tablets WebStudio username and third party password are used, a user becomes external, and only third party password stays valid. After such logon, synchronization with the third party is performed, information stored in OpenL Tablets WebStudio is overwritten by third party data information, and the corresponding fields are locked for editing. Exceptions are as follows:
+If a user is first created in OpenL Studio as internal or external, and for logon, OpenL Studio username and third party password are used, a user becomes external, and only third party password stays valid. After such logon, synchronization with the third party is performed, information stored in OpenL Studio is overwritten by third party data information, and the corresponding fields are locked for editing. Exceptions are as follows:
 
 -   If the third party email address, first name, or last name value is empty or unavailable, the current email address, first name, or last name is not emptied.
 -   If the display name value is empty or unavailable, the local display name is not modified.
@@ -3111,20 +3111,21 @@ An exception is the situation when the first or last name was changed.
 
 -   If the display name was set to “first name + space + last name”, it is updated to the new “first name + space + last name”.
 -   If the display name was set to the “last name + space + first name”, it is updated to the new “last name + space + first name”.
--   If the display name is set to **Other** and its value in OpenL Tablets WebStudio is not empty, and in the third party service, it is empty, upon synchronization, the display name set locally is not changed.
--   If the display name value is empty in OpenL Tablets WebStudio and the third party service, but the first name and last name values are not empty, the display name is set to “first name + space + last name”, regardless of the pattern specified upon local user creation.
+-   If the display name is set to **Other** and its value in OpenL Studio is not empty, and in the third party service, it is empty, upon synchronization, the display name set locally is not changed.
+-   If the display name value is empty in OpenL Studio and the third party service, but the first name and last name values are not empty, the display name is set to “first name + space + last name”, regardless of the pattern specified upon local user creation.
 
 If this user was not created as a local user previously but instead, created upon the external user logon, the display name value stays empty.
 
-User permissions can be assigned locally in OpenL Tablets WebStudio. Alternatively, to retrieve permissions from a third party identity provider, in OpenL Tablets WebStudio, create a user group with the same name as in third party and grant the required permissions to it. It is not required that the group is manually assigned to the user in OpenL Tablets WebStudio. Also, additional user groups can be assigned to a user in OpenL Tablets WebStudio unless the SSO external user management was set up.
+User permissions can be assigned locally in OpenL Studio. Alternatively, to retrieve permissions from a third party identity provider, in OpenL Studio, create a user group with the same name as in third party and grant the required permissions to it. It is not required that the group is manually assigned to the user in OpenL Studio. Also, additional user groups can be assigned to a user in OpenL Studio unless the SSO external user management was set up.
 
-**Note:** When creating a user, the username in OpenL Tablets WebStudio must match the username in the third party identity provider.
+**Note:** When creating a user, the username in OpenL Studio must match the username in the third party identity provider.
 
 ### Managing Notifications
 
-In the **ADMIN \> Notification** section, users with the administrator privileges can send text messages to all OpenL Tablets WebStudio instances and users that are currently online or remove previously sent notifications.
+In the **ADMIN \> Notification** section, users with the administrator privileges can send text messages to all OpenL Studio instances and users that are currently online or remove previously sent notifications.
 
-When a notification is sent by clicking **Post**, a red bar with notification text appears for all users and OpenL Tablets WebStudio instances. To remove the message for all users and OpenL Tablets WebStudio instances, click **Remove**.
+When a notification is sent by clicking **Post**, a red bar with notification text appears for all users and OpenL 
+Studio instances. To remove the message for all users and OpenL Studio instances, click **Remove**.
 
 ![](webstudio_guide_images/d6cc06b1b16257286a870e26923da933.jpeg)
 
@@ -3187,7 +3188,7 @@ This logic is explained in the tooltips for each tag color type.
 
 ### Managing Email Server Configuration
 
-OpenL Tablets WebStudio supports sending emails for mailbox verification.
+OpenL Studio supports sending emails for mailbox verification.
 
 To manage email server configuration, proceed as follows:
 
@@ -3228,7 +3229,7 @@ The verification email resembles the following:
 
 ## Appendix A: ZIP Project Structure
 
-ZIP projects described in this section can be imported into OpenL Tablets WebStudio. The following topics are included:
+ZIP projects described in this section can be imported into OpenL Studio. The following topics are included:
 
 -   [Single Project Structure](#single-project-structure)
 -   [Single Project Structure \#2](#single-project-structure-2)
@@ -3258,7 +3259,7 @@ my-project.zip:
         *.xlsx
 ```
 
-This type of archive is supported by OpenL Tablets WebStudio only.
+This type of archive is supported by OpenL Studio only.
 
 ## Appendix B: OpenAPI Project Generation Algorithm
 
@@ -3518,11 +3519,11 @@ An example of the generated script is as follows.
 
 Original path is present in the generated service interface, and this service is presented by OpenL Tablets Rule Services. Endpoint will be available via the same path as for the original OpenAPI structure.
 
-## Appendix C: Access to OpenL Tablets WebStudio for Experienced Users
+## Appendix C: Access to OpenL Studio for Experienced Users
 
-OpenL Tablets WebStudio configuration example is available at <http://localhost:8080/webstudio/web/config/application.properties>.
+OpenL Studio configuration example is available at <http://localhost:8080/webstudio/web/config/application.properties>.
 
-Internal API documentation for OpenL Tablets WebStudio is available at <http://localhost:8080/webstudio/rest/api-docs>.
+Internal API documentation for OpenL Studio is available at <http://localhost:8080/webstudio/rest/api-docs>.
 ```
 Release 5.27
 OpenL Tablets Documentation is licensed under a Creative Commons Attribution 3.0 United States License. 
