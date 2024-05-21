@@ -1,12 +1,12 @@
-# OpenL Tablets Rule Services Usage and Customization Guide
+# OpenL Rule Services Usage and Customization Guide
 
 ## Preface
 
 OpenL Tablets is a Business Rules Management System (BRMS) based on the tables presented in Excel documents. Using unique concepts, OpenL Tablets facilitates treating business documents containing business logic specifications as executable source code.
 
-OpenL Tablets provides a set of tools addressing BRMS related capabilities including *OpenL Tablets Rule Services* *application* designed for integration of business rules into different customers’ applications.
+OpenL Tablets provides a set of tools addressing BRMS related capabilities including *OpenL Rule Services* *application* designed for integration of business rules into different customers’ applications.
 
-The goal of this document is to explain how to configure Rule Services Core, that is, configure OpenL Tablets Rule Services or integrate the Rule Services Core module into the existing application, for different working environments and how to customize the services to meet particular customer requirements.
+The goal of this document is to explain how to configure Rule Services Core, that is, configure OpenL Rule Services or integrate the Rule Services Core module into the existing application, for different working environments and how to customize the services to meet particular customer requirements.
 
 The following topics are included in this chapter:
 
@@ -17,26 +17,26 @@ The following topics are included in this chapter:
 
 ### Audience
 
-This guide is targeted at rule developers who integrate the Rule Services Core module and set up, configure, and customize OpenL Tablets Rule Services to facilitate the needs of customer rules management applications.
+This guide is targeted at rule developers who integrate the Rule Services Core module and set up, configure, and customize OpenL Rule Services to facilitate the needs of customer rules management applications.
 
 Basic knowledge of Java, Apache Tomcat, Ant, Maven, and Excel is required to use this guide effectively.
 
 ### How This Guide Is Organized
 
-| Section                                                                                                                          | Description                                                                                                                             |
-|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| [Introduction](#introduction)                                                                                                   | Provides overall information about OpenL Tablets Rule Services.                                                                         |
-| [Rule Services Core](#rule-services-core)                                                                                        | Introduces Rule Services Core functionality.                                                                                            |
-| [OpenL Tablets Rule Services Configuration](#openl-tablets-rule-services-configuration)                                                               | Describes the default configuration of OpenL Tablets Rule Services, introduces Service <br/>Manager, and explains main configuration points. |
-| [OpenL Tablets Rule Services Advanced Configuration and Customization](#openl-tablets-rule-services-advanced-configuration-and-customization)                                    | Describes OpenL Tablets Rule Services advanced services configuration and customization.                                                |
-| [Appendix A: Tips and Tricks](#appendix-a-using-openl-tablets-rest-services-from-java-code)                                      | Describes how to use OpenL Tablets Rule Services from Java code.                                                                        |
-| [Appendix B: Projects on the OpenL Tablets Rule Services Launch](#appendix-b-projects-on-the-openl-tablets-rule-services-launch)                                         | Explains how projects appear upon OpenL Tablets Rule Services launch.                                                                   |
-| [Appendix C: Types of Exceptions in OpenL Tablets Rule Services](#appendix-c-types-of-exceptions-in-openl-tablets-rule-services) | Explains typical exceptions in OpenL Tablets Rule Services.                                                                             |
-| [Appendix D: OpenAPI Support](#appendix-d-openapi-support)                                                                             | Explains Swagger support in OpenL Tablets.                                                                                              |
-| [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)     | Describes how to locate a project with rules in the database repository <br/>without OpenL Tablets WebStudio deploy functionality.           |
-| [Appendix F: Backward Compatibility Settings](#appendix-f-backward-compatibility-settings)                                       | Describes backward compatibility settings.                                                                                              |
-| [Appendix G: Deployment Project ZIP Structure](#appendix-g-deployment-project-zip-structure)                                     | Describes ZIP structure for single and multiple project deployment.                                                                     |
-| [Appendix H: Manifest File for Deployed Projects](#appendix-h-manifest-file-for-deployed-projects)                               | Introduces manifest files created during project deployment from OpenL Tablets WebStudio <br/>or using the OpenL Tablets Maven plugin.       |
+| Section                                                                                                                         | Description                                                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| [Introduction](#introduction)                                                                                                  | Provides overall information about OpenL Rule Services.                                                                      |
+| [Rule Services Core](#rule-services-core)                                                                                       | Introduces Rule Services Core functionality.                                                                                        |
+| [OpenL Rule Services Configuration](#openl-tablets-rule-services-configuration)                                                              | Describes the default configuration of OpenL Rule Services, introduces Service <br/>Manager, and explains main configuration points. |
+| [OpenL Rule Services Advanced Configuration and Customization](#openl-tablets-rule-services-advanced-configuration-and-customization)                                 | Describes OpenL Rule Services advanced services configuration and customization.                                             |
+| [Appendix A: Tips and Tricks](#appendix-a-using-openl-tablets-rest-services-from-java-code)                                     | Describes how to use OpenL Rule Services from Java code.                                                                     |
+| [Appendix B: Projects on the OpenL Rule Services Launch](#appendix-b-projects-on-the-openl-tablets-rule-services-launch)                                       | Explains how projects appear upon OpenL Rule Services launch.                                                                |
+| [Appendix C: Types of Exceptions in OpenL Rule Services](#appendix-c-types-of-exceptions-in-openl-tablets-rule-services) | Explains typical exceptions in OpenL Rule Services.                                                                          |
+| [Appendix D: OpenAPI Support](#appendix-d-openapi-support)                                                                            | Explains Swagger support in OpenL Tablets.                                                                                          |
+| [Appendix E: Programmatically Deploying Rules to a Repository](#appendix-e-programmatically-deploying-rules-to-a-repository)    | Describes how to locate a project with rules in the database repository <br/>without OpenL Studio deploy functionality.      |
+| [Appendix F: Backward Compatibility Settings](#appendix-f-backward-compatibility-settings)                                      | Describes backward compatibility settings.                                                                                          |
+| [Appendix G: Deployment Project ZIP Structure](#appendix-g-deployment-project-zip-structure)                                    | Describes ZIP structure for single and multiple project deployment.                                                                 |
+| [Appendix H: Manifest File for Deployed Projects](#appendix-h-manifest-file-for-deployed-projects)                              | Introduces manifest files created during project deployment from OpenL Studio <br/>or using the OpenL Tablets Maven plugin.  |
 
 ### Related Information
 
@@ -44,7 +44,7 @@ The following table lists sources of information related to contents of this gui
 
 | Title                                                                                                                                                       | Description                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Describes OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through web browser. |
+| [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Describes OpenL Studio, a web application for managing OpenL Tablets projects through web browser. |
 | [OpenL Tablets Reference Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/reference_guide)             | Provides overview of OpenL Tablets technology, as well as its basic concepts and principles.                  |
 | [OpenL Tablets Installation Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide)       | Describes how to install and set up OpenL Tablets software.                                                   |
 | [https://openl-tablets.org/](http://openl-tablets.org/)                                                                                                   | OpenL Tablets open source project website.                                                                    |
@@ -65,15 +65,15 @@ The following styles and conventions are used in this guide:
 
 ## Introduction
 
-The majority of OpenL Tablets customers need to expose business rules as REST web services. For this purpose, OpenL Tablets Rule Services is provided. To meet requirements of various customer project implementations, OpenL Tablets Rule Services provides the ability to dynamically create web services for customer rules and offers extensive configuration and customization capabilities.
+The majority of OpenL Tablets customers need to expose business rules as REST web services. For this purpose, OpenL Rule Services is provided. To meet requirements of various customer project implementations, OpenL Rule Services provides the ability to dynamically create web services for customer rules and offers extensive configuration and customization capabilities.
 
-Overall architecture of OpenL Tablets Rule Services is expandable and customizable. All functionality is divided into pieces; each of them is responsible for a small part of functionality and can be replaced by another implementation if it is required. Usually, default implementation is enough to cover all requirements of most customers.
+Overall architecture of OpenL Rule Services is expandable and customizable. All functionality is divided into pieces; each of them is responsible for a small part of functionality and can be replaced by another implementation if it is required. Usually, default implementation is enough to cover all requirements of most customers.
 
 ![](ruleservices_guide_images/0c77b8ae9a8b78daab816ca0b6add357.jpg)
 
-*Overall OpenL Tablets Rule Services architecture*
+*Overall OpenL Rule Services architecture*
 
-OpenL Tablets Rule Services provides the following key features and benefits:
+OpenL Rule Services provides the following key features and benefits:
 
 -   easily integrating customer business rules into various applications running on different platforms
 -   using different data sources, such as a central OpenL Tablets production repository or file system of a proper structure
@@ -81,7 +81,7 @@ OpenL Tablets Rule Services provides the following key features and benefits:
 
 The subsequent chapters describe how to set up a data source, Service Configurer, and a service exposing method, and how to integrate OpenL Tablets into the existing application.
 
-OpenL Tablets Rule Services is based on Rule Services Core and supports all features provided by the Rule Services Core module.
+OpenL Rule Services is based on Rule Services Core and supports all features provided by the Rule Services Core module.
 
 The following diagram identifies all components to be configured and customized.
 
@@ -160,56 +160,56 @@ In this example, `serviceName` is a name of the deployed OpenL Tablets service a
 
 ### Customizing and Configuring Rule Services Core
 
-The Rule Services Core module configuration features resemble configuration features for OpenL Tablets Rule Services. The OpenL Tablets Rule Services customization and configuration information is provided in this document and can be applied to Rule Services Core in the same way. For the list of components supported only by OpenL Tablets Rule Services, see diagrams in [Introduction](#introduction).
+The Rule Services Core module configuration features resemble configuration features for OpenL Rule Services. The OpenL Rule Services customization and configuration information is provided in this document and can be applied to Rule Services Core in the same way. For the list of components supported only by OpenL Rule Services, see diagrams in [Introduction](#introduction).
 
-## OpenL Tablets Rule Services Configuration
+## OpenL Rule Services Configuration
 
-OpenL Tablets Rule Services architecture allows extending mechanisms of services loading and deployment according to the particular project requirements.
+OpenL Rule Services architecture allows extending mechanisms of services loading and deployment according to the particular project requirements.
 
-This section describes OpenL Tablets Rule Services configuration and includes the following topics:
+This section describes OpenL Rule Services configuration and includes the following topics:
 
--   [OpenL Tablets Rule Services Default Configuration](#openl-tablets-rule-services-default-configuration)
--   [OpenL Tablets Rule Services Default Configuration Files](#openl-tablets-rule-services-default-configuration-files)
+-   [OpenL Rule Services Default Configuration](#openl-tablets-rule-services-default-configuration)
+-   [OpenL Rule Services Default Configuration Files](#openl-tablets-rule-services-default-configuration-files)
 -   [Service Manager](#service-manager)
 -   [Configuration Points](#configuration-points)
 
-### OpenL Tablets Rule Services Default Configuration
+### OpenL Rule Services Default Configuration
 
-All OpenL Tablets Rule Services configuration is specified in Spring configuration files and `application*.*properties` files. The `application.properties` file is located inside the application `.war `file (inside WEB-INF/classes folder), in a user’s directory or in a working directory.
+All OpenL Rule Services configuration is specified in Spring configuration files and `application*.*properties` files. The `application.properties` file is located inside the application `.war `file (inside WEB-INF/classes folder), in a user’s directory or in a working directory.
 
 The configuration file located inside the `.war `file contains default settings for all properties. Use it as a reference of possible settings and redefine as required in your configuration file, such as the `application.properties` file located in a user’s home directory.
 
 All settings used in `application.properties` file can be defined as JVM options. In this case, JVM options override settings defined in files.
 
-By default, OpenL Tablets Rule Services is configured as follows:
+By default, OpenL Rule Services is configured as follows:
 
 1.  A data source is configured as `FileSystemDataSource` located in the `"${user.home}/.openl/datasource"` folder.
 2.  All services are exposed as REST services using the CXF framework.
 3.  `LastVersionProjectsServiceConfigurer` is used as a default service configurer that takes the last version of each deployment and creates the service for each project using all modules contained in the project.
 
-### OpenL Tablets Rule Services Default Configuration Files
+### OpenL Rule Services Default Configuration Files
 
-If necessary, modify the OpenL Tablets Rule Services configuration by overriding the existing configuration files. All overridden Spring beans must be defined in the `openl-ruleservice-override-beans.xml `file. The following table lists Spring configuration files used in OpenL Tablets Rule Services:
+If necessary, modify the OpenL Rule Services configuration by overriding the existing configuration files. All overridden Spring beans must be defined in the `openl-ruleservice-override-beans.xml `file. The following table lists Spring configuration files used in OpenL Rule Services:
 
-| File                                          | Description                                                                                                                                      |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `openl-ruleservice-beans.xml`                 | Main configuration file that includes all other configuration files. This file is searched by OpenL Tablets Rule Services in the classpath root. |
-| `openl-ruleservice-core-beans.xml`            | Configuration for ServiceManager and InstantiationFactory.                                                                                       |
-| `openl-ruleservice-datasource-beans.xml`      | Configuration for data sources.                                                                                                                  |
-| `openl-ruleservice-loader-beans.xml`          | Configuration for rules loader.                                                                                                                  |
-| `openl-ruleservice-publisher-beans.xml`       | Common publisher configurations.                                                                                                                 |
-| `openl-ruleservice-jaxrs-publisher-beans.xml` | Configuration for RESTful services publisher.                                                                                                    |
-| `openl-ruleservice-rmi-publisher-beans.xml`   | Configuration for RMI services publisher.                                                                                                        |
-| `openl-ruleservice-kafka-publisher-beans.xml` | Configuration for Kafka services publisher.                                                                                                      |
-| `openl-ruleservice-conf-beans.xml`            | Configuration for Service Configurer.                                                                                                            |
-| `openl-ruleservice-store-log-data-beans.xml`  | Configuration for external request and response storages.                                                                                        |
-| `application.properties        `                      | Main configuration file containing properties for OpenL Tablets Rule Services configuration.                                                     |
+| File                                          | Description                                                                                                                                    |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `openl-ruleservice-beans.xml`                 | Main configuration file that includes all other configuration files. This file is searched by OpenL Rule Services in the classpath root. |
+| `openl-ruleservice-core-beans.xml`            | Configuration for ServiceManager and InstantiationFactory.                                                                                     |
+| `openl-ruleservice-datasource-beans.xml`      | Configuration for data sources.                                                                                                                |
+| `openl-ruleservice-loader-beans.xml`          | Configuration for rules loader.                                                                                                                |
+| `openl-ruleservice-publisher-beans.xml`       | Common publisher configurations.                                                                                                               |
+| `openl-ruleservice-jaxrs-publisher-beans.xml` | Configuration for RESTful services publisher.                                                                                                  |
+| `openl-ruleservice-rmi-publisher-beans.xml`   | Configuration for RMI services publisher.                                                                                                      |
+| `openl-ruleservice-kafka-publisher-beans.xml` | Configuration for Kafka services publisher.                                                                                                    |
+| `openl-ruleservice-conf-beans.xml`            | Configuration for Service Configurer.                                                                                                          |
+| `openl-ruleservice-store-log-data-beans.xml`  | Configuration for external request and response storages.                                                                                      |
+| `application.properties        `                      | Main configuration file containing properties for OpenL Rule Services configuration.                                                    |
 
 For more information on configuration files, see [Configuration Points](#configuration-points).
 
 ### Service Manager
 
-**Service Manager** is the main component of OpenL Tablets Rule Services frontend joining all major parts, such as a loader, rule service publishers, and Service Configurer. For more information on OpenL Tablets Rule Services frontend components, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
+**Service Manager** is the main component of OpenL Rule Services frontend joining all major parts, such as a loader, rule service publishers, and Service Configurer. For more information on OpenL Rule Services frontend components, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
 
 Service Manager manages all currently running services and intelligently controls all operations for deploying, undeploying, and redeploying the services. These operations are only performed in the following cases:
 
@@ -220,7 +220,7 @@ Service Manager always acts as a data source listener as described in further se
 
 ### Configuration Points
 
-Any part of OpenL Tablets Rule Services frontend can be replaced by the user’s own implementation. For more information on the system architecture, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
+Any part of OpenL Rule Services frontend can be replaced by the user’s own implementation. For more information on the system architecture, see [OpenL Tablets Developers Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide).
 
 If the common approach is used, the following components must be configured:
 
@@ -236,7 +236,7 @@ The following sections describe how to configure these components:
 -   [Service Exposing Methods](#service-exposing-methods)
 -   [Configuring System Settings](#configuring-system-settings)
 -   [CORS Filter Support](#cors-filter-support)
--   [Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#logging-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
+-   [Logging Requests to OpenL Rule Services and Their Responds in a Storage](#logging-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
 
     **Note:** There is a specific rule of parsing parameter names in methods. The algorithm checks the case of the second letter in a word and sets the first letter case the same as for the second letter. For example, parameters for `MyMethod (String fParam, String Sparam)` in REST requests are defined as `FParam` and `sparam`.
 
@@ -302,7 +302,7 @@ To use a relational database repository as a data source, proceed as follows:
 
 To use an AWS S3 repository as a data source, proceed as follows:
 
-1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
+1.  To build a customized version of OpenL Rule Services with dependencies on `*org.openl.rules.repository.aws`, create a `pom.xml` file with the following content:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -368,7 +368,7 @@ To use an AWS S3 repository as a data source, proceed as follows:
 
 To use a Git repository as a data source, proceed as follows:
 
-1.  To build a customized version of OpenL Tablets Rule Services with dependencies on `*org.openl.rules.repository.git`, create a `pom.xml` file with the following content:
+1.  To build a customized version of OpenL Rule Services with dependencies on `*org.openl.rules.repository.git`, create a `pom.xml` file with the following content:
 	
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -466,7 +466,7 @@ The `org.openl.rules.ruleservice.conf.LastVersionProjectsServiceConfigurer` defa
 
 ##### Deployment Configuration File
 
-Default implementation of Service Configurer uses the `rules-deploy.xml` deployment configuration file from the project root folder. This file is created manually or via OpenL Tablets WebStudio. An example of the `rules-deploy.xml` file is as follows:
+Default implementation of Service Configurer uses the `rules-deploy.xml` deployment configuration file from the project root folder. This file is created manually or via OpenL Studio. An example of the `rules-deploy.xml` file is as follows:
 
 ```xml
 <rules-deploy>
@@ -486,7 +486,7 @@ Default implementation of Service Configurer uses the `rules-deploy.xml` deploym
 </rules-deploy>
 ```
 
-When deploying a project to OpenL Tablets Rule Services, if the rules-deploy.xml file is missing or publishers are not defined, only the RESTful service is deployed according to the following property:
+When deploying a project to OpenL Rule Services, if the rules-deploy.xml file is missing or publishers are not defined, only the RESTful service is deployed according to the following property:
 
 `ruleservice.publishers=RESTFUL`
 
@@ -555,7 +555,7 @@ This bean supports mapping a concrete publisher for a service configuration or u
 
 To add a publisher, use any framework by implementations of `org.openl.rules.ruleservice.publish.RuleServicePublisher `interface and register it in the `ruleServicePublisher` bean.
 
-OpenL Tablets Rule Services supports following publisher implementations out of the box:
+OpenL Rule Services supports following publisher implementations out of the box:
 
 -   [CXF REST Publisher](#cxf-rest-publisher)
 -   [RMI Publisher](#rmi-publisher)
@@ -658,7 +658,7 @@ JSON payload of the same datatype with different `serializationInclusion` proper
 </rules-deploy>
 ```
 
-OpenL Tablets Rule Services uses a Jackson library to serialize an object to JSON and deserialize JSON to an object. This library supports configuration via MixIn annotation. For more information on MixIn annotations, see Jackson documentation <https://github.com/FasterXML/jackson-docs/wiki/JacksonMixInAnnotations>.
+OpenL Rule Services uses a Jackson library to serialize an object to JSON and deserialize JSON to an object. This library supports configuration via MixIn annotation. For more information on MixIn annotations, see Jackson documentation <https://github.com/FasterXML/jackson-docs/wiki/JacksonMixInAnnotations>.
 
 To register MixIn classes for a project, annotate the MixIn class with the org.openl.rules.ruleservice.databinding.annotation.MixInClassFor or org.openl.rules.ruleservice.databinding.annotation.MixInClassFor annotation and add this class to the rules-deploy.xml deployment configuration file as described further in this section. These annotations expect the class name that is used for registering MixIn class in the object mapper.
 
@@ -759,7 +759,7 @@ By default, Kafka Publisher is not used for deployed projects. To enable it, add
 
 ####### Configuring Application Level Kafka Settings
 
-OpenL Tablets Rule Services can be configured via the `application.properties` file or environment variables. Kafka-related settings are as follows:
+OpenL Rule Services can be configured via the `application.properties` file or environment variables. Kafka-related settings are as follows:
 
 | Property name                       | Default value    | Description                                                    |
 |-------------------------------------|------------------|----------------------------------------------------------------|
@@ -903,7 +903,7 @@ Consider a rule table for which some business dimension properties are set up. T
 
 For table testing, dispatching validation is enabled by setting the dispatching.validation property value to true. The property is located in the application.properties file. In this case, versioning functionality works as for a rule that has only one version, and OpenL Tablets reviews properties values of this rule table and executes the rule if the specified properties values match runtime context. In production, this property value must be set to false.
 
-By default, the dispatching.validation value is set to false in OpenL Tablets Rule Services and to true in OpenL Tablets WebStudio.
+By default, the dispatching.validation value is set to false in OpenL Rule Services and to true in OpenL Studio.
 
 ##### Configuring a Number of Threads to Rules Compilation
 
@@ -925,7 +925,7 @@ ruleservice.instantiation.strategy.maxthreadsforcompile = 1
 
 ##### Enabling Logging to Console
 
-To enable logging all requests to OpenL Tablets Rule Services and their responds to standard output, set the `ruleservice.logging.enabled `property in the `application.properties` file to `true`. This feature is very valuable in development. By default, it is disabled.
+To enable logging all requests to OpenL Rule Services and their responds to standard output, set the `ruleservice.logging.enabled `property in the `application.properties` file to `true`. This feature is very valuable in development. By default, it is disabled.
 
 #### CORS Filter Support
 
@@ -949,9 +949,9 @@ cors.allowed.headers = Content-Type,Accept,api_key,Authorization
 cors.preflight.maxage = 7200
 ```
 
-#### Logging Requests to OpenL Tablets Rule Services and Their Responds in a Storage
+#### Logging Requests to OpenL Rule Services and Their Responds in a Storage
 
-The system provides an ability to store all requests to OpenL Tablets Rule Services and their responds in a storage. The setting is defined in the `application.properties` file. The following topics describe logging setup:
+The system provides an ability to store all requests to OpenL Rule Services and their responds in a storage. The setting is defined in the `application.properties` file. The following topics describe logging setup:
 
 -   [Understanding Logging to an External Storage](#understanding-logging-to-an-external-storage)
 -   [Enabling Logging to an External Storage](#enabling-logging-to-an-external-storage)
@@ -961,9 +961,9 @@ The system provides an ability to store all requests to OpenL Tablets Rule Servi
 
 ##### Understanding Logging to an External Storage
 
-OpenL Tablets Rule Services supports storing requests and responses for the REST and Kafka publishers in the external storage. This feature is designed to support any external storage and use the Apache Casandra out of the box.
+OpenL Rule Services supports storing requests and responses for the REST and Kafka publishers in the external storage. This feature is designed to support any external storage and use the Apache Casandra out of the box.
 
-For each request to OpenL Tablets Rule Services, the system creates an object of the `org.openl.rules.ruleservice.storelogdata.StoreLogData` class, which is populated with data during request processing and then can be stored in the configured storage. It contains the following data:
+For each request to OpenL Rule Services, the system creates an object of the `org.openl.rules.ruleservice.storelogdata.StoreLogData` class, which is populated with data during request processing and then can be stored in the configured storage. It contains the following data:
 
 | Field name           | Description                                                                                                                |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -979,7 +979,7 @@ When the logging data is collected, the system invokes the storing service respo
 
 ##### Enabling Logging to an External Storage
 
-By default, logging requests to OpenL Tablets Rule Services and their responds is disabled:
+By default, logging requests to OpenL Rule Services and their responds is disabled:
 
 ```properties
 ruleservice.store.logs.enabled = false
@@ -991,7 +991,7 @@ To enable logging, set `ruleservice.store.logs.enabled = true`.
 
 Apache Cassandra is a free and open-source, distributed, wide column storage database that can be used as external storage. To start using Apache Cassandra, proceed as follows:
 
-1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+1.  Download the OpenL Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
 
     ```sh
     mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
@@ -1012,7 +1012,7 @@ Apache Cassandra is a free and open-source, distributed, wide column storage dat
     For more information on Cassandra, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/>. For more information on connection configuration options, see <https://docs.datastax.com/en/developer/java-driver/4.5/manual/core/configuration/reference/>.
         
 3.  Before running the application, create a keyspace in Cassandra as described in <https://docs.datastax.com/en/cql/3.1/cql/cql_reference/create_keyspace_r.html>.
-4.  To create a schema in the Cassandra database, start OpenL Tablets Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
+4.  To create a schema in the Cassandra database, start OpenL Rule Services for the first time with the `ruleservice.store.logs.cassandra.schema.create = true` property.
         
     By default, this option is enabled. When the schema is created, set this property to the `false` value.
 
@@ -1036,7 +1036,7 @@ As a result, the following table with the `openl_log_data` name is created in th
 
 To start using a relational database, proceed as follows:
 
-1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+1.  Download the OpenL Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
         
     ```sh
     mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.full:<openl version here>:war -DoutputDirectory=./
@@ -1085,7 +1085,7 @@ The system uses the JDBC driver to communicate with the Hive server that process
 
 To start using Hive, proceed as follows:
 
-1.  Download the OpenL Tablets Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
+1.  Download the OpenL Rule Services full web application at <https://openl-tablets.org/downloads> or use the following Maven command:
         
     ```sh
     mvn dependency:copy -Dartifact=org.openl.rules:org.openl.rules.ruleservice.ws.all:<openl version here>:war -DoutputDirectory=./
@@ -1128,22 +1128,22 @@ As a result, the following table with the default openl_log_data name is created
 
 **Note:** Only methods annotated with org.openl.rules.ruleservice.storelogdata.hive.annotation.StoreLogDataToHive are used for storing their requests and responses to Hive. The system supports customization to use different tables for each OpenL Tablets project, use product specific table names, and configure a set of columns of the tables. For more information on customization using annotations, see [Service Customization through Annotations](#service-customization-through-annotations).
 
-## OpenL Tablets Rule Services Advanced Configuration and Customization
+## OpenL Rule Services Advanced Configuration and Customization
 
-This section describes OpenL Tablets Rule Services advanced services configuration and customization and explains the following:
+This section describes OpenL Rule Services advanced services configuration and customization and explains the following:
 
--   [OpenL Tablets Rule Services Customization Algorithm](#openl-tablets-rule-services-customization-algorithm)
+-   [OpenL Rule Services Customization Algorithm](#openl-tablets-rule-services-customization-algorithm)
 -   [Data Source Listeners](#data-source-listeners)
 -   [Service Publishing Listeners](#service-publishing-listeners)
 -   [Dynamic Interface Support](#dynamic-interface-support)
 -   [Service Customization through Annotations](#service-customization-through-annotations)
--   [Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage](#customization-of-log-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
+-   [Customization of Log Requests to OpenL Rule Services and Their Responds in a Storage](#customization-of-log-requests-to-openl-tablets-rule-services-and-their-responds-in-a-storage)
 
-### OpenL Tablets Rule Services Customization Algorithm
+### OpenL Rule Services Customization Algorithm
 
-If a project has specific requirements, OpenL Tablets Rule Services customization algorithm is as follows:
+If a project has specific requirements, OpenL Rule Services customization algorithm is as follows:
 
-1.  Create a Maven project that extends OpenL Tablets Rule Services.
+1.  Create a Maven project that extends OpenL Rule Services.
 2.  Add or change the required points of configuration.
 3.  Add the following dependency to the `pom.xml` file with the version used in the project specified:
         
@@ -1157,7 +1157,7 @@ If a project has specific requirements, OpenL Tablets Rule Services customizatio
     </dependency>
     ```
         
-1.  Use the following Maven plugin to control the OpenL Tablets Rule Services building with user’s custom configurations and classes:
+1.  Use the following Maven plugin to control the OpenL Rule Services building with user’s custom configurations and classes:
         
     ```xml
     <plugin>
@@ -1188,7 +1188,7 @@ If a project has specific requirements, OpenL Tablets Rule Services customizatio
 
 ### Data Source Listeners
 
-A data source registers data source listeners and notifies some components of OpenL Tablets Rule Services about modifications. The only available event type on the production repository modification is about newly added deployment.
+A data source registers data source listeners and notifies some components of OpenL Rule Services about modifications. The only available event type on the production repository modification is about newly added deployment.
 
 A service manager is always a data source listener because it must handle all modifications in the data source.
 
@@ -1207,7 +1207,7 @@ The `org.openl.rules.ruleservice.publisher.RuleServicePublisherListener` interfa
 
 ### Dynamic Interface Support
 
-OpenL Tablets Rule Services supports interface generation for services at runtime. This feature is called **Dynamic Interface Support.** If a static interface is not defined for a service, the system automatically generates an interface at runtime with all methods defined in the module or, in case of a multimodule, in the list of modules.
+OpenL Rule Services supports interface generation for services at runtime. This feature is called **Dynamic Interface Support.** If a static interface is not defined for a service, the system automatically generates an interface at runtime with all methods defined in the module or, in case of a multimodule, in the list of modules.
 
 This feature is enabled by default. To use a dynamic interface, do not define a static interface for a service in `rules-deploy.xml `service description file.
 
@@ -1264,7 +1264,7 @@ This section describes interface customization using annotations. The following 
 
 #### Interceptors for Methods
 
-Required Maven dependency for OpenL Tablets Rule Services annotations is org.openl.rules:org.openl.rules.ruleservice.annotation. Use the provided scope for dependency because this dependency already exists in OpenL Tablets Rule Services and it must not be included in the deployment distributive to avoid class duplication in the Java ClassLoader.
+Required Maven dependency for OpenL Rule Services annotations is org.openl.rules:org.openl.rules.ruleservice.annotation. Use the provided scope for dependency because this dependency already exists in OpenL Rule Services and it must not be included in the deployment distributive to avoid class duplication in the Java ClassLoader.
 
 Interceptors for service methods can be specified using the following annotations:
 
@@ -1513,9 +1513,9 @@ Use this annotation if more details are required to define a template method.
 
 **Note:** A user can also use class level annotations for a dynamically generated class. It can be useful for JAX-WS or JAX-RS interface customization.
 
-### Customization of Log Requests to OpenL Tablets Rule Services and Their Responds in a Storage
+### Customization of Log Requests to OpenL Rule Services and Their Responds in a Storage
 
-This section describes advanced customization for logging requests to OpenL Tablets Rule Services and their responds in a storage if different parts of the input and output data must be stored separately. It also describes how to customize a structure of tables and indexes in a storage.
+This section describes advanced customization for logging requests to OpenL Rule Services and their responds in a storage if different parts of the input and output data must be stored separately. It also describes how to customize a structure of tables and indexes in a storage.
 
 The following topics are included:
 
@@ -1534,7 +1534,7 @@ This section describes storage service used for log requests and responds and in
 
 ##### Log Request and Response Storage Service Overview
 
-OpenL Tablets Rule Services supports Apache Cassandra and relational database storages to log request and their responds out of the box. This part of the system is designed customizable and extendable via the org.openl.rules.ruleservice.storelogdata.StoreLogDataService interface to support the third-party storages.
+OpenL Rule Services supports Apache Cassandra and relational database storages to log request and their responds out of the box. This part of the system is designed customizable and extendable via the org.openl.rules.ruleservice.storelogdata.StoreLogDataService interface to support the third-party storages.
 
 The StoreLogDataService interface has the following methods:
 
@@ -1584,7 +1584,7 @@ If compound object serialization to string is required in StoreLogDataAdvice, us
 
 ##### Log Requests and Their Responds Customization Using Annotations
 
-OpenL Tablets Rule Services has annotations for mapping requests and their responds data to entity classes. The org.openl.rules: org.openl.rules.ruleservice.ws.storelogdata Maven dependency is required for the log requests and their respond annotations. Use the provided scope for dependency as it already exists in OpenL Tablets Rule Services and it must not be included in the deployment distributive to avoid class duplication in ClassLoader.
+OpenL Rule Services has annotations for mapping requests and their responds data to entity classes. The org.openl.rules: org.openl.rules.ruleservice.ws.storelogdata Maven dependency is required for the log requests and their respond annotations. Use the provided scope for dependency as it already exists in OpenL Rule Services and it must not be included in the deployment distributive to avoid class duplication in ClassLoader.
 
 The org.openl.rules.ruleservice.storelogdata.StoreLogDataMapper class maps OpenL Tablets annotations to the entity class.
 
@@ -1737,7 +1737,7 @@ CREATE TABLE IF NOT EXISTS person(
 
 #### Customization for the Relational Database
 
-OpenL Tablets Rule Services uses Hibernate implementation to store requests and their responds in the relational database.
+OpenL Rule Services uses Hibernate implementation to store requests and their responds in the relational database.
 
 To enable logging requests and their responses to the relational database, mark the method with the org.openl.rules.ruleservice.storelogdata.db.annotation.StoreLogDataToDB annotation. It resembles @StoreLogDataToCassandra described in [Log Requests and Responds Customization for Apache Cassandra](#log-requests-and-responds-customization-for-apache-cassandra), and it has entity classes as optional attributes.
 
@@ -1771,7 +1771,7 @@ public class Person {
 
 #### Customization for Hive
 
-OpenL Tablets Rule Services stores its requests and responds in Hive.
+OpenL Rule Services stores its requests and responds in Hive.
 
 To enable logging requests and their responses to Hive, mark the method with the `org.openl.rules.ruleservice.storelogdata.hive.annotation.StoreLogDataToHive` annotation. It resembles `@StoreLogDataToCassandra` described in [Log Requests and Responds Customization for Apache Cassandra](#log-requests-and-responds-customization-for-apache-cassandra), and it has entity classes as optional attributes.
 
@@ -1852,13 +1852,13 @@ Response response = webClient.get();
 
 **Note**: If you use POST request for more than one argument, create a DTO that contains field with method argument names and send this DTO object via `webClient.post()` method.
 
-## Appendix B: Projects on the OpenL Tablets Rule Services Launch
+## Appendix B: Projects on the OpenL Rule Services Launch
 
-When OpenL Tablets Rule Services is launched using the `openl:port/webservice` link, the system displays a list of deployed projects.
+When OpenL Rule Services is launched using the `openl:port/webservice` link, the system displays a list of deployed projects.
 
 ![](ruleservices_guide_images/3ea704f1152d2ec3c40eeda6d2ee51af.jpg)
 
-*List of projects displayed upon OpenL Tablets Rule Services launch*
+*List of projects displayed upon OpenL Rule Services launch*
 
 The successfully deployed projects appear with the green check mark that can be clicked to expand the list of available methods for the project.
 
@@ -1868,13 +1868,13 @@ The successfully deployed projects appear with the green check mark that can be 
 
 Projects deployed with errors are marked with the red cross mark that is clickable and displays the error message.
 
-![](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.jpg)
+![](ruleservices_guide_images/ade13adaf033517e5a0f641f1cb54cde.png)
 
 *Viewing error message for a project*
 
-## Appendix C: Types of Exceptions in OpenL Tablets Rule Services
+## Appendix C: Types of Exceptions in OpenL Rule Services
 
-The following table describes exception types in OpenL Tablets Rule Services:
+The following table describes exception types in OpenL Rule Services:
 <br/>**Cause:** error("Some message") in rules
 <br/>**Status code:** 400
 <br/>**REST:** 
@@ -1921,7 +1921,7 @@ The following table describes exception types in OpenL Tablets Rule Services:
 
 In OpenL, Swagger v3 (OpenAPI) is used. It allows directly accessing project methods, data types, and methods, and enables simple, convenient, and quick running or testing of rules deployed as services.
 
-To use Swagger, in OpenL Tablets Rule Services, click the Swagger (UI) link, select the required rule, click **Try it out,** enter input parameters, and click **Execute.**
+To use Swagger, in OpenL Rule Services, click the Swagger (UI) link, select the required rule, click **Try it out,** enter input parameters, and click **Try.**
 
 ![](ruleservices_guide_images/09a5e4fecf604849af7681cd8771ed37.png)
 
@@ -1929,7 +1929,7 @@ To use Swagger, in OpenL Tablets Rule Services, click the Swagger (UI) link, sel
 
 ## Appendix E: Programmatically Deploying Rules to a Repository
 
-If a user does not use OpenL Tablets WebStudio deploy functionality to locate a project with rules in the database repository, use the deploy(File zipFile, String config) method of the org.openl.rules.workspace.deploy.ProductionRepositoryDeployer class in the WEB-`INF\lib\org.openl.rules.workspace-5.X.X.jar library`.
+If a user does not use OpenL Studio deploy functionality to locate a project with rules in the database repository, use the deploy(File zipFile, String config) method of the org.openl.rules.workspace.deploy.ProductionRepositoryDeployer class in the WEB-`INF\lib\org.openl.rules.workspace-5.X.X.jar library`.
 
 The first method parameter zipFile contains the path to the project zip file, and the config parameter sets the location of the deployer.properties file, containing the same properties as described in [Configuring a Data Source](#configuring-a-data-source).
 
@@ -1944,7 +1944,7 @@ This appendix describes backward compatibility settings and includes the followi
 
 If the Deployment repository is created in an OpenL Tablets version older than 5.20, the **Version in deployment name** option must be enabled for backward compatibility.
 
-The 5.20 version of the OpenL Tablets Deployment repository contains only actual deployments which are exposed as services. Each new deployment updates the current deployment, while older versions are hidden in history and cannot be loaded into the RuleService directly. Different API versions of services are located in different deployments. They are distinguished by a suffix generated in OpenL Tablets WebStudio according to the API version in `rules-deploy.xml`. As a result, services are exposed more quickly. However, if a user created a repository in the OpenL Tablets version older than 5.20 and migrated to a newer OpenL Tablets Rule Services, enable the **Version in deployment name** option to expose services correctly.
+The 5.20 version of the OpenL Tablets Deployment repository contains only actual deployments which are exposed as services. Each new deployment updates the current deployment, while older versions are hidden in history and cannot be loaded into the RuleService directly. Different API versions of services are located in different deployments. They are distinguished by a suffix generated in OpenL Studio according to the API version in `rules-deploy.xml`. As a result, services are exposed more quickly. However, if a user created a repository in the OpenL Tablets version older than 5.20 and migrated to a newer OpenL Rule Services, enable the **Version in deployment name** option to expose services correctly.
 
 In this case, add the following property to the `application.properties` file:
 
@@ -1959,6 +1959,8 @@ If you create a new repository, omit this property or set it to false.
 In OpenL Tablets, **custom spreadsheet type** is used by default. To enable support of the previously created rules based on other types, in the `application.properties` configuration file, set this property to `false`.
 
 ## Appendix G: Deployment Project ZIP Structure
+
+OpenL projects without Excel files inside are supported
 
 Deployment projects described in this section can be built via **OpenL Maven Plugin** or archived manually. The following topics are included:
 
@@ -2009,7 +2011,7 @@ name: openl-multiple-project-deployment
 
 ## Appendix H: Manifest File for Deployed Projects
 
-When a user deploys the OpenL Tablets project from OpenL Tablets WebStudio or using the OpenL Tablets Maven plugin, the MANIFEST.MF file is generated. This file contains information about deployment author, deployment time, project version, and OpenL Tablets version used for deployment.
+When a user deploys the OpenL Tablets project from OpenL Studio or using the OpenL Tablets Maven plugin, the MANIFEST.MF file is generated. This file contains information about deployment author, deployment time, project version, and OpenL Tablets version used for deployment.
 
 If OpenL Tablets Maven plugin is used for deployment, the manifest file contains the following information:
 
@@ -2022,20 +2024,20 @@ If OpenL Tablets Maven plugin is used for deployment, the manifest file contains
 | Implementation-Version | Project version from the Maven pom.xml file.                                   |
 | Implementation-Vendor  | Deployment project vendor. By default, it is project organization.             |
 
-If the project is deployed in OpenL Tablets WebStudio, the manifest file contains the following information:
+If the project is deployed in OpenL Studio, the manifest file contains the following information:
 
 | Attribute            | Description                                                   |
 |----------------------|---------------------------------------------------------------|
 | Build-Date           | Current zone datetime.                                        |
 | Build-Number         | Git revision ID or database revision value.                   |
-| Built-By             | Name of the user currently logged in OpenL Tablets WebStudio. |
+| Built-By             | Name of the user currently logged in OpenL Studio. |
 | Implementation-Title | Deployment project name.                                      |
 | Branch-Name          | Git branch if the project is connected to Git.                |
-| Created-By           | OpenL Tablets WebStudio version.                              |
+| Created-By           | OpenL Studio version.                              |
 
-The manifest file is available in OpenL Tablets Rule Services, on the main page, for each deployed service.
+The manifest file is available in OpenL Rule Services, on the main page, for each deployed service.
 
-![](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.jpg)
+![](ruleservices_guide_images/989c0347237015276cece6779d16e9a8.png)
 
 *Manifest file available for the deployed project*
 
@@ -2052,7 +2054,7 @@ An example of the file contents is as follows:
     "Built-By": "openl",
     "Implementation-Title": "Sample Project",
     "Implementation-Version": "1.0-SNAPSHOT",
-    "Created-By": "OpenL WebStudio v5.26.0",
+    "Created-By": "OpenL Studio v5.26.0",
     "Build-Branch": "master",
     "Build-Number": "0123abcd968574142536fedc01cc",
   }

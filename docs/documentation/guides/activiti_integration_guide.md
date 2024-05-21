@@ -51,7 +51,7 @@ The following table describes modules included into OpenL Tablets for Activiti i
 
 ## OpenL Rule Service Integration
 
-This section describes how to use OpenL Tablets Rule Service integration via Spring Integration feature in Activiti and it uses full OpenL Tablets Rule Service functionality. That is, this type of integration does not use resources added into Activiti deployment as a rule project; instead, it uses OpenL Tablets repository as the OpenL Tablets rule projects storage.
+This section describes how to use OpenL Rule Service integration via Spring Integration feature in Activiti and it uses full OpenL Rule Service functionality. That is, this type of integration does not use resources added into Activiti deployment as a rule project; instead, it uses OpenL Tablets repository as the OpenL Tablets rule projects storage.
 
 To support this functionality in Activiti process definitions, add the `openl-ruleservice-activiti-beans.xml` bean configuration into application Spring context definition.
 
@@ -106,7 +106,7 @@ Or:
 
 ## Deploying OpenL Tablets Rules in Activiti
 
-To use OpenL Tablets rules in Activiti process definition without OpenL Tablets Rule Service, add the rules into Activiti deployment as a resource.
+To use OpenL Tablets rules in Activiti process definition without OpenL Rule Service, add the rules into Activiti deployment as a resource.
 
 An example is as follows:
 
