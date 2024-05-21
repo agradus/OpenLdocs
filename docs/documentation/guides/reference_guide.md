@@ -1021,11 +1021,11 @@ In decision tables, you can reference expressions used in various parts of the t
 
 1) Referencing Expressions in Rule Headers:
 
-Use $Expr.C1 to refer to an expression used for the condition C1. This notation directly connects to the expression used for condition C1, facilitating a straightforward link to the relevant expression within any column category, such as condition (C1), action (A1), or return (RET1), in your table. This method enhances clarity and precision in identifying and working with specific expressions.
+Use **$Expr.C1** to refer to an expression used for the condition C1. This notation directly connects to the expression used for condition C1, facilitating a straightforward link to the relevant expression within any column category, such as condition (C1), action (A1), or return (RET1), in your table. This method enhances clarity and precision in identifying and working with specific expressions.
 
 2) Referencing Expressions in Rule Rows:
 
-To reference expressions in decision table rules effectively, it's important to use named parameters. For example, using $Expr.$C1.param1 specifically targets the expression linked to param1 within condition C1 for a given rule. Remember, this method requires that parameters be named, as unnamed parameters are not compatible in this scenario. This approach ensures precise and clear reference to specific expressions in your decision table. In scenarios where your decision table has distinct, unambiguous parameters, you can opt for a more streamlined syntax like $Expr.param1. This simplified approach is particularly advantageous when working with external conditions, actions, or returns in smart tables that support external column definitions, such as SmartRules or SmartLookup. This method not only enhances efficiency but also maintains clarity in referencing specific parameters in your decision-making process.
+To reference expressions in decision table rules effectively, it's important to use named parameters. For example, using **$Expr.$C1.param1** specifically targets the expression linked to param1 within condition C1 for a given rule. Remember, this method requires that parameters be named, as unnamed parameters are not compatible in this scenario. This approach ensures precise and clear reference to specific expressions in your decision table. In scenarios where your decision table has distinct, unambiguous parameters, you can opt for a more streamlined syntax like **$Expr.param1**. This simplified approach is particularly advantageous when working with external conditions, actions, or returns in smart tables that support external column definitions, such as SmartRules or SmartLookup. This method not only enhances efficiency but also maintains clarity in referencing specific parameters in your decision-making process.
 
 Note: Handling Cells Without Expressions
 If a cell, which is expected to contain an expression or formula, is empty, it will return null. This approach ensures proper handling of cells that don't include expressions.
@@ -1034,8 +1034,8 @@ Understanding Expression Types:
 
 An expression is a complex type with two key attributes:  
 
-ast: This stands for Abstract Syntax Tree, which is a tree representation showing the syntactic structure of the expression.  
-textValue: This is a string representation of the expression, useful for easy reading or logging purposes.
+**ast**: This stands for Abstract Syntax Tree, which is a tree representation showing the syntactic structure of the expression.  
+**textValue**: This is a string representation of the expression, useful for easy reading or logging purposes.
   
 An example is as follows.
 
