@@ -1043,8 +1043,6 @@ An example is as follows.
 
 *Using references to expressions*
 
-
-
 If 5 is provided as input parameter, the returned result is =hour < 8. If 15 is an input provider, hour <18.
 
 #### Datatype Table
