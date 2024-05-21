@@ -20,7 +20,7 @@ The following table lists sources of information related to contents of this gui
 
 | Title                                                                                                                                                       | Description                                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
+| [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Document describing OpenL Studio, a web application for managing OpenL Tablets projects through a web browser. |
 | <https://openl-tablets.org/>                                                                                                                                | OpenL Tablets open source project website.                                                                                |
 
 ### Typographic Conventions
@@ -108,25 +108,25 @@ The following diagram displays how OpenL Tablets is used by different types of u
 
 A typical lifecycle of an OpenL Tablets project is as follows:
 
-1.  A business analyst creates an OpenL Tablets project in OpenL Tablets WebStudio.
+1.  A business analyst creates an OpenL Tablets project in OpenL Studio.
 2.  Optionally, development team may provide the analyst with a project in case of complex configuration.
 3.  The business analyst creates correctly structured tables in Excel files based on requirements and includes them in the project.
     
-    Typically, this task is performed through Excel or OpenL Tablets WebStudio in a web browser.
+    Typically, this task is performed through Excel or OpenL Studio in a web browser.
     
-1.  Business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
+1.  Business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Studio.
     
     As a result, fully working rules are created and ready to be used.
     
 1.  Development team creates other parts of the solution and employs business rules directly through the OpenL Tablets engine or remotely through web services.
 2.  Whenever required, a business user updates or adds new rules to project tables.
 
-OpenL Tablets business rules management applications, such as OpenL Tablets WebStudio, Rules Repository, and OpenL Tablets Rule Services, can be set up to provide self-service environment for business user changes.
+OpenL Tablets business rules management applications, such as OpenL Studio, Rules Repository, and OpenL Rule Services, can be set up to provide self-service environment for business user changes.
 
 ### Installing OpenL Tablets
 
-OpenL Tablets installation instructions are provided in [OpenL Tablets Installation Guide > Deploying OpenL Tablets WebStudio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio).
-The development environment is required only for creating OpenL Tablets projects and launching OpenL Tablets WebStudio or OpenL Tablets Rule Services. If OpenL Tablets projects are accessed through OpenL Tablets WebStudio or web services, no specific software needs to be installed.
+OpenL Tablets installation instructions are provided in [OpenL Tablets Installation Guide > Deploying OpenL Studio](https://openldocs.readthedocs.io/en/latest/documentation/guides/installation_guide/#deploying-openl-tablets-webstudio).
+The development environment is required only for creating OpenL Tablets projects and launching OpenL Studio or OpenL Rule Services. If OpenL Tablets projects are accessed through OpenL Studio or web services, no specific software needs to be installed.
 
 ### Tutorials and Examples
 
@@ -143,7 +143,7 @@ OpenL Tablets provides a set of the tutorial projects demonstrating basic OpenL 
 
 To create a tutorial project, proceed as follows:
 
-1.  To open Repository Editor, in OpenL Tablets WebStudio, in the top line menu, click the **Repository** item.
+1.  To open Repository Editor, in OpenL Studio, in the top line menu, click the **Repository** item.
 2.  Click the **Create Project** button ![](ref_guide_images/22ea40949420dc3bdd150c652a5e91a7.png).
 3.  In the **Create Project from** window, click the required tutorial name.
 4.  Click **Create** to complete.
@@ -160,13 +160,13 @@ The project is displayed in the **Projects** list and available for usage. It is
 
 ![](ref_guide_images/454d965cb7e291d25f4f1b419e074285.png)
 
-*Tutorial project in the OpenL Tablets WebStudio*
+*Tutorial project in the OpenL Studio*
 
 #### Examples
 
 In addition to tutorials, OpenL Tablets provides several example projects that demonstrate how OpenL Tablets can be used in various business domains.
 
-To create an example project, follow the steps described in [Tutorials](#tutorials), and in the **Create Project from** dialog, select an example to explore. When completed, the example appears in the OpenL Tablets WebStudio Rules Editor.
+To create an example project, follow the steps described in [Tutorials](#tutorials), and in the **Create Project from** dialog, select an example to explore. When completed, the example appears in the OpenL Studio Rules Editor.
 
 ## Creating Tables for OpenL Tablets
 
@@ -409,7 +409,7 @@ During rules execution, the system checks condition and input values on equality
 
 In the example above, the **driverType** value is compared with values from the **Type of Driver** column, the **maritalStatus** value is compared with the **Marital Status** column values, and the value from the **Driver Premium** column is returned as the result.
 
-**Note:** To insure the system checks a condition with an appropriate input parameter, the user can ”hover” with a mouse over the column title and see the hint with this information in OpenL Tablets WebStudio.
+**Note:** To insure the system checks a condition with an appropriate input parameter, the user can ”hover” with a mouse over the column title and see the hint with this information in OpenL Studio.
 
 If a string value of the condition contains a comma, the value must be delimited with the backslash (\\) separator followed by the comma. Otherwise, it is treated as an array of string elements as described in [Ranges and Arrays in Smart and Simple Decision Tables](#ranges-and-arrays-in-smart-and-simple-decision-tables):
 
@@ -465,7 +465,7 @@ In the example below, the rule **VehicleDiscount** determines the vehicles’s d
 
 *Smart rules table with compound return value*
 
-**Note:** To insure the system matches the return column with an appropriate return object field, the user can ”hover” over the column title and see the hint with this information in WebStudio.
+**Note:** To insure the system matches the return column with an appropriate return object field, the user can ”hover” over the column title and see the hint with this information in OpenL Studio.
 
 **Note:** Return object fields are automatically filled in with input values if the return field name and input field name are matched.
 
@@ -574,7 +574,7 @@ Conditions, returns, and actions declarations can be separated and stored in spe
 
 *Using external conditions in a smart rules table*
 
-In this example, the first condition definition is taken from a separate Conditions table, an external table, and matched by column titles **Agency** and **Rating of Agency.** In OpenL Tablets WebStudio, such titles have links leading to the corresponding table. Other conditions are matched implicitly with input parameters by their names. In OpenL Tablets WebStudio, such titles have hints with all corresponding information.
+In this example, the first condition definition is taken from a separate Conditions table, an external table, and matched by column titles **Agency** and **Rating of Agency.** In OpenL Studio, such titles have links leading to the corresponding table. Other conditions are matched implicitly with input parameters by their names. In OpenL Studio, such titles have hints with all corresponding information.
 
 Names of external tables have higher priority over input parameters. First of all, the engine checks if an external table with such name exists and if it is not found, the engine treats the column title as an input parameter. In the preceding example, OpenL Tablets first searches for an external table named **Agency** and finds it. Otherwise, the engine would treat **Agency** as input parameter.
 
@@ -769,9 +769,9 @@ To speed up rules execution, put simple conditions before more complicated ones.
 
 The main benefit of this approach is performance: expected results are found much faster.
 
-OpenL Tablets enables users to create and maintain tests to ensure reliable work of all rules. A business analyst performs unit and integration tests by creating test tables on rules through OpenL Tablets WebStudio. As a result, fully working rules are created and ready to be used.
+OpenL Tablets enables users to create and maintain tests to ensure reliable work of all rules. A business analyst performs unit and integration tests by creating test tables on rules through OpenL Studio. As a result, fully working rules are created and ready to be used.
 
-For test tables, to test the rule table performance, a business analyst uses the Benchmark functionality. For more information on this functionality, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+For test tables, to test the rule table performance, a business analyst uses the Benchmark functionality. For more information on this functionality, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 
 ##### Transposed Decision Tables
@@ -888,7 +888,7 @@ For more information on these data types used for ranges, see [Range Data Types]
 
 ##### Using Calculations in Table Cells
 
-OpenL Tablets can perform mathematical calculations involving method input parameters in table cells. For example, instead of returning a concrete number, a rule can return a result of a calculation involving one of the input parameters. The calculation result type must match the type of the cell. When editing tables in Excel files, start the text in the cells containing calculations with an apostrophe followed by =, and for the tables in OpenL Tablets WebStudio, start the text with =, without an apostrophe. Excel treats such values as a plain text.
+OpenL Tablets can perform mathematical calculations involving method input parameters in table cells. For example, instead of returning a concrete number, a rule can return a result of a calculation involving one of the input parameters. The calculation result type must match the type of the cell. When editing tables in Excel files, start the text in the cells containing calculations with an apostrophe followed by =, and for the tables in OpenL Studio, start the text with =, without an apostrophe. Excel treats such values as a plain text.
 
 The following decision table demonstrates calculations in table cells.
 
@@ -1455,7 +1455,7 @@ Application runtime context values are defined in the runtime environment. Test 
 
 For a full list of runtime context variables available, their description, and related Business Dimension versioning properties, see [Context Variables Available in Test Tables](#context-variables-available-in-test-tables).
 
-Tests are numbered automatically. In addition to that, ID (*id*) can be assigned to the test table thus enabling a user to use it for running specific test tables by their IDs as described in [OpenL Tablets WebStudio Guide > Defining the ID Column for Test Cases](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#defining-the-id-column-for-test-cases).
+Tests are numbered automatically. In addition to that, ID (*id*) can be assigned to the test table thus enabling a user to use it for running specific test tables by their IDs as described in [OpenL Studio Guide > Defining the ID Column for Test Cases](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#defining-the-id-column-for-test-cases).
 
 The **\_description\_** column can be used for entering useful information.
 
@@ -1465,7 +1465,7 @@ The **\_error\_** column of the test table can be used for a test algorithm wher
 
 *An example of a test table with an expected error column*
 
-If OpenL Tablets projects are accessed and modified through OpenL Tablets WebStudio, UI provides convenient utilities for running tests and viewing test results. For more information on using OpenL Tablets WebStudio, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+If OpenL Tablets projects are accessed and modified through OpenL Studio, UI provides convenient utilities for running tests and viewing test results. For more information on using OpenL Studio, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 ##### Context Variables Available in Test Tables
 
@@ -1695,7 +1695,7 @@ It is common practice to create a spreadsheet table with two columns only: **Ste
 -   values of other data types
 -   formulas, which can be mathematical expressions, rule calls, and other operators or functions
 
-Formulas are preceded by an apostrophe followed by = if editing a table in Excel, or directly with = if editing a table in OpenL Tablets WebStudio.
+Formulas are preceded by an apostrophe followed by = if editing a table in Excel, or directly with = if editing a table in OpenL Studio.
 
 -   another cell value or a range of another cell values referenced in a cell formula
 
@@ -1721,7 +1721,7 @@ The data type for each cell can be determined by OpenL Tablets automatically or 
 
 **Note:** If both column and row of the cell have a data type specified, the data type of the column is taken.
 
-In OpenL Tablets Rule Services, spreadsheet output can be customized by adding or removing rows and columns to display as described in [Spreadsheet Result Output Customization](#spreadsheet-result-output-customization).
+In OpenL Rule Services, spreadsheet output can be customized by adding or removing rows and columns to display as described in [Spreadsheet Result Output Customization](#spreadsheet-result-output-customization).
 
 The following topics are included in this section:
 
@@ -1797,7 +1797,7 @@ An example of using a range this way in the **TotalAmount** column is as follows
 
 ##### Auto Type Discovery Usage
 
-OpenL Tablets determines the cell data type automatically without its definition for a row or column. A user can turn on or off this behavior using the **autotype** property. If any row or column contains explicit data type definition, it supersedes automatically determined data type. The following example demonstrates that any data type can be correctly determined in auto mode. A user can put the mouse cursor over the “=” symbol to check the type of the cell value in OpenL Tablets WebStudio.
+OpenL Tablets determines the cell data type automatically without its definition for a row or column. A user can turn on or off this behavior using the **autotype** property. If any row or column contains explicit data type definition, it supersedes automatically determined data type. The following example demonstrates that any data type can be correctly determined in auto mode. A user can put the mouse cursor over the “=” symbol to check the type of the cell value in OpenL Studio.
 
 ![](ref_guide_images/a4544122be707709459b3607776a75b0.png)
 
@@ -2141,7 +2141,7 @@ Simplified syntax is used to pull results from a spreadsheet table if a spreadsh
 
 Columns marked with the grey color determine income values, and columns marked with yellow determine the expected values for a specific number of cells. It is possible to test as many cells as needed.
 
-The result of running this test in OpenL Tablets WebStudio is provided in the following output table.
+The result of running this test in OpenL Studio is provided in the following output table.
 
 ![](ref_guide_images/2ec745ab5fb408d59eb5094714b2d643.png)
 
@@ -2431,18 +2431,18 @@ Properties defined at the category or module level can be overridden in tables. 
 
 Some properties can have default values. A **default value** is a predefined value that can be changed only in the OpenL Tablets configuration. The default value is used if no property value is defined in the rule table or in the **Properties** table.
 
-Properties defined by default are not added to the table's properties section and can only be changed in the **Properties** pane on the right side of OpenL Tablets WebStudio Rules Editor.
+Properties defined by default are not added to the table's properties section and can only be changed in the **Properties** pane on the right side of OpenL Studio Rules Editor.
 
 #### System Properties
 
-System properties can only be set and updated by OpenL Tablets, not by users. OpenL Tablets WebStudio defines the following system properties:
+System properties can only be set and updated by OpenL Tablets, not by users. OpenL Studio defines the following system properties:
 
 -   Created By
 -   Created On
 -   Modified By
 -   Modified On
 
-For more information on system properties, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+For more information on system properties, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 #### Properties for a Particular Table Type
 
@@ -2572,7 +2572,7 @@ The rule names and their structure are the same but with the factor values diffe
 
 To create the rule for the year 2012, proceed as follows:
 
-1.  To copy the rule table, use the **Copy as New Business Dimension** feature in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide, Creating Tables by Copying section](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#creating-tables-by-copying).
+1.  To copy the rule table, use the **Copy as New Business Dimension** feature in OpenL Studio as described in [OpenL Studio Guide, Creating Tables by Copying section](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/#creating-tables-by-copying).
 2.  Change effective and expiration dates to 1/1/2012 and 12/31/2012 appropriately.
 3.  Replace the factors as appropriate for the year 2012.
 
@@ -2831,10 +2831,10 @@ The following table provides a list of **Info** properties along with their brie
 | Category    | category                       | Category, Table                                       | String   | Category of the table. <br/>By default, it is equal to the name of the Excel sheet where the table is located. <br/>If the property level is specified as **Table**, it defines a category for the current table. <br/>It must be specified if scope is defined as **Category** in the **Properties** table. |
 | Description | description                    | Table                                                 | String   | Description of a table that clarifies use of the table. <br/>An example is *Car price for a particular Location/Model*.                                                                                                                                                                            |
 | Tags        | tags                           | Table                                                 | String[] | Tag that can be used for search. <br/>The value can consist of any number of comma-separated tags.                                                                                                                                                                                                 |
-| Created By  | createdBy                      | Table                                                 | String   | Name of a user who created the table in OpenL Tablets WebStudio.                                                                                                                                                                                                                              |
-| Created On  | createdOn                      | Table                                                 | Date     | Date of table creation in OpenL Tablets WebStudio.                                                                                                                                                                                                                                            |
-| Modified By | modifiedBy                     | Table                                                 | String   | Name of a user who last modified the table in OpenL Tablets WebStudio.                                                                                                                                                                                                                        |
-| Modified On | modifiedOn                     | Table                                                 | Date     | Date of the last table modification in OpenL Tablets WebStudio.                                                                                                                                                                                                                               |
+| Created By  | createdBy                      | Table                                                 | String   | Name of a user who created the table in OpenL Studio.                                                                                                                                                                                                                              |
+| Created On  | createdOn                      | Table                                                 | Date     | Date of table creation in OpenL Studio.                                                                                                                                                                                                                                            |
+| Modified By | modifiedBy                     | Table                                                 | String   | Name of a user who last modified the table in OpenL Studio.                                                                                                                                                                                                                        |
+| Modified On | modifiedOn                     | Table                                                 | Date     | Date of the last table modification in OpenL Studio.                                                                                                                                                                                                                               |
 
 #### Dev Properties
 
@@ -3083,7 +3083,7 @@ Precision can be zero or a negative value, Integer numbers only.
 
 **Module level properties**, or table properties applied to all tables of a module, can be defined in the module file name. These properties are usually specified when the logic of the whole project must be split by certain major parameters, such as country, state, or date. The following conditions must be met for such properties definition:
 
--   A file name pattern is configured directly in a rules project descriptor, in the `rules.xml` file, as the `properties-file-name-pattern `tag, or via OpenL Tablets WebStudio as **Properties pattern for a file name** in the **Project** page.
+-   A file name pattern is configured directly in a rules project descriptor, in the `rules.xml` file, as the `properties-file-name-pattern `tag, or via OpenL Studio as **Properties pattern for a file name** in the **Project** page.
 -   The module file name matches the pattern.
 
 The file name pattern can include the following:
@@ -3117,7 +3117,7 @@ In the following example, the **Bank Rating** project is configured in the way s
 
 ![](ref_guide_images/9c97ae9fab81cb2886dbcd8b0cbd6ddf.jpeg)
 
-*File name pattern configured via OpenL Tablets WebStudio*
+*File name pattern configured via OpenL Studio*
 
 ![](ref_guide_images/54e083c05fb89c951a71023586247217.png)
 
@@ -3882,7 +3882,7 @@ The following topics are included in this chapter:
 
 ### Project Structure
 
-The best way to use the OpenL Tablets rule technology in a solution is to create an OpenL Tablets project in OpenL Tablets WebStudio. A typical OpenL Tablets project contains Excel files which are physical storage of rules and data in the form of tables. No Excel functionality, such as formulas and tab references, is used in OpenL Tablets. On the logical structure level, Excel files represent modules of the project where each Excel file is considered as one module.
+The best way to use the OpenL Tablets rule technology in a solution is to create an OpenL Tablets project in OpenL Studio. A typical OpenL Tablets project contains Excel files which are physical storage of rules and data in the form of tables. No Excel functionality, such as formulas and tab references, is used in OpenL Tablets. On the logical structure level, Excel files represent modules of the project where each Excel file is considered as one module.
 
 When creating a project, the decision if and how to divide tables into one or many Excel files, or modules, is driven by the idea of how to present business logic in the most structural way. Generally, it depends on the project size. For a small project, all tables can fit in one file. For a bigger sized project, it is a good practice to divide tables per file according to their business purposes: datatype tables in one file, lookup tables in another file, decision tables and spreadsheet tables in the third file, and tests in the fourth file and so on. The number of files, or module, per project is unlimited.
 
@@ -3890,7 +3890,7 @@ Additionally, a project can contain `rules.xml`, Java classes, JAR files, Groovy
 
 Thereby, the structure can be adjusted according to the developer’s preferences, for example, to comply with the Maven structure.
 
-**Note for experienced users:** The `rules.xml `project file is a rules project descriptor that contains project and configuration details. For instance, a user may redefine a module name there that is the same as a name of the correspoturns a copy of the current runtime context.nding Excel file by default. When updating project details via OpenL Tablets WebStudio, the `rules.xml `file is automatically created or updated accordingly.  
+**Note for experienced users:** The `rules.xml `project file is a rules project descriptor that contains project and configuration details. For instance, a user may redefine a module name there that is the same as a name of the correspoturns a copy of the current runtime context.nding Excel file by default. When updating project details via OpenL Studio, the `rules.xml `file is automatically created or updated accordingly.  
 For more information on configuring `rules.xml, `see [OpenL Tablets Developers Guide > Rules Project Descriptor](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
 The following topics are included in this section:
@@ -3909,7 +3909,7 @@ To run a rule table from another project, connect projects by dependencies as de
 
 #### Creating a Project
 
-The simplest way to create an OpenL Tablets project is to create a project from template in the installed OpenL Tablets WebStudio.
+The simplest way to create an OpenL Tablets project is to create a project from template in the installed OpenL Studio.
 
 A new project is created containing simple template files that users can apply as the basis for a custom rule solution.
 
@@ -3999,7 +3999,7 @@ If the project dependency does not have the **All Modules** setting enabled, dep
 
 ![](ref_guide_images/9eb5fa2cced50e13e5a74ef055012aa7.jpeg)
 
-*Defining dependencies for projects in OpenL Tablets WebStudio*
+*Defining dependencies for projects in OpenL Studio*
 
 After adding a dependency, all its rules, data fields, and data types are accessible from the root module. The root module can call dependency rules.
 
@@ -4039,7 +4039,7 @@ This section describes dependencies configuration.
 
 For more information on configuring rules.xml, see [OpenL Tablets Developers Guide > Rules Project Descriptor](https://openldocs.readthedocs.io/en/latest/documentation/guides/developer_guide#rules-project-descriptor).
 
-By a business user, project dependencies are easily set and updated in OpenL Tablets WebStudio as described in [OpenL Tablets WebStudio Guide > Defining Project Dependencies](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide#defining-project-dependencies).
+By a business user, project dependencies are easily set and updated in OpenL Studio as described in [OpenL Studio Guide > Defining Project Dependencies](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide#defining-project-dependencies).
 
 A project can contain any number of dependencies. Dependency projects may also have dependencies. Avoid cyclic dependencies.
 
@@ -4455,7 +4455,7 @@ This chapter provides a complete list of functions available in OpenL Tablets an
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **copy**(object)                                                                                                                                                                                 | Copies an object for independent modification from the original object. <br/>This functionality is implemented to support variations from rules.                                                                                                                                                                                                                                                                                                                                                            |         
 | **error**(String “msg”)                                                                                                                                                                          | Displays the error message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         
-| **error**(String code, String message)                                                                                                                                                                          | Returns a custom error with custom error code, both defined as arguments, in the HTTP response, <br/>OpenL Tablets WebStudio UI, and in the logs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         
+| **error**(String code, String message)                                                                                                                                                                          | Returns a custom error with custom error code, both defined as arguments, in the HTTP response, <br/>OpenL Studio UI, and in the logs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         
 | **fieldname**(object)                                                                                                                                                                            | Returns a value from the specified field of the object <br/>`age(driver)` is the same as `driver.age`; <br/>`age(drivers)` returns the ages list of all drivers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         
 | **format**(pattern, parameters)                                                                                                                                                                          | Returns values according to the specified pattern.  <br/>**Example:** <br/>format("The user {1} has policy number {0}","P2289818293","Alex") <br/>returns <br/>"The user Alex has policy number P2289818293".                                                                                                                                                                                                                                                                                                                                                              | 
 | **getValues**(MyVocabularyDatatype)                                                                                                                                                              | Returns an array of values from the MyVocabularyDatatype vocabulary data type. <br/>Returns MyVocabularyDatatype[] .                                                                                                                                                                                                                                                                                                                                                                                           |         
