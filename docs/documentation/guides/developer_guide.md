@@ -17,10 +17,10 @@ Basic knowledge of Java, Ant, and Microsoft Excel is required to use this guide 
 ### Related Information
 The following table lists sources of information related to contents of this guide:
 
-| Title                                                                                                                                                       | Description                                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Document describing OpenL Tablets WebStudio, a web application for managing OpenL Tablets projects through a web browser. |
-| [https://openl-tablets.org/](https://openl-tablets.org/)                                                                                                  | OpenL Tablets open source project website.                                                                                |
+| Title                                                                                                      | Description                                                                                                               |
+|------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide) | Document describing OpenL Studio, a web application for managing OpenL Tablets projects through a web browser. |
+| [https://openl-tablets.org/](https://openl-tablets.org/)                                                   | OpenL Tablets open source project website.                                                                                |
 
 ### Typographic Conventions
 The following styles and conventions are used in this guide:
@@ -97,9 +97,9 @@ For more information on wrappers, see [Using OpenL Tablets Rules from Java Code]
 #### Execution Mode for OpenL Project
 Execution mode for OpenL project is a light weight compilation mode that enables only evaluating of rules; but editing, tracing and search are not available. Since the Engine will not load test tables and keep debug information in memory in this mode, memory consumption is up to 5 times less than for debug mode.
 
-By default, the execution mode (`exectionMode=true`) is used in OpenL Tablets Rule Services.
+By default, the execution mode (`exectionMode=true`) is used in OpenL Rule Services.
 
-The debug mode (`exectionMode=false`) is used by default in OpenL Tablets WebStudio.
+The debug mode (`exectionMode=false`) is used by default in OpenL Studio.
 
 Flag indicating required mode is introduced in runtime API and in wrappers.
 
@@ -116,26 +116,26 @@ The following diagram displays how OpenL Tablets is used by different types of u
 
 A typical lifecycle of an OpenL Tablets project is as follows:
 
-1.  A business analyst creates a new OpenL Tablets project in OpenL Tablets WebStudio.
+1.  A business analyst creates a new OpenL Tablets project in OpenL Studio.
 	Optionally, development team may provide the analyst with a project in case of complex configuration.
-	The business analyst also creates correctly structured tables in Excel files based on requirements and includes them in the project. Typically, this task is performed through Excel or OpenL Tablets WebStudio in a web browser.
-2.  The business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Tablets WebStudio.
+	The business analyst also creates correctly structured tables in Excel files based on requirements and includes them in the project. Typically, this task is performed through Excel or OpenL Studio in a web browser.
+2.  The business analyst performs unit and integration tests by creating test tables and performance tests on rules through OpenL Studio.
 	As a result, fully working rules are created and ready to be used.
 3.  A developer adds configuration to the project according to application needs.
 	Alternatively, they can create a new OpenL Tablets project in their IDE via OpenL Maven Archetype and adjust it to use business user input.
 4.  A developer employs business rules directly through the OpenL Tablets engine or remotely through web services.
 5.  Whenever required, the business user updates or adds new rules to project tables.
 
-OpenL Tablets business rules management applications, such as OpenL Tablets WebStudio, Rules Repository, and Rule Services Core, can be set up to provide self-service environment for business user changes.
+OpenL Tablets business rules management applications, such as OpenL Studio, Rules Repository, and Rule Services Core, can be set up to provide self-service environment for business user changes.
 
 ### Quick Start with OpenL Tablets
-OpenL Tablets provide a few ways to create a project. We recommend using Simple Project Maven Archetype approach for creating a project for the first time or create it via OpenL Tablets WebStudio. For more information on approaches for creating a project with detailed descriptions, see [How to Start with OpenL Rules Project](#how-to-start-with-openl-rules-project).
+OpenL Tablets provide a few ways to create a project. We recommend using Simple Project Maven Archetype approach for creating a project for the first time or create it via OpenL Studio. For more information on approaches for creating a project with detailed descriptions, see [How to Start with OpenL Rules Project](#how-to-start-with-openl-rules-project).
 
-After a project is created, a zip or Excel file for importing the project to OpenL Tablets WebStudio can be used. For more information on importing an existing project into OpenL Tablets WebStudio, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+After a project is created, a zip or Excel file for importing the project to OpenL Studio can be used. For more information on importing an existing project into OpenL Studio, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
-OpenL Tablets WebStudio provides convenient UI to work with rules. However, its usage can be avoided by working with rules from IDE only using the OpenL Tablets Maven plugin. The plugin provides compilation and testing of rules and wrapper generation support.
+OpenL Studio provides convenient UI to work with rules. However, its usage can be avoided by working with rules from IDE only using the OpenL Tablets Maven plugin. The plugin provides compilation and testing of rules and wrapper generation support.
 
-Also, OpenL Tablets has OpenL Tablet Demo Package available at <https://openl-tablets.org/>. A demo is a zip file that contains a Tomcat with configured OpenL Tablets WebStudio and OpenL Tablets Rule Services projects. It can be used to effectively start using OpenL Tablets products.
+Also, OpenL Tablets has OpenL Tablet Demo Package available at <https://openl-tablets.org/>. A demo is a zip file that contains a Tomcat with configured OpenL Studio and OpenL Rule Services projects. It can be used to effectively start using OpenL Tablets products.
 
 ## OpenL Tablets Rules Projects
 This chapter describes how to create and use OpenL Tablets Rules projects.
@@ -245,7 +245,7 @@ The module configurations are as follows:
 
 | Tag          | Required | Description                                                                                                                                                                                                                                         |
 |--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name         | yes/no   | Module name. It is a string value which defines a user-friendly module name.  <br/>**Note:** It is used by OpenL Tablets WebStudio application as a module display name. It is not required for modules defined via wildcard.                            |
+| name         | yes/no   | Module name. It is a string value which defines a user-friendly module name.  <br/>**Note:** It is used by OpenL Studio application as a module display name. It is not required for modules defined via wildcard.                            |
 | type         | yes      | Module instantiation type. Possible values are case-insensitive and can be **dynamic**, **api**, or **static** (deprecated). <br/>It defines the way of OpenL project instantiation.                                                                     |
 | classname    | yes/no   | Name of rules interface. It is used together with *type*. It is not required for the **api** type.                                                                                                                                                  |
 | method-filer | no       | Filter that defines tables to be used for interface generation. Java regular expression can be used to define a filter for multiple methods.                                                                                                        |
@@ -296,13 +296,13 @@ Resolving strategies used by default are as follows:
 Firstly, an OpenL Tablets project must be created. It can be done in the following ways:
 
 -   using Maven archetype
--   using OpenL Tablets WebStudio
+-   using OpenL Studio
 -   manually
 
 See the following sections for detailed information:
 
 -   [Creating a Project Using the Maven Archetype](#creating-a-project-using-the-maven-archetype)
--   [Creating a Project in OpenL Tablets WebStudio](#creating-a-project-in-openl-tablets-webstudio)
+-   [Creating a Project in OpenL Studio](#creating-a-project-in-openl-tablets-webstudio)
 -   [Creating a Project Manually](#creating-a-project-manually)
 -   [Editing Rules](#editing-rules)
 -   [Using OpenL Tablets Rules from Java Code](#using-openl-tablets-rules-from-java-code)
@@ -329,38 +329,38 @@ To create a project using the Maven archetype, proceed as follows:
 	mvn install
 	```
 	After executing this command, the following files can be found in the target folder:
-1.  zip file with "-deployable" suffix for importing the project to OpenL Tablets WebStudio.
-	For more information, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+1.  zip file with "-deployable" suffix for importing the project to OpenL Studio.
+	For more information, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 1.  zip file (with "-runnable" suffix) that can be executed after extracting it.
 	It demonstrates how OpenL Tablets rules can be invoked from Java code.
 1.  jar file that contains only compiled Java classes.
 	This jar can be put in classpath of the project and used as a depended library.
 
-#### Creating a Project in OpenL Tablets WebStudio
-OpenL Tablets WebStudio allows users to create new rule projects in the Repository in one of the following ways:
+#### Creating a Project in OpenL Studio
+OpenL Studio allows users to create new rule projects in the Repository in one of the following ways:
 
 -   creating a rule project from template
 -   creating a rule project from Excel files
 -   creating a rule project from zip archive
 -   importing a rule project from workspace
 
-The following diagram explains how projects are stored in OpenL Tablets WebStudio and then deployed and used by OpenL Tablets Rule Services:
+The following diagram explains how projects are stored in OpenL Studio and then deployed and used by OpenL Rule Services:
 
 ![](developer_guide_images/cfe626306d566bf04e35710addf90c86.png)
 
-*OpenL Tablets WebStudio and OpenL Tablets Rule Services Integration*
+*OpenL Studio and OpenL Rule Services Integration*
 
 When a user starts editing a project, it is extracted from Design Repository and placed in the file system, in a user workspace. The project becomes locked in Design Repository for editing by other users. After editing is finished, the user saves the project. An updated version of the project is saved to Design Repository and becomes available for editing by other users.
 
-OpenL Tablets Rule Services use separate repository instance, Production Repository. OpenL Tablets WebStudio can be configured to deploy complete and tested rules projects to that repository.
+OpenL Rule Services use separate repository instance, Production Repository. OpenL Studio can be configured to deploy complete and tested rules projects to that repository.
 
-For more information, see [OpenL Tablets WebStudio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
+For more information, see [OpenL Studio Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide).
 
 #### Creating a Project Manually
 OpenL does not oblige a user to use predefined ways of project creation and enables using the user’s own project structure. The [Project Resolving](#project-resolving) mechanism can be used as a base for the project structure definition. Depending on the resolving strategy, more or less files and folders are to be created, but several project elements definition is mandatory. For more information on manually creating a project, see [OpenL Rules Project](#openl-rules-project).
 
 #### Editing Rules
-When a project is created, business rules must be defined. It can be done using OpenL Tablets WebStudio or manually using MS Excel. If the simple rules project is used, there are several simple predefined rules that can be used as an example.
+When a project is created, business rules must be defined. It can be done using OpenL Studio or manually using MS Excel. If the simple rules project is used, there are several simple predefined rules that can be used as an example.
 
 #### Using OpenL Tablets Rules from Java Code
 For access to rules and data in Excel tables, OpenL Tablets API is used. OpenL Tablets provides a wrapper to facilitate easier usage.
@@ -583,19 +583,19 @@ In this case, classes and rules project descriptor, `rules.xml`, is generated on
 
 Each `<generateInterface>` section has a number of parameters described in the following table.
 
-| Name                   | Type      | Required | Description                                                                                                                                                                                                                                                                                 |
-|------------------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `srcFile`              | `String`  | `true`   | Reference to the Excel file for which an interface class must be generated.                                                                                                                                                                                                              |
-| `targetClass`          | `String`  | `true`   | Full name of the interface class to be generated. <br/>OpenL Tablets WebStudio recognizes modules in projects by interface classes and uses their names in UI. <br/>If there are multiple wrappers with identical names, only one is recognized as a module in OpenL Tablets WebStudio. |
-| `displayName`          | `String`  | `false`  | End user-oriented title of the file that appears in OpenL Tablets WebStudio. <br/>A default value is Excel file name without extension.                                                                                                                                                      |
-| `targetSrcDir`         | `String`  | `false`  | Folder where the generated interface class must be placed. An example is src/main/java. <br/>The default value is ${project.build.sourceDirectory}.                                                                                                                                         |
-| `openlName`            | `String`  | `false`  | OpenL Tablets configuration to be used. For OpenL Tablets, the org.openl.xls value must always be used.<br/>The default value is org.openl.xls.                                                                                                                                             |
-| `userHome`             | `String`  | `false`  | Location of user-defined resources relative to the current OpenL Tablets project. The default value is ..                                                                                                                                                                                 |
-| `userClassPath`        | `String`  | `false`  | Reference to the folder with additional compiled classes imported by the module when the interface is generated. <br/>The default value is null.                                                                                                                                    |
-| `ignoreTestMethods`    | `boolean` | `false`  | If true, test methods are not added to interface class. It is used only in JavaInterfaceAntTask. <br/>The default value is true.                                                                                                                                                             |
-| `generateUnitTests`    | `boolean` | `false`  | Parameter that overwrites the base generateUnitTests value.                                                                                                                                                                                                                               |
-| `unitTestTemplatePath` | `String`  | `false`  | Parameter that overwrites the base unitTestTemplatePath value.                                                                                                                                                                                                                            |
-| `overwriteUnitTests`   | `boolean` | `false`  | Parameter that overwrites the base overwriteUnitTests value.                                                                                                                                                                                                                              |
+| Name                   | Type      | Required | Description                                                                                                                                                                                                                                                       |
+|------------------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `srcFile`              | `String`  | `true`   | Reference to the Excel file for which an interface class must be generated.                                                                                                                                                                                       |
+| `targetClass`          | `String`  | `true`   | Full name of the interface class to be generated. <br/>OpenL Studio recognizes modules in projects by interface classes and uses their names in UI. <br/>If there are multiple wrappers with identical names, only one is recognized as a module in OpenL Studio. |
+| `displayName`          | `String`  | `false`  | End user-oriented title of the file that appears in OpenL Studio. <br/>A default value is Excel file name without extension.                                                                                                                                      |
+| `targetSrcDir`         | `String`  | `false`  | Folder where the generated interface class must be placed. An example is src/main/java. <br/>The default value is ${project.build.sourceDirectory}.                                                                                                               |
+| `openlName`            | `String`  | `false`  | OpenL Tablets configuration to be used. For OpenL Tablets, the org.openl.xls value must always be used.<br/>The default value is org.openl.xls.                                                                                                                   |
+| `userHome`             | `String`  | `false`  | Location of user-defined resources relative to the current OpenL Tablets project. The default value is ..                                                                                                                                                         |
+| `userClassPath`        | `String`  | `false`  | Reference to the folder with additional compiled classes imported by the module when the interface is generated. <br/>The default value is null.                                                                                                                  |
+| `ignoreTestMethods`    | `boolean` | `false`  | If true, test methods are not added to interface class. It is used only in JavaInterfaceAntTask. <br/>The default value is true.                                                                                                                                  |
+| `generateUnitTests`    | `boolean` | `false`  | Parameter that overwrites the base generateUnitTests value.                                                                                                                                                                                                       |
+| `unitTestTemplatePath` | `String`  | `false`  | Parameter that overwrites the base unitTestTemplatePath value.                                                                                                                                                                                                    |
+| `overwriteUnitTests`   | `boolean` | `false`  | Parameter that overwrites the base overwriteUnitTests value.                                                                                                                                                                                                      |
 
 For more configuration options, see [OpenL Tablets Maven Plugin Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/maven_plugin_guide/).
 
@@ -641,7 +641,7 @@ Each `<openlgen>` section has a number of parameters that must be adjusted as de
 | `userHome`     | Location of user-defined resources relative to the current OpenL Tablets project.                         |
 | `srcFile`      | Reference to the Excel file for which a wrapper class must be generated.                                  |
 | `targetClass`  | Full name of the wrapper class to be generated.                                                           |
-| `displayName`  | End user-oriented title of the file that appears in OpenL Tablets WebStudio.                              |
+| `displayName`  | End user-oriented title of the file that appears in OpenL Studio.                              |
 | `targetSrcDir` | Folder where the generated wrapper class must be placed.                                                  |
 
 #### Handling Data and Data Types in OpenL Tablets
