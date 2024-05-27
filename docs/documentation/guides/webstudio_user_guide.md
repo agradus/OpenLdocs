@@ -1569,7 +1569,6 @@ This section describes test execution. Proceed as follows:
     ![](webstudio_guide_images/feca677101408f36991f69ff8ce333e4.jpeg)
     
     *Testing a rule table without tests*
-    
 1.  To run a test for the currently opened module and its dependent modules only, ensure that the **Within Current Module Only** option is selected.
 2.  In the pop-up window, click **Run**.
     
@@ -1578,7 +1577,16 @@ This section describes test execution. Proceed as follows:
     ![](webstudio_guide_images/ac207057869a550a0ea5e9cc73fc9927.png)
     
     *Result of running virtual test*
-    
+3. To export the results to an Excel file, click the "Run Into File" button. This action will generate an Excel file named "test-results.xlsx", which includes two sheets: 'Result' and 'Parameters'. <br/> By default, the 'Parameters' sheet lists each attribute's name and value on separate rows. For a more compact table format, deselect the ***Flat Parameter Layout*** option. <br/>To exclude any empty input values, select the ***Skip Empty Parameters*** checkbox.
+    The following examples illustrate how ***Flat Parameter Layout*** and ***Skip Empty Parameters*** affect the "test-results.xlsx" file:<br/>
+   ![](webstudio_guide_images/56cb7f530534fc6051da7801589d6116.png)<br/>
+   *"Flat Parameter Layout” = ***True***, “Skip Empty Parameters” = ***False*** (***default***)*
+   ![](webstudio_guide_images/7a3ba10817efcb238f86ea9b3e2031a0.png)<br/>
+   *"Flat Parameter Layout” = ***False***, “Skip Empty Parameters” = ***False**** <br/>
+   ![](webstudio_guide_images/fe8df0589ec7514c569c92cd01554ee0.png)<br/>
+   *"Flat Parameter Layout” = ***False***, “Skip Empty Parameters” = ***True****
+
+
 1.  For test tables, to select test cases to be executed, proceed as follows:
 2.  Navigate to the **Run** button above the Test table and click the small black arrow ![](webstudio_guide_images/f9978044735bb2192678a9976f66d684.png).
 3.  In the pop-up window that appears, select or clear the check boxes for the appropriate IDs, and to run several particular test cases, define them in the **Use the Range** field.
