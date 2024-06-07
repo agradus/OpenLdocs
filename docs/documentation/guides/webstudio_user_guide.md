@@ -1584,7 +1584,7 @@ This section describes test execution. Proceed as follows:
    ![](webstudio_guide_images/7a3ba10817efcb238f86ea9b3e2031a0.png)<br/>
    *"Flat Parameter Layout” = ***False***, “Skip Empty Parameters” = ***False**** <br/>
    ![](webstudio_guide_images/fe8df0589ec7514c569c92cd01554ee0.png)<br/>
-   *"Flat Parameter Layout” = ***False***, “Skip Empty Parameters” = ***True****
+   *"Flat Parameter Layout” = ***True***, “Skip Empty Parameters” = ***True****
 
 
 1.  For test tables, to select test cases to be executed, proceed as follows:
