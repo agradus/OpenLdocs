@@ -1021,7 +1021,7 @@ References to expressions can be used in decision tables. They can be referenced
 
 -	**$Expr.C1** is used to reference the expression for condition C1. To address action or return expression use RET1 and A1 respectively.
 ![](ref_guide_images/a3d9e45b2c71f8b9a0cbe8f7235a41d6.png)
--	**$Expr.$C1.param1** is an expression defined as a value in a column for the **param1** condition parameter. C1 is optional. For instance, in the example below, parameter **cond** would be the condition parameter for condition C2. It's important to use named parameters which is possible in decision tables of Rules type or when working with external conditions, actions, or returns in smart tables.
+-	**$Expr.$C1.param1** is an expression defined as a value in a column for the **param1** condition parameter. $C1 is optional. For instance, in the example below, parameter **cond** is the condition parameter for condition C2. It's important to use named parameters which is possible in decision tables of [Rules type](#decision-table-structure) or when working with [external conditions, actions, or returns](#external-tables-usage-in-smart-decision-tables) in smart tables.
 ![](ref_guide_images/f49c7836d2a91e7c4b2e1098d6f375c4.png)
 
 `$Expr.C1, $Expr.$C1.param1` return the expression type that contains following attributes:
