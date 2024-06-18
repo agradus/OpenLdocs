@@ -878,7 +878,7 @@ OpenL Studio provides search functionality to look through all module tables dat
 
 #### Performing a Simple Search
 
-In the **simple search** mode, the system looks for a particular word or phrase in all tables within the given project or module.
+In the **simple search** mode, the system searches for a specific word or phrase across all tables within the current module, the current project, or the current project and its dependency projects depending on the selected option.
 To perform a simple search, in the **Search** field, enter a word or phrase and press **Enter**.
 
 ![](webstudio_guide_images/7fa01db8589e92f2ef054e15a86be21c.png)
