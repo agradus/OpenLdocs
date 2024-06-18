@@ -2108,9 +2108,9 @@ If user tries to modify an old revision of the project, the system displays the 
 
 Revisions can also be accessed through Editor by selecting **More \> Revisions** for a project.
 
-The features  **Technical Revision** and **Search filter** are available Git design repository which help users navigate the repository more effectively.<br/> 
-The **Technical Revisions** when checked  allows users to see the revisions that  are not directly related to the current project (for example changes related to code updates or changes in other projects).<br/>
-The **Search filter** field help users quickly locate specific revisions by searching through the comments, modified by, and revision IDs.
+The features **Technical Revision** and **Search Filter** are available in OpenL Studio when the repository type is Git.<br/>
+The **Technical Revisions** feature, when checked, allows users to see revisions that are not directly related to the current project (for example, changes related to code updates or changes in other projects).<br/>
+The **Search Filter** field helps users quickly locate specific revisions by searching through the comments, modified by, and revision IDs.
 
 ### Closing a Project
 
