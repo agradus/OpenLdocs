@@ -2108,6 +2108,10 @@ If user tries to modify an old revision of the project, the system displays the 
 
 Revisions can also be accessed through Editor by selecting **More \> Revisions** for a project.
 
+The features  **Technical Revision** and **Search filter** are available Git design repository which help users navigate the repository more effectively.<br/> 
+The **Technical Revisions** when checked  allows users to see the revisions that  are not directly related to the current project (for example changes related to code updates or changes in other projects).<br/>
+The **Search filter** field help users quickly locate specific revisions by searching through the comments, modified by, and revision IDs.
+
 ### Closing a Project
 
 Closing a project deletes it from the user's workspace. No changes made to the project will be applied and stored. From that point, the project is not available for selection in Rules Editor. Users can still browse closed projects in repository editor.
