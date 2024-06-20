@@ -160,8 +160,8 @@ If OpenL Tablets rules need to be used with the runtime context support feature,
 
 To invoke the overloaded rules method or add additional logic to a service task, create service task implementation using `org.openl.rules.activiti.AbstractOpenLResourceServiceTask` designed for this purpose. The following table describes methods of this class that can be used in the extended class:
 
-|--------------------------------------------|------------------------------------------------------------------------------------|
 | `AbstractOpenLResourceServiceTask` method  | Description                                                                        |
+|--------------------------------------------|------------------------------------------------------------------------------------|
 | isProvideRuntimeContext                    | Returns true value if runtime context is supported for the OpenL Tablets resource. |
 | getSimpleProjectEngineFactory              | Returns factory used for OpenL Tablets resource compilation.                       |
 | getInstance                                | Returns the OpenL instance object.                                                 |
