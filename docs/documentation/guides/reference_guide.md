@@ -2857,8 +2857,7 @@ The **Dev** group properties are listed in the following table:
 
 The following example illustrates how the property  **emptyResultProcessing** works depending on property values when x=1:
 
-<! ––  Author note: The following tables are set up using HTML in order to apply highlighting  ––>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
