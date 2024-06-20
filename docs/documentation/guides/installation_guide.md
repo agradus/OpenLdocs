@@ -1114,7 +1114,7 @@ To deploy OpenL Rule Services, configure a local file system as a data source as
 	```
 
 	!!! note
-	For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
+		For proper parsing of Java properties file, the path to the folder must be defined with a slash (‘/’) as the folders delimiter. Back slash “\\” is not allowed.
 
 1.  Save the rule project in the appropriate `datasource` folder.
 
@@ -1217,7 +1217,7 @@ To configure OpenL Rule Services via JNDI connection, proceed as follows:
 1.  Change the URL value for `production-repository.uri` according to the appropriate database as described in the **URL value according to the database type** table in [Setting Up OpenL Studio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
 
     !!! note
-	` `Login and password are not required for definition inside the `application.properties` file while configuring JNDI settings.
+		Login and password are not required for definition inside the `application.properties` file while configuring JNDI settings.
 
 ### Configuring OpenL Rule Services via AWS S3 Connection
 
