@@ -554,13 +554,13 @@ Before configuration, perform the following steps:
 
 	Alternatively, locate required libraries directly in `\<TOMCAT_HOME>\lib` with other Tomcat libraries.
 
-	| Database   | Driver                            |
+	|  Database   | Driver                            |
 	|------------|-----------------------------------|
-	| MySQL      | `mysql-connector-java-5.1.31.jar` |
-	| MariaDB    | `mariadb-java-client-2.0.1.jar`   |
-	| Oracle     | `ojdbc6.jar`                      |
-	| MS SQL     | `mssql-jdbc-7.2.2.jre8.jar`       |
-	| PostgreSQL | `postgresql-9.3-1100.jdbc4.jar`   |
+	|  MySQL      | `mysql-connector-java-5.1.31.jar` |
+	|  MariaDB    | `mariadb-java-client-2.0.1.jar`   |
+	|  Oracle     | `ojdbc6.jar`                      |
+	|  MS SQL     | `mssql-jdbc-7.2.2.jre8.jar`       |
+	|  PostgreSQL | `postgresql-9.3-1100.jdbc4.jar`   |
 
 	For more information on URL value according to the database type, see the **URL value according to the database type** table in [Setting Up OpenL Studio with Installation Wizard](#setting-up-openl-tablets-webstudio-with-installation-wizard).
 
@@ -709,23 +709,23 @@ Proceed as follows:
 1.  Click **Next** to proceed.
 2.  Specify **deployment** and design repositories:
 
-	| Type                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+	|  Type                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 	|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-	| **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
-	| **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in <br/> [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
-	| **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see [OpenL Studio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/).                                                                              |
+	|  **Database (JDBC)** | The repository is located in a database installed either local or remote. <br/>The **Repository URL** field displays URL for access to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+	|  **Database (JNDI)** | The repository is located in a database installed either locally or remotely. <br/>The **Repository URL** field displays URL for accessing the database. <br/>Configuration settings are located in configuration files of the web server application.                                                                                                                                                                                                                                                                                                                                                                      |
+	|  **AWS S3**          | The repository is located in Amazon Simple Storage Service (AWS S3). <br/>A “bucket” is a logical unit of storage in AWS S3 and is globally unique. <br/>Choose a region for storage to reduce latency, costs etc. An **Access key** and a **Secret key** are needed to access storage. <br/>If empty, the system retrieves it from one of the known locations as described in <br/> [AWS Documentation. Best Practices for Managing AWS Access Keys](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html). <br/>The **Listener period** is the interval in which to check repository changes, in seconds. |
+	|  **Git**             | The Git repository is a version control system. <br/>The Git repository can be configured as local or remote. <br/>The **URL** field displays URL for the remotely located Git repository or file path to the repository stored locally. <br/>The **Local path** identifies the folder where a Git repository local copy is stored. <br/>For more information on connection settings, see [OpenL Studio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/).                                                                              |
 
 	If deploy configuration must be stored in a separate repository, not in Design repository, the **Use Design Repository** check box must be cleared and required parameter values must be provided.
 
 	The following table explains URL values according to the database type:
 
-	| Database       | URL value                                                                               |
+	|  Database       | URL value                                                                               |
 	|----------------|-----------------------------------------------------------------------------------------|
-	| MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                   |
-	| Oracle         | `jdbc:oracle:thin:@//[ host][:port]/service`                                            |
-	| MS SQL         | `jdbc:sqlserver://[serverName[\instanceName][:port]][;property=value[;property=value]]` |
-	| PostgreSQL     | `jdbc:postgresql://[host][:port]/[schema]`                                              |
+	|  MySQL, MariaDB | `jdbc:mysql://[host][:port]/[schema]`                                                   |
+	|  Oracle         | `jdbc:oracle:thin:@//[ host][:port]/service`                                            |
+	|  MS SQL         | `jdbc:sqlserver://[serverName[\instanceName][:port]][;property=value[;property=value]]` |
+	|  PostgreSQL     | `jdbc:postgresql://[host][:port]/[schema]`                                              |
 
 	For more details about how to configure the repository of a specific type, please refer to the corresponding section below:
 
@@ -739,24 +739,24 @@ Proceed as follows:
 1.  Click **Next**.
 2.  Select a user mode as described in the following table:
 
-	| Mode                      | Description                                                                                                                                                                                                                                                                                                 |
+	|  Mode                      | Description                                                                                                                                                                                                                                                                                                 |
 	|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Demo                      | This is a multi-user mode with the list of users predefined in the default database. <br/>The database does not require additional setup. <br/>All changes in the database will be lost after the application restart.                                                                                                |
-	| Single-user               | Only the user currently logged on to the computer can work with the OpenL Studio. <br/>For more information on the single user mode, see [OpenL Studio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/). |
-	| Multi-user <br/>(recommended)  | Multiple users can run OpenL Studio with their unique names. <br/>OpenL Studio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
-	| Active Directory          | Multiple users can run OpenL Studio using their unique user names. <br/>Active Directory will be used to authenticate and manage user credentials.                                                                                                                                                    |
-	| SSO: CAS                  | Multiple users can run OpenL Studio using their unique user names. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials.                                                                                                                         |
-	| SSO: SAML                 | Multiple users can run OpenL Studio using their unique user names. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials.                                                                                       |
-	| SSO:OAuth2                | Multiple users can run OpenL Studio using their unique user names. <br/>User projects will be located in the './openl-demo/user-workspace/USERNAME' folder. <br/>OAuth2 supporting the identity provider server will be used to authenticate and manage user credentials.                                  |
+	|  Demo                      | This is a multi-user mode with the list of users predefined in the default database. <br/>The database does not require additional setup. <br/>All changes in the database will be lost after the application restart.                                                                                                |
+	|  Single-user               | Only the user currently logged on to the computer can work with the OpenL Studio. <br/>For more information on the single user mode, see [OpenL Studio User Guide](https://openldocs.readthedocs.io/en/latest/documentation/guides/webstudio_user_guide/). |
+	|  Multi-user <br/>(recommended)  | Multiple users can run OpenL Studio with their unique names. <br/>OpenL Studio is used to authenticate and manage user credentials/permissions with External database.                                                                                                                                   |
+	|  Active Directory          | Multiple users can run OpenL Studio using their unique user names. <br/>Active Directory will be used to authenticate and manage user credentials.                                                                                                                                                    |
+	|  SSO: CAS                  | Multiple users can run OpenL Studio using their unique user names. <br/>CAS (Central Authentication Service) server will be used to authenticate and manage user credentials.                                                                                                                         |
+	|  SSO: SAML                 | Multiple users can run OpenL Studio using their unique user names. <br/>SAML (Security Assertion Markup Language) supporting Identity Provider server will be used to authenticate and manage user credentials.                                                                                       |
+	|  SSO:OAuth2                | Multiple users can run OpenL Studio using their unique user names. <br/>User projects will be located in the './openl-demo/user-workspace/USERNAME' folder. <br/>OAuth2 supporting the identity provider server will be used to authenticate and manage user credentials.                                  |
 
 	For **Active Directory**, **SSO: CAS**, **SSO: SAML,** and **SSO:OAuth2,** user modes proceed as described in [Integration with External Identity Providers](#integration-with-external-identity-providers).
 
 1.  If **Multi-user**, **Active Directory**, **SSO: CAS**, **SSO: SAML**, or **SSO:OAuth2** mode is selected, in the **Configure database** area that appears, modify the database parameters as follows:
 
-	| Parameter         | Description                                                                                                                               |
+	|  Parameter         | Description                                                                                                                               |
 	|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-	| Database URL      | Enter the URL for the selected database.                                                                                                  |
-	| Login / Password  | Username and password specified for the database as defined in [Configuring External User Database](#configuring-external-user-database). |
+	|  Database URL      | Enter the URL for the selected database.                                                                                                  |
+	|  Login / Password  | Username and password specified for the database as defined in [Configuring External User Database](#configuring-external-user-database). |
 
 1.  Click **Finish** to complete setup.
 
@@ -849,14 +849,14 @@ Configure design and deployment repositories settings on the second step of Open
 1.  Select **AWS S3** as the type of connection.
 2.  Specify the following information:
 
-	| Parameter             | Description                                                                                                                                                                                       |
+	|  Parameter             | Description                                                                                                                                                                                       |
 	|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	| Bucket name           | Enter the name of the bucket in which your data resides.                                                                                                                                          |
-	| Region name           | Select the name of the AWS region in which your bucket resides. <br/>For non-AWS S3 repositories, any value can be specified. <br/>This value cannot be omitted as it is required by the API specification. |
-	| Access key            | Enter your Amazon AWS access key.                                                                                                                                                                 |
-	| Secret key            | Enter your Amazon AWS secret access key.                                                                                                                                                          |
-	| Listener period (sec) | The time, in seconds, to wait for the Amazon server to respond.                                                                                                                                   |
-	| Endpoint              | Leave empty for a standard AWS S3 connection. <br/>To connect to the non-standard AWS S3 alternative repository, specify the endpoint.                                                                 |
+	|  Bucket name           | Enter the name of the bucket in which your data resides.                                                                                                                                          |
+	|  Region name           | Select the name of the AWS region in which your bucket resides. <br/>For non-AWS S3 repositories, any value can be specified. <br/>This value cannot be omitted as it is required by the API specification. |
+	|  Access key            | Enter your Amazon AWS access key.                                                                                                                                                                 |
+	|  Secret key            | Enter your Amazon AWS secret access key.                                                                                                                                                          |
+	|  Listener period (sec) | The time, in seconds, to wait for the Amazon server to respond.                                                                                                                                   |
+	|  Endpoint              | Leave empty for a standard AWS S3 connection. <br/>To connect to the non-standard AWS S3 alternative repository, specify the endpoint.                                                                 |
 
 #### Connecting to OpenL Studio via Proxy
 
