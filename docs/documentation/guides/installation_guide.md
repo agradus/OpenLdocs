@@ -142,7 +142,8 @@ This option is not available if OpenL Studio is installed using the installation
 
 To start OpenL Studio in the cluster mode, the `openl.home.shared` or `OPENL_HOME_SHARED` property must be defined properly. In the cluster mode, the same file storage can be used for multiple OpenL Studio instances.
 
-<img src="../installation_guide_images/a9b21678a299178dbf55c69e15dc64db.jpeg" width="500">
+
+![](installation_guide_images/a9b21678a299178dbf55c69e15dc64db.jpeg) 
 
 *Multiple OpenL Studio instances sharing the same drive*
 
