@@ -36,7 +36,7 @@ The following styles and conventions are used in this guide:
 | Hyperlink                  | Represents a hyperlink. Clicking a hyperlink displays the information topic or external source.                                                                                                                                                                                                                                     |
 
 
-## Introducing Studio
+## Introducing OpenL Studio
 
 This chapter introduces main OpenL Studio concepts. The following topics are included in this chapter:
 
