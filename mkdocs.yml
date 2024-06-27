@@ -6,7 +6,7 @@ nav:
     - Demo Package Guide: documentation/guides/demo_package_guide.md
     - For Business Users: 
       - Reference Guide: documentation/guides/reference_guide.md
-      - WebStudio User Guide: documentation/guides/webstudio_user_guide.md
+      - OpenL Studio User Guide: documentation/guides/webstudio_user_guide.md
     - For Developers:
       - Rule Services Usage and Customization Guide: documentation/guides/rule_services_usage_and_customization_guide.md
       - Developer Guide: documentation/guides/developer_guide.md
