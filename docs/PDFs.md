@@ -11,7 +11,7 @@ User guides are also available in PDF format, as follows:
 
 [Reference Guide](documentation/guides/reference_guide.pdf)
 
-[WebStudio User Guide](documentation/guides/webstudio_user_guide.pdf)
+[OpenL Studio User Guide](documentation/guides/webstudio_user_guide.pdf)
 
 ### For Developers
 
