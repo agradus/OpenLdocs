@@ -261,16 +261,6 @@ OpenL Tablets supports the following table types:
 
 A **decision table** contains a set of rules describing decision situations where the state of a number of conditions determines execution of a set of actions and returned value. It is a basic table type used in OpenL Tablets decision making.
 
-| SmartRules Double **DriverPremium**<br/>( Driver driver, Double additionalCharge ) |                          |             |                                             |
-|--------------------------------------------------------------------------------|--------------------------|-------------|---------------------------------------------|
-| **Driver Type**                                                                | Years Driving Experience | **Premium** |                                             |
-| Principal                                                                      | 0                        | 10          | \$600                                       |
-|                                                                                | 10                       | 40          | \$550                                       |
-| Occasional                                                                     | 0                        | 15          | \$750                                       |
-|                                                                                | 15                       | 40          | \$700                                       |
-| Excluded, Non-Driver                                                           |                          |             | = NonDriverPremiumByAge ( driverType, age ) |
-|                                                                                |                          |             | = \$600 + additionalCharge                  |
-
 ![](ref_guide_images/decisionTableExample.png)
 
 *Decision table example*
